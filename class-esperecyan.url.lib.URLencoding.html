@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class esperecyan\url\lib\URLencoding | esperecyan/url documentation</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.html">
+						esperecyan<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.url.html">
+						url<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.url.lib.html">
+						lib					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
+				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
+				<li><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
+				<li class="active"><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
+				<li><a href="class-esperecyan.url.lib.URLSearchParamsIterator.html">URLSearchParamsIterator</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-esperecyan.url.lib.URLUtils.html">URLUtils</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsReadonly.html">URLUtilsReadonly</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsSearchParams.html">URLUtilsSearchParams</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-esperecyan.url.lib.html" title="Summary of esperecyan\url\lib"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class URLencoding</h1>
+
+
+	<div class="description">
+	<p>The application/x-www-form-urlencoded format is a simple way to encode name-value pairs
+in a byte sequence where all bytes are in the 0x00 to 0x7F range.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>esperecyan\url\lib\URLencoding</span></b>			
+			
+			 uses 
+					esperecyan\webidl\lib\Utility (not available)
+
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.url.html">url</a>\<a href="namespace-esperecyan.url.lib.html">lib</a><br>
+		
+
+				<b>Link:</b>
+				<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">URL Standard</a><br>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URLencoding.html#4-509" title="Go to source code">lib/URLencoding.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="parseURLencoded" id="_parseURLencoded">
+
+		<td class="attributes"><code>
+			 public static
+
+			string[][]|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseURLencoded">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#13-63" title="Go to source code">parseURLencoded</a>( <span>string <var>$input</var></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-quote">'utf-8'</span></span>, <span>boolean <var>$useCharsetFlag</var> = <span class="php-keyword1">false</span></span>, <span>boolean <var>$isindexFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>The application/x-www-form-urlencoded parser.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The application/x-www-form-urlencoded parser.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A byte sequence.</dd>
+					<dt><var>$encodingOverride</var></dt>
+					<dd>A valid name of an encoding.</dd>
+					<dt><var>$useCharsetFlag</var></dt>
+					<dd>A use <em>charset</em> flag.</dd>
+					<dt><var>$isindexFlag</var></dt>
+					<dd>An isindex flag.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[][]|false<br><p>An array of two-element arrays with the first element a name and the second the value.
+     Return false if $encodingOverride is not utf-8 and $input contains bytes whose value is greater than 0x7F.</p>
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-urlencoded-parser">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serializeURLencodedByte" id="_serializeURLencodedByte">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serializeURLencodedByte">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#65-74" title="Go to source code">serializeURLencodedByte</a>( <span>string <var>$input</var></span> )</code>
+
+		<div class="description short">
+			<p>The application/x-www-form-urlencoded byte serializer.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The application/x-www-form-urlencoded byte serializer.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A byte sequence.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-urlencoded-byte-serializer">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serializeURLencoded" id="_serializeURLencoded">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serializeURLencoded">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#76-94" title="Go to source code">serializeURLencoded</a>( <span>string[][] <var>$pairs</var></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-quote">'utf-8'</span></span> )</code>
+
+		<div class="description short">
+			<p>The application/x-www-form-urlencoded serializer.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The application/x-www-form-urlencoded serializer.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pairs</var></dt>
+					<dd><p>An array of two-element arrays with the first element a name and the second the value.
+     The name and value must be a utf-8 string.</p></dd>
+					<dt><var>$encodingOverride</var></dt>
+					<dd>A valid name of an encoding.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-urlencoded-serializer">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseURLencodedString" id="_parseURLencodedString">
+
+		<td class="attributes"><code>
+			 public static
+
+			string[][]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseURLencodedString">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#96-105" title="Go to source code">parseURLencodedString</a>( <span>string <var>$input</var></span> )</code>
+
+		<div class="description short">
+			<p>The application/x-www-form-urlencoded string parser.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The application/x-www-form-urlencoded string parser.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A utf-8 string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[][]<br>An array of two-element arrays with the first element a name and the second the value.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-urlencoded-string-parser">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="runEncoding" id="_runEncoding">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_runEncoding">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#313-339" title="Go to source code">runEncoding</a>( <span>string <var>$input</var></span>, <span>string <var>$encoding</var></span> )</code>
+
+		<div class="description short">
+			<p>Convert the encoding of $input to utf-8 from $encoding.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Convert the encoding of $input to utf-8 from $encoding.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A string encoded by $encoding.</dd>
+					<dt><var>$encoding</var></dt>
+					<dd>A valid name of an encoding.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>A utf-8 string.
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					DomainException<br>If $encoding is invalid.
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://encoding.spec.whatwg.org/#concept-encoding-run">Encoding Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="encode" id="_encode">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_encode">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#341-368" title="Go to source code">encode</a>( <span>string <var>$input</var></span>, <span>string <var>$encoding</var></span> )</code>
+
+		<div class="description short">
+			<p>Convert the encoding of $input to $encoding from utf-8.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Convert the encoding of $input to $encoding from utf-8.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A utf-8 string.</dd>
+					<dt><var>$encoding</var></dt>
+					<dd>A valid name of an encoding.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://encoding.spec.whatwg.org/#decode">Encoding Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="ASCII_WHITESPACE" id="ASCII_WHITESPACE">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.URLencoding.html#107-111" title="Go to source code"><b>ASCII_WHITESPACE</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://encoding.spec.whatwg.org/#ascii-whitespace">Encoding Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#ASCII_WHITESPACE" class="anchor">#</a>
+				<code><span class="php-quote">&quot;\t\n\f\r &quot;</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		esperecyan/url documentation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
+<script src="elementlist.js?71216b2009552ea13854da34ce2e63a290d3030a"></script>
+</body>
+</html>

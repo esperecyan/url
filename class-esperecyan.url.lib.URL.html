@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class esperecyan\url\lib\URL | esperecyan/url documentation</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.html">
+						esperecyan<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.url.html">
+						url<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.url.lib.html">
+						lib					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
+				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
+				<li class="active"><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
+				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
+				<li><a href="class-esperecyan.url.lib.URLSearchParamsIterator.html">URLSearchParamsIterator</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-esperecyan.url.lib.URLUtils.html">URLUtils</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsReadonly.html">URLUtilsReadonly</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsSearchParams.html">URLUtilsSearchParams</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-esperecyan.url.lib.html" title="Summary of esperecyan\url\lib"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class URL</h1>
+
+
+	<div class="description">
+	<p>A universal identifier.
+A URL consists of components,
+namely a scheme, scheme data, username, password, host, port, path, query, and fragment.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.url.html">url</a>\<a href="namespace-esperecyan.url.lib.html">lib</a><br>
+		
+
+				<b>Link:</b>
+				<a href="https://url.spec.whatwg.org/#urls">URL Standard</a><br>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-697" title="Go to source code">lib/URL.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="isSpecial" id="_isSpecial">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isSpecial">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#90-98" title="Go to source code">isSpecial</a>( )</code>
+
+		<div class="description short">
+			<p>A URL is special if its scheme is a special scheme.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>A URL is special if its scheme is a special scheme.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Return true if a URL is special.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#is-special">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isLocal" id="_isLocal">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isLocal">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#106-114" title="Go to source code">isLocal</a>( )</code>
+
+		<div class="description short">
+			<p>A URL is local if its scheme is a local scheme.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>A URL is local if its scheme is a local scheme.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Return true if a URL is local.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#is-local">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isIncludingCredentials" id="_isIncludingCredentials">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isIncludingCredentials">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#116-124" title="Go to source code">isIncludingCredentials</a>( )</code>
+
+		<div class="description short">
+			<p>A URL includes credentials if either its username is not the empty string or its password is non-null.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>A URL includes credentials if either its username is not the empty string or its password is non-null.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Return true if a URL includes credentials.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#include-credentials">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseURL" id="_parseURL">
+
+		<td class="attributes"><code>
+			 public static
+
+			<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseURL">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#136-147" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>The URL parser.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The URL parser.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A utf-8 string.</dd>
+					<dt><var>$base</var></dt>
+					<dd>A base URL.</dd>
+					<dt><var>$encodingOverride</var></dt>
+					<dd>A valid name of an encoding.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-url-parser">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseBasicURL" id="_parseBasicURL">
+
+		<td class="attributes"><code>
+			 public static
+
+			<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseBasicURL">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#149-591" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			<p>The basic URL parser.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The basic URL parser.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A utf-8 string.</dd>
+					<dt><var>$base</var></dt>
+					<dd>A base URL.</dd>
+					<dt><var>$encodingOverride</var></dt>
+					<dd>A valid name of an encoding.</dd>
+					<dt><var>$urlAndStateOverride</var></dt>
+					<dd>An URL ("url" key) and a state override ("state override" key).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false|null
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					DomainException<br>If $urlAndStateOverride['state override'] is invalid.
+				</div>
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-basic-url-parser">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setUsername" id="_setUsername">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setUsername">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#593-601" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the username of the URL given $username.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the username of the URL given $username.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$username</var></dt>
+					<dd>A utf-8 string.</dd>
+				</dl></div>
+
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#set-the-username">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPassword" id="_setPassword">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPassword">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#603-613" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the password of the URL given $password.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the password of the URL given $password.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$password</var></dt>
+					<dd>A utf-8 string.</dd>
+				</dl></div>
+
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#set-the-password">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serializeURL" id="_serializeURL">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serializeURL">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#632-662" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>The URL serializer.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The URL serializer.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$excludeFragmentFlag</var></dt>
+					<dd>An exclude fragment flag.</dd>
+				</dl></div>
+
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-url-serializer">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getOrigin" id="_getOrigin">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getOrigin">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#664-696" title="Go to source code">getOrigin</a>( )</code>
+
+		<div class="description short">
+			<p>A URL’s origin is the origin, switching on URL’s scheme.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>A URL’s origin is the origin, switching on URL’s scheme.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]|string<br><p>An array with the first element the scheme, the second element the host and the third element the port.
+     Or an unique string of 23 characters.</p>
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#origin">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="URL_CODE_POINTS" id="URL_CODE_POINTS">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.URL.html#126-130" title="Go to source code"><b>URL_CODE_POINTS</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#url-code-points">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#URL_CODE_POINTS" class="anchor">#</a>
+				<code><span class="php-quote">'/[!$&amp;\'()*+,\\-.\\/:;=?@_~\xC2\xA0-퟿-﷏ﷰ-�𐀀-🿽𠀀-𯿽𰀀-𿿽񀀀-񏿽񐀀-񟿽񠀀-񯿽񰀀-񿿽򀀀-򏿽򐀀-򟿽򠀀-򯿽򰀀-򿿽󀀀-󏿽󐀀-󟿽󠀀-󯿽󰀀-󿿽􀀀-􏿽]/u'</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="scheme" id="$scheme">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#12-17" title="Go to source code"><var>$scheme</var></a>
+
+			<div class="description short">
+				<p>A URL’s scheme is a string that identifies the type of URL
+     and can be used to dispatch a URL for further processing after parsing.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s scheme is a string that identifies the type of URL and can be used to dispatch a URL for further processing after parsing.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-scheme">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$scheme" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="username" id="$username">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#19-23" title="Go to source code"><var>$username</var></a>
+
+			<div class="description short">
+				<p>A URL’s username is a string identifying a user.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s username is a string identifying a user.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-username">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$username" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="password" id="$password">
+		<td class="attributes"><code>
+			public  
+			string|null
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#25-29" title="Go to source code"><var>$password</var></a>
+
+			<div class="description short">
+				<p>A URL’s password is either null or a string identifying a user’s credentials.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s password is either null or a string identifying a user’s credentials.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-password">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$password" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="host" id="$host">
+		<td class="attributes"><code>
+			public  
+			string|integer[]|null
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#31-35" title="Go to source code"><var>$host</var></a>
+
+			<div class="description short">
+				<p>A URL’s host is either null or a host.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s host is either null or a host.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-host">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$host" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="port" id="$port">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#37-41" title="Go to source code"><var>$port</var></a>
+
+			<div class="description short">
+				<p>A URL’s port is a string that identifies a networking port.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s port is a string that identifies a networking port.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-port">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$port" class="anchor">#</a>
+				<code><span class="php-quote">''</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="path" id="$path">
+		<td class="attributes"><code>
+			public  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#43-48" title="Go to source code"><var>$path</var></a>
+
+			<div class="description short">
+				<p>A URL’s path is a list of zero or more strings holding data,
+     usually identifying a location in hierarchical form.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s path is a list of zero or more strings holding data, usually identifying a location in hierarchical form.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-path">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$path" class="anchor">#</a>
+				<code>[]</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="query" id="$query">
+		<td class="attributes"><code>
+			public  
+			string|null
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#50-54" title="Go to source code"><var>$query</var></a>
+
+			<div class="description short">
+				<p>A URL’s query is either null or a string holding data.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s query is either null or a string holding data.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-query">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$query" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="fragment" id="$fragment">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#56-61" title="Go to source code"><var>$fragment</var></a>
+
+			<div class="description short">
+				<p>A URL’s fragment is either null or a string holding data
+     that can be used for further processing on the resource the URL’s other components identify.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL’s fragment is either null or a string holding data that can be used for further processing on the resource the URL’s other components identify.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-fragment">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$fragment" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="nonRelativeFlag" id="$nonRelativeFlag">
+		<td class="attributes"><code>
+			public  
+			A
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#63-67" title="Go to source code"><var>$nonRelativeFlag</var></a>
+
+			<div class="description short">
+				<p>URL also has an associated non-relative flag.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>URL also has an associated non-relative flag.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#non_relative-flag">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$nonRelativeFlag" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="object" id="$object">
+		<td class="attributes"><code>
+			public  
+			object|null
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#69-73" title="Go to source code"><var>$object</var></a>
+
+			<div class="description short">
+				<p>A URL also has an associated object that is either null or a Blob object.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A URL also has an associated object that is either null or a Blob object.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#concept-url-object">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$object" class="anchor">#</a>
+				<code><span class="php-keyword1">null</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="specialSchemes" id="$specialSchemes">
+		<td class="attributes"><code>
+			public static 
+			(string|null)[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#75-88" title="Go to source code"><var>$specialSchemes</var></a>
+
+			<div class="description short">
+				<p>A special scheme is a scheme in the key of this array.
+     A default port is a special scheme’s optional corresponding port and is in the value on the key.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A special scheme is a scheme in the key of this array. A default port is a special scheme’s optional corresponding port and is in the value on the key.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#special-scheme">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$specialSchemes" class="anchor">#</a>
+				<code>[
+    <span class="php-quote">'ftp'</span>    =&gt;  <span class="php-quote">'21'</span>,
+    <span class="php-quote">'file'</span>   =&gt;  <span class="php-keyword1">null</span>,
+    <span class="php-quote">'gopher'</span> =&gt;  <span class="php-quote">'70'</span>,
+    <span class="php-quote">'http'</span>   =&gt;  <span class="php-quote">'80'</span>,
+    <span class="php-quote">'https'</span>  =&gt; <span class="php-quote">'443'</span>,
+    <span class="php-quote">'ws'</span>     =&gt;  <span class="php-quote">'80'</span>,
+    <span class="php-quote">'wss'</span>    =&gt; <span class="php-quote">'443'</span>,
+]</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="localSchemes" id="$localSchemes">
+		<td class="attributes"><code>
+			public static 
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#100-104" title="Go to source code"><var>$localSchemes</var></a>
+
+			<div class="description short">
+				<p>A local scheme is a scheme that is one of "about", "blob", "data", and "filesystem".</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>A local scheme is a scheme that is one of "about", "blob", "data", and "filesystem".</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#local-scheme">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$localSchemes" class="anchor">#</a>
+				<code>[<span class="php-quote">'about'</span>, <span class="php-quote">'blob'</span>, <span class="php-quote">'data'</span>, <span class="php-quote">'filesystem'</span>]</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		esperecyan/url documentation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
+<script src="elementlist.js?71216b2009552ea13854da34ce2e63a290d3030a"></script>
+</body>
+</html>

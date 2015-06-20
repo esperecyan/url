@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class esperecyan\url\lib\HostProcessing | esperecyan/url documentation</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.html">
+						esperecyan<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.url.html">
+						url<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-esperecyan.url.lib.html">
+						lib					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
+				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
+				<li><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
+				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
+				<li><a href="class-esperecyan.url.lib.URLSearchParamsIterator.html">URLSearchParamsIterator</a></li>
+			</ul>
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-esperecyan.url.lib.URLUtils.html">URLUtils</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsReadonly.html">URLUtilsReadonly</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsSearchParams.html">URLUtilsSearchParams</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-esperecyan.url.lib.html" title="Summary of esperecyan\url\lib"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class HostProcessing</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>esperecyan\url\lib\HostProcessing</span></b>			
+			
+			 uses 
+					esperecyan\webidl\lib\Utility (not available)
+
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.url.html">url</a>\<a href="namespace-esperecyan.url.lib.html">lib</a><br>
+		
+
+				<b>Link:</b>
+				<a href="https://url.spec.whatwg.org/#hosts-(domains-and-ip-addresses)">URL Standard</a><br>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.HostProcessing.html#4-151" title="Go to source code">lib/HostProcessing.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="domainToASCII" id="_domainToASCII">
+
+		<td class="attributes"><code>
+			 public static
+
+			string|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_domainToASCII">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#14-25" title="Go to source code">domainToASCII</a>( <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			<p>The domain to ASCII given a domain $domain.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The domain to ASCII given a domain $domain.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd>A utf-8 string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|false
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-domain-to-ascii">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="domainToUnicode" id="_domainToUnicode">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_domainToUnicode">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#27-38" title="Go to source code">domainToUnicode</a>( <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			<p>The domain to Unicode given a domain $domain.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The domain to Unicode given a domain $domain.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd>A utf-8 string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-domain-to-unicode">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isValidDomain" id="_isValidDomain">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isValidDomain">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#40-87" title="Go to source code">isValidDomain</a>( <span>string <var>$domain</var></span> )</code>
+
+		<div class="description short">
+			<p>Return true if a domain is a valid domain.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Return true if a domain is a valid domain.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domain</var></dt>
+					<dd>A utf-8 string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#valid-domain">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseHost" id="_parseHost">
+
+		<td class="attributes"><code>
+			 public static
+
+			string|integer[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseHost">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#89-111" title="Go to source code">parseHost</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			<p>The host parser.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The host parser.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A utf-8 string.</dd>
+					<dt><var>$unicodeFlag</var></dt>
+					<dd>If true, can return a domain containing non-ASCII characters.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|integer[]<br>If host is IPv6 address, returns an array of a 16-bit unsigned integer.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-host-parser">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseIPv6" id="_parseIPv6">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseIPv6">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#113-125" title="Go to source code">parseIPv6</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var>,…</span> )</code>
+
+		<div class="description short">
+			<p>The IPv6 parser.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The IPv6 parser.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$input</var></dt>
+					<dd>A utf-8 string.</dd>
+					<dt><var>$unicodeFlag</var>,…</dt>
+					<dd>Unicode flag.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer[]<br>An array of a 16-bit unsigned integer.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-ipv6-parser">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serializeHost" id="_serializeHost">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serializeHost">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#127-136" title="Go to source code">serializeHost</a>( <span>string|integer[] <var>$host</var></span> )</code>
+
+		<div class="description short">
+			<p>The host serializer.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The host serializer.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$host</var></dt>
+					<dd>A domain or IPv6 address (an array of a 16-bit unsigned integer).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-host-serializer">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serializeIPv6" id="_serializeIPv6">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serializeIPv6">#</a>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#138-150" title="Go to source code">serializeIPv6</a>( <span>integer[] <var>$address</var></span> )</code>
+
+		<div class="description short">
+			<p>The IPv6 serializer.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The IPv6 serializer.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$address</var></dt>
+					<dd>An array of a 16-bit unsigned integer.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#concept-ipv6-serializer">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="PHP_IDN_HANDLEABLE_LENGTH" id="PHP_IDN_HANDLEABLE_LENGTH">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.HostProcessing.html#11-12" title="Go to source code"><b>PHP_IDN_HANDLEABLE_LENGTH</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#PHP_IDN_HANDLEABLE_LENGTH" class="anchor">#</a>
+				<code><span class="php-num">254</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		esperecyan/url documentation API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
+<script src="elementlist.js?71216b2009552ea13854da34ce2e63a290d3030a"></script>
+</body>
+</html>
