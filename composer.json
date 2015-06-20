@@ -1,0 +1,39 @@
+{
+	"name": "esperecyan/url",
+	"description": "Makes the algorithms and APIs defined by URL Standard (replaces RFC 3986 and RFC 3987) available on PHP. / URL Standard (RFC 3986、RFC 3987 を置き換える Web 標準仕様) で定義されているアルゴリズム、および API を PHP から利用できるようにします。",
+	"keywords": ["Web Standards", "WHATWG", "W3C", "URL", "URLUtils", "URLSearchParams", "RFC 3986"],
+	"homepage": "https://github.com/esperecyan/url",
+	"license": "MPL-2.0",
+	"authors": [
+		{
+			"name": "100の人",
+			"homepage": "https://twitter.com/esperecyan",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4.7",
+		"esperecyan/webidl": "^1",
+		"ext-mbstring": "*",
+		"ext-iconv": "*",
+		"ext-intl": "*",
+		"ext-pcre": "*",
+		"ext-filter": "*",
+		"ext-ctype": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": ">=4.6",
+		"ext-spl": "*",
+		"ext-dom": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"esperecyan\\url\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"esperecyan\\url\\": "tests/"
+		}
+	}
+}

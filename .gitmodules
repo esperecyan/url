@@ -1,0 +1,4 @@
+[submodule "docs"]
+	path = docs
+	url = https://github.com/esperecyan/url.git
+	branch = gh-pages

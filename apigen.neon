@@ -1,0 +1,11 @@
+# Dirs or files documentation is generated for.
+source: ./src
+
+# Target dir for documentation.
+destination: ./docs
+
+# Title of generated documentation.
+title: esperecyan/url documentation
+
+# Generate tree view of classes, interfaces, traits and exceptions.
+tree: yes
