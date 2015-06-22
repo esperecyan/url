@@ -59,7 +59,7 @@
 			<h3>Traits</h3>
 			<ul>
 				<li><a href="class-esperecyan.url.lib.URLUtils.html">esperecyan\url\lib\URLUtils</a></li>
-				<li><a href="class-esperecyan.url.lib.URLUtilsReadonly.html">esperecyan\url\lib\URLUtilsReadonly</a></li>
+				<li><a href="class-esperecyan.url.lib.URLUtilsReadOnly.html">esperecyan\url\lib\URLUtilsReadOnly</a></li>
 				<li><a href="class-esperecyan.url.lib.URLUtilsSearchParams.html">esperecyan\url\lib\URLUtilsSearchParams</a></li>
 			</ul>
 
@@ -126,10 +126,10 @@
 </span></span><span id="25" class="l"><span class="php-comment"> */</span>
 </span><span id="26" class="l"><span class="php-keyword1">trait</span> URLUtils
 </span><span id="27" class="l">{
-</span><span id="28" class="l">    <span class="php-keyword1">use</span> URLUtilsReadonly {
-</span><span id="29" class="l">        URLUtilsReadonly::__set <span class="php-keyword1">as</span> URLUtilsReadonly__set;
-</span><span id="30" class="l">        URLUtilsReadonly::__isset <span class="php-keyword1">as</span> URLUtilsReadonly__isset;
-</span><span id="31" class="l">        URLUtilsReadonly::__get <span class="php-keyword1">as</span> URLUtilsReadonly__get;
+</span><span id="28" class="l">    <span class="php-keyword1">use</span> URLUtilsReadOnly {
+</span><span id="29" class="l">        URLUtilsReadOnly::__set <span class="php-keyword1">as</span> URLUtilsReadOnly__set;
+</span><span id="30" class="l">        URLUtilsReadOnly::__isset <span class="php-keyword1">as</span> URLUtilsReadOnly__isset;
+</span><span id="31" class="l">        URLUtilsReadOnly::__get <span class="php-keyword1">as</span> URLUtilsReadOnly__get;
 </span><span id="32" class="l">    }
 </span><span id="33" class="l">    
 </span><span id="34" class="l">    <span class="php-comment">/**
@@ -298,7 +298,7 @@
 </span><span id="197" class="l">                        <span class="php-var">$this</span>-&gt;preUpdate();
 </span><span id="198" class="l">                    }
 </span><span id="199" class="l">                } <span class="php-keyword1">else</span> {
-</span><span id="200" class="l">                    <span class="php-var">$this</span>-&gt;URLUtilsReadonly__set(<span class="php-var">$name</span>, <span class="php-var">$value</span>);
+</span><span id="200" class="l">                    <span class="php-var">$this</span>-&gt;URLUtilsReadOnly__set(<span class="php-var">$name</span>, <span class="php-var">$value</span>);
 </span><span id="201" class="l">                }
 </span><span id="202" class="l">        }
 </span><span id="203" class="l">    }
@@ -329,7 +329,7 @@
 </span><span id="228" class="l">                )) {
 </span><span id="229" class="l">                    <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;queryObject;
 </span><span id="230" class="l">                } <span class="php-keyword1">else</span> {
-</span><span id="231" class="l">                    <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;URLUtilsReadonly__get(<span class="php-var">$name</span>);
+</span><span id="231" class="l">                    <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;URLUtilsReadOnly__get(<span class="php-var">$name</span>);
 </span><span id="232" class="l">                }
 </span><span id="233" class="l">                <span class="php-keyword1">break</span>;
 </span><span id="234" class="l">        }
@@ -346,7 +346,7 @@
 </span><span id="245" class="l">        <span class="php-keyword1">return</span> <span class="php-keyword2">in_array</span>(<span class="php-var">$name</span>, [<span class="php-quote">'username'</span>, <span class="php-quote">'password'</span>]) || <span class="php-var">$name</span> === <span class="php-quote">'searchParams'</span> &amp;&amp; <span class="php-keyword2">in_array</span>(
 </span><span id="246" class="l">            <span class="php-quote">'esperecyan\\url\\lib\\URLUtilsSearchParams'</span>,
 </span><span id="247" class="l">            (<span class="php-keyword1">new</span> \ReflectionClass(__CLASS__))-&gt;getTraitNames()
-</span><span id="248" class="l">        ) || <span class="php-var">$this</span>-&gt;URLUtilsReadonly__isset(<span class="php-var">$name</span>);
+</span><span id="248" class="l">        ) || <span class="php-var">$this</span>-&gt;URLUtilsReadOnly__isset(<span class="php-var">$name</span>);
 </span><span id="249" class="l">    }
 </span><span id="250" class="l">}
 </span><span id="251" class="l"></span></code></pre>
@@ -357,6 +357,6 @@
 </div>
 </div>
 <script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
-<script src="elementlist.js?71216b2009552ea13854da34ce2e63a290d3030a"></script>
+<script src="elementlist.js?5f8237d7d4b33d1f34a77017c55d3dd9a18f60fb"></script>
 </body>
 </html>
