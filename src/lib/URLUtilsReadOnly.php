@@ -20,7 +20,7 @@ use esperecyan\url\URLSearchParams;
  * @property-read string $search Is a USVString containing a '?' followed by the parameters of the URL.
  * @property-read string $hash Is a USVString containing a '#' followed by the fragment identifier of the URL.
  */
-trait URLUtilsReadonly
+trait URLUtilsReadOnly
 {
     /**
      * Return the appropriate base URL for the object.

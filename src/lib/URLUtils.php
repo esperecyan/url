@@ -25,10 +25,10 @@ use esperecyan\webidl\TypeError;
  */
 trait URLUtils
 {
-    use URLUtilsReadonly {
-        URLUtilsReadonly::__set as URLUtilsReadonly__set;
-        URLUtilsReadonly::__isset as URLUtilsReadonly__isset;
-        URLUtilsReadonly::__get as URLUtilsReadonly__get;
+    use URLUtilsReadOnly {
+        URLUtilsReadOnly::__set as URLUtilsReadOnly__set;
+        URLUtilsReadOnly::__isset as URLUtilsReadOnly__isset;
+        URLUtilsReadOnly::__get as URLUtilsReadOnly__get;
     }
     
     /**
@@ -197,7 +197,7 @@ trait URLUtils
                         $this->preUpdate();
                     }
                 } else {
-                    $this->URLUtilsReadonly__set($name, $value);
+                    $this->URLUtilsReadOnly__set($name, $value);
                 }
         }
     }
@@ -228,7 +228,7 @@ trait URLUtils
                 )) {
                     $value = $this->queryObject;
                 } else {
-                    $value = $this->URLUtilsReadonly__get($name);
+                    $value = $this->URLUtilsReadOnly__get($name);
                 }
                 break;
         }
@@ -245,6 +245,6 @@ trait URLUtils
         return in_array($name, ['username', 'password']) || $name === 'searchParams' && in_array(
             'esperecyan\\url\\lib\\URLUtilsSearchParams',
             (new \ReflectionClass(__CLASS__))->getTraitNames()
-        ) || $this->URLUtilsReadonly__isset($name);
+        ) || $this->URLUtilsReadOnly__isset($name);
     }
 }
