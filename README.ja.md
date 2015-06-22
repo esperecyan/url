@@ -198,7 +198,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [素片]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-fragment
 [非相対フラグ]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#non_relative-flag
 [オブジェクト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-object
-[特別スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#relative-scheme
+[特別スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#special-scheme
+[特別]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-special
 [局所的スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#local-scheme
 [局所的]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-local
 [資格証明情報を含む]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#include-credentials

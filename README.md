@@ -19,7 +19,7 @@ This library allows you to use the algorithms defined by URL Standard. For detai
 [RFC 3986]: https://tools.ietf.org/html/rfc3986 "A Uniform Resource Identifier (URI) is a compact sequence of characters that identifies an abstract or physical resource. This specification defines the generic URI syntax and a process for resolving URI references that might be in relative form, along with guidelines and security considerations for the use of URIs on the Internet."
 [RFC 3987]: https://tools.ietf.org/html/rfc3987 "This document defines a new protocol element, the Internationalized Resource Identifier (IRI), as a complement to the Uniform Resource Identifier (URI)."
 [API]: https://url.spec.whatwg.org/#api "URL Standard defines URL’s existing JavaScript API in full detail and add enhancements to make it easier to work with."
-[URL interface]: https://url.spec.whatwg.org/#URL "URL Standard adds a new URL object as well for URL manipulation without usage of HTML elements. (Useful for JavaScript worker environments.)"
+[URL interface]: https://url.spec.whatwg.org/#url "URL Standard adds a new URL object as well for URL manipulation without usage of HTML elements. (Useful for JavaScript worker environments.)"
 [URLSearchPrams interface]: https://url.spec.whatwg.org/#interface-urlsearchparams
 [esperecyan\url\URL class]: https://esperecyan.github.io/url/class-esperecyan.url.URL
 [esperecyan\url\URLSearchParams class]: https://esperecyan.github.io/url/class-esperecyan.url.URLSearchParams
@@ -136,7 +136,7 @@ The correspondence table of the algorithms
 | [path]                 | [esperecyan\url\lib\URL->path]                     |
 | [query]                | [esperecyan\url\lib\URL->query]                    |
 | [fragment]             | [esperecyan\url\lib\URL->fragment]                 |
-| [non relative flag]    | [esperecyan\url\lib\URL->relativeFlag]             |
+| [non relative flag]    | [esperecyan\url\lib\URL->nonRelativeFlag]          |
 | [object]               | [esperecyan\url\lib\URL->object]                   |
 | [special scheme]       | [esperecyan\url\lib\URL::$specialSchemes]          |
 | [is special]           | [esperecyan\url\lib\URL->isSpecial()]              |
@@ -198,7 +198,7 @@ The correspondence table of the algorithms
 [fragment]: https://url.spec.whatwg.org/#concept-url-fragment
 [non relative flag]: https://url.spec.whatwg.org/#non_relative-flag
 [object]: https://url.spec.whatwg.org/#concept-url-object
-[special scheme]: https://url.spec.whatwg.org/#relative-scheme
+[special scheme]: https://url.spec.whatwg.org/#special-scheme
 [is special]: https://url.spec.whatwg.org/#is-special
 [local scheme]: https://url.spec.whatwg.org/#local-scheme
 [is local]: https://url.spec.whatwg.org/#is-local
