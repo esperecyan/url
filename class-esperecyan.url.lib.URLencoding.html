@@ -49,7 +49,6 @@
 				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
 				<li><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
 				<li class="active"><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
-				<li><a href="class-esperecyan.url.lib.URLSearchParamsIterator.html">URLSearchParamsIterator</a></li>
 			</ul>
 
 
@@ -110,8 +109,7 @@ in a byte sequence where all bytes are in the 0x00 to 0x7F range.</p>
 <b><span>esperecyan\url\lib\URLencoding</span></b>			
 			
 			 uses 
-					esperecyan\webidl\lib\Utility (not available)
-
+<span>esperecyan\url\lib\Utility</span>
 			
 		</dd>
 	</dl>
@@ -131,7 +129,7 @@ in a byte sequence where all bytes are in the 0x00 to 0x7F range.</p>
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URLencoding.html#4-509" title="Go to source code">lib/URLencoding.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URLencoding.html#4-512" title="Go to source code">lib/URLencoding.php</a>
 		<br>
 	</div>
 
@@ -321,100 +319,6 @@ in a byte sequence where all bytes are in the 0x00 to 0x7F range.</p>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="runEncoding" id="_runEncoding">
-
-		<td class="attributes"><code>
-			 public static
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_runEncoding">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#313-339" title="Go to source code">runEncoding</a>( <span>string <var>$input</var></span>, <span>string <var>$encoding</var></span> )</code>
-
-		<div class="description short">
-			<p>Convert the encoding of $input to utf-8 from $encoding.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Convert the encoding of $input to utf-8 from $encoding.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$input</var></dt>
-					<dd>A string encoded by $encoding.</dd>
-					<dt><var>$encoding</var></dt>
-					<dd>A valid name of an encoding.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string<br>A utf-8 string.
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					DomainException<br>If $encoding is invalid.
-				</div>
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://encoding.spec.whatwg.org/#concept-encoding-run">Encoding Standard</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="encode" id="_encode">
-
-		<td class="attributes"><code>
-			 public static
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_encode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLencoding.html#341-368" title="Go to source code">encode</a>( <span>string <var>$input</var></span>, <span>string <var>$encoding</var></span> )</code>
-
-		<div class="description short">
-			<p>Convert the encoding of $input to $encoding from utf-8.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Convert the encoding of $input to $encoding from utf-8.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$input</var></dt>
-					<dd>A utf-8 string.</dd>
-					<dt><var>$encoding</var></dt>
-					<dd>A valid name of an encoding.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://encoding.spec.whatwg.org/#decode">Encoding Standard</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
 	</table>
 
 
@@ -424,37 +328,6 @@ in a byte sequence where all bytes are in the 0x00 to 0x7F range.</p>
 
 
 
-	<table class="summary constants" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="ASCII_WHITESPACE" id="ASCII_WHITESPACE">
-
-		<td class="attributes"><code>string</code></td>
-		<td class="name">
-			<code>
-				<a href="source-class-esperecyan.url.lib.URLencoding.html#107-111" title="Go to source code"><b>ASCII_WHITESPACE</b></a>
-			</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-					<h4>Link</h4>
-					<div class="list">
-							<a href="https://encoding.spec.whatwg.org/#ascii-whitespace">Encoding Standard</a><br>
-					</div>
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#ASCII_WHITESPACE" class="anchor">#</a>
-				<code><span class="php-quote">&quot;\t\n\f\r &quot;</span></code>
-			</div>
-		</td>
-	</tr>
-	</table>
 
 
 
@@ -473,6 +346,6 @@ in a byte sequence where all bytes are in the 0x00 to 0x7F range.</p>
 </div>
 </div>
 <script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
-<script src="elementlist.js?71216b2009552ea13854da34ce2e63a290d3030a"></script>
+<script src="elementlist.js?5f8237d7d4b33d1f34a77017c55d3dd9a18f60fb"></script>
 </body>
 </html>

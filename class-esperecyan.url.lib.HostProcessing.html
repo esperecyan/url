@@ -49,7 +49,6 @@
 				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
 				<li><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
 				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
-				<li><a href="class-esperecyan.url.lib.URLSearchParamsIterator.html">URLSearchParamsIterator</a></li>
 			</ul>
 
 
@@ -106,8 +105,7 @@
 <b><span>esperecyan\url\lib\HostProcessing</span></b>			
 			
 			 uses 
-					esperecyan\webidl\lib\Utility (not available)
-
+<span>esperecyan\url\lib\Utility</span>
 			
 		</dd>
 	</dl>
@@ -127,7 +125,7 @@
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#hosts-(domains-and-ip-addresses)">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.HostProcessing.html#4-151" title="Go to source code">lib/HostProcessing.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.HostProcessing.html#4-154" title="Go to source code">lib/HostProcessing.php</a>
 		<br>
 	</div>
 
@@ -147,7 +145,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domainToASCII">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#14-25" title="Go to source code">domainToASCII</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#17-28" title="Go to source code">domainToASCII</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>The domain to ASCII given a domain $domain.</p>
@@ -190,7 +188,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domainToUnicode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#27-38" title="Go to source code">domainToUnicode</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#30-41" title="Go to source code">domainToUnicode</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>The domain to Unicode given a domain $domain.</p>
@@ -233,7 +231,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isValidDomain">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#40-87" title="Go to source code">isValidDomain</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#43-90" title="Go to source code">isValidDomain</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>Return true if a domain is a valid domain.</p>
@@ -276,7 +274,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseHost">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#89-111" title="Go to source code">parseHost</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#92-114" title="Go to source code">parseHost</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>The host parser.</p>
@@ -321,7 +319,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseIPv6">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#113-125" title="Go to source code">parseIPv6</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var>,…</span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#116-128" title="Go to source code">parseIPv6</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var>,…</span> )</code>
 
 		<div class="description short">
 			<p>The IPv6 parser.</p>
@@ -366,7 +364,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeHost">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#127-136" title="Go to source code">serializeHost</a>( <span>string|integer[] <var>$host</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#130-139" title="Go to source code">serializeHost</a>( <span>string|integer[] <var>$host</var></span> )</code>
 
 		<div class="description short">
 			<p>The host serializer.</p>
@@ -409,7 +407,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeIPv6">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#138-150" title="Go to source code">serializeIPv6</a>( <span>integer[] <var>$address</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#141-153" title="Go to source code">serializeIPv6</a>( <span>integer[] <var>$address</var></span> )</code>
 
 		<div class="description short">
 			<p>The IPv6 serializer.</p>
@@ -449,33 +447,6 @@
 
 
 
-	<table class="summary constants" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="PHP_IDN_HANDLEABLE_LENGTH" id="PHP_IDN_HANDLEABLE_LENGTH">
-
-		<td class="attributes"><code>integer</code></td>
-		<td class="name">
-			<code>
-				<a href="source-class-esperecyan.url.lib.HostProcessing.html#11-12" title="Go to source code"><b>PHP_IDN_HANDLEABLE_LENGTH</b></a>
-			</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#PHP_IDN_HANDLEABLE_LENGTH" class="anchor">#</a>
-				<code><span class="php-num">254</span></code>
-			</div>
-		</td>
-	</tr>
-	</table>
 
 
 
@@ -494,6 +465,6 @@
 </div>
 </div>
 <script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
-<script src="elementlist.js?71216b2009552ea13854da34ce2e63a290d3030a"></script>
+<script src="elementlist.js?5f8237d7d4b33d1f34a77017c55d3dd9a18f60fb"></script>
 </body>
 </html>
