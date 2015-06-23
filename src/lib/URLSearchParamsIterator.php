@@ -1,6 +1,7 @@
 <?php
 namespace esperecyan\url\lib;
 
+/** @internal */
 class URLSearchParamsIterator implements \Iterator
 {
     /** @var string[][] */

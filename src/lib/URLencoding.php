@@ -105,6 +105,7 @@ class URLencoding
     }
     
     /**
+     * @internal
      * @var string The ASCII whitespace.
      * @link https://encoding.spec.whatwg.org/#ascii-whitespace Encoding Standard
      */
@@ -312,6 +313,7 @@ class URLencoding
     
     /**
      * Convert the encoding of $input to utf-8 from $encoding.
+     * @internal
      * @link https://encoding.spec.whatwg.org/#concept-encoding-run Encoding Standard
      * @param string $input A string encoded by $encoding.
      * @param string $encoding A valid name of an encoding.
@@ -340,6 +342,7 @@ class URLencoding
     
     /**
      * Convert the encoding of $input to $encoding from utf-8.
+     * @internal
      * @link https://encoding.spec.whatwg.org/#decode Encoding Standard
      * @param string $input A utf-8 string.
      * @param string $encoding A valid name of an encoding.
