@@ -6,7 +6,7 @@ namespace esperecyan\url\lib;
  */
 class HostProcessing
 {
-    use \esperecyan\webidl\lib\Utility;
+    use Utility;
     
     /** @var integer Maximum utf-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8(). */
     const PHP_IDN_HANDLEABLE_LENGTH = 254;

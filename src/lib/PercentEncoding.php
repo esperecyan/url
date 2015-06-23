@@ -6,7 +6,7 @@ namespace esperecyan\url\lib;
  */
 class PercentEncoding
 {
-    use \esperecyan\webidl\lib\Utility;
+    use Utility;
     
     /**
      * Percent encode a byte into a percent-encoded byte.

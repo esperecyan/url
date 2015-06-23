@@ -8,7 +8,7 @@ namespace esperecyan\url\lib;
  */
 class URLencoding
 {
-    use \esperecyan\webidl\lib\Utility;
+    use Utility;
     
     /**
      * The application/x-www-form-urlencoded parser.
