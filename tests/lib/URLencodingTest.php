@@ -122,11 +122,16 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
      * @param string[][] $pairs
      * @param string|null $encodingOverride
      * @param string $output
+     * @param string|null $message
      * @dataProvider urlencodedProvider
      */
-    public function testSerializeURLencoded($pairs, $encodingOverride, $output)
+    public function testSerializeURLencoded($pairs, $encodingOverride, $output, $message = null)
     {
-        $this->assertSame($output, URLencoding::serializeURLencoded($pairs, $encodingOverride));
+        if ($message) {
+            $this->markTestSkipped($message);
+        }
+        
+        $this->assertSame($output, URLencoding::serializeURLencoded($pairs, $encodingOverride), $message);
     }
     
     public function urlencodedProvider()
@@ -150,6 +155,9 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
                 ['名前', '値1'],
                 ['名前', '値2'],
             ], 'shift_jis', '%96%BC%91O=%92l1&%96%BC%91O=%92l2'],
+            [[
+                ['PEAR', '🍐'],
+            ], 'shift_jis', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
         ];
     }
     
