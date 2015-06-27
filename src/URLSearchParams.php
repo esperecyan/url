@@ -145,6 +145,7 @@ class URLSearchParams implements \IteratorAggregate
                 }
             }
         }
+        unset($pair);
         if ($already) {
             $this->list = array_values($this->list);
             array_splice($this->list, 0, count($this->list), $this->list);
