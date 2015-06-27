@@ -72,6 +72,7 @@ class URLSearchParams implements \IteratorAggregate
         array_splice($this->list, 0, count($this->list), array_filter($this->list, function ($pair) use ($nameString) {
             return $pair[0] !== $nameString;
         }));
+        $this->update();
     }
     
     /**
@@ -150,6 +151,7 @@ class URLSearchParams implements \IteratorAggregate
         } else {
             $this->list[] = [$nameString, $valueString];
         }
+        $this->update();
     }
     
     /**

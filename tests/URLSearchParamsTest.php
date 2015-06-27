@@ -83,6 +83,17 @@ class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
         
         $anchor->href = 'http://anchor.test/?name=value';
         $this->assertSame('', $url->search);
+        $this->assertSame('name=value', (string)$url->searchParams);
+        
+        $anchor->searchParams->append('name', 'value');
+        $anchor->searchParams->append('name2', 'value2');
+        $anchor->searchParams->append('name2', 'value2');
+        $anchor->searchParams->append('name3', 'value3');
+        $this->assertSame('?name=value&name=value&name2=value2&name2=value2&name3=value3', $url->search);
+        $anchor->searchParams->delete('name', 'value');
+        $this->assertSame('?name2=value2&name2=value2&name3=value3', $url->search);
+        $anchor->searchParams->set('name2', 'value4');
+        $this->assertSame('?name2=value4&name3=value3', $url->search);
         
         $anchor->search = 'pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=';
         $this->assertSame([
