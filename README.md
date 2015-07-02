@@ -116,6 +116,7 @@ The correspondence table of the algorithms
 | [3. Hosts (domains and IP addresses)] |                                                                 |
 |---------------------------------------|-----------------------------------------------------------------|
 | [domain]                              | A valid utf-8 string                                            |
+| [IPv4 address]                        | An integer or float in the range 0 to 0xFFFFFFFF                |
 | [IPv6 address]                        | An array with 8 elements of an integer in the range 0 to 0xFFFF |
 | [domain to ASCII]                     | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
 | [domain to Unicode]                   | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
@@ -177,6 +178,7 @@ The correspondence table of the algorithms
 
 [3. Hosts (domains and IP addresses)]: https://url.spec.whatwg.org/hosts-(domains-and-ip-addresses)
 [domain]: https://url.spec.whatwg.org/#concept-domain
+[IPv4 address]: https://url.spec.whatwg.org/#concept-ipv4
 [IPv6 address]: https://url.spec.whatwg.org/#concept-ipv6
 [domain to ASCII]: https://url.spec.whatwg.org/#concept-domain-to-ascii
 [domain to Unicode]: https://url.spec.whatwg.org/#concept-domain-to-unicode

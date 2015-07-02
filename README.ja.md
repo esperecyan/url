@@ -116,6 +116,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [3. ホスト（ドメインと IP アドレス）] |                                                        |
 |---------------------------------------|--------------------------------------------------------|
 | [ドメイン]                            | 妥当な utf-8 の文字列                                  |
+| [IPv4 アドレス]                       | 0〜0xFFFFFFFFの整数、または浮動小数点数                |
 | [IPv6 アドレス]                       | 0〜0xFFFFの整数を要素に持つ長さが8の配列               |
 | [ドメインから ASCII へ変換]           | [esperecyan\url\lib\HostProcessing::domainToASCII()]   |
 | [ドメインから Unicode へ変換]         | [esperecyan\url\lib\HostProcessing::domainToUnicode()] |
@@ -177,6 +178,7 @@ READMEの英訳をハダーさんに協力していただきました。
 
 [3. ホスト（ドメインと IP アドレス）]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#hosts-(domains-and-ip-addresses)
 [ドメイン]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain
+[IPv4 アドレス]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv4
 [IPv6 アドレス]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6
 [ドメインから ASCII へ変換]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain-to-ascii
 [ドメインから Unicode へ変換]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain-to-unicode
