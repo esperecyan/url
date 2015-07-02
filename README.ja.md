@@ -122,6 +122,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [ドメインから Unicode へ変換]         | [esperecyan\url\lib\HostProcessing::domainToUnicode()] |
 | [妥当なドメイン]                      | [esperecyan\url\lib\HostProcessing::isValidDomain()]   |
 | [ホスト構文解析器]                    | [esperecyan\url\lib\HostProcessing::parseHost()]       |
+| [IPv4 番号構文解析器]                 | [esperecyan\url\lib\HostProcessing::parseIPv4Number()] |
 | [IPv6 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv6()]       |
 | [ホスト直列化器]                      | [esperecyan\url\lib\HostProcessing::serializeHost()]   |
 | [IPv6 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv6()]   |
@@ -184,6 +185,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [ドメインから Unicode へ変換]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain-to-unicode
 [妥当なドメイン]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#valid-domain
 [ホスト構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-host-parser
+[IPv4 番号構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#ipv4-number-parser
 [IPv6 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6-parser
 [ホスト直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-host-serializer
 [IPv6 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6-serializer
@@ -237,6 +239,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\HostProcessing::domainToUnicode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToUnicode
 [esperecyan\url\lib\HostProcessing::isValidDomain()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_isValidDomain
 [esperecyan\url\lib\HostProcessing::parseHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseHost
+[esperecyan\url\lib\HostProcessing::parseIPv4Number()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4Number
 [esperecyan\url\lib\HostProcessing::parseIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv6
 [esperecyan\url\lib\HostProcessing::serializeHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeHost
 [esperecyan\url\lib\HostProcessing::serializeIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv6

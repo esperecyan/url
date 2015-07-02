@@ -114,6 +114,29 @@ class HostProcessing
     }
     
     /**
+     * The IPv4 number parser.
+     * @link https://url.spec.whatwg.org/#ipv4-number-parser URL Standard
+     * @link http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#ipv4-number-parser URL Standard (Japanese translation)
+     * @param string $input A utf-8 string.
+     * @return integer|float|false
+     */
+    public static function parseIPv4Number($input)
+    {
+        if (preg_match('/^(?:(?<R16>0x[0-9A-F]*)|(?<R8>0[0-7]*)|(?<R10>[1-9][0-9]*))$/ui', $input, $matches) === 1) {
+            if ($matches['R16'] !== '') {
+                $number = hexdec($input);
+            } elseif ($matches['R8'] !== '') {
+                $number = octdec($input);
+            } else {
+                $number = (float)$input > PHP_INT_MAX ? (float)$input : (int)$input;
+            }
+        } else {
+            $number = false;
+        }
+        return $number;
+    }
+    
+    /**
      * The IPv6 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv6-parser URL Standard
      * @param string $input A utf-8 string.

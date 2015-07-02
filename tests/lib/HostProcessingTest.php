@@ -220,6 +220,45 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
+     * @param integer|float|false $number
+     * @param string|null $message
+     * @dataProvider ipv4NumberProvider
+     */
+    public function testParseIPv4Number($input, $number)
+    {
+        $this->assertSame($number, HostProcessing::parseIPv4Number($input));
+    }
+    
+    public function ipv4NumberProvider()
+    {
+        return [
+            [                 '192',                  192],
+            [                   '0',                    0],
+            [                 '255',                  255],
+            [                 '256',                  256],
+            ['18446744073709551616', 18446744073709551616],
+            ['12345678901234567890', 12345678901234567168],
+            [                 '0xF',                  0xF],
+            [                 '0XF',                  0xF],
+            [                 '0xf',                  0xF],
+            [                '0x0F',                  0xF],
+            [                '0777',                 0777],
+            [               '00777',                 0777],
+            [                    '', false], // <http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#ipv4-number-parser>
+            [                  '0x',                    0],
+            [                  'FF',                false],
+            [                '0xAZ',                false],
+            [                  '08',                false],
+            [                 '1.0',                false],
+            [                  '-1',                false],
+            [                  '-0',                false],
+            [                  '+1',                false],
+            [           '192.0.2.1',                false],
+        ];
+    }
+    
+    /**
+     * @param string $input
      * @param integer[]|false $address
      * @dataProvider ipv6Provider
      */
