@@ -186,7 +186,6 @@ class HostProcessing
      * The IPv6 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv6-parser URL Standard
      * @param string $input A utf-8 string.
-     * @param boolean $unicodeFlag Unicode flag.
      * @return integer[] An array of a 16-bit unsigned integer.
      */
     public static function parseIPv6($input)

@@ -394,9 +394,6 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($output, HostProcessing::serializeIPv6($address));
     }
     
-    /**
-     * @link http://www.unicode.org/reports/tr46/#Table_Example_Processing UTS #46: Unicode IDNA Compatibility Processing
-     */
     public function ipv6Provider2()
     {
         return [
