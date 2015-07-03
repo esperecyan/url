@@ -164,7 +164,7 @@
 </span><span id="64" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> domainToASCII(<span class="php-var">$domain</span>)
 </span><span id="65" class="l">    {
 </span><span id="66" class="l">        <span class="php-var">$asciiDomain</span> = lib\HostProcessing::parseHost(TypeHinter::to(<span class="php-quote">'USVString'</span>, <span class="php-var">$domain</span>));
-</span><span id="67" class="l">        <span class="php-keyword1">return</span> <span class="php-keyword2">is_array</span>(<span class="php-var">$asciiDomain</span>) || <span class="php-var">$asciiDomain</span> === <span class="php-keyword1">false</span> ? <span class="php-quote">''</span> : <span class="php-var">$asciiDomain</span>;
+</span><span id="67" class="l">        <span class="php-keyword1">return</span> <span class="php-keyword2">is_string</span>(<span class="php-var">$asciiDomain</span>) ? <span class="php-var">$asciiDomain</span> : <span class="php-quote">''</span>;
 </span><span id="68" class="l">    }
 </span><span id="69" class="l">    
 </span><span id="70" class="l">    <span class="php-comment">/**
@@ -176,7 +176,7 @@
 </span><span id="76" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> domainToUnicode(<span class="php-var">$domain</span>)
 </span><span id="77" class="l">    {
 </span><span id="78" class="l">        <span class="php-var">$unicodeDomain</span> = lib\HostProcessing::parseHost(TypeHinter::to(<span class="php-quote">'USVString'</span>, <span class="php-var">$domain</span>), <span class="php-keyword1">true</span>);
-</span><span id="79" class="l">        <span class="php-keyword1">return</span> <span class="php-keyword2">is_array</span>(<span class="php-var">$unicodeDomain</span>) || <span class="php-var">$unicodeDomain</span> === <span class="php-keyword1">false</span> ? <span class="php-quote">''</span> : <span class="php-var">$unicodeDomain</span>;
+</span><span id="79" class="l">        <span class="php-keyword1">return</span> <span class="php-keyword2">is_string</span>(<span class="php-var">$unicodeDomain</span>) ? <span class="php-var">$unicodeDomain</span> : <span class="php-quote">''</span>;
 </span><span id="80" class="l">    }
 </span><span id="81" class="l">}
 </span><span id="82" class="l"></span></code></pre>
