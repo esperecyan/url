@@ -208,6 +208,17 @@ class HostProcessing
     }
     
     /**
+     * The IPv4 serializer.
+     * @link https://url.spec.whatwg.org/#concept-ipv4-serializer URL Standard
+     * @param integer|float $address An integer or float in the range 0 to 0xFFFFFFFF.
+     * @return string
+     */
+    public static function serializeIPv4($address)
+    {
+        return long2ip($address);
+    }
+    
+    /**
      * The IPv6 serializer.
      * @link https://url.spec.whatwg.org/#concept-ipv6-serializer URL Standard
      * @param integer[] $address An array of a 16-bit unsigned integer.

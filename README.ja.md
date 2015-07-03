@@ -126,6 +126,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [IPv4 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv4()]       |
 | [IPv6 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv6()]       |
 | [ホスト直列化器]                      | [esperecyan\url\lib\HostProcessing::serializeHost()]   |
+| [IPv4 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv4()]   |
 | [IPv6 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv6()]   |
 
 | [4. URL]               |                                                    |
@@ -190,6 +191,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [IPv4 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv4-parser
 [IPv6 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6-parser
 [ホスト直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-host-serializer
+[IPv4 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv4-serializer
 [IPv6 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6-serializer
 
 [4. URL]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#urls
@@ -245,6 +247,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\HostProcessing::parseIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4
 [esperecyan\url\lib\HostProcessing::parseIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv6
 [esperecyan\url\lib\HostProcessing::serializeHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeHost
+[esperecyan\url\lib\HostProcessing::serializeIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv4
 [esperecyan\url\lib\HostProcessing::serializeIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv6
 [esperecyan\url\lib\URLクラス]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL
 [esperecyan\url\lib\URL->scheme]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$scheme

@@ -126,6 +126,7 @@ The correspondence table of the algorithms
 | [IPv4 parser]                         | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
 | [IPv6 parser]                         | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
 | [host serializer]                     | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
+| [IPv4 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
 | [IPv6 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
 | [4. URLs]              |                                                    |
@@ -190,6 +191,7 @@ The correspondence table of the algorithms
 [IPv4 parser]: https://url.spec.whatwg.org/#concept-ipv4-parser
 [IPv6 parser]: https://url.spec.whatwg.org/#concept-ipv6-parser
 [host serializer]: https://url.spec.whatwg.org/#concept-host-serializer
+[IPv4 serializer]: https://url.spec.whatwg.org/#concept-ipv4-serializer
 [IPv6 serializer]: https://url.spec.whatwg.org/#concept-ipv6-serializer
 
 [4. URLs]: https://url.spec.whatwg.org/#urls
@@ -245,6 +247,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\HostProcessing::parseIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4
 [esperecyan\url\lib\HostProcessing::parseIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv6
 [esperecyan\url\lib\HostProcessing::serializeHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeHost
+[esperecyan\url\lib\HostProcessing::serializeIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv4
 [esperecyan\url\lib\HostProcessing::serializeIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv6
 [esperecyan\url\lib\URL class]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL
 [esperecyan\url\lib\URL->scheme]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$scheme

@@ -367,6 +367,24 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @param integer|float $address
+     * @param string $output
+     * @dataProvider ipv4Provider2
+     */
+    public function testSerializeIPv4($address, $output)
+    {
+        $this->assertSame($output, HostProcessing::serializeIPv4($address));
+    }
+    public function ipv4Provider2()
+    {
+        return [
+            [192 * 0x1000000 +  0 * 0x10000 +   2 * 0x100 +   0, '192.0.2.0'    ],
+            [198 * 0x1000000 + 51 * 0x10000 + 100 * 0x100 +   1, '198.51.100.1' ],
+            [203 * 0x1000000 +  0 * 0x10000 + 113 * 0x100 + 255, '203.0.113.255'],
+        ];
+    }
+    
+    /**
      * @param integer[] $address
      * @param string $output
      * @dataProvider ipv6Provider2
