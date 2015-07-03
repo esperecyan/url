@@ -125,7 +125,7 @@
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#hosts-(domains-and-ip-addresses)">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.HostProcessing.html#4-239" title="Go to source code">lib/HostProcessing.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.HostProcessing.html#4-248" title="Go to source code">lib/HostProcessing.php</a>
 		<br>
 	</div>
 
@@ -274,7 +274,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseHost">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#92-120" title="Go to source code">parseHost</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#92-121" title="Go to source code">parseHost</a>( <span>string <var>$input</var></span>, <span>boolean <var>$unicodeFlag</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>The host parser.</p>
@@ -294,8 +294,8 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					string|integer|float|integer[]<br><p>If host is IPv6 address, returns an array of a 16-bit unsigned integer.
-     If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).</p>
+					string|integer|float|integer[]<br><p>If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).
+     If host is IPv6 address, returns an array of a 16-bit unsigned integer.</p>
 				</div>
 
 
@@ -320,7 +320,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseIPv4Number">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#122-143" title="Go to source code">parseIPv4Number</a>( <span>string <var>$input</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#123-144" title="Go to source code">parseIPv4Number</a>( <span>string <var>$input</var></span> )</code>
 
 		<div class="description short">
 			<p>The IPv4 number parser.</p>
@@ -364,7 +364,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseIPv4">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#145-189" title="Go to source code">parseIPv4</a>( <span>string <var>$input</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#146-190" title="Go to source code">parseIPv4</a>( <span>string <var>$input</var></span> )</code>
 
 		<div class="description short">
 			<p>The IPv4 parser.</p>
@@ -407,7 +407,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseIPv6">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#191-202" title="Go to source code">parseIPv6</a>( <span>string <var>$input</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#192-203" title="Go to source code">parseIPv6</a>( <span>string <var>$input</var></span> )</code>
 
 		<div class="description short">
 			<p>The IPv6 parser.</p>
@@ -450,7 +450,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeHost">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#204-213" title="Go to source code">serializeHost</a>( <span>string|integer[] <var>$host</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#205-222" title="Go to source code">serializeHost</a>( <span>string|integer|float|integer[] <var>$host</var></span> )</code>
 
 		<div class="description short">
 			<p>The host serializer.</p>
@@ -463,7 +463,7 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$host</var></dt>
-					<dd>A domain or IPv6 address (an array of a 16-bit unsigned integer).</dd>
+					<dd>A domain, IPv4 address (an integer or float) or IPv6 address (an array of a 16-bit unsigned integer).</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -493,7 +493,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeIPv4">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#215-224" title="Go to source code">serializeIPv4</a>( <span>integer|float <var>$address</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#224-233" title="Go to source code">serializeIPv4</a>( <span>integer|float <var>$address</var></span> )</code>
 
 		<div class="description short">
 			<p>The IPv4 serializer.</p>
@@ -536,7 +536,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeIPv6">#</a>
-		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#226-238" title="Go to source code">serializeIPv6</a>( <span>integer[] <var>$address</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.HostProcessing.html#235-247" title="Go to source code">serializeIPv6</a>( <span>integer[] <var>$address</var></span> )</code>
 
 		<div class="description short">
 			<p>The IPv6 serializer.</p>
