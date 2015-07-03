@@ -29,7 +29,7 @@ class URL
     public $password = null;
     
     /**
-     * @var string|integer[]|null A URL’s host is either null or a host.
+     * @var string|integer|float|integer[]|null A URL’s host is either null or a host.
      * @link https://url.spec.whatwg.org/#concept-url-host URL Standard
      */
     public $host = null;

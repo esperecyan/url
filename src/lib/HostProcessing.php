@@ -94,7 +94,9 @@ class HostProcessing
      * @link https://url.spec.whatwg.org/#concept-host-parser URL Standard
      * @param string $input A utf-8 string.
      * @param boolean $unicodeFlag If true, can return a domain containing non-ASCII characters.
-     * @return string|integer[] If host is IPv6 address, returns an array of a 16-bit unsigned integer.
+     * @return string|integer|float|integer[]
+     *      If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).
+     *      If host is IPv6 address, returns an array of a 16-bit unsigned integer.
      */
     public static function parseHost($input, $unicodeFlag = false)
     {
@@ -106,9 +108,14 @@ class HostProcessing
         } else {
             $domain = PercentEncoding::percentDecode($input);
             $asciiDomain = self::domainToASCII($domain);
-            $result = $asciiDomain === false || strpbrk($asciiDomain, "\x00\t\n\r #%/:?@[\\]") !== false
-                ? false
-                : ($unicodeFlag ? self::domainToUnicode($input) : $asciiDomain);
+            if ($asciiDomain === false || strpbrk($asciiDomain, "\x00\t\n\r #%/:?@[\\]") !== false) {
+                $result = false;
+            } else {
+                $ipv4Host = self::parseIPv4($asciiDomain);
+                $result = is_string($ipv4Host)
+                    ? ($unicodeFlag ? self::domainToUnicode($ipv4Host) : $ipv4Host)
+                    : $ipv4Host;
+            }
         }
         return $result;
     }
@@ -198,12 +205,20 @@ class HostProcessing
     /**
      * The host serializer.
      * @link https://url.spec.whatwg.org/#concept-host-serializer URL Standard
-     * @param string|integer[] $host A domain or IPv6 address (an array of a 16-bit unsigned integer).
+     * @param string|integer|float|integer[] $host
+     *      A domain, IPv4 address (an integer or float) or IPv6 address (an array of a 16-bit unsigned integer).
      * @return string
      */
     public static function serializeHost($host)
     {
-        return is_array($host) ? '[' . self::serializeIPv6($host) . ']' : (string)$host;
+        if (is_int($host) || is_float($host) || $host instanceof \SplInt || $host instanceof \SplFloat) {
+            $string = self::serializeIPv4($host);
+        } elseif (is_array($host)) {
+            $string = '[' . self::serializeIPv6($host) . ']';
+        } else {
+            $string = (string)$host;
+        }
+        return $string;
     }
     
     /**
