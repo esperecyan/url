@@ -259,6 +259,40 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
+     * @param integer|float|string|false $address
+     * @dataProvider ipv4Provider
+     */
+    public function testParseIPv4($input, $address)
+    {
+        $this->assertSame($address, HostProcessing::parseIPv4($input));
+    }
+    
+    public function ipv4Provider()
+    {
+        return [
+            ['192.0.2.1'          ,  192 * 0x1000000 +     0 * 0x10000 +    2 * 0x100 +    1],
+            ['192.0.2.1.'         ,  192 * 0x1000000 +     0 * 0x10000 +    2 * 0x100 +    1],
+            ['192..2.1'           , '192..2.1'                                              ],
+            ['192'                , 192                                                     ],
+            ['0xFFFFFFFF'         , 0xFFFFFFFF                                              ],
+            ['0x100000000'        , false                                                   ],
+            ['198.51.100.1'       ,  198 * 0x1000000 +    51 * 0x10000 +  100 * 0x100 +    1],
+            ['198.51.25854'       ,  198 * 0x1000000 +    51 * 0x10000 + 25854              ],
+            ['10.1.0xFFFF'        ,   10 * 0x1000000 +     1 * 0x10000 + 0xFFFF             ],
+            ['10.1.0x10000'       , false                                                   ],
+            ['198.256.0.1'        , false                                                   ],
+            ['198.256..1'         , '198.256..1'                                            ],
+            ['0306.0x33.25854'    , 0306 * 0x1000000 +  0x33 * 0x10000 + 25854              ],
+            ['0xC6.0x33.0x64.0xFE', 0xC6 * 0x1000000 +  0x33 * 0x10000 + 0x64 * 0x100 + 0xFE],
+            ['C6.33.64.FE'        , 'C6.33.64.FE'                                           ],
+            ['0.0.0.0.0'          , '0.0.0.0.0'                                             ],
+            [''                   , ''                                                      ],
+            ['invalid'            , 'invalid'                                               ],
+        ];
+    }
+    
+    /**
+     * @param string $input
      * @param integer[]|false $address
      * @dataProvider ipv6Provider
      */

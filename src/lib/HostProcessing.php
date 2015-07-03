@@ -137,6 +137,52 @@ class HostProcessing
     }
     
     /**
+     * The IPv4 parser.
+     * @link https://url.spec.whatwg.org/#concept-ipv4-parser URL Standard
+     * @param string $input A utf-8 string.
+     * @return integer|float|string|false
+     */
+    public static function parseIPv4($input)
+    {
+        $parts = explode('.', $input);
+        if ($parts[count($parts) - 1] === '') {
+            array_pop($parts);
+        }
+        
+        if ($parts === []) {
+            $ipv4 = '';
+        } elseif (count($parts) > 4) {
+            $ipv4 = (string)$input;
+        } else {
+            $numbers = [];
+            foreach ($parts as $i => $part) {
+                $n = self::parseIPv4Number($part);
+                if ($n === false) {
+                    $ipv4 = (string)$input;
+                    break;
+                }
+                if ($n > 255 && $i !== count($parts) - 1) {
+                    $ipv4 = false;
+                }
+                $numbers[] = $n;
+            }
+            
+            if (!isset($ipv4)) {
+                $ipv4 = array_pop($numbers);
+                if ($ipv4 >= pow(256, 4 - count($numbers))) {
+                    $ipv4 = false;
+                } else {
+                    foreach ($numbers as $counter => $n) {
+                        $ipv4 += $n * pow(256, 3 - $counter);
+                    }
+                }
+            }
+        }
+        
+        return $ipv4;
+    }
+    
+    /**
      * The IPv6 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv6-parser URL Standard
      * @param string $input A utf-8 string.
