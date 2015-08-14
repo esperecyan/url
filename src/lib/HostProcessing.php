@@ -129,7 +129,7 @@ class HostProcessing
      */
     public static function parseIPv4Number($input)
     {
-        if (preg_match('/^(?:(?<R16>0x[0-9A-F]*)|(?<R8>0[0-7]*)|(?<R10>[1-9][0-9]*))$/ui', $input, $matches) === 1) {
+        if (preg_match('/^(?:(?<R16>0x[0-9A-F]*)|(?<R8>0[0-7]+)|(?<R10>0|[1-9][0-9]*))$/ui', $input, $matches) === 1) {
             if ($matches['R16'] !== '') {
                 $number = hexdec($input);
             } elseif ($matches['R8'] !== '') {
