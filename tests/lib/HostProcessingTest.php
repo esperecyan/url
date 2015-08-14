@@ -247,7 +247,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
             [                '0x0F',                  0xF],
             [                '0777',                 0777],
             [               '00777',                 0777],
-            [                    '', false], // <http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#ipv4-number-parser>
+            [                    '',                    0],
             [                  '0x',                    0],
             [                  'FF',                false],
             [                '0xAZ',                false],
