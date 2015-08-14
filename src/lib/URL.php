@@ -450,7 +450,9 @@ class URL
                             if ($host === false) {
                                 return false;
                             }
-                            $url->host = $host;
+                            if ($host !== 'localhost') {
+                                $url->host = $host;
+                            }
                             $buffer = '';
                             $state = 'path start state';
                         }

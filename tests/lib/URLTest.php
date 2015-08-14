@@ -186,6 +186,20 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['http://url.test/?🍐 (PEAR)', null, 'shift_jis', null, null, [
                 'query' => '%26%23127824%3B%25%20(PEAR)', // &127824; (PEAR)
             ], 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
+            ['file:///directory/file', null, null, null, null, [
+                'scheme' => 'file',
+                'nonRelativeFlag' => false,
+                'host' => null,
+                'port' => '',
+                'path' => ['directory', 'file'],
+            ]],
+            ['file://LOCALHOST/directory/file', null, null, null, null, [
+                'scheme' => 'file',
+                'nonRelativeFlag' => false,
+                'host' => null,
+                'port' => '',
+                'path' => ['directory', 'file'],
+            ]],
         ];
     }
     
