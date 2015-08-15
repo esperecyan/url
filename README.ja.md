@@ -103,6 +103,11 @@ READMEの英訳をハダーさんに協力していただきました。
 
 アルゴリズムなどの対応表
 ---------------------
+| [1. 用語]                   |                                                                  |
+|-----------------------------|------------------------------------------------------------------|
+| [準 Windows ドライブレター] | [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER] |
+| [Windows ドライブレター]    | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]           |
+
 | [2. パーセント符号化済みバイト] |                                                           |
 |---------------------------------|-----------------------------------------------------------|
 | [パーセント符号化]              | [esperecyan\url\lib\PercentEncoding::percentEncode()]     |
@@ -171,6 +176,11 @@ READMEの英訳をハダーさんに協力していただきました。
 | [基底 URL の取得] アルゴリズム         | [esperecyan\url\lib\URLUtilsReadOnly->setInput()] |
 | [更新手続き]                           | [esperecyan\url\lib\URLUtils->updateSteps()]      |
 
+
+[1. 用語]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
+[準 Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#potential-windows-drive-letter
+[Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#windows-drive-letter
+
 [2. パーセント符号化済みバイト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent_encoded-bytes
 [パーセント符号化]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-encode
 [パーセント復号]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-decode
@@ -234,6 +244,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [基底 URL の取得]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-get-the-base
 [更新手続き]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-update
 
+[esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\PercentEncoding::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentEncode
 [esperecyan\url\lib\PercentEncoding::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentDecode
 [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#SIMPLE_ENCODE_SET

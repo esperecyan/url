@@ -131,7 +131,7 @@ class URL
     public function popPath()
     {
         if ($this->scheme !== 'file'
-            || !(count($this->path) === 1 && preg_match('/^[a-z]:$/i', $this->path[0]) === 1)) {
+            || !(count($this->path) === 1 && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
             array_pop($this->path);
         }
     }
