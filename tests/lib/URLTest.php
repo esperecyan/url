@@ -45,8 +45,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param string $username
-     * @param string|null $password
+     * @param string $url
      * @param boolean $includingCredentials
      * @dataProvider credentialsProvider
      */
