@@ -221,7 +221,7 @@ class URL
                             return;
                         }
                         if ($url->scheme === 'file') {
-                            $state = 'relative state';
+                            $state = 'file state';
                         } elseif ($url->isSpecial() && $base && $base->scheme === $url->scheme) {
                             $state = 'special relative or authority state';
                         } elseif ($url->isSpecial()) {
@@ -253,8 +253,11 @@ class URL
                         $url->fragment = '';
                         $url->nonRelativeFlag = true;
                         $state = 'fragment state';
-                    } else {
+                    } elseif ($base->scheme !== 'file') {
                         $state = 'relative state';
+                        $pointer--;
+                    } else {
+                        $state = 'file state';
                         $pointer--;
                     }
                     break;
@@ -279,9 +282,7 @@ class URL
                     break;
                     
                 case 'relative state':
-                    if ($url->scheme !== 'file') {
-                        $url->scheme = $base->scheme;
-                    }
+                    $url->scheme = $base->scheme;
                     switch ($c) {
                         case '':
                             $url->username = $base->username;
@@ -317,19 +318,12 @@ class URL
                             if ($c === '\\' && $url->isSpecial()) {
                                 $state = 'relative slash state';
                             } else {
-                                $remaining = array_slice($codePoints, $pointer + 1);
-                                if ($url->scheme !== 'file'
-                                    || stripos('abcdefghijklmnopqrstuvwxyz', $c) === false
-                                    || strpos(':|', $remaining[0]) === false
-                                    || count($remaining) === 1
-                                    || strpos('/\\?#', $remaining[1]) === false) {
-                                    $url->username = $base->username;
-                                    $url->password = $base->password;
-                                    $url->host = $base->host;
-                                    $url->port = $base->port;
-                                    $url->path = $base->path;
-                                    array_pop($url->path);
-                                }
+                                $url->username = $base->username;
+                                $url->password = $base->password;
+                                $url->host = $base->host;
+                                $url->port = $base->port;
+                                $url->path = $base->path;
+                                array_pop($url->path);
                                 $state = 'path state';
                                 $pointer--;
                             }
@@ -338,18 +332,12 @@ class URL
 
                 case 'relative slash state':
                     if ($c === '/' || $c === '\\' && $url->isSpecial()) {
-                        if ($url->scheme === 'file') {
-                            $state = 'file host state';
-                        } else {
-                            $state = 'special authority ignore slashes state';
-                        }
+                        $state = 'special authority ignore slashes state';
                     } else {
-                        if ($url->scheme !== 'file') {
-                            $url->username = $base->username;
-                            $url->password = $base->password;
-                            $url->host = $base->host;
-                            $url->port = $base->port;
-                        }
+                        $url->username = $base->username;
+                        $url->password = $base->password;
+                        $url->host = $base->host;
+                        $url->port = $base->port;
                         $state = 'path state';
                         $pointer--;
                     }
@@ -449,32 +437,6 @@ class URL
                     }
                     break;
 
-                case 'file host state':
-                    if (in_array($c, ['', '/', '\\', '?', '#'])) {
-                        $pointer--;
-                        if (strlen($buffer) === 2
-                            && stripos('abcdefghijklmnopqrstuvwxyz', $buffer[0]) !== false
-                            && strpos(':|', $buffer[1]) !== false) {
-                            $state = 'path state';
-                        } elseif ($buffer === '') {
-                            $state = 'path start state';
-                        } else {
-                            $host = HostProcessing::parseHost($buffer);
-                            if ($host === false) {
-                                return false;
-                            }
-                            if ($host !== 'localhost') {
-                                $url->host = $host;
-                            }
-                            $buffer = '';
-                            $state = 'path start state';
-                        }
-                    } elseif (strpos("\t\n\r", $c) !== false) {
-                    } else {
-                        $buffer .= $c;
-                    }
-                    break;
-
                 case 'port state':
                     if (ctype_digit($c)) {
                         $buffer .= $c;
@@ -499,6 +461,87 @@ class URL
                     }
                     break;
 
+                case 'file state':
+                    $url->scheme = 'file';
+                    switch ($c) {
+                        case '':
+                            if ($base && $base->scheme === 'file') {
+                                $url->host = $base->host;
+                                $url->path = $base->path;
+                                $url->query = $base->query;
+                            }
+                            break;
+                        case '\\':
+                        case '/':
+                            $state = 'file slash state';
+                            break;
+                        case '?':
+                            if ($base && $base->scheme === 'file') {
+                                $url->host = $base->host;
+                                $url->path = $base->path;
+                                $url->query = '';
+                                $state = 'query state';
+                            }
+                            break;
+                        case '#':
+                            if ($base && $base->scheme === 'file') {
+                                $url->host = $base->host;
+                                $url->path = $base->path;
+                                $url->query = $base->query;
+                                $url->fragment = '';
+                                $state = 'fragment state';
+                            }
+                            break;
+                        default:
+                            $remaining = array_slice($codePoints, $pointer + 1);
+                            if ($base && $base->scheme === 'file'
+                                && isset($remaining[0]) && preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
+                                && (count($remaining) === 1 || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false)) {
+                                $url->host = $base->host;
+                                $url->path = $base->path;
+                                $url->popPath();
+                            }
+                            $state = 'path state';
+                            $pointer--;
+                    }
+                    break;
+
+                case 'file slash state':
+                    if ($c === '/' || $c === '\\') {
+                        $state = 'file host state';
+                    } else {
+                        if ($base && $base->scheme === 'file' && isset($base->path[0]) && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
+                            $url->path[] = $base->path[0];
+                        }
+                        $state = 'path state';
+                        $pointer--;
+                    }
+                    break;
+
+                case 'file host state':
+                    if (in_array($c, ['', '/', '\\', '?', '#'])) {
+                        $pointer--;
+                        if (preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                            $state = 'path state';
+                        } elseif ($buffer === '') {
+                            $state = 'path start state';
+                        } else {
+                            $host = HostProcessing::parseHost($buffer);
+                            if ($host === false) {
+                                return false;
+                            }
+                            if ($host !== 'localhost') {
+                                $url->host = $host;
+                            }
+                            $buffer = '';
+                            $state = 'path start state';
+                        }
+                    } elseif (strpos("\t\n\r", $c) !== false) {
+                    } else {
+                        $buffer .= $c;
+                    }
+                    break;
+
                 case 'path start state':
                     $state = 'path state';
                     if (!($c === '/' || $c === '\\' && $url->isSpecial())) {
@@ -520,9 +563,7 @@ class URL
                                 break;
                         }
                         if ($buffer === '..') {
-                            if ($url->path) {
-                                array_pop($url->path);
-                            }
+                            $url->popPath();
                             if (!($c === '/' || $c === '\\' && $url->isSpecial())) {
                                 $url->path[] = '';
                             }
@@ -531,8 +572,8 @@ class URL
                         } elseif ($buffer !== '.') {
                             if ($url->scheme === 'file'
                                 && !$url->path
-                                && strlen($buffer) === 2
-                                && stripos('abcdefghijklmnopqrstuvwxyz', $buffer[0]) !== false && $buffer[1] === '|') {
+                                && preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                                $url->host = null;
                                 $buffer[1] = ':';
                             }
                             $url->path[] = $buffer;
