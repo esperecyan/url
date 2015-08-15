@@ -243,8 +243,10 @@ class URLTest extends \PHPUnit_Framework_TestCase
     public function urlAndExcludeFragmentFlagProvider()
     {
         return [
-            ['http://url.test/#fragment', false, 'http://url.test/#fragment'],
-            ['http://url.test/#fragment', true , 'http://url.test/'         ],
+            ['http://url.test/#fragment'      , false, 'http://url.test/#fragment'    ],
+            ['http://url.test/#fragment'      , true , 'http://url.test/'             ],
+            ['file:///C:\\directory\\filename', false, 'file:///C:/directory/filename'],
+            ['file:/C:\\directory\\filename'  , false, 'file:///C:/directory/filename'],
             
             // invalid arguments
             ['http://url.test/#fragment', null , 'http://url.test/#fragment'],

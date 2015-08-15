@@ -706,6 +706,8 @@ class URL
             if ($this->port !== '') {
                 $output .= ':' . $this->port;
             }
+        } elseif (is_null($this->host) && $this->scheme === 'file') {
+            $output .= '//';
         }
         $output .= $this->nonRelativeFlag ? $this->path[0] :  '/' . implode('/', $this->path);
         if (!is_null($this->query)) {
