@@ -147,6 +147,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [局所的スキーム]       | [esperecyan\url\lib\URL::$localSchemes]            |
 | [局所的]               | [esperecyan\url\lib\URL->isLocal()]                |
 | [資格証明情報を含む]   | [esperecyan\url\lib\URL->isIncludingCredentials()] |
+| [パスを pop する]      | [esperecyan\url\lib\URL->popPath()]                |
 | [URL 符号位置]         | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
 | [URL 構文解析器]       | [esperecyan\url\lib\URL::parseURL()]               |
 | [基本 URL 構文解析器]  | [esperecyan\url\lib\URL::parseBasicURL()]          |
@@ -211,6 +212,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [局所的スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#local-scheme
 [局所的]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-local
 [資格証明情報を含む]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#include-credentials
+[パスを pop する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#pop-a-urls-path
 [URL 符号位置]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#url-code-points
 [URL 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-parser
 [基本 URL 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-basic-url-parser
@@ -266,6 +268,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
+[esperecyan\url\lib\URL->popPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_popPath
 [esperecyan\url\lib\URL::URL_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#URL_CODE_POINTS
 [esperecyan\url\lib\URL::parseURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseURL
 [esperecyan\url\lib\URL::parseBasicURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseBasicURL

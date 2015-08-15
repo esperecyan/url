@@ -147,6 +147,7 @@ The correspondence table of the algorithms
 | [local scheme]         | [esperecyan\url\lib\URL::$localSchemes]            |
 | [is local]             | [esperecyan\url\lib\URL->isLocal()]                |
 | [includes credentials] | [esperecyan\url\lib\URL->isIncludingCredentials()] |
+| [pop a path]           | [esperecyan\url\lib\URL->popPath()]                |
 | [URL code points]      | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
 | [URL parser]           | [esperecyan\url\lib\URL::parseURL()]               |
 | [basic URL parser]     | [esperecyan\url\lib\URL::parseBasicURL()]          |
@@ -211,6 +212,7 @@ The correspondence table of the algorithms
 [local scheme]: https://url.spec.whatwg.org/#local-scheme
 [is local]: https://url.spec.whatwg.org/#is-local
 [includes credentials]: https://url.spec.whatwg.org/#include-credentials
+[pop a path]: https://url.spec.whatwg.org/#pop-a-urls-path
 [URL code points]: https://url.spec.whatwg.org/#url-code-points
 [URL parser]: https://url.spec.whatwg.org/#concept-url-parser
 [basic URL parser]: https://url.spec.whatwg.org/#concept-basic-url-parser
@@ -266,6 +268,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
+[esperecyan\url\lib\URL->popPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_popPath
 [esperecyan\url\lib\URL::URL_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#URL_CODE_POINTS
 [esperecyan\url\lib\URL::parseURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseURL
 [esperecyan\url\lib\URL::parseBasicURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseBasicURL

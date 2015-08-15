@@ -124,6 +124,19 @@ class URL
     }
     
     /**
+     * If url’s scheme is not "file" or url’s path does not contain a single string that is a Windows drive letter,
+     * remove url’s path’s last string, if any.
+     * @link https://url.spec.whatwg.org/#pop-a-urls-path URL Standard
+     */
+    public function popPath()
+    {
+        if ($this->scheme !== 'file'
+            || !(count($this->path) === 1 && preg_match('/^[a-z]:$/i', $this->path[0]) === 1)) {
+            array_pop($this->path);
+        }
+    }
+    
+    /**
      * @var string The regular expression (PCRE) pattern matching the URL code points.
      * @link https://url.spec.whatwg.org/#url-code-points URL Standard
      */

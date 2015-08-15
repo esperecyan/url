@@ -68,6 +68,33 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['http://:0@url.test/'               , true ],
         ];
     }
+
+    /**
+     * @param string $url
+     * @param string[] $path
+     * @dataProvider pathProvider
+     */
+    public function testPopPath($url, $path)
+    {
+        $parsedURL = URL::parseURL($url);
+        $parsedURL->popPath();
+        $this->assertSame($path, $parsedURL->path);
+    }
+    
+    public function pathProvider()
+    {
+        return [
+            ['http://url.test/'           , []                 ],
+            ['http://url.test/foo'        , []                 ],
+            ['http://url.test/foo/'       , ['foo']            ],
+            ['http://url.test/foo/bar'    , ['foo']            ],
+            ['file:///directory/file'     , ['directory']      ],
+            ['file:///C:\\directory\\file', ['C:', 'directory']],
+            ['file:///C:'                 , ['C:']             ],
+            ['file:///C:\\'               , ['C:']             ],
+            ['http://url.test/c:'         , []                 ],
+        ];
+    }
     
     /**
      * @param string $input
