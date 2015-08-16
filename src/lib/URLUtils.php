@@ -210,10 +210,6 @@ trait URLUtils
                 $value = $this->url && !is_null($this->url->password) ? $this->url->password : '';
                 break;
             
-            case 'searchParams':
-                $value = $this->queryObject;
-                break;
-            
             default:
                 if ($name === 'searchParams' && in_array(
                     'esperecyan\\url\\lib\\URLUtilsSearchParams',
