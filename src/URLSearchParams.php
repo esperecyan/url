@@ -33,6 +33,19 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
+     * A URLSearchParams object’s reset steps.
+     * @link https://url.spec.whatwg.org/#reset-steps URL Standard
+     */
+    private function reset()
+    {
+        if ($this->urlObject) {
+            \Closure::bind(function ($urlObject) {
+                $urlObject->resetInput();
+            }, null, $this->urlObject)->__invoke($this->urlObject);
+        }
+    }
+    
+    /**
      * A URLSearchParams object’s update steps.
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-update URL Standard
      */
@@ -44,7 +57,7 @@ class URLSearchParams implements \IteratorAggregate
                     $urlObject->url->query = $query;
                     $urlObject->preUpdate();
                 }
-            }, null, $this->urlObject)->__invoke($this->urlObject, (string)$this);
+            }, null, $this->urlObject)->__invoke($this->urlObject, lib\URLencoding::serializeURLencoded($this->list));
         }
     }
     
@@ -56,6 +69,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function append($name, $value)
     {
+        $this->reset();
         $this->list[] = [TypeHinter::to('USVString', $name, 0), TypeHinter::to('USVString', $value, 1)];
         $this->update();
     }
@@ -67,6 +81,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function delete($name)
     {
+        $this->reset();
         $nameString = TypeHinter::to('USVString', $name);
         array_splice($this->list, 0, count($this->list), array_filter($this->list, function ($pair) use ($nameString) {
             return $pair[0] !== $nameString;
@@ -82,6 +97,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function get($name)
     {
+        $this->reset();
         $nameString = TypeHinter::to('USVString', $name);
         $value = null;
         foreach ($this->list as $pair) {
@@ -101,6 +117,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function getAll($name)
     {
+        $this->reset();
         $nameString = TypeHinter::to('USVString', $name);
         $values = [];
         foreach ($this->list as $pair) {
@@ -119,6 +136,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function has($name)
     {
+        $this->reset();
         return !is_null($this->get(TypeHinter::to('USVString', $name)));
     }
     
@@ -131,6 +149,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function set($name, $value)
     {
+        $this->reset();
         $nameString = TypeHinter::to('USVString', $name, 0);
         $valueString = TypeHinter::to('USVString', $value, 1);
         $already = false;
@@ -159,7 +178,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function getIterator()
     {
-        return new lib\URLSearchParamsIterator($this->list);
+        return new lib\URLSearchParamsIterator($this->list, $this);
     }
     
     /**
@@ -169,6 +188,7 @@ class URLSearchParams implements \IteratorAggregate
      */
     public function __toString()
     {
+        $this->reset();
         return lib\URLencoding::serializeURLencoded($this->list);
     }
 }
