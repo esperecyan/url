@@ -33,7 +33,8 @@ class HTMLAnchorElement extends \DOMElement
      */
     protected function updateSteps($value)
     {
-        parent::setAttribute('href', $value);
+        $this->setInput($value);
+        parent::setAttribute('href', $this->href);
     }
     
     /**

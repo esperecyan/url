@@ -210,10 +210,12 @@ trait URLUtils
     {
         switch ($name) {
             case 'username':
+                $this->resetInput();
                 $value = $this->url ? $this->url->username : '';
                 break;
             
             case 'password':
+                $this->resetInput();
                 $value = $this->url && !is_null($this->url->password) ? $this->url->password : '';
                 break;
             

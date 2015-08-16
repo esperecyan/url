@@ -15,8 +15,7 @@ class URLUtilsTest extends \PHPUnit_Framework_TestCase
         if (!is_null($href)) {
             $anchor->href = $href;
         }
-        $this->assertSame(is_null($href) ? '' : $returnValue, $anchor->href);
-        $this->assertSame(is_null($href) ? '' : $href, $anchor->getAttribute('href'));
+        $this->assertSame(is_null($href) ? '' : $returnValue, $anchor->getAttribute('href'));
     }
     
     public function hrefProvider()
@@ -204,9 +203,9 @@ class URLUtilsTest extends \PHPUnit_Framework_TestCase
             ['http://url.test/'     , 'url.%e3%83%86%E3%82%B9ト', 'url.xn--zckzah', 'http://url.xn--zckzah/'          ],
             ['http://url.test/'     , '%83e%83X%83g.invalid'    , 'url.test'      , 'http://url.test/'                ],
             ['tftp://url.test/'     , 'standard.test'           , 'standard.test' , 'tftp://standard.test/'           ],
-            ['file://directory/filename', 'URL.XN--ZCKZAH:008080', 'url.xn--zckzah:8080', 'file://url.xn--zckzah:8080/filename'],
+            ['file://directory/filename', 'URL.XN--ZCKZAH'      , 'url.xn--zckzah', 'file://url.xn--zckzah/filename'  ],
             ['file://invalid:8080/filename', 'url.test'         , ''              , 'file://invalid:8080/filename'    ],
-            ['file:///C:/directory/filename', 'url.test'        , 'url.test',  'file://url.test/C:/directory/filename'],
+            ['file:///C:/directory/filename', 'url.test'        , ''              , 'file:///C:/directory/filename'   ],
             [null                   , 'url.test'                , ''              , ''                                ],
             [''                     , 'url.test'                , ''              , ''                                ],
             ['invalid URL'          , 'url.test'                , ''              , 'invalid URL'                     ],

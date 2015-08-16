@@ -31,17 +31,16 @@ trait URLUtilsReadOnly
     
     /**
      * Set the input.
-     * @link https://url.spec.whatwg.org/#concept-urlutils-input URL Standard
+     * @link https://url.spec.whatwg.org/#concept-urlutils-set-the-input URL Standard
      * @param string|null $input A utf-8 string or null.
      * @param URL|null $url
      */
     protected function setInput($input, URL $url = null)
     {
+        $this->input = is_null($input) ? null : (string)$input;
         $this->url = $url;
-        $this->input = $url && is_null($input) ? null : (string)$input;
-        
-        if (!$url && !is_null($input)) {
-            $url = URL::parseURL($input, $this->getBase(), $this->queryEncoding);
+        if (!is_null($input)) {
+            $url = URL::parseURL($this->input, $this->getBase(), $this->queryEncoding);
             if ($url !== false) {
                 $this->url = $url;
             }
@@ -61,6 +60,17 @@ trait URLUtilsReadOnly
                 URLencoding::parseURLencodedString($query),
                 $this->queryObject
             );
+        }
+    }
+    
+    /**
+     * Reset the input.
+     * @link https://url.spec.whatwg.org/#reset-the-input URL Standard
+     */
+    protected function resetInput()
+    {
+        if (!($this instanceof \esperecyan\url\URL) && !is_null($this->input)) {
+            $this->setInput($this->input, $this->url);
         }
     }
     
@@ -109,33 +119,46 @@ trait URLUtilsReadOnly
     {
         switch ($name) {
             case 'href':
-                $value = $this->url ? $this->url->serializeURL() : $this->input;
+                $this->resetInput();
+                if (is_null($this->input)) {
+                    $value = '';
+                } elseif (!$this->url) {
+                    $value = $this->input;
+                } else {
+                    $value = $this->url->serializeURL();
+                }
                 break;
             
             case 'origin':
+                $this->resetInput();
                 $value = $this->url ? self::unicodeSerialiseOrigin($this->url->getOrigin()) : '';
                 break;
             
             case 'protocol':
+                $this->resetInput();
                 $value = ($this->url ? $this->url->scheme : '') . ':';
                 break;
             
             case 'host':
-                $value = $this->url
+                $this->resetInput();
+                $value = $this->url && $this->url->host
                     ? HostProcessing::serializeHost($this->url->host)
                         . ($this->url->port !== '' ? ':' . $this->url->port : '')
                     : '';
                 break;
             
             case 'hostname':
-                $value = $this->url ? HostProcessing::serializeHost($this->url->host) : '';
+                $this->resetInput();
+                $value = $this->url && $this->url->host ? HostProcessing::serializeHost($this->url->host) : '';
                 break;
             
             case 'port':
+                $this->resetInput();
                 $value = $this->url ? $this->url->port : '';
                 break;
             
             case 'pathname':
+                $this->resetInput();
                 if (!$this->url) {
                     $value = '';
                 } elseif ($this->url->nonRelativeFlag) {
@@ -146,6 +169,7 @@ trait URLUtilsReadOnly
                 break;
             
             case 'search':
+                $this->resetInput();
                 $value = $this->url && !is_null($this->url->query) && $this->url->query !== ''
                     ? '?' . $this->url->query
                     : '';
