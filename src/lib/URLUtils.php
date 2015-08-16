@@ -52,7 +52,7 @@ trait URLUtils
     
     /**
      * @param string $name
-     * @param string|\esperecyan\url\URLSearchParams $value
+     * @param string $value
      * @throws TypeError
      */
     public function __set($name, $value)
@@ -186,16 +186,7 @@ trait URLUtils
                     'esperecyan\\url\\lib\\URLUtilsSearchParams',
                     (new \ReflectionClass(__CLASS__))->getTraitNames()
                 )) {
-                    $object = TypeHinter::to('esperecyan\\url\\URLSearchParams', $value);
-                    \Closure::bind(function ($queryObject, $object) {
-                        array_splice($queryObject->urlObjects, array_search($this, $queryObject->urlObjects, true), 1);
-                        $object->urlObjects[] = $this;
-                    }, $this, $this->queryObject)->__invoke($this->queryObject, $object);
-                    $this->queryObject = $object;
-                    if ($this->url) {
-                        $this->url->query = (string)$this->queryObject;
-                        $this->preUpdate();
-                    }
+                    TypeHinter::throwReadonlyException();
                 } else {
                     $this->URLUtilsReadOnly__set($name, $value);
                 }

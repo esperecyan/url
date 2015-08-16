@@ -73,37 +73,31 @@ class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
     
     public function testUpdateSteps()
     {
-        $url = new URL('http://url.test/');
-        $url2 = new URL('http://url2.test/');
         $anchor = new lib\HTMLAnchorElement();
         (new \DOMDocument())->appendChild($anchor);
         
-        $anchor->searchParams = $url->searchParams = $url2->searchParams;
-        $this->assertSame($anchor->searchParams, $url->searchParams);
-        
         $anchor->href = 'http://anchor.test/?name=value';
-        $this->assertSame('', $url->search);
-        $this->assertSame('name=value', (string)$url->searchParams);
-        
         $anchor->searchParams->append('name', 'value');
         $anchor->searchParams->append('name2', 'value2');
         $anchor->searchParams->append('name2', 'value2');
         $anchor->searchParams->append('name3', 'value3');
-        $this->assertSame('?name=value&name=value&name2=value2&name2=value2&name3=value3', $url->search);
+        $this->assertSame(
+            'http://anchor.test/?name=value&name=value&name2=value2&name2=value2&name3=value3',
+            $anchor->getAttribute('href')
+        );
+        
         $anchor->searchParams->delete('name', 'value');
-        $this->assertSame('?name2=value2&name2=value2&name3=value3', $url->search);
+        $this->assertSame('http://anchor.test/?name2=value2&name2=value2&name3=value3', $anchor->getAttribute('href'));
+        
         $anchor->searchParams->set('name2', 'value4');
-        $this->assertSame('?name2=value4&name3=value3', $url->search);
+        $this->assertSame('http://anchor.test/?name2=value4&name3=value3', $anchor->getAttribute('href'));
         
         $anchor->search = 'pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=';
         $this->assertSame([
             'pear' => '梨',
             '%20' => ' ',
             '' => '',
-        ], iterator_to_array($url->searchParams));
-        $this->assertSame($anchor->search, $url->search);
-        $this->assertSame('http://url.test/?pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=', $url->href);
-        $this->assertSame('http://url2.test/?pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=', $url2->href);
+        ], iterator_to_array($anchor->searchParams));
     }
     
     public function testIterable()

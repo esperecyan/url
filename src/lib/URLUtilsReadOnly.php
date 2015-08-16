@@ -51,7 +51,7 @@ trait URLUtilsReadOnly
         if (!$this->queryObject) {
             $this->queryObject = new URLSearchParams($query);
             \Closure::bind(function ($queryObject) {
-                $queryObject->urlObjects[] = $this;
+                $queryObject->urlObject = $this;
             }, $this, $this->queryObject)->__invoke($this->queryObject);
         } else {
             \Closure::bind(function ($list, $queryObject) {

@@ -17,10 +17,10 @@ class URLSearchParams implements \IteratorAggregate
     private $list;
     
     /**
-     * @var object[] The array of the instances of the class using URLUtils.
-     * @link https://url.spec.whatwg.org/#concept-urlsearchparams-url-object-list URL Standard
+     * @var object|null The instances of the class using URLUtilsReadOnly.
+     * @link https://url.spec.whatwg.org/#concept-urlsearchparams-url-object URL Standard
      */
-    private $urlObjects = [];
+    private $urlObject = null;
     
     /**
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-new URL Standard
@@ -38,14 +38,13 @@ class URLSearchParams implements \IteratorAggregate
      */
     private function update()
     {
-        $query = (string)$this;
-        foreach ($this->urlObjects as $urlObject) {
+        if ($this->urlObject) {
             \Closure::bind(function ($urlObject, $query) {
                 if ($urlObject->url) {
                     $urlObject->url->query = $query;
                     $urlObject->preUpdate();
                 }
-            }, null, $urlObject)->__invoke($urlObject, $query);
+            }, null, $this->urlObject)->__invoke($this->urlObject, (string)$this);
         }
     }
     
