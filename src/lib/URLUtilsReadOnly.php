@@ -67,7 +67,7 @@ trait URLUtilsReadOnly
      * Reset the input.
      * @link https://url.spec.whatwg.org/#reset-the-input URL Standard
      */
-    protected function resetInput()
+    private function resetInput()
     {
         if (!($this instanceof \esperecyan\url\URL) && !is_null($this->input)) {
             $this->setInput($this->input, $this->url);

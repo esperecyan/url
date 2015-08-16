@@ -180,7 +180,6 @@ The correspondence table of the algorithms
 | A [get the base] algorithm       | [esperecyan\url\lib\URLUtilsReadOnly->getBase()]    |
 | [update steps]                   | [esperecyan\url\lib\URLUtils->updateSteps()]        |
 | [set the input]                  | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
-| [reset the input]                | [esperecyan\url\lib\URLUtilsReadOnly->resetInput()] |
 
 [1. Terminology]: https://url.spec.whatwg.org/#terminology
 [potential Windows drive letter]: https://url.spec.whatwg.org/#potential-windows-drive-letter
@@ -248,7 +247,6 @@ The correspondence table of the algorithms
 [get the base]: https://url.spec.whatwg.org/#concept-urlutils-get-the-base
 [update steps]: https://url.spec.whatwg.org/#concept-urlutils-update
 [set the input]: https://url.spec.whatwg.org/#concept-urlutils-set-the-input
-[reset the input]: https://url.spec.whatwg.org/#reset-the-input
 
 [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#WINDOWS_DRIVE_LETTER
@@ -305,4 +303,3 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URLUtilsReadOnly->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly.html#_getBase
 [esperecyan\url\lib\URLUtils->updateSteps()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_updateSteps
 [esperecyan\url\lib\URLUtilsReadOnly->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_setInput
-[esperecyan\url\lib\URLUtilsReadOnly->resetInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_resetInput

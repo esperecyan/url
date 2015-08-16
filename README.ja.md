@@ -180,7 +180,6 @@ READMEの英訳をハダーさんに協力していただきました。
 | [基底 URL の取得] アルゴリズム         | [esperecyan\url\lib\URLUtilsReadOnly->getBase()]    |
 | [更新手続き]                           | [esperecyan\url\lib\URLUtils->updateSteps()]        |
 | [入力を設定する]                       | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
-| [入力を再設定する]                     | [esperecyan\url\lib\URLUtilsReadOnly->resetInput()] |
 
 
 [1. 用語]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
@@ -249,7 +248,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [基底 URL の取得]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-get-the-base
 [更新手続き]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-update
 [入力を設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-set-the-input
-[入力を再設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#reset-the-input
 
 [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#WINDOWS_DRIVE_LETTER
@@ -306,4 +304,3 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URLUtilsReadOnly->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly.html#_getBase
 [esperecyan\url\lib\URLUtils->updateSteps()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_updateSteps
 [esperecyan\url\lib\URLUtilsReadOnly->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_setInput
-[esperecyan\url\lib\URLUtilsReadOnly->resetInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_resetInput
