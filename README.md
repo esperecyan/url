@@ -168,15 +168,15 @@ The correspondence table of the algorithms
 | [application/x-www-form-urlencoded serializer]      | [esperecyan\url\lib\URLencoding::serializeURLencoded()]    |
 | [application/x-www-form-urlencoded string parser]   | [esperecyan\url\lib\URLencoding::parseURLencodedString()]  |
 
-| [6. API]                         |                                                   |
-|----------------------------------|---------------------------------------------------|
-| [URLUtils interface]             | [esperecyan\url\lib\URLUtils trait]               |
-| [URLUtilsSearchParams interface] | [esperecyan\url\lib\URLUtilsSearchParams trait]   |
-| [URLUtilsReadOnly interface]     | [esperecyan\url\lib\URLUtilsReadOnly trait]       |
-| A [get the base] algorithm       | [esperecyan\url\lib\URLUtilsReadOnly->setInput()] |
-| [update steps]                   | [esperecyan\url\lib\URLUtils->updateSteps()]      |
-| [set the input]                  | [esperecyan\url\lib\URLUtils->setInput()]         |
-| [reset the input]                | [esperecyan\url\lib\URLUtils->resetInput()]       |
+| [6. API]                         |                                                     |
+|----------------------------------|-----------------------------------------------------|
+| [URLUtils interface]             | [esperecyan\url\lib\URLUtils trait]                 |
+| [URLUtilsSearchParams interface] | [esperecyan\url\lib\URLUtilsSearchParams trait]     |
+| [URLUtilsReadOnly interface]     | [esperecyan\url\lib\URLUtilsReadOnly trait]         |
+| A [get the base] algorithm       | [esperecyan\url\lib\URLUtilsReadOnly->getBase()]    |
+| [update steps]                   | [esperecyan\url\lib\URLUtils->updateSteps()]        |
+| [set the input]                  | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
+| [reset the input]                | [esperecyan\url\lib\URLUtilsReadOnly->resetInput()] |
 
 [1. Terminology]: https://url.spec.whatwg.org/#terminology
 [potential Windows drive letter]: https://url.spec.whatwg.org/#potential-windows-drive-letter
@@ -298,6 +298,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URLUtils trait]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils
 [esperecyan\url\lib\URLUtilsSearchParams trait]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsSearchParams
 [esperecyan\url\lib\URLUtilsReadOnly trait]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly
-[esperecyan\url\lib\URLUtilsReadOnly->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_setInput
+[esperecyan\url\lib\URLUtilsReadOnly->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly.html#_getBase
 [esperecyan\url\lib\URLUtils->updateSteps()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_updateSteps
-[esperecyan\url\lib\URLUtils->resetInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_resetInput
+[esperecyan\url\lib\URLUtilsReadOnly->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_setInput
+[esperecyan\url\lib\URLUtilsReadOnly->resetInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_resetInput
