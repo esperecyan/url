@@ -175,6 +175,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [URLUtilsReadOnlyインターフェース]     | [esperecyan\url\lib\URLUtilsReadOnlyトレイト]     |
 | [基底 URL の取得] アルゴリズム         | [esperecyan\url\lib\URLUtilsReadOnly->setInput()] |
 | [更新手続き]                           | [esperecyan\url\lib\URLUtils->updateSteps()]      |
+| [入力を設定する]                       | [esperecyan\url\lib\URLUtils->setInput()]         |
 | [入力を再設定する]                     | [esperecyan\url\lib\URLUtils->resetInput()]       |
 
 
@@ -244,6 +245,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [URLUtilsReadOnlyインターフェース]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#URLUtilsReadOnly
 [基底 URL の取得]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-get-the-base
 [更新手続き]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-update
+[入力を設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-set-the-input
 [入力を再設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#reset-the-input
 
 [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER

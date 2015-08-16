@@ -175,6 +175,7 @@ The correspondence table of the algorithms
 | [URLUtilsReadOnly interface]     | [esperecyan\url\lib\URLUtilsReadOnly trait]       |
 | A [get the base] algorithm       | [esperecyan\url\lib\URLUtilsReadOnly->setInput()] |
 | [update steps]                   | [esperecyan\url\lib\URLUtils->updateSteps()]      |
+| [set the input]                  | [esperecyan\url\lib\URLUtils->setInput()]         |
 | [reset the input]                | [esperecyan\url\lib\URLUtils->resetInput()]       |
 
 [1. Terminology]: https://url.spec.whatwg.org/#terminology
@@ -243,6 +244,7 @@ The correspondence table of the algorithms
 [URLUtilsReadOnly interface]: https://url.spec.whatwg.org/#urlutilsreadonly
 [get the base]: https://url.spec.whatwg.org/#concept-urlutils-get-the-base
 [update steps]: https://url.spec.whatwg.org/#concept-urlutils-update
+[set the input]: https://url.spec.whatwg.org/#concept-urlutils-set-the-input
 [reset the input]: https://url.spec.whatwg.org/#reset-the-input
 
 [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER
