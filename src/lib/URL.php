@@ -366,22 +366,15 @@ class URL
                             $buffer = '%40' . $buffer;
                         }
                         $atFlag = true;
-                        if (is_null($url->password)) {
-                            $usernameAndPassword = explode(':', str_replace(["\t", "\n", "\r"], '', $buffer), 2);
-                            $url->username .= self::percentEncodeCodePoints(
-                                PercentEncoding::USERNAME_ENCODE_SET,
-                                $usernameAndPassword[0]
-                            );
-                            if (isset($usernameAndPassword[1])) {
-                                $url->password = self::percentEncodeCodePoints(
-                                    PercentEncoding::PASSWORD_ENCODE_SET,
-                                    $usernameAndPassword[1]
-                                );
-                            }
-                        } else {
+                        $usernameAndPassword = explode(':', str_replace(["\t", "\n", "\r"], '', $buffer), 2);
+                        $url->username .= self::percentEncodeCodePoints(
+                            PercentEncoding::USERINFO_ENCODE_SET,
+                            $usernameAndPassword[0]
+                        );
+                        if (isset($usernameAndPassword[1])) {
                             $url->password .= self::percentEncodeCodePoints(
-                                PercentEncoding::PASSWORD_ENCODE_SET,
-                                $buffer
+                                PercentEncoding::USERINFO_ENCODE_SET,
+                                $usernameAndPassword[1]
                             );
                         }
                         $buffer = '';

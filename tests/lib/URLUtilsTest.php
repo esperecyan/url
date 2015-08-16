@@ -125,15 +125,15 @@ class URLUtilsTest extends \PHPUnit_Framework_TestCase
     public function usernameProvider()
     {
         return [
-            ['http://url.test/'             , 'username', 'username'    , 'http://username@url.test/'    ],
-            ['http://username@url.test/'    ,         '', ''            , 'http://url.test/'             ],
-            ['tftp://url.test/'             , 'username', 'username'    , 'tftp://username@url.test/'    ],
-            ['tftp://username@url.test/'    ,         '', ''            , 'tftp://url.test/'             ],
-            ['http://url.test/'             ,    '/@\\:', '%2F%40%5C%3A', 'http://%2F%40%5C%3A@url.test/'],
-            ['file:///C:/directory/filename', 'username', ''            , 'file:///C:/directory/filename'],
-            [null                           , 'username', ''            , ''                             ],
-            [''                             , 'username', ''            , ''                             ],
-            ['invalid URL'                  , 'username', ''            , 'invalid URL'                  ],
+            ['http://url.test/'             , 'username'   , 'username', 'http://username@url.test/'    ],
+            ['http://username@url.test/'    ,         ''   , ''        , 'http://url.test/'             ],
+            ['tftp://url.test/'             , 'username'   , 'username', 'tftp://username@url.test/'    ],
+            ['tftp://username@url.test/'    ,         ''   , ''        , 'tftp://url.test/'             ],
+            ['http://url.test/'             , '/:;=@[\\]^|', '%2F%3A%3B%3D%40%5B%5C%5D%5E%7C', 'http://%2F%3A%3B%3D%40%5B%5C%5D%5E%7C@url.test/'],
+            ['file:///C:/directory/filename', 'username'   , ''        , 'file:///C:/directory/filename'],
+            [null                           , 'username'   , ''        , ''                             ],
+            [''                             , 'username'   , ''        , ''                             ],
+            ['invalid URL'                  , 'username'   , ''        , 'invalid URL'                  ],
         ];
     }
     
@@ -160,16 +160,16 @@ class URLUtilsTest extends \PHPUnit_Framework_TestCase
     public function passwordProvider()
     {
         return [
-            ['http://url.test/'                  , 'password', 'password'  , 'http://:password@url.test/'        ],
-            ['http://username@url.test/'         , 'password', 'password'  , 'http://username:password@url.test/'],
-            ['http://username:password@url.test/', ''        , ''          , 'http://username@url.test/'         ],
-            ['tftp://username@url.test/'         , 'password', 'password'  , 'tftp://username:password@url.test/'],
-            ['tftp://username:password@url.test/', ''        , ''          , 'tftp://username@url.test/'         ],
-            ['http://url.test/'                  , '/@\\:'   , '%2F%40%5C:', 'http://:%2F%40%5C:@url.test/'      ],
-            ['file:///C:/directory/filename'       , 'password', ''          , 'file:///C:/directory/filename'   ],
-            [null                                , 'password', ''          , ''                                  ],
-            [''                                  , 'password', ''          , ''                                  ],
-            ['invalid URL'                       , 'password', ''          , 'invalid URL'                       ],
+            ['http://url.test/'                  , 'password'   , 'password'  , 'http://:password@url.test/'        ],
+            ['http://username@url.test/'         , 'password'   , 'password'  , 'http://username:password@url.test/'],
+            ['http://username:password@url.test/', ''           , ''          , 'http://username@url.test/'         ],
+            ['tftp://username@url.test/'         , 'password'   , 'password'  , 'tftp://username:password@url.test/'],
+            ['tftp://username:password@url.test/', ''           , ''          , 'tftp://username@url.test/'         ],
+            ['http://url.test/'                  , '/:;=@[\\]^|', '%2F%3A%3B%3D%40%5B%5C%5D%5E%7C', 'http://:%2F%3A%3B%3D%40%5B%5C%5D%5E%7C@url.test/'      ],
+            ['file:///C:/directory/filename'     , 'password'   , ''          , 'file:///C:/directory/filename'     ],
+            [null                                , 'password'   , ''          , ''                                  ],
+            [''                                  , 'password'   , ''          , ''                                  ],
+            ['invalid URL'                       , 'password'   , ''          , 'invalid URL'                       ],
         ];
     }
     
