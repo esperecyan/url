@@ -255,7 +255,7 @@
 </span><span id="154" class="l">            
 </span><span id="155" class="l">            <span class="php-keyword1">case</span> <span class="php-quote">'port'</span>:
 </span><span id="156" class="l">                <span class="php-var">$this</span>-&gt;resetInput();
-</span><span id="157" class="l">                <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;url ? (string)<span class="php-var">$this</span>-&gt;url-&gt;port : <span class="php-quote">''</span>;
+</span><span id="157" class="l">                <span class="php-var">$value</span> = <span class="php-keyword2">is_null</span>(<span class="php-var">$this</span>-&gt;url) || <span class="php-keyword2">is_null</span>(<span class="php-var">$this</span>-&gt;url-&gt;port) ? <span class="php-quote">''</span> : (string)<span class="php-var">$this</span>-&gt;url-&gt;port;
 </span><span id="158" class="l">                <span class="php-keyword1">break</span>;
 </span><span id="159" class="l">            
 </span><span id="160" class="l">            <span class="php-keyword1">case</span> <span class="php-quote">'pathname'</span>:
