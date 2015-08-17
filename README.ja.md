@@ -157,6 +157,8 @@ READMEの英訳をハダーさんに協力していただきました。
 | [局所的]               | [esperecyan\url\lib\URL->isLocal()]                |
 | [資格証明情報を含む]   | [esperecyan\url\lib\URL->isIncludingCredentials()] |
 | [パスを pop する]      | [esperecyan\url\lib\URL->popPath()]                |
+| [単ドットパス区分]     | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
+| [二重ドットパス区分]   | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
 | [URL 符号位置]         | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
 | [URL 構文解析器]       | [esperecyan\url\lib\URL::parseURL()]               |
 | [基本 URL 構文解析器]  | [esperecyan\url\lib\URL::parseBasicURL()]          |
@@ -227,6 +229,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [局所的]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-local
 [資格証明情報を含む]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#include-credentials
 [パスを pop する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#pop-a-urls-path
+[単ドットパス区分]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#syntax-url-path-segment-dot
+[二重ドットパス区分]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#syntax-url-path-segment-dotdot
 [URL 符号位置]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#url-code-points
 [URL 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-parser
 [基本 URL 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-basic-url-parser
@@ -287,6 +291,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
 [esperecyan\url\lib\URL->popPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_popPath
+[esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
+[esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::URL_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#URL_CODE_POINTS
 [esperecyan\url\lib\URL::parseURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseURL
 [esperecyan\url\lib\URL::parseBasicURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseBasicURL

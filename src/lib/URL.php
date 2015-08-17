@@ -137,6 +137,18 @@ class URL
     }
     
     /**
+     * @var string The regular expression (PCRE) pattern matching a single-dot path segment.
+     * @link https://url.spec.whatwg.org/#syntax-url-path-segment-dot URL Standard
+     */
+    const SINGLE_DOT_PATH_SEGMENT = '/^(?:\\.|%2e)$/ui';
+    
+    /**
+     * @var string The regular expression (PCRE) pattern matching a double-dot path segment.
+     * @link https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot URL Standard
+     */
+    const DOUBLE_DOT_PATH_SEGMENT = '/^(?:\\.|%2e){2}$/ui';
+    
+    /**
      * @var string The regular expression (PCRE) pattern matching the URL code points.
      * @link https://url.spec.whatwg.org/#url-code-points URL Standard
      */
@@ -548,24 +560,15 @@ class URL
                 case 'path state':
                     if (in_array($c, ['', '/']) || $c === '\\' && $url->isSpecial()
                         || !$stateOverride && in_array($c, ['?', '#'])) {
-                        switch (strtolower($buffer)) {
-                            case '%2e':
-                                $buffer = '.';
-                                break;
-                            case '.%2e':
-                            case '%2e.':
-                            case '%2e%2e':
-                                $buffer = '..';
-                                break;
-                        }
-                        if ($buffer === '..') {
+                        if (preg_match(self::DOUBLE_DOT_PATH_SEGMENT, $buffer) === 1) {
                             $url->popPath();
                             if (!($c === '/' || $c === '\\' && $url->isSpecial())) {
                                 $url->path[] = '';
                             }
-                        } elseif ($buffer === '.' && !($c === '/' || $c === '\\' && $url->isSpecial())) {
+                        } elseif (preg_match(self::SINGLE_DOT_PATH_SEGMENT, $buffer) === 1
+                            && !($c === '/' || $c === '\\' && $url->isSpecial())) {
                             $url->path[] = '';
-                        } elseif ($buffer !== '.') {
+                        } elseif (preg_match(self::SINGLE_DOT_PATH_SEGMENT, $buffer) !== 1) {
                             if ($url->scheme === 'file'
                                 && !$url->path
                                 && preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $buffer) === 1) {

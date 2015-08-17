@@ -138,32 +138,34 @@ The correspondence table of the algorithms
 | [IPv4 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
 | [IPv6 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
-| [4. URLs]              |                                                    |
-|------------------------|----------------------------------------------------|
-| [URL]                  | An instance of [esperecyan\url\lib\URL class]      |
-| [scheme]               | [esperecyan\url\lib\URL->scheme]                   |
-| [username]             | [esperecyan\url\lib\URL->username]                 |
-| [password]             | [esperecyan\url\lib\URL->password]                 |
-| [host]                 | [esperecyan\url\lib\URL->host]                     |
-| [port]                 | [esperecyan\url\lib\URL->port]                     |
-| [path]                 | [esperecyan\url\lib\URL->path]                     |
-| [query]                | [esperecyan\url\lib\URL->query]                    |
-| [fragment]             | [esperecyan\url\lib\URL->fragment]                 |
-| [non relative flag]    | [esperecyan\url\lib\URL->nonRelativeFlag]          |
-| [object]               | [esperecyan\url\lib\URL->object]                   |
-| [special scheme]       | [esperecyan\url\lib\URL::$specialSchemes]          |
-| [is special]           | [esperecyan\url\lib\URL->isSpecial()]              |
-| [local scheme]         | [esperecyan\url\lib\URL::$localSchemes]            |
-| [is local]             | [esperecyan\url\lib\URL->isLocal()]                |
-| [includes credentials] | [esperecyan\url\lib\URL->isIncludingCredentials()] |
-| [pop a path]           | [esperecyan\url\lib\URL->popPath()]                |
-| [URL code points]      | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
-| [URL parser]           | [esperecyan\url\lib\URL::parseURL()]               |
-| [basic URL parser]     | [esperecyan\url\lib\URL::parseBasicURL()]          |
-| [set the username]     | [esperecyan\url\lib\URL->setUsername()]            |
-| [set the password]     | [esperecyan\url\lib\URL->setPassword()]            |
-| [URL serializer]       | [esperecyan\url\lib\URL->serializeURL()]           |
-| [origin]               | [esperecyan\url\lib\URL->getOrigin()]              |
+| [4. URLs]                 |                                                    |
+|---------------------------|----------------------------------------------------|
+| [URL]                     | An instance of [esperecyan\url\lib\URL class]      |
+| [scheme]                  | [esperecyan\url\lib\URL->scheme]                   |
+| [username]                | [esperecyan\url\lib\URL->username]                 |
+| [password]                | [esperecyan\url\lib\URL->password]                 |
+| [host]                    | [esperecyan\url\lib\URL->host]                     |
+| [port]                    | [esperecyan\url\lib\URL->port]                     |
+| [path]                    | [esperecyan\url\lib\URL->path]                     |
+| [query]                   | [esperecyan\url\lib\URL->query]                    |
+| [fragment]                | [esperecyan\url\lib\URL->fragment]                 |
+| [non relative flag]       | [esperecyan\url\lib\URL->nonRelativeFlag]          |
+| [object]                  | [esperecyan\url\lib\URL->object]                   |
+| [special scheme]          | [esperecyan\url\lib\URL::$specialSchemes]          |
+| [is special]              | [esperecyan\url\lib\URL->isSpecial()]              |
+| [local scheme]            | [esperecyan\url\lib\URL::$localSchemes]            |
+| [is local]                | [esperecyan\url\lib\URL->isLocal()]                |
+| [includes credentials]    | [esperecyan\url\lib\URL->isIncludingCredentials()] |
+| [pop a path]              | [esperecyan\url\lib\URL->popPath()]                |
+| [single-dot path segment] | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
+| [double-dot path segment] | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
+| [URL code points]         | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
+| [URL parser]              | [esperecyan\url\lib\URL::parseURL()]               |
+| [basic URL parser]        | [esperecyan\url\lib\URL::parseBasicURL()]          |
+| [set the username]        | [esperecyan\url\lib\URL->setUsername()]            |
+| [set the password]        | [esperecyan\url\lib\URL->setPassword()]            |
+| [URL serializer]          | [esperecyan\url\lib\URL->serializeURL()]           |
+| [origin]                  | [esperecyan\url\lib\URL->getOrigin()]              |
 
 | [5. application/x-www-form-urlencoded]              |                                                            |
 |-----------------------------------------------------|------------------------------------------------------------|
@@ -226,6 +228,8 @@ The correspondence table of the algorithms
 [is local]: https://url.spec.whatwg.org/#is-local
 [includes credentials]: https://url.spec.whatwg.org/#include-credentials
 [pop a path]: https://url.spec.whatwg.org/#pop-a-urls-path
+[single-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dot
+[double-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot
 [URL code points]: https://url.spec.whatwg.org/#url-code-points
 [URL parser]: https://url.spec.whatwg.org/#concept-url-parser
 [basic URL parser]: https://url.spec.whatwg.org/#concept-basic-url-parser
@@ -286,6 +290,8 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
 [esperecyan\url\lib\URL->popPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_popPath
+[esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
+[esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::URL_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#URL_CODE_POINTS
 [esperecyan\url\lib\URL::parseURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseURL
 [esperecyan\url\lib\URL::parseBasicURL()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_parseBasicURL
