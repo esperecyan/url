@@ -650,7 +650,7 @@ class URL
      */
     public function setUsername($username)
     {
-        $this->username = self::percentEncodeCodePoints(PercentEncoding::USERNAME_ENCODE_SET, $username);
+        $this->username = self::percentEncodeCodePoints(PercentEncoding::USERINFO_ENCODE_SET, $username);
     }
     
     /**
@@ -662,7 +662,7 @@ class URL
     {
         $this->password = $password === ''
             ? null
-            : self::percentEncodeCodePoints(PercentEncoding::PASSWORD_ENCODE_SET, $password);
+            : self::percentEncodeCodePoints(PercentEncoding::USERINFO_ENCODE_SET, $password);
     }
     
     /**
