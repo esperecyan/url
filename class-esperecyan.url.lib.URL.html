@@ -47,6 +47,7 @@
 			<ul>
 				<li><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
 				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
+				<li><a href="class-esperecyan.url.lib.Terminology.html">Terminology</a></li>
 				<li class="active"><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
 				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
 			</ul>
@@ -121,7 +122,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#urls">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-697" title="Go to source code">lib/URL.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-754" title="Go to source code">lib/URL.php</a>
 		<br>
 	</div>
 
@@ -243,6 +244,42 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="popPath" id="_popPath">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_popPath">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#126-137" title="Go to source code">popPath</a>( )</code>
+
+		<div class="description short">
+			<p>If url’s scheme is not "file" or url’s path does not contain a single string that is a Windows drive letter,
+remove url’s path’s last string, if any.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>If url’s scheme is not "file" or url’s path does not contain a single string that is a Windows drive letter,
+remove url’s path’s last string, if any.</p>
+
+
+
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#pop-a-urls-path">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="parseURL" id="_parseURL">
 
 		<td class="attributes"><code>
@@ -255,7 +292,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#136-147" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#161-172" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL parser.</p>
@@ -302,7 +339,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseBasicURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#149-591" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#174-646" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			<p>The basic URL parser.</p>
@@ -355,7 +392,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUsername">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#593-601" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#648-656" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the username of the URL given $username.</p>
@@ -394,7 +431,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#603-613" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#658-668" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the password of the URL given $password.</p>
@@ -433,7 +470,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#632-662" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#687-719" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL serializer.</p>
@@ -465,14 +502,14 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		<td class="attributes"><code>
 			 public 
 
-			string[]|string
+			(string|integer)[]|string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrigin">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#664-696" title="Go to source code">getOrigin</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#721-753" title="Go to source code">getOrigin</a>( )</code>
 
 		<div class="description short">
 			<p>A URL’s origin is the origin, switching on URL’s scheme.</p>
@@ -485,7 +522,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 				<h4>Returns</h4>
 				<div class="list">
-					string[]|string<br><p>An array with the first element the scheme, the second element the host and the third element the port.
+					(string|integer)[]|string<br><p>An array with the first element the scheme, the second element the host and the third element the port.
      Or an unique string of 23 characters.</p>
 				</div>
 
@@ -510,12 +547,68 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 	<table class="summary constants" id="constants">
 	<caption>Constants summary</caption>
+	<tr data-order="SINGLE_DOT_PATH_SEGMENT" id="SINGLE_DOT_PATH_SEGMENT">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.URL.html#139-143" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#syntax-url-path-segment-dot">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#SINGLE_DOT_PATH_SEGMENT" class="anchor">#</a>
+				<code><span class="php-quote">'/^(?:\\.|%2e)$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="DOUBLE_DOT_PATH_SEGMENT" id="DOUBLE_DOT_PATH_SEGMENT">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.URL.html#145-149" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#DOUBLE_DOT_PATH_SEGMENT" class="anchor">#</a>
+				<code><span class="php-quote">'/^(?:\\.|%2e){2}$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="URL_CODE_POINTS" id="URL_CODE_POINTS">
 
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#126-130" title="Go to source code"><b>URL_CODE_POINTS</b></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#151-155" title="Go to source code"><b>URL_CODE_POINTS</b></a>
 			</code>
 
 			<div class="description short">
@@ -665,18 +758,18 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 	<tr data-order="port" id="$port">
 		<td class="attributes"><code>
 			public  
-			string
+			integer|null
 		</code></td>
 
 		<td class="name">
 				<a href="source-class-esperecyan.url.lib.URL.html#37-41" title="Go to source code"><var>$port</var></a>
 
 			<div class="description short">
-				<p>A URL’s port is a string that identifies a networking port.</p>
+				<p>A URL’s port is either null or a 16-bit integer that identifies a networking port.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>A URL’s port is a string that identifies a networking port.</p>
+				<p>A URL’s port is either null or a 16-bit integer that identifies a networking port.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -687,7 +780,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		<td class="value">
 			<div>
 				<a href="#$port" class="anchor">#</a>
-				<code><span class="php-quote">''</span></code>
+				<code><span class="php-keyword1">null</span></code>
 			</div>
 		</td>
 	</tr>
@@ -841,7 +934,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 	<tr data-order="specialSchemes" id="$specialSchemes">
 		<td class="attributes"><code>
 			public static 
-			(string|null)[]
+			(integer|null)[]
 		</code></td>
 
 		<td class="name">
@@ -865,13 +958,13 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 			<div>
 				<a href="#$specialSchemes" class="anchor">#</a>
 				<code>[
-    <span class="php-quote">'ftp'</span>    =&gt;  <span class="php-quote">'21'</span>,
-    <span class="php-quote">'file'</span>   =&gt;  <span class="php-keyword1">null</span>,
-    <span class="php-quote">'gopher'</span> =&gt;  <span class="php-quote">'70'</span>,
-    <span class="php-quote">'http'</span>   =&gt;  <span class="php-quote">'80'</span>,
-    <span class="php-quote">'https'</span>  =&gt; <span class="php-quote">'443'</span>,
-    <span class="php-quote">'ws'</span>     =&gt;  <span class="php-quote">'80'</span>,
-    <span class="php-quote">'wss'</span>    =&gt; <span class="php-quote">'443'</span>,
+    <span class="php-quote">'ftp'</span>    =&gt;   <span class="php-num">21</span>,
+    <span class="php-quote">'file'</span>   =&gt; <span class="php-keyword1">null</span>,
+    <span class="php-quote">'gopher'</span> =&gt;   <span class="php-num">70</span>,
+    <span class="php-quote">'http'</span>   =&gt;   <span class="php-num">80</span>,
+    <span class="php-quote">'https'</span>  =&gt;  <span class="php-num">443</span>,
+    <span class="php-quote">'ws'</span>     =&gt;   <span class="php-num">80</span>,
+    <span class="php-quote">'wss'</span>    =&gt;  <span class="php-num">443</span>,
 ]</code>
 			</div>
 		</td>

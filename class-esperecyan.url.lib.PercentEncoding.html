@@ -47,6 +47,7 @@
 			<ul>
 				<li><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
 				<li class="active"><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
+				<li><a href="class-esperecyan.url.lib.Terminology.html">Terminology</a></li>
 				<li><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
 				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
 			</ul>
@@ -125,7 +126,7 @@
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#percent_encoded-bytes">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.PercentEncoding.html#4-76" title="Go to source code">lib/PercentEncoding.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.PercentEncoding.html#4-86" title="Go to source code">lib/PercentEncoding.php</a>
 		<br>
 	</div>
 
@@ -231,7 +232,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_utf8PercentEncode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.PercentEncoding.html#57-75" title="Go to source code">utf8PercentEncode</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoint</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.PercentEncoding.html#67-85" title="Go to source code">utf8PercentEncode</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoint</var></span> )</code>
 
 		<div class="description short">
 			<p>utf-8 percent encode a code point, using an encode set.</p>
@@ -336,7 +337,7 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#45-49" title="Go to source code"><b>PASSWORD_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#45-51" title="Go to source code"><b>PASSWORD_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
@@ -346,9 +347,14 @@
 			<div class="description detailed hidden">
 				
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							<p>3.0.0 The password encode set and the username encode set are obsolete,
+     then these are replaced by the userinfo encode set.</p><br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#password-encode-set">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5</a><br>
 					</div>
 			</div>
 		</td>
@@ -364,7 +370,40 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#51-55" title="Go to source code"><b>USERNAME_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#53-59" title="Go to source code"><b>USERNAME_ENCODE_SET</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Deprecated</h4>
+					<div class="list">
+							<p>3.0.0 The password encode set and the username encode set are obsolete,
+     then these are replaced by the userinfo encode set.</p><br>
+					</div>
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#USERNAME_ENCODE_SET" class="anchor">#</a>
+				<code><span class="php-quote">'/[^!$-.0-9;=A-[\\]-_a-z|~]/u'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="USERINFO_ENCODE_SET" id="USERINFO_ENCODE_SET">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#61-65" title="Go to source code"><b>USERINFO_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
@@ -376,14 +415,14 @@
 
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#username-encode-set">URL Standard</a><br>
+							<a href="https://url.spec.whatwg.org/#userinfo-encode-set">URL Standard</a><br>
 					</div>
 			</div>
 		</td>
 		<td class="value">
 			<div>
-				<a href="#USERNAME_ENCODE_SET" class="anchor">#</a>
-				<code><span class="php-quote">'/[^!$-.0-9;=A-[\\]-_a-z|~]/u'</span></code>
+				<a href="#USERINFO_ENCODE_SET" class="anchor">#</a>
+				<code><span class="php-quote">'/[^!$-.0-9A-Z_a-z~]/u'</span></code>
 			</div>
 		</td>
 	</tr>
