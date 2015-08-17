@@ -114,13 +114,8 @@ READMEの英訳をハダーさんに協力していただきました。
 | [パーセント復号]                                       | [esperecyan\url\lib\PercentEncoding::percentDecode()]     |
 | [単純 符号化集合]                                      | [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]   |
 | [既定 符号化集合]                                      | [esperecyan\url\lib\PercentEncoding::DEFAULT_ENCODE_SET]  |
-| <a name="^1"></a>パスワード 符号化集合 <sup>[*1]</sup> | [esperecyan\url\lib\PercentEncoding::PASSWORD_ENCODE_SET] |
-| ユーザ名 符号化集合 <sup>[*1]</sup>                    | [esperecyan\url\lib\PercentEncoding::USERNAME_ENCODE_SET] |
 | [userinfo 符号化集合]                                  | [esperecyan\url\lib\PercentEncoding::USERINFO_ENCODE_SET] |
 | [utf-8 パーセント符号化]                               | [esperecyan\url\lib\PercentEncoding::utf8PercentEncode()] |
-
-<a name="*1"></a><sup>[*1](#^1)</sup> [パスワード 符号化集合、ユーザ名 符号化集合は廃止され、userinfo 符号化集合に置き換えられた。](https://github.com/whatwg/url/commit/0fdcfbcc58f713d3d804a0cbbe6c1d0cadab2962) 非推奨。
-[*1]: #*1 "パスワード 符号化集合、ユーザ名 符号化集合は廃止され、userinfo 符号化集合に置き換えられた。非推奨。"
 
 | [3. ホスト（ドメインと IP アドレス）] |                                                        |
 |---------------------------------------|--------------------------------------------------------|
@@ -259,8 +254,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\PercentEncoding::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentDecode
 [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#SIMPLE_ENCODE_SET
 [esperecyan\url\lib\PercentEncoding::DEFAULT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#DEFAULT_ENCODE_SET
-[esperecyan\url\lib\PercentEncoding::PASSWORD_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#PASSWORD_ENCODE_SET
-[esperecyan\url\lib\PercentEncoding::USERNAME_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#USERNAME_ENCODE_SET
 [esperecyan\url\lib\PercentEncoding::USERINFO_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#USERINFO_ENCODE_SET
 [esperecyan\url\lib\PercentEncoding::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_utf8PercentEncode
 [esperecyan\url\lib\HostProcessing::domainToASCII()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToASCII

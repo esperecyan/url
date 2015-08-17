@@ -43,20 +43,20 @@ class PercentEncoding
     const DEFAULT_ENCODE_SET = '/[^!$-;=@-_a-z|~]/u';
     
     /**
-     * @var string The password encode set.
+     * @var string Alias of USERINFO_ENCODE_SET.
      * @deprecated 3.0.0 The password encode set and the username encode set are obsolete,
      *      then these are replaced by the userinfo encode set.
      * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289 Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5
      */
-    const PASSWORD_ENCODE_SET = '/[^!$-.0-;=A-[\\]-_a-z|~]/u';
+    const PASSWORD_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * @var string The username encode set.
+     * @var string Alias of USERINFO_ENCODE_SET.
      * @deprecated 3.0.0 The password encode set and the username encode set are obsolete,
      *      then these are replaced by the userinfo encode set.
      * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289 Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5
      */
-    const USERNAME_ENCODE_SET = '/[^!$-.0-9;=A-[\\]-_a-z|~]/u';
+    const USERNAME_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
      * @var string The userinfo encode set.
