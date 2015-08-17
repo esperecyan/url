@@ -31,13 +31,13 @@ class PercentEncoding
     }
     
     /**
-     * @var string The simple encode set.
+     * @var string The regular expression (PCRE) pattern matching a character in the simple encode set.
      * @link https://url.spec.whatwg.org/#simple-encode-set URL Standard
      */
     const SIMPLE_ENCODE_SET = '/[^ -~]/u';
     
     /**
-     * @var string The default encode set.
+     * @var string The regular expression (PCRE) pattern matching a character in the default encode set.
      * @link https://url.spec.whatwg.org/#default-encode-set URL Standard
      */
     const DEFAULT_ENCODE_SET = '/[^!$-;=@-_a-z|~]/u';
@@ -59,7 +59,7 @@ class PercentEncoding
     const USERNAME_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * @var string The userinfo encode set.
+     * @var string The regular expression (PCRE) pattern matching a character in the userinfo encode set.
      * @link https://url.spec.whatwg.org/#userinfo-encode-set URL Standard
      */
     const USERINFO_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
