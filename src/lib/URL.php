@@ -35,10 +35,10 @@ class URL
     public $host = null;
     
     /**
-     * @var string A URL’s port is a string that identifies a networking port.
+     * @var integer|null A URL’s port is either null or a 16-bit integer that identifies a networking port.
      * @link https://url.spec.whatwg.org/#concept-url-port URL Standard
      */
-    public $port = '';
+    public $port = null;
     
     /**
      * @var string[] A URL’s path is a list of zero or more strings holding data,
@@ -73,18 +73,18 @@ class URL
     public $object = null;
     
     /**
-     * @var (string|null)[] A special scheme is a scheme in the key of this array.
+     * @var (integer|null)[] A special scheme is a scheme in the key of this array.
      *      A default port is a special scheme’s optional corresponding port and is in the value on the key.
      * @link https://url.spec.whatwg.org/#special-scheme URL Standard
      */
     public static $specialSchemes = [
-        'ftp'    =>  '21',
-        'file'   =>  null,
-        'gopher' =>  '70',
-        'http'   =>  '80',
-        'https'  => '443',
-        'ws'     =>  '80',
-        'wss'    => '443',
+        'ftp'    =>   21,
+        'file'   => null,
+        'gopher' =>   70,
+        'http'   =>   80,
+        'https'  =>  443,
+        'ws'     =>   80,
+        'wss'    =>  443,
     ];
     
     /**
@@ -435,13 +435,16 @@ class URL
                         $buffer .= $c;
                     } elseif (in_array($c, ['', '/', '?', '#']) || $c === '\\' && $url->isSpecial() || $stateOverride) {
                         if ($buffer !== '') {
-                            $buffer = (string)(int)$buffer;
+                            $port = (int)$buffer;
+                            if ($port > pow(2, 16) - 1) {
+                                return false;
+                            }
+                            $url->port = isset(self::$specialSchemes[$url->scheme]) && self::$specialSchemes[$url->scheme] === $port
+                                ? null
+                                : $port;
+                        } else {
+                            $url->port = null;
                         }
-                        if (isset(self::$specialSchemes[$url->scheme])
-                            && self::$specialSchemes[$url->scheme] === $buffer) {
-                            $buffer = '';
-                        }
-                        $url->port = $buffer;
                         if ($stateOverride) {
                             return;
                         }
@@ -696,7 +699,7 @@ class URL
                 $output .= '@';
             }
             $output .= HostProcessing::serializeHost($this->host);
-            if ($this->port !== '') {
+            if (!is_null($this->port)) {
                 $output .= ':' . $this->port;
             }
         } elseif (is_null($this->host) && $this->scheme === 'file') {
@@ -715,7 +718,7 @@ class URL
     /**
      * A URL’s origin is the origin, switching on URL’s scheme.
      * @link https://url.spec.whatwg.org/#origin URL Standard
-     * @return string[]|string
+     * @return (string|integer)[]|string
      *      An array with the first element the scheme, the second element the host and the third element the port.
      *      Or an unique string of 23 characters.
      */
@@ -736,7 +739,7 @@ class URL
                 $origin = [
                     $this->scheme,
                     $this->host,
-                    $this->port === '' ? self::$specialSchemes[$this->scheme] : $this->port,
+                    is_null($this->port) ? self::$specialSchemes[$this->scheme] : $this->port,
                 ];
                 break;
             

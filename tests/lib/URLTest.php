@@ -179,7 +179,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 'scheme' => 'http',
                 'nonRelativeFlag' => false,
                 'host' => 'url.test',
-                'port' => '',
+                'port' => null,
                 'path' => [],
             ]],
             ['//url.test/', URL::parseURL('http://base.test/'), null, null, null, [
@@ -216,14 +216,14 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 'scheme' => 'file',
                 'nonRelativeFlag' => false,
                 'host' => null,
-                'port' => '',
+                'port' => null,
                 'path' => ['directory', 'file'],
             ]],
             ['file://LOCALHOST/directory/file', null, null, null, null, [
                 'scheme' => 'file',
                 'nonRelativeFlag' => false,
                 'host' => null,
-                'port' => '',
+                'port' => null,
                 'path' => ['directory', 'file'],
             ]],
         ];
@@ -274,21 +274,21 @@ class URLTest extends \PHPUnit_Framework_TestCase
     public function originProvider()
     {
         return [
-            ['blob:https://whatwg.org/d0360e2f-caee-469f-9a2f-87d5b0456f6f', ['https' , 'whatwg.org'    , '443' ]],
-            ['blob:d0360e2f-caee-469f-9a2f-87d5b0456f6f'                   , null                                ],
-            ['ftp://username:password@url.test:21/pathname?foobar#hash'    , ['ftp'   , 'url.test'      , '21'  ]],
-            ['gopher://username:password@url.test:21/pathname?foobar#hash' , ['gopher', 'url.test'      , '21'  ]],
-            ['http://username:password@url.test:8080/pathname?foobar#hash' , ['http'  , 'url.test'      , '8080']],
-            ['HTTP://URL.テスト/'                                          , ['http'  , 'url.xn--zckzah', '80'  ]],
-            ['http://url.test:80/'                                         , ['http'  , 'url.test'      , '80'  ]],
-            ['https://username:password@url.test:8080/pathname?foobar#hash', ['https' , 'url.test'      , '8080']],
-            ['ws://username:password@url.test:8080/pathname?foobar#hash'   , ['ws'    , 'url.test'      , '8080']],
-            ['wss://username:password@url.test:8080/pathname?foobar#hash'  , ['wss'   , 'url.test'      , '8080']],
-            ['ftp://username:password@url.test:8080/pathname?foobar#hash'  , ['ftp'   , 'url.test'      , '8080']],
-            ['ftp://username:password@url.test:8080/pathname?foobar#hash'  , ['ftp'   , 'url.test'      , '8080']],
-            ['file://directory/filename'                                   , null                                ],
-            ['file:///C:/directory/filename'                               , null                                ],
-            ['mailto:postmaster@url.test'                                  , null                                ],
+            ['blob:https://whatwg.org/d0360e2f-caee-469f-9a2f-87d5b0456f6f', ['https' , 'whatwg.org'    ,  443]],
+            ['blob:d0360e2f-caee-469f-9a2f-87d5b0456f6f'                   , null                              ],
+            ['ftp://username:password@url.test:21/pathname?foobar#hash'    , ['ftp'   , 'url.test'      ,   21]],
+            ['gopher://username:password@url.test:21/pathname?foobar#hash' , ['gopher', 'url.test'      ,   21]],
+            ['http://username:password@url.test:8080/pathname?foobar#hash' , ['http'  , 'url.test'      , 8080]],
+            ['HTTP://URL.テスト/'                                          , ['http'  , 'url.xn--zckzah',   80]],
+            ['http://url.test:80/'                                         , ['http'  , 'url.test'      ,   80]],
+            ['https://username:password@url.test:8080/pathname?foobar#hash', ['https' , 'url.test'      , 8080]],
+            ['ws://username:password@url.test:8080/pathname?foobar#hash'   , ['ws'    , 'url.test'      , 8080]],
+            ['wss://username:password@url.test:8080/pathname?foobar#hash'  , ['wss'   , 'url.test'      , 8080]],
+            ['ftp://username:password@url.test:8080/pathname?foobar#hash'  , ['ftp'   , 'url.test'      , 8080]],
+            ['ftp://username:password@url.test:8080/pathname?foobar#hash'  , ['ftp'   , 'url.test'      , 8080]],
+            ['file://directory/filename'                                   , null                              ],
+            ['file:///C:/directory/filename'                               , null                              ],
+            ['mailto:postmaster@url.test'                                  , null                              ],
         ];
     }
     

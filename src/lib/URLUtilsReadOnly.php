@@ -143,7 +143,7 @@ trait URLUtilsReadOnly
                 $this->resetInput();
                 $value = $this->url && $this->url->host
                     ? HostProcessing::serializeHost($this->url->host)
-                        . ($this->url->port !== '' ? ':' . $this->url->port : '')
+                        . (is_null($this->url->port) ? '' : ':' . $this->url->port)
                     : '';
                 break;
             
@@ -154,7 +154,7 @@ trait URLUtilsReadOnly
             
             case 'port':
                 $this->resetInput();
-                $value = $this->url ? $this->url->port : '';
+                $value = $this->url ? (string)$this->url->port : '';
                 break;
             
             case 'pathname':
