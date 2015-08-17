@@ -108,16 +108,16 @@ The correspondence table of the algorithms
 | [potential Windows drive letter] | [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER] |
 | [Windows drive letter]           | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]           |
 
-| [2. Percent-encoded bytes]          |                                                           |
-|-------------------------------------|-----------------------------------------------------------|
-| [percent encode]                    | [esperecyan\url\lib\PercentEncoding::percentEncode()]     |
-| [percent decode]                    | [esperecyan\url\lib\PercentEncoding::percentDecode()]     |
-| [simple encode set]                 | [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]   |
-| [default encode set]                | [esperecyan\url\lib\PercentEncoding::DEFAULT_ENCODE_SET]  |
-| password encode set <sup>[*1]</sup> | [esperecyan\url\lib\PercentEncoding::PASSWORD_ENCODE_SET] |
-| username encode set <sup>[*1]</sup> | [esperecyan\url\lib\PercentEncoding::USERNAME_ENCODE_SET] |
-| [userinfo encode set]               | [esperecyan\url\lib\PercentEncoding::USERINFO_ENCODE_SET] |
-| [utf-8 percent encode]              | [esperecyan\url\lib\PercentEncoding::utf8PercentEncode()] |
+| [2. Percent-encoded bytes]                           |                                                           |
+|------------------------------------------------------|-----------------------------------------------------------|
+| [percent encode]                                     | [esperecyan\url\lib\PercentEncoding::percentEncode()]     |
+| [percent decode]                                     | [esperecyan\url\lib\PercentEncoding::percentDecode()]     |
+| [simple encode set]                                  | [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]   |
+| [default encode set]                                 | [esperecyan\url\lib\PercentEncoding::DEFAULT_ENCODE_SET]  |
+| <a name="^1"></a>password encode set <sup>[*1]</sup> | [esperecyan\url\lib\PercentEncoding::PASSWORD_ENCODE_SET] |
+| username encode set <sup>[*1]</sup>                  | [esperecyan\url\lib\PercentEncoding::USERNAME_ENCODE_SET] |
+| [userinfo encode set]                                | [esperecyan\url\lib\PercentEncoding::USERINFO_ENCODE_SET] |
+| [utf-8 percent encode]                               | [esperecyan\url\lib\PercentEncoding::utf8PercentEncode()] |
 
 <a name="*1"></a><sup>[*1](#^1)</sup> [The password encode set and the username encode set are obsolete, then these are replaced by the userinfo encode set.](https://github.com/whatwg/url/commit/0fdcfbcc58f713d3d804a0cbbe6c1d0cadab2962) Deprecated.
 [*1]: #*1 "The password encode set and the username encode set are obsolete, then these are replaced by the userinfo encode set. Deprecated."
