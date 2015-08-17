@@ -454,13 +454,11 @@ class URL
                             $url->port = isset(self::$specialSchemes[$url->scheme]) && self::$specialSchemes[$url->scheme] === $port
                                 ? null
                                 : $port;
-                        } else {
-                            $url->port = null;
+                            $buffer = '';
                         }
                         if ($stateOverride) {
                             return;
                         }
-                        $buffer = '';
                         $state = 'path start state';
                         $pointer--;
                     } elseif (strpos("\t\n\r", $c) !== false) {

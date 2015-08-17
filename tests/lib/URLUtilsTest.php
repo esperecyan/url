@@ -273,19 +273,19 @@ class URLUtilsTest extends \PHPUnit_Framework_TestCase
     public function portProvider()
     {
         return [
-            ['http://url.test/'            , '8080'         , '8080', 'http://url.test:8080/'        ],
-            ['http://url.test:8080/'       , ''             , '',     'http://url.test/'             ],
-            ['http://url.test:8080/'       , '80'           , ''    , 'http://url.test/'             ],
-            ['http://url.test/'            , '008080'       , '8080', 'http://url.test:8080/'        ],
-            ['http://url.test/'            , '8080/pathname', '8080', 'http://url.test:8080/'        ],
-            ['http://url.test/'            , '8080テスト'   , '8080', 'http://url.test:8080/'         ],
-            ['tftp://url.test/'            , 'standard.test', ''    , 'tftp://url.test/'             ],
+            ['http://url.test/'            , '8080'         , '8080', 'http://url.test:8080/'       ],
+            ['http://url.test:8080/'       , ''             , '8080', 'http://url.test:8080/'       ],
+            ['http://url.test:8080/'       , '80'           , ''    , 'http://url.test/'            ],
+            ['http://url.test/'            , '008080'       , '8080', 'http://url.test:8080/'       ],
+            ['http://url.test/'            , '8080/pathname', '8080', 'http://url.test:8080/'       ],
+            ['http://url.test/'            , '8080テスト'   , '8080', 'http://url.test:8080/'       ],
+            ['tftp://url.test/'            , 'standard.test', ''    , 'tftp://url.test/'            ],
             ['file://directory/filename'   , '8080'         , ''    , 'file://directory/filename'   ],
             ['file://invalid:8080/filename', '80'           , ''    , 'file://invalid:8080/filename'],
-            ['http://url.test:8080/'       , 'invalid port' , ''    , 'http://url.test/'             ],
-            [null                          , '8080'         , ''    , ''                             ],
-            [''                            , '8080'         , ''    , ''                             ],
-            ['invalid URL'                 , '8080'         , ''    , 'invalid URL'                  ],
+            ['http://url.test:8080/'       , 'invalid port' , '8080', 'http://url.test:8080/'       ],
+            [null                          , '8080'         , ''    , ''                            ],
+            [''                            , '8080'         , ''    , ''                            ],
+            ['invalid URL'                 , '8080'         , ''    , 'invalid URL'                 ],
         ];
     }
     

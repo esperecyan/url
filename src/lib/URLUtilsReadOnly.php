@@ -154,7 +154,7 @@ trait URLUtilsReadOnly
             
             case 'port':
                 $this->resetInput();
-                $value = $this->url ? (string)$this->url->port : '';
+                $value = is_null($this->url) || is_null($this->url->port) ? '' : (string)$this->url->port;
                 break;
             
             case 'pathname':
