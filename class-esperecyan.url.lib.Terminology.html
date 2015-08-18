@@ -117,7 +117,7 @@
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#terminology">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.Terminology.html#4-20" title="Go to source code">lib/Terminology.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.Terminology.html#4-28" title="Go to source code">lib/Terminology.php</a>
 		<br>
 	</div>
 
@@ -135,10 +135,10 @@
 	<caption>Constants summary</caption>
 	<tr data-order="POTENTIAL_WINDOWS_DRIVE_LETTER" id="POTENTIAL_WINDOWS_DRIVE_LETTER">
 
-		<td class="attributes"><code>A</code></td>
+		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Terminology.html#9-13" title="Go to source code"><b>POTENTIAL_WINDOWS_DRIVE_LETTER</b></a>
+				<a href="source-class-esperecyan.url.lib.Terminology.html#9-15" title="Go to source code"><b>POTENTIAL_WINDOWS_DRIVE_LETTER</b></a>
 			</code>
 
 			<div class="description short">
@@ -148,25 +148,29 @@
 			<div class="description detailed hidden">
 				
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							3.1.0 A potential Windows drive letter is renamed. Use WINDOWS_DRIVE_LETTER instead.<br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#potential-windows-drive-letter">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/0755b4855187c94e1dfca900ba5122fa02a359ec">Define syntax for file URLs. Third part towards fixing #33. · whatwg/url@0755b48</a><br>
 					</div>
 			</div>
 		</td>
 		<td class="value">
 			<div>
 				<a href="#POTENTIAL_WINDOWS_DRIVE_LETTER" class="anchor">#</a>
-				<code><span class="php-quote">'/^[a-z][:|]$/i'</span></code>
+				<code><span class="php-quote">'/^[a-z][:|]$/ui'</span></code>
 			</div>
 		</td>
 	</tr>
 	<tr data-order="WINDOWS_DRIVE_LETTER" id="WINDOWS_DRIVE_LETTER">
 
-		<td class="attributes"><code>A</code></td>
+		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Terminology.html#15-19" title="Go to source code"><b>WINDOWS_DRIVE_LETTER</b></a>
+				<a href="source-class-esperecyan.url.lib.Terminology.html#17-21" title="Go to source code"><b>WINDOWS_DRIVE_LETTER</b></a>
 			</code>
 
 			<div class="description short">
@@ -185,7 +189,35 @@
 		<td class="value">
 			<div>
 				<a href="#WINDOWS_DRIVE_LETTER" class="anchor">#</a>
-				<code><span class="php-quote">'/^[a-z]:$/i'</span></code>
+				<code><span class="php-quote">'/^[a-z][:|]$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="NORMALIZED_WINDOWS_DRIVE_LETTER" id="NORMALIZED_WINDOWS_DRIVE_LETTER">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.Terminology.html#23-27" title="Go to source code"><b>NORMALIZED_WINDOWS_DRIVE_LETTER</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#normalized-windows-drive-letter">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#NORMALIZED_WINDOWS_DRIVE_LETTER" class="anchor">#</a>
+				<code><span class="php-quote">'/^[a-z]:$/ui'</span></code>
 			</div>
 		</td>
 	</tr>
