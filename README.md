@@ -103,10 +103,10 @@ This library is licensed under the [Mozilla Public License Version 2.0] \(MPL-2.
 
 The correspondence table of the algorithms
 ------------------------------------------
-| [1. Terminology]                 |                                                                  |
-|----------------------------------|------------------------------------------------------------------|
-| [potential Windows drive letter] | [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER] |
-| [Windows drive letter]           | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]           |
+| [1. Terminology]                  |                                                                   |
+|-----------------------------------|-------------------------------------------------------------------|
+| [Windows drive letter]            | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]            |
+| [normalized Windows drive letter] | [esperecyan\url\lib\Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER] |
 
 | [2. Percent-encoded bytes]                           |                                                           |
 |------------------------------------------------------|-----------------------------------------------------------|
@@ -179,8 +179,8 @@ The correspondence table of the algorithms
 | [set the input]                  | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
 
 [1. Terminology]: https://url.spec.whatwg.org/#terminology
-[potential Windows drive letter]: https://url.spec.whatwg.org/#potential-windows-drive-letter
 [Windows drive letter]: https://url.spec.whatwg.org/#windows-drive-letter
+[normalized Windows drive letter]: https://url.spec.whatwg.org/#normalized-windows-drive-letter
 
 [2. Percent-encoded bytes]: https://url.spec.whatwg.org/#percent-encoded-bytes
 [percent encode]: https://url.spec.whatwg.org/#percent-encode
@@ -247,8 +247,8 @@ The correspondence table of the algorithms
 [update steps]: https://url.spec.whatwg.org/#concept-urlutils-update
 [set the input]: https://url.spec.whatwg.org/#concept-urlutils-set-the-input
 
-[esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\PercentEncoding::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentEncode
 [esperecyan\url\lib\PercentEncoding::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentDecode
 [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#SIMPLE_ENCODE_SET

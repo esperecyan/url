@@ -103,10 +103,10 @@ READMEの英訳をハダーさんに協力していただきました。
 
 アルゴリズムなどの対応表
 ---------------------
-| [1. 用語]                   |                                                                  |
-|-----------------------------|------------------------------------------------------------------|
-| [準 Windows ドライブレター] | [esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER] |
-| [Windows ドライブレター]    | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]           |
+| [1. 用語]                           |                                                                   |
+|-------------------------------------|-------------------------------------------------------------------|
+| [Windows ドライブレター]            | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]            |
+| [正規化済み Windows ドライブレター] | [esperecyan\url\lib\Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER] |
 
 | [2. パーセント符号化済みバイト]                        |                                                           |
 |--------------------------------------------------------|-----------------------------------------------------------|
@@ -180,8 +180,8 @@ READMEの英訳をハダーさんに協力していただきました。
 
 
 [1. 用語]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
-[準 Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#potential-windows-drive-letter
 [Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#windows-drive-letter
+[正規化済み Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#normalized-windows-drive-letter
 
 [2. パーセント符号化済みバイト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent_encoded-bytes
 [パーセント符号化]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-encode
@@ -248,8 +248,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [更新手続き]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-update
 [入力を設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-set-the-input
 
-[esperecyan\url\lib\Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#POTENTIAL_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\PercentEncoding::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentEncode
 [esperecyan\url\lib\PercentEncoding::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentDecode
 [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#SIMPLE_ENCODE_SET

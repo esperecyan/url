@@ -124,14 +124,15 @@ class URL
     }
     
     /**
-     * If url’s scheme is not "file" or url’s path does not contain a single string that is a Windows drive letter,
+     * If url’s scheme is not "file"
+     * or url’s path does not contain a single string that is a normalized Windows drive letter,
      * remove url’s path’s last string, if any.
      * @link https://url.spec.whatwg.org/#pop-a-urls-path URL Standard
      */
     public function popPath()
     {
         if ($this->scheme !== 'file'
-            || !(count($this->path) === 1 && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
+            || !(count($this->path) === 1 && preg_match(Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
             array_pop($this->path);
         }
     }
@@ -501,7 +502,7 @@ class URL
                         default:
                             $remaining = array_slice($codePoints, $pointer + 1);
                             if ($base && $base->scheme === 'file'
-                                && isset($remaining[0]) && preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
+                                && isset($remaining[0]) && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
                                 && (count($remaining) === 1 || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false)) {
                                 $url->host = $base->host;
                                 $url->path = $base->path;
@@ -516,7 +517,7 @@ class URL
                     if ($c === '/' || $c === '\\') {
                         $state = 'file host state';
                     } else {
-                        if ($base && $base->scheme === 'file' && isset($base->path[0]) && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
+                        if ($base && $base->scheme === 'file' && isset($base->path[0]) && preg_match(Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
                             $url->path[] = $base->path[0];
                         }
                         $state = 'path state';
@@ -527,7 +528,7 @@ class URL
                 case 'file host state':
                     if (in_array($c, ['', '/', '\\', '?', '#'])) {
                         $pointer--;
-                        if (preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                        if (preg_match(Terminology::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
                             $state = 'path state';
                         } elseif ($buffer === '') {
                             $state = 'path start state';
@@ -569,7 +570,7 @@ class URL
                         } elseif (preg_match(self::SINGLE_DOT_PATH_SEGMENT, $buffer) !== 1) {
                             if ($url->scheme === 'file'
                                 && !$url->path
-                                && preg_match(Terminology::POTENTIAL_WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                                && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
                                 $url->host = null;
                                 $buffer[1] = ':';
                             }
