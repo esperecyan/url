@@ -46,8 +46,9 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
-				<li><a href="class-esperecyan.url.lib.PercentEncoding.html">PercentEncoding</a></li>
-				<li><a href="class-esperecyan.url.lib.Terminology.html">Terminology</a></li>
+				<li><a href="class-esperecyan.url.lib.Infrastructure.html">Infrastructure</a></li>
+				<li><a href="class-esperecyan.url.lib.PercentEncoding.html" class="deprecated">PercentEncoding</a></li>
+				<li><a href="class-esperecyan.url.lib.Terminology.html" class="deprecated">Terminology</a></li>
 				<li class="active"><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
 				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
 			</ul>
@@ -122,7 +123,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#urls">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-753" title="Go to source code">lib/URL.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-756" title="Go to source code">lib/URL.php</a>
 		<br>
 	</div>
 
@@ -294,7 +295,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#162-173" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#165-176" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL parser.</p>
@@ -341,7 +342,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseBasicURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#175-645" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#178-648" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			<p>The basic URL parser.</p>
@@ -394,7 +395,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUsername">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#647-655" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#650-658" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the username of the URL given $username.</p>
@@ -433,7 +434,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#657-667" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#660-670" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the password of the URL given $password.</p>
@@ -472,7 +473,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#686-718" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#689-721" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL serializer.</p>
@@ -511,7 +512,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrigin">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#720-752" title="Go to source code">getOrigin</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#723-755" title="Go to source code">getOrigin</a>( )</code>
 
 		<div class="description short">
 			<p>A URL’s origin is the origin, switching on URL’s scheme.</p>
@@ -554,15 +555,15 @@ remove url’s path’s last string, if any.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#140-144" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#140-145" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
 			</code>
 
 			<div class="description short">
-				
+				<p>The regular expression (PCRE) pattern matching a single-dot path segment.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>The regular expression (PCRE) pattern matching a single-dot path segment.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -582,15 +583,15 @@ remove url’s path’s last string, if any.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#146-150" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#147-152" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
 			</code>
 
 			<div class="description short">
-				
+				<p>The regular expression (PCRE) pattern matching a double-dot path segment.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>The regular expression (PCRE) pattern matching a double-dot path segment.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -610,15 +611,15 @@ remove url’s path’s last string, if any.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#152-156" title="Go to source code"><b>URL_CODE_POINTS</b></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#154-159" title="Go to source code"><b>URL_CODE_POINTS</b></a>
 			</code>
 
 			<div class="description short">
-				
+				<p>The regular expression (PCRE) pattern matching the URL code points.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>The regular expression (PCRE) pattern matching the URL code points.</p>
 
 					<h4>Link</h4>
 					<div class="list">

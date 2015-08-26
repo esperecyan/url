@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Deprecated Class esperecyan\url\lib\PercentEncoding | esperecyan/url documentation</title>
+	<title>Class esperecyan\url\lib\Infrastructure | esperecyan/url documentation</title>
 
 	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
 
@@ -46,8 +46,8 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-esperecyan.url.lib.HostProcessing.html">HostProcessing</a></li>
-				<li><a href="class-esperecyan.url.lib.Infrastructure.html">Infrastructure</a></li>
-				<li class="active"><a href="class-esperecyan.url.lib.PercentEncoding.html" class="deprecated">PercentEncoding</a></li>
+				<li class="active"><a href="class-esperecyan.url.lib.Infrastructure.html">Infrastructure</a></li>
+				<li><a href="class-esperecyan.url.lib.PercentEncoding.html" class="deprecated">PercentEncoding</a></li>
 				<li><a href="class-esperecyan.url.lib.Terminology.html" class="deprecated">Terminology</a></li>
 				<li><a href="class-esperecyan.url.lib.URL.html">URL</a></li>
 				<li><a href="class-esperecyan.url.lib.URLencoding.html">URLencoding</a></li>
@@ -98,13 +98,13 @@
 	</div>
 
 <div id="content" class="class">
-	<h1 class="deprecated">Class PercentEncoding</h1>
+	<h1>Class Infrastructure</h1>
 
 
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span class="deprecated">esperecyan\url\lib\PercentEncoding</span></b>			
+<b><span>esperecyan\url\lib\Infrastructure</span></b>			
 			
 			 uses 
 <span>esperecyan\url\lib\Utility</span>
@@ -125,11 +125,9 @@
 		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.url.html">url</a>\<a href="namespace-esperecyan.url.lib.html">lib</a><br>
 		
 
-				<b>Deprecated:</b>
-				3.2.0 The methods and constants are moved to <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>.<br>
 				<b>Link:</b>
-				<a href="https://github.com/whatwg/url/commit/e5b57a0dfe77464282f3b70c1e605ae40bec278d?w=">Rename Terminology to Infrastructure · whatwg/url@e5b57a0</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.PercentEncoding.html#4-82" title="Go to source code">lib/PercentEncoding.php</a>
+				<a href="https://url.spec.whatwg.org/#infrastructure">URL Standard</a><br>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.Infrastructure.html#4-98" title="Go to source code">lib/Infrastructure.php</a>
 		<br>
 	</div>
 
@@ -137,7 +135,7 @@
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="percentEncode" id="_percentEncode" class="deprecated">
+	<tr data-order="percentEncode" id="_percentEncode">
 
 		<td class="attributes"><code>
 			 public static
@@ -149,14 +147,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_percentEncode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.PercentEncoding.html#13-21" title="Go to source code">percentEncode</a>( <span>string <var>$byte</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#23-32" title="Go to source code">percentEncode</a>( <span>string <var>$byte</var></span> )</code>
 
 		<div class="description short">
-			<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>::percentEncode().</p>
+			<p>Percent encode a byte into a percent-encoded byte.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>::percentEncode().</p>
+			<p>Percent encode a byte into a percent-encoded byte.</p>
 
 
 				<h4>Parameters</h4>
@@ -171,12 +169,16 @@
 				</div>
 
 
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#percent-encode">URL Standard</a><br>
+				</div>
 
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="percentDecode" id="_percentDecode" class="deprecated">
+	<tr data-order="percentDecode" id="_percentDecode">
 
 		<td class="attributes"><code>
 			 public static
@@ -188,14 +190,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_percentDecode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.PercentEncoding.html#23-31" title="Go to source code">percentDecode</a>( <span>string <var>$input</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#34-43" title="Go to source code">percentDecode</a>( <span>string <var>$input</var></span> )</code>
 
 		<div class="description short">
-			<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>::percentDecode().</p>
+			<p>Percent decode a byte sequence $input.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>::percentDecode().</p>
+			<p>Percent decode a byte sequence $input.</p>
 
 
 				<h4>Parameters</h4>
@@ -210,12 +212,16 @@
 				</div>
 
 
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#percent-decode">URL Standard</a><br>
+				</div>
 
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="utf8PercentEncode" id="_utf8PercentEncode" class="deprecated">
+	<tr data-order="utf8PercentEncode" id="_utf8PercentEncode">
 
 		<td class="attributes"><code>
 			 public static
@@ -227,14 +233,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_utf8PercentEncode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.PercentEncoding.html#72-81" title="Go to source code">utf8PercentEncode</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoint</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#79-97" title="Go to source code">utf8PercentEncode</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoint</var></span> )</code>
 
 		<div class="description short">
-			<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\utf8PercentEncode().</p>
+			<p>utf-8 percent encode a code point, using an encode set.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\utf8PercentEncode().</p>
+			<p>utf-8 percent encode a code point, using an encode set.</p>
 
 
 				<h4>Parameters</h4>
@@ -251,6 +257,10 @@
 				</div>
 
 
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#utf_8-percent-encode">URL Standard</a><br>
+				</div>
 
 
 		</div>
@@ -267,21 +277,81 @@
 
 	<table class="summary constants" id="constants">
 	<caption>Constants summary</caption>
+	<tr data-order="WINDOWS_DRIVE_LETTER" id="WINDOWS_DRIVE_LETTER">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#11-15" title="Go to source code"><b>WINDOWS_DRIVE_LETTER</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#windows-drive-letter">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#WINDOWS_DRIVE_LETTER" class="anchor">#</a>
+				<code><span class="php-quote">'/^[a-z][:|]$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="NORMALIZED_WINDOWS_DRIVE_LETTER" id="NORMALIZED_WINDOWS_DRIVE_LETTER">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#17-21" title="Go to source code"><b>NORMALIZED_WINDOWS_DRIVE_LETTER</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#normalized-windows-drive-letter">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#NORMALIZED_WINDOWS_DRIVE_LETTER" class="anchor">#</a>
+				<code><span class="php-quote">'/^[a-z]:$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="SIMPLE_ENCODE_SET" id="SIMPLE_ENCODE_SET">
 
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#33-37" title="Go to source code"><b>SIMPLE_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#45-49" title="Go to source code"><b>SIMPLE_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\SIMPLE_ENCODE_SET.</p>
+				
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\SIMPLE_ENCODE_SET.</p>
+				
 
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#simple-encode-set">URL Standard</a><br>
+					</div>
 			</div>
 		</td>
 		<td class="value">
@@ -296,16 +366,20 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#39-43" title="Go to source code"><b>DEFAULT_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#51-55" title="Go to source code"><b>DEFAULT_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\DEFAULT_ENCODE_SET.</p>
+				
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\DEFAULT_ENCODE_SET.</p>
+				
 
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#default-encode-set">URL Standard</a><br>
+					</div>
 			</div>
 		</td>
 		<td class="value">
@@ -320,15 +394,15 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#45-53" title="Go to source code"><b>PASSWORD_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#57-63" title="Go to source code"><b>PASSWORD_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\USERINFO_ENCODE_SET.</p>
+				
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\USERINFO_ENCODE_SET.</p>
+				
 
 					<h4>Deprecated</h4>
 					<div class="list">
@@ -337,7 +411,7 @@
 					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5</a><br>
+							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5</a><br>
 					</div>
 			</div>
 		</td>
@@ -353,15 +427,15 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#55-63" title="Go to source code"><b>USERNAME_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#65-71" title="Go to source code"><b>USERNAME_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\USERINFO_ENCODE_SET.</p>
+				
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\USERINFO_ENCODE_SET.</p>
+				
 
 					<h4>Deprecated</h4>
 					<div class="list">
@@ -370,7 +444,7 @@
 					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5</a><br>
+							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5</a><br>
 					</div>
 			</div>
 		</td>
@@ -386,15 +460,15 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.PercentEncoding.html#65-70" title="Go to source code"><b>USERINFO_ENCODE_SET</b></a>
+				<a href="source-class-esperecyan.url.lib.Infrastructure.html#73-77" title="Go to source code"><b>USERINFO_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\USERINFO_ENCODE_SET.</p>
+				
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of <code><a href="class-esperecyan.url.lib.Infrastructure.html">esperecyan\url\lib\Infrastructure</a></code>\USERINFO_ENCODE_SET.</p>
+				
 
 					<h4>Link</h4>
 					<div class="list">
