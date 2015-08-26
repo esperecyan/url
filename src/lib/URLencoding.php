@@ -105,8 +105,9 @@ class URLencoding
     }
     
     /**
+     * The ASCII whitespace.
      * @internal
-     * @var string The ASCII whitespace.
+     * @var string
      * @link https://encoding.spec.whatwg.org/#ascii-whitespace Encoding Standard
      */
     const ASCII_WHITESPACE = "\t\n\f\r ";

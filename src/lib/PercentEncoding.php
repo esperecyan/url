@@ -31,19 +31,22 @@ class PercentEncoding
     }
     
     /**
-     * @var string The regular expression (PCRE) pattern matching a character in the simple encode set.
+     * The regular expression (PCRE) pattern matching a character in the simple encode set.
+     * @var string
      * @link https://url.spec.whatwg.org/#simple-encode-set URL Standard
      */
     const SIMPLE_ENCODE_SET = '/[^ -~]/u';
     
     /**
-     * @var string The regular expression (PCRE) pattern matching a character in the default encode set.
+     * The regular expression (PCRE) pattern matching a character in the default encode set.
+     * @var string
      * @link https://url.spec.whatwg.org/#default-encode-set URL Standard
      */
     const DEFAULT_ENCODE_SET = '/[^!$-;=@-_a-z|~]/u';
     
     /**
-     * @var string Alias of USERINFO_ENCODE_SET.
+     * Alias of USERINFO_ENCODE_SET.
+     * @var string
      * @deprecated 3.0.0 The password encode set and the username encode set are obsolete,
      *      then these are replaced by the userinfo encode set.
      * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289 Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5
@@ -51,7 +54,8 @@ class PercentEncoding
     const PASSWORD_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * @var string Alias of USERINFO_ENCODE_SET.
+     * Alias of USERINFO_ENCODE_SET.
+     * @var string
      * @deprecated 3.0.0 The password encode set and the username encode set are obsolete,
      *      then these are replaced by the userinfo encode set.
      * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289 Encode more code points for usernames and passwords. Fixes #30. · whatwg/url@9ca26e5
@@ -59,7 +63,8 @@ class PercentEncoding
     const USERNAME_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * @var string The regular expression (PCRE) pattern matching a character in the userinfo encode set.
+     * The regular expression (PCRE) pattern matching a character in the userinfo encode set.
+     * @var string
      * @link https://url.spec.whatwg.org/#userinfo-encode-set URL Standard
      */
     const USERINFO_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';

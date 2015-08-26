@@ -138,19 +138,22 @@ class URL
     }
     
     /**
-     * @var string The regular expression (PCRE) pattern matching a single-dot path segment.
+     * The regular expression (PCRE) pattern matching a single-dot path segment.
+     * @var string
      * @link https://url.spec.whatwg.org/#syntax-url-path-segment-dot URL Standard
      */
     const SINGLE_DOT_PATH_SEGMENT = '/^(?:\\.|%2e)$/ui';
     
     /**
-     * @var string The regular expression (PCRE) pattern matching a double-dot path segment.
+     * The regular expression (PCRE) pattern matching a double-dot path segment.
+     * @var string
      * @link https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot URL Standard
      */
     const DOUBLE_DOT_PATH_SEGMENT = '/^(?:\\.|%2e){2}$/ui';
     
     /**
-     * @var string The regular expression (PCRE) pattern matching the URL code points.
+     * The regular expression (PCRE) pattern matching the URL code points.
+     * @var string
      * @link https://url.spec.whatwg.org/#url-code-points URL Standard
      */
     const URL_CODE_POINTS = '/[!$&\'()*+,\\-.\\/:;=?@_~\xC2\xA0-퟿-﷏ﷰ-�𐀀-🿽𠀀-𯿽𰀀-𿿽񀀀-񏿽񐀀-񟿽񠀀-񯿽񰀀-񿿽򀀀-򏿽򐀀-򟿽򠀀-򯿽򰀀-򿿽󀀀-󏿽󐀀-󟿽󠀀-󯿽󰀀-󿿽􀀀-􏿽]/u';

@@ -9,8 +9,9 @@ class HostProcessing
     use Utility;
     
     /**
+     * Maximum utf-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8().
      * @internal
-     * @var integer Maximum utf-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8().
+     * @var integer
      */
     const PHP_IDN_HANDLEABLE_LENGTH = 254;
     
