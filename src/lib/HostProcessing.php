@@ -107,7 +107,7 @@ class HostProcessing
         } elseif ($inputString[0] === '[') {
             $result = substr($inputString, -1) !== ']' ? false : self::parseIPv6(substr($inputString, 1, -1));
         } else {
-            $domain = PercentEncoding::percentDecode($input);
+            $domain = Infrastructure::percentDecode($input);
             $asciiDomain = self::domainToASCII($domain);
             if ($asciiDomain === false || strpbrk($asciiDomain, "\x00\t\n\r #%/:?@[\\]") !== false) {
                 $result = false;

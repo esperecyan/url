@@ -103,19 +103,16 @@ READMEの英訳をハダーさんに協力していただきました。
 
 アルゴリズムなどの対応表
 ---------------------
-| [1. 用語]                           |                                                                   |
-|-------------------------------------|-------------------------------------------------------------------|
-| [Windows ドライブレター]            | [esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]            |
-| [正規化済み Windows ドライブレター] | [esperecyan\url\lib\Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER] |
-
-| [2. パーセント符号化済みバイト]                        |                                                           |
-|--------------------------------------------------------|-----------------------------------------------------------|
-| [パーセント符号化]                                     | [esperecyan\url\lib\PercentEncoding::percentEncode()]     |
-| [パーセント復号]                                       | [esperecyan\url\lib\PercentEncoding::percentDecode()]     |
-| [単純 符号化集合]                                      | [esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]   |
-| [既定 符号化集合]                                      | [esperecyan\url\lib\PercentEncoding::DEFAULT_ENCODE_SET]  |
-| [userinfo 符号化集合]                                  | [esperecyan\url\lib\PercentEncoding::USERINFO_ENCODE_SET] |
-| [utf-8 パーセント符号化]                               | [esperecyan\url\lib\PercentEncoding::utf8PercentEncode()] |
+| [1. 基盤]                           |                                                                      |
+|-------------------------------------|----------------------------------------------------------------------|
+| [Windows ドライブレター]            | [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]            |
+| [正規化済み Windows ドライブレター] | [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER] |
+| [パーセント符号化]                  | [esperecyan\url\lib\Infrastructure::percentEncode()]                 |
+| [パーセント復号]                    | [esperecyan\url\lib\Infrastructure::percentDecode()]                 |
+| [単純 符号化集合]                   | [esperecyan\url\lib\Infrastructure::SIMPLE_ENCODE_SET]               |
+| [既定 符号化集合]                   | [esperecyan\url\lib\Infrastructure::DEFAULT_ENCODE_SET]              |
+| [userinfo 符号化集合]               | [esperecyan\url\lib\Infrastructure::USERINFO_ENCODE_SET]             |
+| [utf-8 パーセント符号化]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
 
 | [3. ホスト（ドメインと IP アドレス）] |                                                        |
 |---------------------------------------|--------------------------------------------------------|
@@ -179,11 +176,9 @@ READMEの英訳をハダーさんに協力していただきました。
 | [入力を設定する]                       | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
 
 
-[1. 用語]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
+[1. 基盤]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
 [Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#windows-drive-letter
 [正規化済み Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#normalized-windows-drive-letter
-
-[2. パーセント符号化済みバイト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent_encoded-bytes
 [パーセント符号化]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-encode
 [パーセント復号]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-decode
 [単純 符号化集合]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#simple-encode-set
@@ -248,14 +243,14 @@ READMEの英訳をハダーさんに協力していただきました。
 [更新手続き]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-update
 [入力を設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-set-the-input
 
-[esperecyan\url\lib\Terminology::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#WINDOWS_DRIVE_LETTER
-[esperecyan\url\lib\Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Terminology#NORMALIZED_WINDOWS_DRIVE_LETTER
-[esperecyan\url\lib\PercentEncoding::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentEncode
-[esperecyan\url\lib\PercentEncoding::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_percentDecode
-[esperecyan\url\lib\PercentEncoding::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#SIMPLE_ENCODE_SET
-[esperecyan\url\lib\PercentEncoding::DEFAULT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#DEFAULT_ENCODE_SET
-[esperecyan\url\lib\PercentEncoding::USERINFO_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#USERINFO_ENCODE_SET
-[esperecyan\url\lib\PercentEncoding::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.PercentEncoding#_utf8PercentEncode
+[esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\Infrastructure::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentEncode
+[esperecyan\url\lib\Infrastructure::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentDecode
+[esperecyan\url\lib\Infrastructure::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#SIMPLE_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::DEFAULT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#DEFAULT_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::USERINFO_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_utf8PercentEncode
 [esperecyan\url\lib\HostProcessing::domainToASCII()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToASCII
 [esperecyan\url\lib\HostProcessing::domainToUnicode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToUnicode
 [esperecyan\url\lib\HostProcessing::isValidDomain()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_isValidDomain

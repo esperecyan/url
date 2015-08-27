@@ -132,7 +132,7 @@ class URL
     public function popPath()
     {
         if ($this->scheme !== 'file'
-            || !(count($this->path) === 1 && preg_match(Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
+            || !(count($this->path) === 1 && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
             array_pop($this->path);
         }
     }
@@ -384,12 +384,12 @@ class URL
                         $atFlag = true;
                         $usernameAndPassword = explode(':', str_replace(["\t", "\n", "\r"], '', $buffer), 2);
                         $url->username .= self::percentEncodeCodePoints(
-                            PercentEncoding::USERINFO_ENCODE_SET,
+                            Infrastructure::USERINFO_ENCODE_SET,
                             $usernameAndPassword[0]
                         );
                         if (isset($usernameAndPassword[1])) {
                             $url->password .= self::percentEncodeCodePoints(
-                                PercentEncoding::USERINFO_ENCODE_SET,
+                                Infrastructure::USERINFO_ENCODE_SET,
                                 $usernameAndPassword[1]
                             );
                         }
@@ -505,7 +505,7 @@ class URL
                         default:
                             $remaining = array_slice($codePoints, $pointer + 1);
                             if ($base && $base->scheme === 'file'
-                                && isset($remaining[0]) && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
+                                && isset($remaining[0]) && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
                                 && (count($remaining) === 1 || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false)) {
                                 $url->host = $base->host;
                                 $url->path = $base->path;
@@ -520,7 +520,7 @@ class URL
                     if ($c === '/' || $c === '\\') {
                         $state = 'file host state';
                     } else {
-                        if ($base && $base->scheme === 'file' && isset($base->path[0]) && preg_match(Terminology::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
+                        if ($base && $base->scheme === 'file' && isset($base->path[0]) && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
                             $url->path[] = $base->path[0];
                         }
                         $state = 'path state';
@@ -531,7 +531,7 @@ class URL
                 case 'file host state':
                     if (in_array($c, ['', '/', '\\', '?', '#'])) {
                         $pointer--;
-                        if (preg_match(Terminology::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                        if (preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
                             $state = 'path state';
                         } elseif ($buffer === '') {
                             $state = 'path start state';
@@ -573,7 +573,7 @@ class URL
                         } elseif (preg_match(self::SINGLE_DOT_PATH_SEGMENT, $buffer) !== 1) {
                             if ($url->scheme === 'file'
                                 && !$url->path
-                                && preg_match(Terminology::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                                && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
                                 $url->host = null;
                                 $buffer[1] = ':';
                             }
@@ -589,7 +589,7 @@ class URL
                         }
                     } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
-                        $buffer .= PercentEncoding::utf8PercentEncode(PercentEncoding::DEFAULT_ENCODE_SET, $c);
+                        $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::DEFAULT_ENCODE_SET, $c);
                     }
                     break;
 
@@ -602,7 +602,7 @@ class URL
                         $state = 'fragment state';
                     } else {
                         if ($c !== '' && strpos("\t\n\r", $c) === false) {
-                            $url->path[0] .= PercentEncoding::utf8PercentEncode(PercentEncoding::SIMPLE_ENCODE_SET, $c);
+                            $url->path[0] .= Infrastructure::utf8PercentEncode(Infrastructure::SIMPLE_ENCODE_SET, $c);
                         }
                     }
                     break;
@@ -654,7 +654,7 @@ class URL
      */
     public function setUsername($username)
     {
-        $this->username = self::percentEncodeCodePoints(PercentEncoding::USERINFO_ENCODE_SET, $username);
+        $this->username = self::percentEncodeCodePoints(Infrastructure::USERINFO_ENCODE_SET, $username);
     }
     
     /**
@@ -666,7 +666,7 @@ class URL
     {
         $this->password = $password === ''
             ? null
-            : self::percentEncodeCodePoints(PercentEncoding::USERINFO_ENCODE_SET, $password);
+            : self::percentEncodeCodePoints(Infrastructure::USERINFO_ENCODE_SET, $password);
     }
     
     /**
@@ -680,7 +680,7 @@ class URL
         return preg_replace_callback($encodeSet, function ($matches) {
             $result = rawurlencode($matches[0]);
             if ($result[0] !== '%') {
-                $result = PercentEncoding::percentEncode($matches[0]);
+                $result = Infrastructure::percentEncode($matches[0]);
             }
             return $result;
         }, $codePoints);

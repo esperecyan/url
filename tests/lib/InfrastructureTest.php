@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url\lib;
 
-class PercentEncodingTest extends \PHPUnit_Framework_TestCase
+class InfrastructureTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @param string $byte Exactly one byte.
@@ -10,7 +10,7 @@ class PercentEncodingTest extends \PHPUnit_Framework_TestCase
      */
     public function testPercentEncode($byte, $percentEncodedByte)
     {
-        $this->assertSame($percentEncodedByte, PercentEncoding::percentEncode($byte));
+        $this->assertSame($percentEncodedByte, Infrastructure::percentEncode($byte));
     }
     
     public function byteProvider()
@@ -38,7 +38,7 @@ class PercentEncodingTest extends \PHPUnit_Framework_TestCase
      */
     public function testPercentDecode($input, $output)
     {
-        $this->assertSame($output, PercentEncoding::percentDecode($input));
+        $this->assertSame($output, Infrastructure::percentDecode($input));
     }
     
     public function inputProvider()
@@ -65,7 +65,7 @@ class PercentEncodingTest extends \PHPUnit_Framework_TestCase
      */
     public function testUtf8PercentEncode($encodeSet, $codePoint, $result)
     {
-        $this->assertSame($result, PercentEncoding::utf8PercentEncode($encodeSet, $codePoint));
+        $this->assertSame($result, Infrastructure::utf8PercentEncode($encodeSet, $codePoint));
     }
     
     public function codePointProvider()
