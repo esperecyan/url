@@ -61,18 +61,20 @@ class Infrastructure
     /**
      * Alias of USERINFO_ENCODE_SET.
      * @var string
-     * @deprecated 3.0.0 The password encode set and the username encode set are obsolete,
+     * @deprecated 3.3.0 The password encode set and the username encode set are obsolete,
      *      then these are replaced by the userinfo encode set.
-     * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289 Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5
+     * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289
+     *      Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5
      */
     const PASSWORD_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
      * Alias of USERINFO_ENCODE_SET.
      * @var string
-     * @deprecated 3.0.0 The password encode set and the username encode set are obsolete,
+     * @deprecated 3.3.0 The password encode set and the username encode set are obsolete,
      *      then these are replaced by the userinfo encode set.
-     * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289 Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5
+     * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289
+     *      Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5
      */
     const USERNAME_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
