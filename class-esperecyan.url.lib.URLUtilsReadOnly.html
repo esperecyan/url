@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Trait esperecyan\url\lib\URLUtilsReadOnly | esperecyan/url documentation</title>
+	<title>Deprecated Trait esperecyan\url\lib\URLUtilsReadOnly | esperecyan/url documentation</title>
 
 	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
 
@@ -57,7 +57,7 @@
 			<h3>Traits</h3>
 			<ul>
 				<li><a href="class-esperecyan.url.lib.URLUtils.html">URLUtils</a></li>
-				<li class="active"><a href="class-esperecyan.url.lib.URLUtilsReadOnly.html">URLUtilsReadOnly</a></li>
+				<li class="active"><a href="class-esperecyan.url.lib.URLUtilsReadOnly.html" class="deprecated">URLUtilsReadOnly</a></li>
 				<li><a href="class-esperecyan.url.lib.URLUtilsSearchParams.html">URLUtilsSearchParams</a></li>
 			</ul>
 
@@ -98,25 +98,25 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Trait URLUtilsReadOnly</h1>
-
-
-	<div class="description">
-	<p>The URLUtilsReadOnly trait defines utility methods to work with URLs.
-It defines only non-modifying methods intended to be used on data that cannot be changed.
-Classes using this trait must use setInput() to set input, url, and query object.</p>
-	</div>
+	<h1 class="deprecated">Trait URLUtilsReadOnly</h1>
 
 
 
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span class="deprecated">esperecyan\url\lib\URLUtilsReadOnly</span></b>			
+			
+			 uses 
+					<a href="class-esperecyan.url.lib.URLUtils.html"><span>esperecyan\url\lib\URLUtils</span></a>
+			
+		</dd>
+	</dl>
 
 
 
 
-	<div>
-		<h4>Direct Known Users</h4>
-			<a href="class-esperecyan.url.lib.URLUtils.html">esperecyan\url\lib\URLUtils</a>
-	</div>
+
+
 
 
 	<div class="info">
@@ -125,11 +125,13 @@ Classes using this trait must use setInput() to set input, url, and query object
 		<b>Namespace:</b> <a href="namespace-esperecyan.html">esperecyan</a>\<a href="namespace-esperecyan.url.html">url</a>\<a href="namespace-esperecyan.url.lib.html">lib</a><br>
 		
 
+				<b>Deprecated:</b>
+				3.4.0 URLUtilsReadOnly is now inlined into the HTML standard directly.<br>
 				<b>Link:</b>
-				<a href="https://url.spec.whatwg.org/#urlutilsreadonly">URL Standard</a><br>
+				<a href="https://github.com/whatwg/url/commit/c2877946857bc904ecb8a5805abc423c82d9da98">Remove URLUtilsReadOnly · whatwg/url@c287794</a><br>
 				<b>Link:</b>
-				<a href="https://developer.mozilla.org/docs/Web/API/URLUtilsReadOnly">URLUtilsReadOnly - Web API Interfaces | MDN</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#7-236" title="Go to source code">lib/URLUtilsReadOnly.php</a>
+				<a href="https://github.com/whatwg/html/commit/32a7a2092eeff52aca78a0224816a9b327">Inline URLUtilsReadOnly · whatwg/html@32a7a20</a><br>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#6-37" title="Go to source code">lib/URLUtilsReadOnly.php</a>
 		<br>
 	</div>
 
@@ -137,86 +139,7 @@ Classes using this trait must use setInput() to set input, url, and query object
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="getBase" id="_getBase">
-
-		<td class="attributes"><code>
-			abstract protected 
-
-			<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|null
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getBase">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#25-30" title="Go to source code">getBase</a>( )</code>
-
-		<div class="description short">
-			<p>Return the appropriate base URL for the object.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Return the appropriate base URL for the object.</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|null
-				</div>
-
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://url.spec.whatwg.org/#concept-urlutils-get-the-base">URL Standard</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setInput" id="_setInput">
-
-		<td class="attributes"><code>
-			 protected 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_setInput">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#32-64" title="Go to source code">setInput</a>( <span>string|null <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			<p>Set the input.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Set the input.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$input</var></dt>
-					<dd>A utf-8 string or null.</dd>
-					<dt><var>$url</var></dt>
-					<dd></dd>
-				</dl></div>
-
-
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://url.spec.whatwg.org/#concept-urlutils-set-the-input">URL Standard</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__set" id="___set">
+	<tr data-order="__set" id="___set" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
@@ -228,7 +151,7 @@ Classes using this trait must use setInput() to set input, url, and query object
 
 		<td class="name"><div>
 		<a class="anchor" href="#___set">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#101-112" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#25-36" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -253,130 +176,22 @@ Classes using this trait must use setInput() to set input, url, and query object
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="__get" id="___get">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___get">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#114-190" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$name</var></dt>
-					<dd></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string<br>$value
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__isset" id="___isset">
-
-		<td class="attributes"><code>
-			 public 
-
-			boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___isset">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#211-221" title="Go to source code">__isset</a>( <span>string <var>$name</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$name</var></dt>
-					<dd></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					boolean
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__toString" id="___toString">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#223-235" title="Go to source code">__toString</a>( )</code>
-
-		<div class="description short">
-			<p>The URLUtils::__toString() stringifier method returns a USVString containing the whole URL.
-It is a read-only version of URLUtils::href.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>The URLUtils::__toString() stringifier method returns a USVString containing the whole URL.
-It is a read-only version of URLUtils::href.</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					string<br>USVString.
-				</div>
-
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://url.spec.whatwg.org/#URLUtils-stringification-behavior">URL Standard</a><br>
-						<a href="https://url.spec.whatwg.org/#URLUtilsReadOnly-stringification-behavior">URL Standard</a><br>
-						<a href="https://developer.mozilla.org/docs/Web/API/URLUtils/toString">URLUtils.toString() - Web API Interfaces | MDN</a><br>
-						<a href="https://developer.mozilla.org/docs/Web/API/URLUtilsReadOnly/toString">URLUtilsReadOnly.toString() - Web API Interfaces | MDN</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
 	</table>
 
 
+	<table class="summary used">
+	<caption>Methods used from <a href="class-esperecyan.url.lib.URLUtils.html#methods">esperecyan\url\lib\URLUtils</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-esperecyan.url.lib.URLUtils.html#___get"><span class="deprecated">__get()</span></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#___isset"><span class="deprecated">__isset()</span></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#___toString"><span class="deprecated">__toString()</span></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#_getBase"><span class="deprecated">getBase()</span></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#_setInput"><span class="deprecated">setInput()</span></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#_updateSteps"><span class="deprecated">updateSteps()</span></a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
@@ -399,29 +214,10 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#13" title="Go to source code"><var>$href</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#12" title="Go to source code"><var>$href</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing the whole URL.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</td>
-	</tr>
-	<tr data-order="origin" id="m$origin">
-		<td class="attributes"><code>
-			public  read-only
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#14" title="Go to source code"><var>$origin</var></a>
-
-			<div class="description short">
-				<p>Returns a USVString containing the canonical form of the origin of the specific location.</p>
 			</div>
 
 			<div class="description detailed hidden">
@@ -437,7 +233,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#15" title="Go to source code"><var>$protocol</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#13" title="Go to source code"><var>$protocol</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing the protocol scheme of the URL, including the final ':'.</p>
@@ -456,7 +252,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#16" title="Go to source code"><var>$host</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#14" title="Go to source code"><var>$host</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing the host, that is the hostname, a ':', and the port of the URL.</p>
@@ -475,7 +271,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#17" title="Go to source code"><var>$hostname</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#15" title="Go to source code"><var>$hostname</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing the domain of the URL.</p>
@@ -494,7 +290,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#18" title="Go to source code"><var>$port</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#16" title="Go to source code"><var>$port</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing the port number of the URL.</p>
@@ -513,7 +309,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#19" title="Go to source code"><var>$pathname</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#17" title="Go to source code"><var>$pathname</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing an initial '/' followed by the path of the URL.</p>
@@ -532,7 +328,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#20" title="Go to source code"><var>$search</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#18" title="Go to source code"><var>$search</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing a '?' followed by the parameters of the URL.</p>
@@ -551,7 +347,7 @@ It is a read-only version of URLUtils::href.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#21" title="Go to source code"><var>$hash</var></a>
+				<a href="source-class-esperecyan.url.lib.URLUtilsReadOnly.html#19" title="Go to source code"><var>$hash</var></a>
 
 			<div class="description short">
 				<p>Is a USVString containing a '#' followed by the fragment identifier of the URL.</p>
@@ -566,6 +362,16 @@ It is a read-only version of URLUtils::href.</p>
 	</table>
 
 
+	<table class="summary used">
+	<caption>Magic properties used from <a href="class-esperecyan.url.lib.URLUtils.html#properties">esperecyan\url\lib\URLUtils</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-esperecyan.url.lib.URLUtils.html#m$origin"><var>$origin</var></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#m$password"><var>$password</var></a>, 
+			<a href="class-esperecyan.url.lib.URLUtils.html#m$username"><var>$username</var></a>
+		</code></td>
+	</tr>
+	</table>
 
 </div>
 
@@ -574,7 +380,7 @@ It is a read-only version of URLUtils::href.</p>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?5a2881d9176de5f2d580e2b5929b76f9a63578a3"></script>
+<script src="resources/combined.js?d4f2cc55d682472bb60f7204408a0782a0d44aeb"></script>
 <script src="elementlist.js?df3cad350c47348cf23b973d8b947a77126c2da8"></script>
 </body>
 </html>
