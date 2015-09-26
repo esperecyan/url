@@ -166,14 +166,13 @@ The correspondence table of the algorithms
 | [application/x-www-form-urlencoded serializer]      | [esperecyan\url\lib\URLencoding::serializeURLencoded()]    |
 | [application/x-www-form-urlencoded string parser]   | [esperecyan\url\lib\URLencoding::parseURLencodedString()]  |
 
-| [6. API]                         |                                                     |
-|----------------------------------|-----------------------------------------------------|
-| [URLUtils interface]             | [esperecyan\url\lib\URLUtils trait]                 |
-| [URLUtilsSearchParams interface] | [esperecyan\url\lib\URLUtilsSearchParams trait]     |
-| [URLUtilsReadOnly interface]     | [esperecyan\url\lib\URLUtilsReadOnly trait]         |
-| A [get the base] algorithm       | [esperecyan\url\lib\URLUtilsReadOnly->getBase()]    |
-| [update steps]                   | [esperecyan\url\lib\URLUtils->updateSteps()]        |
-| [set the input]                  | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
+| [6. API]                         |                                                 |
+|----------------------------------|-------------------------------------------------|
+| [URLUtils interface]             | [esperecyan\url\lib\URLUtils trait]             |
+| [URLUtilsSearchParams interface] | [esperecyan\url\lib\URLUtilsSearchParams trait] |
+| A [get the base] algorithm       | [esperecyan\url\lib\URLUtils->getBase()]        |
+| [update steps]                   | [esperecyan\url\lib\URLUtils->updateSteps()]    |
+| [set the input]                  | [esperecyan\url\lib\URLUtils->setInput()]       |
 
 [1. Infrastructure]: https://url.spec.whatwg.org/#infrastructure
 [Windows drive letter]: https://url.spec.whatwg.org/#windows-drive-letter
@@ -237,7 +236,6 @@ The correspondence table of the algorithms
 [6. API]: https://url.spec.whatwg.org/#api
 [URLUtils interface]: https://url.spec.whatwg.org/#urlutils
 [URLUtilsSearchParams interface]: https://url.spec.whatwg.org/#urlutilssearchparams
-[URLUtilsReadOnly interface]: https://url.spec.whatwg.org/#urlutilsreadonly
 [get the base]: https://url.spec.whatwg.org/#concept-urlutils-get-the-base
 [update steps]: https://url.spec.whatwg.org/#concept-urlutils-update
 [set the input]: https://url.spec.whatwg.org/#concept-urlutils-set-the-input
@@ -293,7 +291,6 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URLencoding::parseURLencodedString()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLencoding#_parseURLencodedString
 [esperecyan\url\lib\URLUtils trait]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils
 [esperecyan\url\lib\URLUtilsSearchParams trait]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsSearchParams
-[esperecyan\url\lib\URLUtilsReadOnly trait]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly
-[esperecyan\url\lib\URLUtilsReadOnly->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly.html#_getBase
+[esperecyan\url\lib\URLUtils->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_getBase
 [esperecyan\url\lib\URLUtils->updateSteps()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_updateSteps
-[esperecyan\url\lib\URLUtilsReadOnly->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_setInput
+[esperecyan\url\lib\URLUtils->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_setInput

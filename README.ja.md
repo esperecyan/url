@@ -166,14 +166,13 @@ READMEの英訳をハダーさんに協力していただきました。
 | [application/x-www-form-urlencoded 直列化器]         | [esperecyan\url\lib\URLencoding::serializeURLencoded()]     |
 | [application/x-www-form-urlencoded 文字列構文解析器] | [esperecyan\url\lib\URLencoding::parseURLencodedString()]   |
 
-| [6. API]                               |                                                     |
-|----------------------------------------|-----------------------------------------------------|
-| [URLUtilsインターフェース]             | [esperecyan\url\lib\URLUtilsトレイト]               |
-| [URLUtilsSearchParamsインターフェース] | [esperecyan\url\lib\URLUtilsSearchParamsトレイト]   |
-| [URLUtilsReadOnlyインターフェース]     | [esperecyan\url\lib\URLUtilsReadOnlyトレイト]       |
-| [基底 URL の取得] アルゴリズム         | [esperecyan\url\lib\URLUtilsReadOnly->getBase()]    |
-| [更新手続き]                           | [esperecyan\url\lib\URLUtils->updateSteps()]        |
-| [入力を設定する]                       | [esperecyan\url\lib\URLUtilsReadOnly->setInput()]   |
+| [6. API]                               |                                                   |
+|----------------------------------------|---------------------------------------------------|
+| [URLUtilsインターフェース]             | [esperecyan\url\lib\URLUtilsトレイト]             |
+| [URLUtilsSearchParamsインターフェース] | [esperecyan\url\lib\URLUtilsSearchParamsトレイト] |
+| [基底 URL の取得] アルゴリズム         | [esperecyan\url\lib\URLUtils->getBase()]          |
+| [更新手続き]                           | [esperecyan\url\lib\URLUtils->updateSteps()]      |
+| [入力を設定する]                       | [esperecyan\url\lib\URLUtils->setInput()]         |
 
 
 [1. 基盤]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
@@ -238,7 +237,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [6. API]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#api
 [URLUtilsインターフェース]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#URLUtils
 [URLUtilsSearchParamsインターフェース]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#URLUtilsSearchParams
-[URLUtilsReadOnlyインターフェース]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#URLUtilsReadOnly
 [基底 URL の取得]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-get-the-base
 [更新手続き]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-update
 [入力を設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlutils-set-the-input
@@ -294,7 +292,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URLencoding::parseURLencodedString()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLencoding#_parseURLencodedString
 [esperecyan\url\lib\URLUtilsトレイト]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils
 [esperecyan\url\lib\URLUtilsSearchParamsトレイト]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsSearchParams
-[esperecyan\url\lib\URLUtilsReadOnlyトレイト]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly
-[esperecyan\url\lib\URLUtilsReadOnly->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly.html#_getBase
+[esperecyan\url\lib\URLUtils->getBase()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_getBase
 [esperecyan\url\lib\URLUtils->updateSteps()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_updateSteps
-[esperecyan\url\lib\URLUtilsReadOnly->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtilsReadOnly#_setInput
+[esperecyan\url\lib\URLUtils->setInput()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URLUtils#_setInput
