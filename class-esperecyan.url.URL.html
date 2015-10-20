@@ -95,17 +95,6 @@
 	<p>The URL class represent an object providing static methods used for creating object URLs.</p>
 	</div>
 
-	<dl class="tree">
-		<dd style="padding-left:0px">
-<b><span>esperecyan\url\URL</span></b>			
-			
-			 uses 
-					<a href="class-esperecyan.url.lib.URLUtils.html"><span>esperecyan\url\lib\URLUtils</span></a>, 
-			
-					<a href="class-esperecyan.url.lib.URLUtilsSearchParams.html"><span>esperecyan\url\lib\URLUtilsSearchParams</span></a>
-			
-		</dd>
-	</dl>
 
 
 
@@ -124,7 +113,7 @@
 				<a href="https://url.spec.whatwg.org/#URL">URL Standard</a><br>
 				<b>Link:</b>
 				<a href="https://developer.mozilla.org/docs/Web/API/URL">URL - Web API Interfaces | MDN</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.URL.html#9-81" title="Go to source code">URL.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.URL.html#7-324" title="Go to source code">URL.php</a>
 		<br>
 	</div>
 
@@ -144,7 +133,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-esperecyan.url.URL.html#18-43" title="Go to source code">__construct</a>( <span>string <var>$url</var></span>, <span>string <var>$base</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.URL.html#42-70" title="Go to source code">__construct</a>( <span>string <var>$url</var></span>, <span>string <var>$base</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>The constructor returns a newly created URL object representing the URL defined by the parameters.</p>
@@ -181,44 +170,6 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getBase" id="_getBase">
-
-		<td class="attributes"><code>
-			 protected 
-
-			<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|null
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getBase">#</a>
-		<code><a href="source-class-esperecyan.url.URL.html#48-56" title="Go to source code">getBase</a>( )</code>
-
-		<div class="description short">
-			<p>Return the result of running the basic URL parser on $base of __construct($url, $base).</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Return the result of running the basic URL parser on $base of __construct($url, $base).</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|null
-				</div>
-
-
-				<h4>Link</h4>
-				<div class="list">
-						<a href="https://url.spec.whatwg.org/#dom-URL-URL">URL Standard</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="domainToASCII" id="_domainToASCII">
 
 		<td class="attributes"><code>
@@ -231,7 +182,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domainToASCII">#</a>
-		<code><a href="source-class-esperecyan.url.URL.html#58-68" title="Go to source code">domainToASCII</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URL.html#72-82" title="Go to source code">domainToASCII</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>Convert domain name to IDNA ASCII form.</p>
@@ -274,7 +225,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_domainToUnicode">#</a>
-		<code><a href="source-class-esperecyan.url.URL.html#70-80" title="Go to source code">domainToUnicode</a>( <span>string <var>$domain</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URL.html#84-94" title="Go to source code">domainToUnicode</a>( <span>string <var>$domain</var></span> )</code>
 
 		<div class="description short">
 			<p>Convert domain name from IDNA ASCII to Unicode.</p>
@@ -305,20 +256,165 @@
 		</div>
 		</div></td>
 	</tr>
-	</table>
+	<tr data-order="__set" id="___set">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___set">#</a>
+		<code><a href="source-class-esperecyan.url.URL.html#96-216" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
 
 
-	<table class="summary used">
-	<caption>Methods used from <a href="class-esperecyan.url.lib.URLUtils.html#methods">esperecyan\url\lib\URLUtils</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-esperecyan.url.lib.URLUtils.html#___get">__get()</a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#___isset">__isset()</a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#___set">__set()</a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#___toString">__toString()</a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#_setInput">setInput()</a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#_updateSteps">updateSteps()</a>
-		</code></td>
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					esperecyan\webidl\TypeError
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|<code><a href="class-esperecyan.url.URLSearchParams.html">esperecyan\url\URLSearchParams</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-esperecyan.url.URL.html#218-282" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|<code><a href="class-esperecyan.url.URLSearchParams.html">esperecyan\url\URLSearchParams</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code><a href="source-class-esperecyan.url.URL.html#303-314" title="Go to source code">__toString</a>( )</code>
+
+		<div class="description short">
+			<p>The URLUtils::__toString() stringifier method returns a USVString containing the whole URL.
+It is a read-only version of URLUtils::href.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The URLUtils::__toString() stringifier method returns a USVString containing the whole URL.
+It is a read-only version of URLUtils::href.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>USVString.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#URLUtils-stringification-behavior">URL Standard</a><br>
+						<a href="https://developer.mozilla.org/docs/Web/API/URLUtils/toString">URLUtils.toString() - Web API Interfaces | MDN</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__isset" id="___isset">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___isset">#</a>
+		<code><a href="source-class-esperecyan.url.URL.html#316-323" title="Go to source code">__isset</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
 	</tr>
 	</table>
 
@@ -336,32 +432,239 @@
 
 
 
-	<table class="summary used">
-	<caption>Magic properties used from <a href="class-esperecyan.url.lib.URLUtils.html#properties">esperecyan\url\lib\URLUtils</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$hash"><var>$hash</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$host"><var>$host</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$hostname"><var>$hostname</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$href"><var>$href</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$origin"><var>$origin</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$password"><var>$password</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$pathname"><var>$pathname</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$port"><var>$port</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$protocol"><var>$protocol</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$search"><var>$search</var></a>, 
-			<a href="class-esperecyan.url.lib.URLUtils.html#m$username"><var>$username</var></a>
+	<table class="summary properties" id="magicProperties">
+	<caption>Magic properties summary</caption>
+	<tr data-order="href" id="m$href">
+		<td class="attributes"><code>
+			public  
+			string
 		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#11" title="Go to source code"><var>$href</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the whole URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="protocol" id="m$protocol">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#14" title="Go to source code"><var>$protocol</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the protocol scheme of the URL, including the final ':'.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="username" id="m$username">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#15" title="Go to source code"><var>$username</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the username specified before the domain name.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="password" id="m$password">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#16" title="Go to source code"><var>$password</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the password specified before the domain name.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="host" id="m$host">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#17-19" title="Go to source code"><var>$host</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the host, that is the hostname,      and then, if the port of the URL is not empty (which can happen because it was not specified          or because it was specified to be the default port of the URL's scheme), a ':', and the port of the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="hostname" id="m$hostname">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#20" title="Go to source code"><var>$hostname</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the domain of the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="port" id="m$port">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#21" title="Go to source code"><var>$port</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing the port number of the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="pathname" id="m$pathname">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#22" title="Go to source code"><var>$pathname</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing an initial '/' followed by the path of the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="search" id="m$search">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#23" title="Go to source code"><var>$search</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing a '?' followed by the parameters of the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="hash" id="m$hash">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#26" title="Go to source code"><var>$hash</var></a>
+
+			<div class="description short">
+				<p>Is a USVString containing a '#' followed by the fragment identifier of the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="origin" id="m$origin">
+		<td class="attributes"><code>
+			public  read-only
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#12-13" title="Go to source code"><var>$origin</var></a>
+
+			<div class="description short">
+				<p>Returns a USVString containing the canonical form of the origin of the specific location.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="searchParams" id="m$searchParams">
+		<td class="attributes"><code>
+			public  read-only
+			<code><a href="class-esperecyan.url.URLSearchParams.html">esperecyan\url\URLSearchParams</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.URL.html#24-25" title="Go to source code"><var>$searchParams</var></a>
+
+			<div class="description short">
+				<p>Returns a URLSearchParams object allowing to access the GET query arguments contained in the URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
 	</tr>
 	</table>
-	<table class="summary used">
-	<caption>Magic properties used from <a href="class-esperecyan.url.lib.URLUtilsSearchParams.html#properties">esperecyan\url\lib\URLUtilsSearchParams</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-esperecyan.url.lib.URLUtilsSearchParams.html#m$searchParams"><var>$searchParams</var></a>
-		</code></td>
-	</tr>
-	</table>
+
+
 
 </div>
 
