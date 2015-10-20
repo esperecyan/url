@@ -13,13 +13,6 @@ class URLSearchParamsIterator implements \Iterator
     /** @var integer */
     private $position = 0;
     
-    private function reset()
-    {
-        \Closure::bind(function ($searchParams) {
-            $searchParams->reset();
-        }, null, $this->searchParams)->__invoke($this->searchParams);
-    }
-    
     /**
      * @param string[][] $list
      * @param \esperecyan\url\URLSearchParams $searchParams
@@ -35,7 +28,6 @@ class URLSearchParamsIterator implements \Iterator
      */
     public function current()
     {
-        $this->reset();
         return isset($this->list[$this->position]) ? $this->list[$this->position][1] : null;
     }
 
@@ -44,13 +36,11 @@ class URLSearchParamsIterator implements \Iterator
      */
     public function key()
     {
-        $this->reset();
         return isset($this->list[$this->position]) ? $this->list[$this->position][0] : null;
     }
 
     public function next()
     {
-        $this->reset();
         $this->position++;
     }
 
@@ -64,7 +54,6 @@ class URLSearchParamsIterator implements \Iterator
      */
     public function valid()
     {
-        $this->reset();
         return isset($this->list[$this->position]);
     }
 }

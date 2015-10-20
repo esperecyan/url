@@ -73,31 +73,28 @@ class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
     
     public function testUpdateSteps()
     {
-        $anchor = new lib\HTMLAnchorElement();
-        (new \DOMDocument())->appendChild($anchor);
-        
-        $anchor->href = 'http://anchor.test/?name=value';
-        $anchor->searchParams->append('name', 'value');
-        $anchor->searchParams->append('name2', 'value2');
-        $anchor->searchParams->append('name2', 'value2');
-        $anchor->searchParams->append('name3', 'value3');
+        $url = new URL('http://anchor.test/?name=value');
+        $url->searchParams->append('name', 'value');
+        $url->searchParams->append('name2', 'value2');
+        $url->searchParams->append('name2', 'value2');
+        $url->searchParams->append('name3', 'value3');
         $this->assertSame(
             'http://anchor.test/?name=value&name=value&name2=value2&name2=value2&name3=value3',
-            $anchor->getAttribute('href')
+            $url->href
         );
         
-        $anchor->searchParams->delete('name', 'value');
-        $this->assertSame('http://anchor.test/?name2=value2&name2=value2&name3=value3', $anchor->getAttribute('href'));
+        $url->searchParams->delete('name', 'value');
+        $this->assertSame('http://anchor.test/?name2=value2&name2=value2&name3=value3', $url->href);
         
-        $anchor->searchParams->set('name2', 'value4');
-        $this->assertSame('http://anchor.test/?name2=value4&name3=value3', $anchor->getAttribute('href'));
+        $url->searchParams->set('name2', 'value4');
+        $this->assertSame('http://anchor.test/?name2=value4&name3=value3', $url->href);
         
-        $anchor->search = 'pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=';
+        $url->search = 'pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=';
         $this->assertSame([
             'pear' => '梨',
             '%20' => ' ',
             '' => '',
-        ], iterator_to_array($anchor->searchParams));
+        ], iterator_to_array($url->searchParams));
     }
     
     public function testIterable()
