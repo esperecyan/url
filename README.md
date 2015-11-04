@@ -47,7 +47,7 @@ string(5) "value"
 
 Requirement
 -----------
-* PHP 5.4.7 or later
+* PHP 5.5 or later
 * [mbstring extension module]
 * [Intl extension module]
 * Library dependencies (is resolved automatically when you use Composer)
