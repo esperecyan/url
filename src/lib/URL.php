@@ -589,7 +589,12 @@ class URL
                         }
                     } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
-                        $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::DEFAULT_ENCODE_SET, $c);
+                        if (stripos(implode('', array_slice($codePoints, $pointer)), '%2e') === 0) {
+                            $buffer .= '.';
+                            $pointer += 2;
+                        } else {
+                            $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::DEFAULT_ENCODE_SET, $c);
+                        }
                     }
                     break;
 

@@ -226,6 +226,11 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 'port' => null,
                 'path' => ['directory', 'file'],
             ]],
+            ['https://url%2Etest/path%2Eexte%6Esion#%2E.', null, null, null, null, [
+                'host' => 'url.test',
+                'path' => ['path.exte%6Esion'],
+                'fragment' => '%2E.',
+            ]],
         ];
     }
     
