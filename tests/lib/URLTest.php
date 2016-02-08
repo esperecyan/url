@@ -123,12 +123,10 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 $this->assertNull($returnValue, $message);
             }
             
-            foreach ([
-                'scheme', 'username', 'password', 'host', 'port', 'path', 'query', 'fragment', 'nonRelativeFlag', 'object'
-            ] as $name) {
+            foreach ($expectedComponents as $name => $value) {
                 $components[$name] = $url->{$name};
             }
-            $this->assertArraySubset($expectedComponents, $components, true, $message);
+            $this->assertEquals($expectedComponents, $components, $message);
         }
     }
     
@@ -163,12 +161,10 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 $this->assertNull($returnValue, $message);
             }
             
-            foreach ([
-                'scheme', 'username', 'password', 'host', 'port', 'path', 'query', 'fragment', 'nonRelativeFlag', 'object'
-            ] as $name) {
+            foreach ($expectedComponents as $name => $value) {
                 $components[$name] = $url->{$name};
             }
-            $this->assertArraySubset($expectedComponents, $components, true, $message);
+            $this->assertEquals($expectedComponents, $components, $message);
         }
     }
     
@@ -180,7 +176,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 'nonRelativeFlag' => false,
                 'host' => 'url.test',
                 'port' => null,
-                'path' => [],
+                'path' => [''],
             ]],
             ['//url.test/', URL::parseURL('http://base.test/'), null, null, null, [
                 'scheme' => 'http',
