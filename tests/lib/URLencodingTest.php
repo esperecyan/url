@@ -158,6 +158,35 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             [[
                 ['PEAR', '🍐'],
             ], 'shift_jis', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
+            [[
+                ['_charset_', 'utf-8', 'hidden'],
+                ['名前', '値', 'text'],
+            ], 'shift_jis', '_charset_=shift_jis&%96%BC%91O=%92l'],
+            [[
+                ['_charset_', 'utf-8', 'text'],
+                ['名前', '値', 'text'],
+            ], 'shift_jis', '_charset_=utf-8&%96%BC%91O=%92l'],
+            [[
+                ['_charset_', '', 'hidden'],
+                ['名前', '値', 'text'],
+            ], 'replacement', '_charset_=replacement&%E5%90%8D%E5%89%8D=%E5%80%A4'],
+            [[
+                ['input', ['name' => 'file name', 'type' => 'text/plain', 'body' => 'contents'], 'file'],
+            ], null, 'input=file+name'],
+            [[
+                ['isindex', 'keyword', 'text'],
+            ], null, 'keyword'],
+            [[
+                ['isindex', 'keyword'],
+            ], null, 'isindex=keyword'],
+            [[
+                ['isindex', 'keyword', 'text'],
+                ['token', '123', 'hidden'],
+            ], null, 'keyword&token=123'],
+            [[
+                ['token', '123', 'hidden'],
+                ['isindex', 'keyword', 'text'],
+            ], null, 'token=123&isindex=keyword'],
         ];
     }
     

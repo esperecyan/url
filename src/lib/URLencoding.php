@@ -17,8 +17,7 @@ class URLencoding
      * @param string|null $encodingOverride A valid name of an encoding.
      * @param boolean $useCharsetFlag A use _charset_ flag.
      * @param boolean $isindexFlag An isindex flag.
-     * @return string[][]|false
-     *      An array of two-element arrays with the first element a name and the second the value.
+     * @return string[][]|false A list of name-value tuples.
      *      Return false if $encodingOverride is not utf-8 and $input contains bytes whose value is greater than 0x7F.
      */
     public static function parseURLencoded($input, $encodingOverride = 'utf-8', $useCharsetFlag = false, $isindexFlag = false)
@@ -33,7 +32,7 @@ class URLencoding
                 $sequences[0] = '=' . $sequences[0];
             }
             
-            $pairs = [];
+            $tuples = [];
             foreach ($sequences as $bytes) {
                 if ($bytes === '') {
                     continue;
@@ -47,15 +46,15 @@ class URLencoding
                     }
                 }
 
-                $pairs[] = $pair;
+                $tuples[] = $pair;
             }
             
             $output = [];
-            foreach ($pairs as $pair) {
-                foreach ($pair as &$nameOrValue) {
+            foreach ($tuples as $tuple) {
+                foreach ($tuple as &$nameOrValue) {
                     $nameOrValue = self::runEncoding(urldecode($nameOrValue), $encoding);
                 }
-                $output[] = $pair;
+                $output[] = $tuple;
             }
         }
         
@@ -76,21 +75,32 @@ class URLencoding
     /**
      * The application/x-www-form-urlencoded serializer.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-serializer URL Standard
-     * @param string[][] $pairs An array of two-element arrays with the first element a name and the second the value.
-     *      The name and value must be a utf-8 string.
+     * @param (string|string[])[][] $tuples A list of name-value or name-value-type tuples.
+     *      The name, value, and filename must be a utf-8 string.
      * @param string|null $encodingOverride A valid name of an encoding.
      * @return string
      */
-    public static function serializeURLencoded($pairs, $encodingOverride = 'utf-8')
+    public static function serializeURLencoded($tuples, $encodingOverride = 'utf-8')
     {
         $encoding = (string)$encodingOverride ?: 'utf-8';
-        
-        foreach ($pairs as &$pair) {
-            $pair = self::serializeURLencodedByte(self::encode($pair[0], $encoding))
-                . '=' . self::serializeURLencodedByte(self::encode($pair[1], $encoding));
+        foreach ($tuples as $i => &$tuple) {
+            $outputPair = [];
+            $outputPair[0] = self::serializeURLencodedByte(self::encode($tuple[0], $encoding));
+            if (isset($tuple[2]) && $outputPair[0] === '_charset_' && $tuple[2] === 'hidden') {
+                $outputPair[1] = $encodingOverride;
+            } elseif (isset($tuple[2]) && $tuple[2] === 'file') {
+                $outputPair[1] = $tuple[1]['name'];
+            } else {
+                $outputPair[1] = $tuple[1];
+            }
+            $outputPair[1] = self::serializeURLencodedByte(self::encode($outputPair[1], $encoding));
+            if (isset($tuple[2]) && $tuple[2] === 'text' && $outputPair[0] === 'isindex' && $i === 0) {
+                array_shift($outputPair);
+            }
+            $tuple = implode('=', $outputPair);
         }
         
-        return implode('&', $pairs);
+        return implode('&', $tuples);
     }
     
     /**

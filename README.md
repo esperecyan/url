@@ -165,6 +165,7 @@ The correspondence table of the algorithms
 | [application/x-www-form-urlencoded byte serializer] | [esperecyan\url\lib\URLencoding::serializeURLencodedByte()]|
 | [application/x-www-form-urlencoded serializer]      | [esperecyan\url\lib\URLencoding::serializeURLencoded()]    |
 | [application/x-www-form-urlencoded string parser]   | [esperecyan\url\lib\URLencoding::parseURLencodedString()]  |
+| name-value or [name-value-type tuples]              | An array of two-element or three-element arrays with the first element the name, the second the value, and the third the type. The value is an array with the value for `name` key as the name |
 
 [1. Infrastructure]: https://url.spec.whatwg.org/#infrastructure
 [Windows drive letter]: https://url.spec.whatwg.org/#windows-drive-letter
@@ -224,6 +225,7 @@ The correspondence table of the algorithms
 [application/x-www-form-urlencoded byte serializer]: https://url.spec.whatwg.org/#concept-urlencoded-byte-serializer
 [application/x-www-form-urlencoded serializer]: https://url.spec.whatwg.org/#concept-urlencoded-serializer
 [application/x-www-form-urlencoded string parser]: https://url.spec.whatwg.org/#concept-urlencoded-string-parser
+[name-value-type tuples]: https://html.spec.whatwg.org/multipage/forms.html#concept-input-type-file-selected
 
 [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER

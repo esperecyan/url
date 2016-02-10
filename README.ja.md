@@ -165,6 +165,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [application/x-www-form-urlencoded バイト直列化器]   | [esperecyan\url\lib\URLencoding::serializeURLencodedByte()] |
 | [application/x-www-form-urlencoded 直列化器]         | [esperecyan\url\lib\URLencoding::serializeURLencoded()]     |
 | [application/x-www-form-urlencoded 文字列構文解析器] | [esperecyan\url\lib\URLencoding::parseURLencodedString()]   |
+| ( 名, 値 ) の組, または [( 名, 値, 型 ) の組]        | 1つ目の要素に名、2つ目の要素に値、任意で3つ目の要素に型を持つ配列。値は文字列、または `name` キーからファイル名を取得できる配列 |
 
 [1. 基盤]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
 [Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#windows-drive-letter
@@ -224,6 +225,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [application/x-www-form-urlencoded バイト直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-byte-serializer
 [application/x-www-form-urlencoded 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-serializer
 [application/x-www-form-urlencoded 文字列構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-string-parser
+[( 名, 値, 型 ) の組]: http://momdo.github.io/html51/forms.html#concept-input-type-file-selected
 
 [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
