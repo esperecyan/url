@@ -227,6 +227,9 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 'path' => ['path.exte%6Esion'],
                 'fragment' => '%2E.',
             ]],
+            ['http://url.test/?query', null, 'utf-16be', null, null, [
+                'query' => 'query',
+            ]],
         ];
     }
     

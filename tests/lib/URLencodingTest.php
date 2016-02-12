@@ -175,7 +175,7 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             [[
                 ['_charset_', '', 'hidden'],
                 ['名前', '値', 'text'],
-            ], 'replacement', '_charset_=replacement&%E5%90%8D%E5%89%8D=%E5%80%A4'],
+            ], 'replacement', '_charset_=utf-8&%E5%90%8D%E5%89%8D=%E5%80%A4'],
             [[
                 ['input', ['name' => 'file name', 'type' => 'text/plain', 'body' => 'contents'], 'file'],
             ], null, 'input=file+name'],

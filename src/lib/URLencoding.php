@@ -82,12 +82,12 @@ class URLencoding
      */
     public static function serializeURLencoded($tuples, $encodingOverride = 'utf-8')
     {
-        $encoding = (string)$encodingOverride ?: 'utf-8';
+        $encoding = (string)$encodingOverride ? self::getOutputEncoding((string)$encodingOverride) : 'utf-8';
         foreach ($tuples as $i => &$tuple) {
             $outputPair = [];
             $outputPair[0] = self::serializeURLencodedByte(self::encode($tuple[0], $encoding));
             if (isset($tuple[2]) && $outputPair[0] === '_charset_' && $tuple[2] === 'hidden') {
-                $outputPair[1] = $encodingOverride;
+                $outputPair[1] = $encoding;
             } elseif (isset($tuple[2]) && $tuple[2] === 'file') {
                 $outputPair[1] = $tuple[1]['name'];
             } else {
@@ -379,6 +379,18 @@ class URLencoding
         }
         
         return $output;
+    }
+    
+    /**
+     * Get an output encoding from an encoding.
+     * @internal
+     * @link https://encoding.spec.whatwg.org/#get-an-output-encoding Encoding Standard
+     * @param string $encoding A valid name of an encoding.
+     * @return string
+     */
+    public static function getOutputEncoding($encoding)
+    {
+        return in_array($encoding, ['replacement', 'utf-16be', 'utf-16le']) ? 'utf-8' : $encoding;
     }
     
     /**

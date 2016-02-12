@@ -202,7 +202,7 @@ class URL
             $string = trim($input, "\x00.. ");
             $state = 'scheme start state';
         }
-        $encoding = $encodingOverride ? (string)$encodingOverride : 'utf-8';
+        $encoding = $encodingOverride ? URLencoding::getOutputEncoding((string)$encodingOverride) : 'utf-8';
         $buffer = '';
         $atFlag = false;
         $bracketFlag = false;
