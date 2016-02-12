@@ -335,7 +335,7 @@ class URLencoding
     {
         switch ($encoding) {
             case 'replacement':
-                $output = '�'; // REPLACEMENT CHARACTER (U+FFFD)
+                $output = $input === '' ? '' : '�'; // REPLACEMENT CHARACTER (U+FFFD)
                 break;
                 
             case 'x-user-defined':

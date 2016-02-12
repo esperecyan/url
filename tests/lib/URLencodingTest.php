@@ -13,7 +13,7 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseURLencoded($input, $encodingOverride, $useCharsetFlag, $isindexFlag, $output)
     {
-        $this->assertSame(
+        $this->assertEquals(
             $output,
             URLencoding::parseURLencoded($input, $encodingOverride, $useCharsetFlag, $isindexFlag)
         );
@@ -93,6 +93,12 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             ['%26%2320516%3B&_charset_=HTML-ENTITIES', null, true, false, [
                 ['&#20516;', ''],
                 ['_charset_', 'HTML-ENTITIES'],
+            ]],
+            ['=', 'replacement', false, false, [
+                ['', ''],
+            ]],
+            ['name=value', 'replacement', false, false, [
+                ['�', '�'],
             ]],
         ];
     }
