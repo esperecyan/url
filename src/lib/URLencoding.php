@@ -436,7 +436,7 @@ class URLencoding
                 $characterEncoding = $encoding == 'iso-8859-8-i' ? 'iso-8859-8' : $encoding;
                 if ($decoding) {
                     $peviousSubstituteCharacter = mb_substitute_character();
-                    mb_substitute_character(0xFFFD);
+                    mb_substitute_character($decoding ? 0xFFFD : 'entity');
                 }
                 $output = mb_convert_encoding(
                     $input,

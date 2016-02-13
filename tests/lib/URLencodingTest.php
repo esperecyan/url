@@ -165,6 +165,9 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
                 ['PEAR', '🍐'],
             ], 'shift_jis', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
             [[
+                ['PEAR', '🍐'],
+            ], 'macintosh', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
+            [[
                 ['_charset_', 'utf-8', 'hidden'],
                 ['名前', '値', 'text'],
             ], 'shift_jis', '_charset_=shift_jis&%96%BC%91O=%92l'],
