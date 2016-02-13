@@ -460,7 +460,7 @@ class URLencoding
                 $characterEncoding = $encoding == 'x-mac-cyrillic' ? 'MacCyrillic' : $encoding;
                 $output = iconv(
                     $decoding ? $characterEncoding : 'utf-8',
-                    ($decoding ? 'utf-8' : $characterEncoding) . '//TRANSLIT',
+                    ($decoding ? 'utf-8' : $characterEncoding) . '//TRANSLIT//IGNORE',
                     $input
                 );
                 break;
