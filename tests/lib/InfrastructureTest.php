@@ -58,8 +58,8 @@ class InfrastructureTest extends \PHPUnit_Framework_TestCase
         ];
     }
     /**
-     * @param string $encodeSet Regular expression matching exactly one utf-8 character.
-     * @param string $codePoint Exactly one utf-8 character.
+     * @param string $encodeSet Regular expression matching exactly one UTF-8 character.
+     * @param string $codePoint Exactly one UTF-8 character.
      * @param string $result
      * @dataProvider codePointProvider
      */

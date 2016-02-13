@@ -9,7 +9,7 @@ class HostProcessing
     use Utility;
     
     /**
-     * Maximum utf-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8().
+     * Maximum UTF-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8().
      * @internal
      * @var integer
      */
@@ -18,12 +18,12 @@ class HostProcessing
     /**
      * The domain to ASCII given a domain $domain.
      * @link https://url.spec.whatwg.org/#concept-domain-to-ascii URL Standard
-     * @param string $domain A utf-8 string.
+     * @param string $domain A UTF-8 string.
      * @return string|false
      */
     public static function domainToASCII($domain)
     {
-        return mb_strlen($domain, 'utf-8') <= self::PHP_IDN_HANDLEABLE_LENGTH
+        return mb_strlen($domain, 'UTF-8') <= self::PHP_IDN_HANDLEABLE_LENGTH
             ? idn_to_ascii($domain, 0, INTL_IDNA_VARIANT_UTS46)
             : false;
     }
@@ -31,12 +31,12 @@ class HostProcessing
     /**
      * The domain to Unicode given a domain $domain.
      * @link https://url.spec.whatwg.org/#concept-domain-to-unicode URL Standard
-     * @param string $domain A utf-8 string.
+     * @param string $domain A UTF-8 string.
      * @return string
      */
     public static function domainToUnicode($domain)
     {
-        return mb_strlen($domain, 'utf-8') <= self::PHP_IDN_HANDLEABLE_LENGTH
+        return mb_strlen($domain, 'UTF-8') <= self::PHP_IDN_HANDLEABLE_LENGTH
             ? idn_to_utf8($domain, 0, INTL_IDNA_VARIANT_UTS46)
             : false;
     }
@@ -44,12 +44,12 @@ class HostProcessing
     /**
      * Return true if a domain is a valid domain.
      * @link https://url.spec.whatwg.org/#valid-domain URL Standard
-     * @param string $domain A utf-8 string.
+     * @param string $domain A UTF-8 string.
      * @return boolean
      */
     public static function isValidDomain($domain)
     {
-        $valid = mb_strlen($domain, 'utf-8') <= self::PHP_IDN_HANDLEABLE_LENGTH;
+        $valid = mb_strlen($domain, 'UTF-8') <= self::PHP_IDN_HANDLEABLE_LENGTH;
 
         if ($valid) {
             $result = idn_to_ascii(
@@ -93,7 +93,7 @@ class HostProcessing
     /**
      * The host parser.
      * @link https://url.spec.whatwg.org/#concept-host-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @param boolean $unicodeFlag If true, can return a domain containing non-ASCII characters.
      * @return string|integer|float|integer[]
      *      If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).
@@ -124,7 +124,7 @@ class HostProcessing
     /**
      * The IPv4 number parser.
      * @link https://url.spec.whatwg.org/#ipv4-number-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @return integer|float|false
      */
     public static function parseIPv4Number($input)
@@ -148,7 +148,7 @@ class HostProcessing
     /**
      * The IPv4 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv4-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @return integer|float|string|false
      */
     public static function parseIPv4($input)
@@ -198,7 +198,7 @@ class HostProcessing
     /**
      * The IPv6 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv6-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @return integer[] An array of a 16-bit unsigned integer.
      */
     public static function parseIPv6($input)

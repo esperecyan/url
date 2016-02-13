@@ -18,13 +18,13 @@ class URLencoding
      * @param boolean $useCharsetFlag A use _charset_ flag.
      * @param boolean $isindexFlag An isindex flag.
      * @return string[][]|false A list of name-value tuples.
-     *      Return false if $encodingOverride is not utf-8 and $input contains bytes whose value is greater than 0x7F.
+     *      Return false if $encodingOverride is not UTF-8 and $input contains bytes whose value is greater than 0x7F.
      */
-    public static function parseURLencoded($input, $encodingOverride = 'utf-8', $useCharsetFlag = false, $isindexFlag = false)
+    public static function parseURLencoded($input, $encodingOverride = 'UTF-8', $useCharsetFlag = false, $isindexFlag = false)
     {
-        $encoding = (string)$encodingOverride ?: 'utf-8';
+        $encoding = (string)$encodingOverride ?: 'UTF-8';
         $useCharset = (boolean)$useCharsetFlag;
-        if ($encoding !== 'utf-8' && preg_match('/[\\x7F-\xFF]/', $input) !== 0) {
+        if ($encoding !== 'UTF-8' && preg_match('/[\\x7F-\xFF]/', $input) !== 0) {
             $output = false;
         } else {
             $sequences = explode('&', $input);
@@ -76,13 +76,13 @@ class URLencoding
      * The application/x-www-form-urlencoded serializer.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-serializer URL Standard
      * @param (string|string[])[][] $tuples A list of name-value or name-value-type tuples.
-     *      The name, value, and filename must be a utf-8 string.
+     *      The name, value, and filename must be a UTF-8 string.
      * @param string|null $encodingOverride A valid name of an encoding.
      * @return string
      */
-    public static function serializeURLencoded($tuples, $encodingOverride = 'utf-8')
+    public static function serializeURLencoded($tuples, $encodingOverride = 'UTF-8')
     {
-        $encoding = (string)$encodingOverride ? self::getOutputEncoding((string)$encodingOverride) : 'utf-8';
+        $encoding = (string)$encodingOverride ? self::getOutputEncoding((string)$encodingOverride) : 'UTF-8';
         foreach ($tuples as $i => &$tuple) {
             $outputPair = [];
             $outputPair[0] = self::serializeURLencodedByte(self::encode($tuple[0], $encoding));
@@ -106,7 +106,7 @@ class URLencoding
     /**
      * The application/x-www-form-urlencoded string parser.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-string-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @return string[][]  An array of two-element arrays with the first element a name and the second the value.
      */
     public static function parseURLencodedString($input)
@@ -125,7 +125,7 @@ class URLencoding
     /**
      * Get an encoding from a string.
      * @link https://encoding.spec.whatwg.org/#concept-encoding-get Encoding Standard
-     * @param string $label A utf-8 string.
+     * @param string $label A UTF-8 string.
      * @return string|false
      */
     private static function getEncoding($label)
@@ -134,12 +134,12 @@ class URLencoding
             case 'unicode-1-1-utf-8':
             case 'utf-8':
             case 'utf8':
-                $encoding = 'utf-8';
+                $encoding = 'UTF-8';
                 break;
             case 'iso-8859-14':
             case 'iso8859-14':
             case 'iso885914':
-                $encoding = 'iso-8859-14';
+                $encoding = 'ISO-8859-14';
                 break;
             case 'csisolatin9':
             case 'iso-8859-15':
@@ -147,20 +147,20 @@ class URLencoding
             case 'iso885915':
             case 'iso_8859-15':
             case 'l9':
-                $encoding = 'iso-8859-15';
+                $encoding = 'ISO-8859-15';
                 break;
             case 'iso-8859-16':
-                $encoding = 'iso-8859-16';
+                $encoding = 'ISO-8859-16';
                 break;
             case 'cskoi8r':
             case 'koi':
             case 'koi8':
             case 'koi8-r':
             case 'koi8_r':
-                $encoding = 'koi8-r';
+                $encoding = 'KOI8-R';
                 break;
             case 'koi8-u':
-                $encoding = 'koi8-u';
+                $encoding = 'KOI8-U';
                 break;
             case 'csmacintosh':
             case 'mac':
@@ -257,7 +257,7 @@ class URLencoding
             case 'gbk':
             case 'iso-ir-58':
             case 'x-gbk':
-                $encoding = 'gbk';
+                $encoding = 'GBK';
                 break;
             case 'gb18030':
                 $encoding = 'gb18030';
@@ -267,16 +267,16 @@ class URLencoding
             case 'cn-big5':
             case 'csbig5':
             case 'x-x-big5':
-                $encoding = 'big5';
+                $encoding = 'Big5';
                 break;
             case 'cseucpkdfmtjapanese':
             case 'euc-jp':
             case 'x-euc-jp':
-                $encoding = 'euc-jp';
+                $encoding = 'EUC-JP';
                 break;
             case 'csiso2022jp':
             case 'iso-2022-jp':
-                $encoding = 'iso-2022-jp';
+                $encoding = 'ISO-2022-JP';
                 break;
             case 'csshiftjis':
             case 'ms_kanji':
@@ -285,7 +285,7 @@ class URLencoding
             case 'sjis':
             case 'windows-31j':
             case 'x-sjis':
-                $encoding = 'shift_jis';
+                $encoding = 'Shift_JIS';
                 break;
             case 'cseuckr':
             case 'csksc56011987':
@@ -297,7 +297,7 @@ class URLencoding
             case 'ksc5601':
             case 'ksc_5601':
             case 'windows-949':
-                $encoding = 'euc-kr';
+                $encoding = 'EUC-KR';
                 break;
             case 'csiso2022kr':
             case 'hz-gb-2312':
@@ -307,11 +307,11 @@ class URLencoding
                 $encoding = 'replacement';
                 break;
             case 'utf-16be':
-                $encoding = 'utf-16be';
+                $encoding = 'UTF-16BE';
                 break;
             case 'utf-16':
             case 'utf-16le':
-                $encoding = 'utf-16le';
+                $encoding = 'UTF-16LE';
                 break;
             case 'x-user-defined':
                 $encoding = 'x-user-defined';
@@ -323,13 +323,13 @@ class URLencoding
     }
     
     /**
-     * Convert the encoding of $input to utf-8 from $encoding.
+     * Convert the encoding of $input to UTF-8 from $encoding.
      * @internal
      * @link https://encoding.spec.whatwg.org/#concept-encoding-run Encoding Standard
      * @param string $input A string encoded by $encoding.
      * @param string $encoding A valid name of an encoding.
      * @throws \DomainException If $encoding is invalid.
-     * @return string A utf-8 string.
+     * @return string A UTF-8 string.
      */
     public static function runEncoding($input, $encoding)
     {
@@ -352,16 +352,16 @@ class URLencoding
     }
     
     /**
-     * Convert the encoding of $input to $encoding from utf-8.
+     * Convert the encoding of $input to $encoding from UTF-8.
      * @internal
      * @link https://encoding.spec.whatwg.org/#decode Encoding Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @param string $encoding A valid name of an encoding.
      * @return string
      */
     public static function encode($input, $encoding)
     {
-        switch ($encoding) {
+        switch (strtolower($encoding)) {
             case 'utf-8':
             case 'replacement':
                 $output = $input;
@@ -390,20 +390,20 @@ class URLencoding
      */
     public static function getOutputEncoding($encoding)
     {
-        return in_array($encoding, ['replacement', 'utf-16be', 'utf-16le']) ? 'utf-8' : $encoding;
+        return in_array(strtolower($encoding), ['replacement', 'utf-16be', 'utf-16le']) ? 'UTF-8' : $encoding;
     }
     
     /**
      * Invoke mb_convert_encoding() or iconv().
-     * @param string $input A string encoded by $encoding if $decoding is true, a utf-8 string otherwise.
+     * @param string $input A string encoded by $encoding if $decoding is true, a UTF-8 string otherwise.
      * @param string $encoding A valid name of an encoding.
-     * @param boolean $decoding Convert the encoding to utf-8 from $encoding if true, to $encoding from utf-8 otherwise.
+     * @param boolean $decoding Convert the encoding to UTF-8 from $encoding if true, to $encoding from UTF-8 otherwise.
      * @throws \DomainException If $encoding is invalid.
-     * @return string A utf-8 string if $decoding is true, a string encoded by $encoding otherwise.
+     * @return string A UTF-8 string if $decoding is true, a string encoded by $encoding otherwise.
      */
     private static function convertEncoding($input, $encoding, $decoding = false)
     {
-        switch ($encoding) {
+        switch (strtolower($encoding)) {
             case 'utf-8':
             case 'ibm866':
             case 'iso-8859-2':
@@ -433,15 +433,15 @@ class URLencoding
             case 'euc-kr':
             case 'utf-16be':
             case 'utf-16le':
-                $characterEncoding = $encoding == 'iso-8859-8-i' ? 'iso-8859-8' : $encoding;
+                $characterEncoding = strtoupper($encoding) == 'ISO-8859-8-I' ? 'ISO-8859-8' : $encoding;
                 if ($decoding) {
                     $peviousSubstituteCharacter = mb_substitute_character();
                     mb_substitute_character($decoding ? 0xFFFD : 'entity');
                 }
                 $output = mb_convert_encoding(
                     $input,
-                    $decoding ? 'utf-8' : $characterEncoding,
-                    $decoding ? $encoding : 'utf-8'
+                    $decoding ? 'UTF-8' : $characterEncoding,
+                    $decoding ? $encoding : 'UTF-8'
                 );
                 if ($decoding) {
                     mb_substitute_character($peviousSubstituteCharacter);
@@ -459,8 +459,8 @@ class URLencoding
             case 'x-mac-cyrillic':
                 $characterEncoding = $encoding == 'x-mac-cyrillic' ? 'MacCyrillic' : $encoding;
                 $output = iconv(
-                    $decoding ? $characterEncoding : 'utf-8',
-                    ($decoding ? 'utf-8' : $characterEncoding) . '//TRANSLIT//IGNORE',
+                    $decoding ? $characterEncoding : 'UTF-8',
+                    ($decoding ? 'UTF-8' : $characterEncoding) . '//TRANSLIT//IGNORE',
                     $input
                 );
                 break;
@@ -477,7 +477,7 @@ class URLencoding
     /**
      * Get the code point of $char.
      * @link http://qiita.com/masakielastic/items/5696cf90738c1438f10d PHP - UTF-8 の文字からコードポイントを求める - Qiita
-     * @param string $char Exactly one utf-8 character.
+     * @param string $char Exactly one UTF-8 character.
      * @return integer
      */
     private static function getCodePoint($char)
@@ -509,7 +509,7 @@ class URLencoding
     }
     
     /**
-     * Get the utf-8 character from a code point $cp.
+     * Get the UTF-8 character from a code point $cp.
      * @link http://qiita.com/masakielastic/items/68f81e1b7d153ee5cc81 PHP - コードポイントから UTF-8 の文字を生成する - Qiita
      * @param integer $cp A valid code point.
      * @return string

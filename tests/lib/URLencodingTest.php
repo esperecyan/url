@@ -39,14 +39,14 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             ['値', null, false, false, [
                 ['値', ''],
             ]],
-            ['値', 'utf-8', false, false, [
+            ['値', 'UTF-8', false, false, [
                 ['値', ''],
             ]],
-            [mb_convert_encoding('値', 'SJIS', 'utf-8'), null, false, false, [
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), null, false, false, [
                 ['�l', ''],
             ]],
-            [mb_convert_encoding('値', 'SJIS', 'utf-8'), 'shift_jis', false, false, false],
-            [mb_convert_encoding('値', 'SJIS', 'utf-8'), 'utf-8', false, false, [
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'Shift_JIS', false, false, false],
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'UTF-8', false, false, [
                 ['�l', ''],
             ]],
             ['%92l', null, false, false, [
@@ -119,7 +119,7 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             [' !"#$%&\'()*+,-.:;<=>?@[]^_`{|}~', '+%21%22%23%24%25%26%27%28%29*%2B%2C-.%3A%3B%3C%3D%3E%3F%40%5B%5D%5E_%60%7B%7C%7D%7E'],
             ['値', '%E5%80%A4'],
             ['%E5%80%A4', '%25E5%2580%25A4'],
-            [mb_convert_encoding('値', 'SJIS', 'utf-8'), '%92l'],
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), '%92l'],
             ['', ''],
         ];
     }
@@ -160,25 +160,25 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             [[
                 ['名前', '値1'],
                 ['名前', '値2'],
-            ], 'shift_jis', '%96%BC%91O=%92l1&%96%BC%91O=%92l2'],
+            ], 'Shift_JIS', '%96%BC%91O=%92l1&%96%BC%91O=%92l2'],
             [[
                 ['PEAR', '🍐'],
-            ], 'shift_jis', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
+            ], 'Shift_JIS', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
             [[
                 ['PEAR', '🍐'],
             ], 'macintosh', 'PEAR=%26%23127824%3B%25' /* PEAR=&127824; */, 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
             [[
-                ['_charset_', 'utf-8', 'hidden'],
+                ['_charset_', 'UTF-8', 'hidden'],
                 ['名前', '値', 'text'],
-            ], 'shift_jis', '_charset_=shift_jis&%96%BC%91O=%92l'],
+            ], 'Shift_JIS', '_charset_=Shift_JIS&%96%BC%91O=%92l'],
             [[
-                ['_charset_', 'utf-8', 'text'],
+                ['_charset_', 'UTF-8', 'text'],
                 ['名前', '値', 'text'],
-            ], 'shift_jis', '_charset_=utf-8&%96%BC%91O=%92l'],
+            ], 'Shift_JIS', '_charset_=UTF-8&%96%BC%91O=%92l'],
             [[
                 ['_charset_', '', 'hidden'],
                 ['名前', '値', 'text'],
-            ], 'replacement', '_charset_=utf-8&%E5%90%8D%E5%89%8D=%E5%80%A4'],
+            ], 'replacement', '_charset_=UTF-8&%E5%90%8D%E5%89%8D=%E5%80%A4'],
             [[
                 ['input', ['name' => 'file name', 'type' => 'text/plain', 'body' => 'contents'], 'file'],
             ], null, 'input=file+name'],
@@ -227,7 +227,7 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             ]],
             
             // invalid arguments
-            [mb_convert_encoding('値', 'SJIS', 'utf-8'), [
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), [
                 ['�l', ''],
             ]],
         ];

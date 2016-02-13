@@ -165,7 +165,7 @@ class URL
     /**
      * The URL parser.
      * @link https://url.spec.whatwg.org/#concept-url-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @param URL|null $base A base URL.
      * @param string|null $encodingOverride A valid name of an encoding.
      * @return URL|false
@@ -178,7 +178,7 @@ class URL
     /**
      * The basic URL parser.
      * @link https://url.spec.whatwg.org/#concept-basic-url-parser URL Standard
-     * @param string $input A utf-8 string.
+     * @param string $input A UTF-8 string.
      * @param URL|null $base A base URL.
      * @param string|null $encodingOverride A valid name of an encoding.
      * @param (URL|string)[]|null $urlAndStateOverride An URL ("url" key) and a state override ("state override" key).
@@ -202,7 +202,7 @@ class URL
             $string = trim($input, "\x00.. ");
             $state = 'scheme start state';
         }
-        $encoding = $encodingOverride ? URLencoding::getOutputEncoding((string)$encodingOverride) : 'utf-8';
+        $encoding = $encodingOverride ? URLencoding::getOutputEncoding((string)$encodingOverride) : 'UTF-8';
         $buffer = '';
         $atFlag = false;
         $bracketFlag = false;
@@ -395,7 +395,7 @@ class URL
                         }
                         $buffer = '';
                     } elseif (in_array($c, ['', '/', '?', '#']) || $c === '\\' && $url->isSpecial()) {
-                        $pointer -= mb_strlen($buffer, 'utf-8') + 1;
+                        $pointer -= mb_strlen($buffer, 'UTF-8') + 1;
                         $buffer = '';
                         $state = 'host state';
                     } else {
@@ -615,7 +615,7 @@ class URL
                 case 'query state':
                     if ($c === '' || !$stateOverride && $c === '#') {
                         if (!$url->isSpecial() || $url->scheme === 'ws' || $url->scheme === 'wss') {
-                            $encoding = 'utf-8';
+                            $encoding = 'UTF-8';
                         }
                         $buffer = URLencoding::encode($buffer, $encoding);
                         $url->query = self::percentEncodeCodePoints('/[^!$-;=?-~]/', $buffer);
@@ -655,7 +655,7 @@ class URL
     /**
      * Set the username of the URL given $username.
      * @link https://url.spec.whatwg.org/#set-the-username URL Standard
-     * @param string $username A utf-8 string.
+     * @param string $username A UTF-8 string.
      */
     public function setUsername($username)
     {
@@ -665,7 +665,7 @@ class URL
     /**
      * Set the password of the URL given $password.
      * @link https://url.spec.whatwg.org/#set-the-password URL Standard
-     * @param string $password A utf-8 string.
+     * @param string $password A UTF-8 string.
      */
     public function setPassword($password)
     {
@@ -675,9 +675,9 @@ class URL
     }
     
     /**
-     * Percent encode utf-8 string, using an encode set.
-     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one utf-8 character.
-     * @param string $codePoints A utf-8 string.
+     * Percent encode UTF-8 string, using an encode set.
+     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
+     * @param string $codePoints A UTF-8 string.
      * @return string
      */
     private static function percentEncodeCodePoints($encodeSet, $codePoints)

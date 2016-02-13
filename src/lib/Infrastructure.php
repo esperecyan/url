@@ -37,7 +37,7 @@ class Infrastructure
      * Percent decode a byte sequence $input.
      * @link https://url.spec.whatwg.org/#percent-decode URL Standard
      * @param string $input
-     * @return string A utf-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
+     * @return string A UTF-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
      */
     public static function percentDecode($input)
     {
@@ -86,10 +86,10 @@ class Infrastructure
     const USERINFO_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * utf-8 percent encode a code point, using an encode set.
+     * UTF-8 percent encode a code point, using an encode set.
      * @link https://url.spec.whatwg.org/#utf_8-percent-encode URL Standard
-     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one utf-8 character.
-     * @param string $codePoint Exactly one utf-8 character.
+     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
+     * @param string $codePoint Exactly one UTF-8 character.
      * @return string
      */
     public static function utf8PercentEncode($encodeSet, $codePoint)

@@ -23,7 +23,7 @@ class PercentEncoding
     /**
      * Alias of {@link Infrastructure}::percentDecode().
      * @param string $input
-     * @return string A utf-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
+     * @return string A UTF-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
      */
     public static function percentDecode($input)
     {
@@ -71,8 +71,8 @@ class PercentEncoding
     
     /**
      * Alias of {@link Infrastructure}\utf8PercentEncode().
-     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one utf-8 character.
-     * @param string $codePoint Exactly one utf-8 character.
+     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
+     * @param string $codePoint Exactly one UTF-8 character.
      * @return string
      */
     public static function utf8PercentEncode($encodeSet, $codePoint)
