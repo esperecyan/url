@@ -29,7 +29,9 @@ class URLSearchParams implements \IteratorAggregate
     public function __construct($init = '')
     {
         $initValue = TypeHinter::to('(USVString or esperecyan\\url\\URLSearchParams)', $init);
-        $this->list = is_string($initValue) ? lib\URLencoding::parseURLencodedString($initValue) : $initValue->list;
+        $this->list = is_string($initValue)
+            ? lib\URLencoding::parseURLencodedString(preg_replace('/^\\?/u', '', $initValue))
+            : $initValue->list;
     }
     
     /**

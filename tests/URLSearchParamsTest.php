@@ -21,7 +21,7 @@ class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
 
     public function testDelete()
     {
-        $params = new URLSearchParams('pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=');
+        $params = new URLSearchParams('?pear=%F0%9F%8D%90&pear=%E6%A2%A8&%2520=+&=');
         $params->delete('pear');
         
         $this->assertSame('%2520=+&=', (string)$params, var_export($params, true));
