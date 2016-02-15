@@ -133,7 +133,7 @@
 </span></span><span id="37" class="l"><span class="php-comment">     * Percent decode a byte sequence $input.
 </span></span><span id="38" class="l"><span class="php-comment">     * @link https://url.spec.whatwg.org/#percent-decode URL Standard
 </span></span><span id="39" class="l"><span class="php-comment">     * @param string $input
-</span></span><span id="40" class="l"><span class="php-comment">     * @return string A utf-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
+</span></span><span id="40" class="l"><span class="php-comment">     * @return string A UTF-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
 </span></span><span id="41" class="l"><span class="php-comment">     */</span>
 </span><span id="42" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> percentDecode(<span class="php-var">$input</span>)
 </span><span id="43" class="l">    {
@@ -182,10 +182,10 @@
 </span><span id="86" class="l">    <span class="php-keyword1">const</span> USERINFO_ENCODE_SET = <span class="php-quote">'/[^!$-.0-9A-Z_a-z~]/u'</span>;
 </span><span id="87" class="l">    
 </span><span id="88" class="l">    <span class="php-comment">/**
-</span></span><span id="89" class="l"><span class="php-comment">     * utf-8 percent encode a code point, using an encode set.
+</span></span><span id="89" class="l"><span class="php-comment">     * UTF-8 percent encode a code point, using an encode set.
 </span></span><span id="90" class="l"><span class="php-comment">     * @link https://url.spec.whatwg.org/#utf_8-percent-encode URL Standard
-</span></span><span id="91" class="l"><span class="php-comment">     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one utf-8 character.
-</span></span><span id="92" class="l"><span class="php-comment">     * @param string $codePoint Exactly one utf-8 character.
+</span></span><span id="91" class="l"><span class="php-comment">     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
+</span></span><span id="92" class="l"><span class="php-comment">     * @param string $codePoint Exactly one UTF-8 character.
 </span></span><span id="93" class="l"><span class="php-comment">     * @return string
 </span></span><span id="94" class="l"><span class="php-comment">     */</span>
 </span><span id="95" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> utf8PercentEncode(<span class="php-var">$encodeSet</span>, <span class="php-var">$codePoint</span>)

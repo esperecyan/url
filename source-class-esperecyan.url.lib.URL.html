@@ -261,7 +261,7 @@
 </span><span id="165" class="l">    <span class="php-comment">/**
 </span></span><span id="166" class="l"><span class="php-comment">     * The URL parser.
 </span></span><span id="167" class="l"><span class="php-comment">     * @link https://url.spec.whatwg.org/#concept-url-parser URL Standard
-</span></span><span id="168" class="l"><span class="php-comment">     * @param string $input A utf-8 string.
+</span></span><span id="168" class="l"><span class="php-comment">     * @param string $input A UTF-8 string.
 </span></span><span id="169" class="l"><span class="php-comment">     * @param URL|null $base A base URL.
 </span></span><span id="170" class="l"><span class="php-comment">     * @param string|null $encodingOverride A valid name of an encoding.
 </span></span><span id="171" class="l"><span class="php-comment">     * @return URL|false
@@ -274,7 +274,7 @@
 </span><span id="178" class="l">    <span class="php-comment">/**
 </span></span><span id="179" class="l"><span class="php-comment">     * The basic URL parser.
 </span></span><span id="180" class="l"><span class="php-comment">     * @link https://url.spec.whatwg.org/#concept-basic-url-parser URL Standard
-</span></span><span id="181" class="l"><span class="php-comment">     * @param string $input A utf-8 string.
+</span></span><span id="181" class="l"><span class="php-comment">     * @param string $input A UTF-8 string.
 </span></span><span id="182" class="l"><span class="php-comment">     * @param URL|null $base A base URL.
 </span></span><span id="183" class="l"><span class="php-comment">     * @param string|null $encodingOverride A valid name of an encoding.
 </span></span><span id="184" class="l"><span class="php-comment">     * @param (URL|string)[]|null $urlAndStateOverride An URL (&quot;url&quot; key) and a state override (&quot;state override&quot; key).
@@ -298,7 +298,7 @@
 </span><span id="202" class="l">            <span class="php-var">$string</span> = <span class="php-keyword2">trim</span>(<span class="php-var">$input</span>, <span class="php-quote">&quot;\x00.. &quot;</span>);
 </span><span id="203" class="l">            <span class="php-var">$state</span> = <span class="php-quote">'scheme start state'</span>;
 </span><span id="204" class="l">        }
-</span><span id="205" class="l">        <span class="php-var">$encoding</span> = <span class="php-var">$encodingOverride</span> ? (string)<span class="php-var">$encodingOverride</span> : <span class="php-quote">'utf-8'</span>;
+</span><span id="205" class="l">        <span class="php-var">$encoding</span> = <span class="php-var">$encodingOverride</span> ? URLencoding::getOutputEncoding((string)<span class="php-var">$encodingOverride</span>) : <span class="php-quote">'UTF-8'</span>;
 </span><span id="206" class="l">        <span class="php-var">$buffer</span> = <span class="php-quote">''</span>;
 </span><span id="207" class="l">        <span class="php-var">$atFlag</span> = <span class="php-keyword1">false</span>;
 </span><span id="208" class="l">        <span class="php-var">$bracketFlag</span> = <span class="php-keyword1">false</span>;
@@ -491,7 +491,7 @@
 </span><span id="395" class="l">                        }
 </span><span id="396" class="l">                        <span class="php-var">$buffer</span> = <span class="php-quote">''</span>;
 </span><span id="397" class="l">                    } <span class="php-keyword1">elseif</span> (<span class="php-keyword2">in_array</span>(<span class="php-var">$c</span>, [<span class="php-quote">''</span>, <span class="php-quote">'/'</span>, <span class="php-quote">'?'</span>, <span class="php-quote">'#'</span>]) || <span class="php-var">$c</span> === <span class="php-quote">'\\'</span> &amp;&amp; <span class="php-var">$url</span>-&gt;isSpecial()) {
-</span><span id="398" class="l">                        <span class="php-var">$pointer</span> -= <span class="php-keyword2">mb_strlen</span>(<span class="php-var">$buffer</span>, <span class="php-quote">'utf-8'</span>) + <span class="php-num">1</span>;
+</span><span id="398" class="l">                        <span class="php-var">$pointer</span> -= <span class="php-keyword2">mb_strlen</span>(<span class="php-var">$buffer</span>, <span class="php-quote">'UTF-8'</span>) + <span class="php-num">1</span>;
 </span><span id="399" class="l">                        <span class="php-var">$buffer</span> = <span class="php-quote">''</span>;
 </span><span id="400" class="l">                        <span class="php-var">$state</span> = <span class="php-quote">'host state'</span>;
 </span><span id="401" class="l">                    } <span class="php-keyword1">else</span> {
@@ -711,7 +711,7 @@
 </span><span id="615" class="l">                <span class="php-keyword1">case</span> <span class="php-quote">'query state'</span>:
 </span><span id="616" class="l">                    <span class="php-keyword1">if</span> (<span class="php-var">$c</span> === <span class="php-quote">''</span> || !<span class="php-var">$stateOverride</span> &amp;&amp; <span class="php-var">$c</span> === <span class="php-quote">'#'</span>) {
 </span><span id="617" class="l">                        <span class="php-keyword1">if</span> (!<span class="php-var">$url</span>-&gt;isSpecial() || <span class="php-var">$url</span>-&gt;scheme === <span class="php-quote">'ws'</span> || <span class="php-var">$url</span>-&gt;scheme === <span class="php-quote">'wss'</span>) {
-</span><span id="618" class="l">                            <span class="php-var">$encoding</span> = <span class="php-quote">'utf-8'</span>;
+</span><span id="618" class="l">                            <span class="php-var">$encoding</span> = <span class="php-quote">'UTF-8'</span>;
 </span><span id="619" class="l">                        }
 </span><span id="620" class="l">                        <span class="php-var">$buffer</span> = URLencoding::encode(<span class="php-var">$buffer</span>, <span class="php-var">$encoding</span>);
 </span><span id="621" class="l">                        <span class="php-var">$url</span>-&gt;query = self::percentEncodeCodePoints(<span class="php-quote">'/[^!$-;=?-~]/'</span>, <span class="php-var">$buffer</span>);
@@ -751,7 +751,7 @@
 </span><span id="655" class="l">    <span class="php-comment">/**
 </span></span><span id="656" class="l"><span class="php-comment">     * Set the username of the URL given $username.
 </span></span><span id="657" class="l"><span class="php-comment">     * @link https://url.spec.whatwg.org/#set-the-username URL Standard
-</span></span><span id="658" class="l"><span class="php-comment">     * @param string $username A utf-8 string.
+</span></span><span id="658" class="l"><span class="php-comment">     * @param string $username A UTF-8 string.
 </span></span><span id="659" class="l"><span class="php-comment">     */</span>
 </span><span id="660" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setUsername(<span class="php-var">$username</span>)
 </span><span id="661" class="l">    {
@@ -761,7 +761,7 @@
 </span><span id="665" class="l">    <span class="php-comment">/**
 </span></span><span id="666" class="l"><span class="php-comment">     * Set the password of the URL given $password.
 </span></span><span id="667" class="l"><span class="php-comment">     * @link https://url.spec.whatwg.org/#set-the-password URL Standard
-</span></span><span id="668" class="l"><span class="php-comment">     * @param string $password A utf-8 string.
+</span></span><span id="668" class="l"><span class="php-comment">     * @param string $password A UTF-8 string.
 </span></span><span id="669" class="l"><span class="php-comment">     */</span>
 </span><span id="670" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setPassword(<span class="php-var">$password</span>)
 </span><span id="671" class="l">    {
@@ -771,9 +771,9 @@
 </span><span id="675" class="l">    }
 </span><span id="676" class="l">    
 </span><span id="677" class="l">    <span class="php-comment">/**
-</span></span><span id="678" class="l"><span class="php-comment">     * Percent encode utf-8 string, using an encode set.
-</span></span><span id="679" class="l"><span class="php-comment">     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one utf-8 character.
-</span></span><span id="680" class="l"><span class="php-comment">     * @param string $codePoints A utf-8 string.
+</span></span><span id="678" class="l"><span class="php-comment">     * Percent encode UTF-8 string, using an encode set.
+</span></span><span id="679" class="l"><span class="php-comment">     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
+</span></span><span id="680" class="l"><span class="php-comment">     * @param string $codePoints A UTF-8 string.
 </span></span><span id="681" class="l"><span class="php-comment">     * @return string
 </span></span><span id="682" class="l"><span class="php-comment">     */</span>
 </span><span id="683" class="l">    <span class="php-keyword1">private</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> percentEncodeCodePoints(<span class="php-var">$encodeSet</span>, <span class="php-var">$codePoints</span>)
