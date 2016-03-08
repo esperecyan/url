@@ -178,6 +178,22 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 'port' => null,
                 'path' => [''],
             ]],
+            ["h\tt\rt\np:/\t/url.test/", null, null, null, null, [
+                'scheme' => 'http',
+                'host' => 'url.test',
+                'path' => [''],
+            ]],
+            ["ht tp://url.test/", null, null, null, null, false],
+            ["ht\ttp://url.test/", URL::parseURL('http://base.test/'), null, null, null, [
+                'scheme' => 'http',
+                'host' => 'url.test',
+                'path' => [''],
+            ]],
+            ['ht tp://url.test/', URL::parseURL('http://base.test/'), null, null, null, [
+                'scheme' => 'http',
+                'host' => 'base.test',
+                'path' => ['ht%20tp:' , '', 'url.test', ''],
+            ]],
             ['//url.test/', URL::parseURL('http://base.test/'), null, null, null, [
                 'scheme' => 'http',
                 'host' => 'url.test',

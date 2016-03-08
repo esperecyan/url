@@ -191,6 +191,7 @@ class URL
         $encodingOverride = null,
         array $urlAndStateOverride = null
     ) {
+        $input = str_replace(["\t", "\n", "\r"], '', $input);
         if ($urlAndStateOverride) {
             $url = $urlAndStateOverride['url'];
             $stateOverride = (string)$urlAndStateOverride['state override'];
@@ -382,7 +383,7 @@ class URL
                             $buffer = '%40' . $buffer;
                         }
                         $atFlag = true;
-                        $usernameAndPassword = explode(':', str_replace(["\t", "\n", "\r"], '', $buffer), 2);
+                        $usernameAndPassword = explode(':', $buffer, 2);
                         $url->username .= self::percentEncodeCodePoints(
                             Infrastructure::USERINFO_ENCODE_SET,
                             $usernameAndPassword[0]
@@ -434,7 +435,6 @@ class URL
                         if ($stateOverride) {
                             return;
                         }
-                    } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
                         if ($c === '[') {
                             $bracketFlag = true;
@@ -465,7 +465,6 @@ class URL
                         }
                         $state = 'path start state';
                         $pointer--;
-                    } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
                         return false;
                     }
@@ -546,7 +545,6 @@ class URL
                             $buffer = '';
                             $state = 'path start state';
                         }
-                    } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
                         $buffer .= $c;
                     }
@@ -587,7 +585,6 @@ class URL
                             $url->fragment = '';
                             $state = 'fragment state';
                         }
-                    } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
                         if (stripos(implode('', array_slice($codePoints, $pointer)), '%2e') === 0) {
                             $buffer .= '.';
@@ -606,7 +603,7 @@ class URL
                         $url->fragment = '';
                         $state = 'fragment state';
                     } else {
-                        if ($c !== '' && strpos("\t\n\r", $c) === false) {
+                        if ($c !== '') {
                             $url->path[0] .= Infrastructure::utf8PercentEncode(Infrastructure::SIMPLE_ENCODE_SET, $c);
                         }
                     }
@@ -624,7 +621,6 @@ class URL
                             $url->fragment = '';
                             $state = 'fragment state';
                         }
-                    } elseif (strpos("\t\n\r", $c) !== false) {
                     } else {
                         $buffer .= $c;
                     }
@@ -632,11 +628,7 @@ class URL
 
                 case 'fragment state':
                     if ($c !== '') {
-                        $url->fragment .= str_replace(
-                            ["\x00", "\t", "\n", "\r"],
-                            '',
-                            implode('', array_slice($codePoints, $pointer))
-                        );
+                        $url->fragment .= str_replace("\x00", '', implode('', array_slice($codePoints, $pointer)));
                     }
                     break 2;
 
