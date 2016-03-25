@@ -141,7 +141,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [パス]                 | [esperecyan\url\lib\URL->path]                     |
 | [クエリ]               | [esperecyan\url\lib\URL->query]                    |
 | [素片]                 | [esperecyan\url\lib\URL->fragment]                 |
-| [非相対フラグ]         | [esperecyan\url\lib\URL->nonRelativeFlag]          |
+| [基底 URL 不可用 flag] | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]     |
 | [オブジェクト]         | [esperecyan\url\lib\URL->object]                   |
 | [特別スキーム]         | [esperecyan\url\lib\URL::$specialSchemes]          |
 | [特別]                 | [esperecyan\url\lib\URL->isSpecial()]              |
@@ -202,7 +202,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [パス]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-path
 [クエリ]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-query
 [素片]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-fragment
-[非相対フラグ]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#non_relative-flag
+[基底 URL 不可用 flag]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#url-cannot-be-a-base-url-flag
 [オブジェクト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-object
 [特別スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#special-scheme
 [特別]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-special
@@ -255,7 +255,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL->path]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$path
 [esperecyan\url\lib\URL->query]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$query
 [esperecyan\url\lib\URL->fragment]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$fragment
-[esperecyan\url\lib\URL->nonRelativeFlag]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$nonRelativeFlag
+[esperecyan\url\lib\URL->cannotBeABaseURLFlag]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$cannotBeABaseURLFlag
 [esperecyan\url\lib\URL->object]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$object
 [esperecyan\url\lib\URL::$specialSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$specialSchemes
 [esperecyan\url\lib\URL->isSpecial()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isSpecial

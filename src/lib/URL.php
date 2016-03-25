@@ -61,8 +61,16 @@ class URL
     public $fragment = null;
     
     /**
-     * @var A URL also has an associated non-relative flag.
-     * @link https://url.spec.whatwg.org/#non_relative-flag URL Standard
+     * @var A URL also has an associated cannot-be-a-base-URL flag.
+     * @link https://url.spec.whatwg.org/#url-cannot-be-a-base-url-flag URL Standard
+     */
+    public $cannotBeABaseURLFlag = false;
+    
+    /**
+     * @var Alias of $cannotBeABaseURLFlag.
+     * @deprecated 4.5.0 The variable is renamed to $cannotBeABaseURLFlag.
+     * @link https://github.com/whatwg/url/commit/0755b4855187c94e1dfca900ba5122fa02a359ec
+     *      Rename non-relative to cannot-be-a-base-URL · whatwg/url@2f4161d
      */
     public $nonRelativeFlag = false;
     
@@ -247,7 +255,7 @@ class URL
                             $state = 'path or authority state';
                             $pointer++;
                         } else {
-                            $url->nonRelativeFlag = true;
+                            $url->nonRelativeFlag = $url->cannotBeABaseURLFlag = true;
                             $url->path[] = '';
                             $state = 'non-relative path state';
                         }
@@ -261,14 +269,14 @@ class URL
                     break;
 
                 case 'no scheme state':
-                    if (!$base || $base->nonRelativeFlag && $c !== '#') {
+                    if (!$base || $base->cannotBeABaseURLFlag && $c !== '#') {
                         return false;
-                    } elseif ($base->nonRelativeFlag && $c === '#') {
+                    } elseif ($base->cannotBeABaseURLFlag && $c === '#') {
                         $url->scheme = $base->scheme;
                         $url->path = $base->path;
                         $url->query = $base->query;
                         $url->fragment = '';
-                        $url->nonRelativeFlag = true;
+                        $url->nonRelativeFlag = $url->cannotBeABaseURLFlag = true;
                         $state = 'fragment state';
                     } elseif ($base->scheme !== 'file') {
                         $state = 'relative state';
@@ -707,7 +715,7 @@ class URL
         } elseif (is_null($this->host) && $this->scheme === 'file') {
             $output .= '//';
         }
-        $output .= $this->nonRelativeFlag ? $this->path[0] :  '/' . implode('/', $this->path);
+        $output .= $this->cannotBeABaseURLFlag ? $this->path[0] :  '/' . implode('/', $this->path);
         if (!is_null($this->query)) {
             $output .= '?' . $this->query;
         }

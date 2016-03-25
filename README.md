@@ -130,34 +130,34 @@ The correspondence table of the algorithms
 | [IPv4 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
 | [IPv6 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
-| [4. URLs]                 |                                                    |
-|---------------------------|----------------------------------------------------|
-| [URL]                     | An instance of [esperecyan\url\lib\URL class]      |
-| [scheme]                  | [esperecyan\url\lib\URL->scheme]                   |
-| [username]                | [esperecyan\url\lib\URL->username]                 |
-| [password]                | [esperecyan\url\lib\URL->password]                 |
-| [host]                    | [esperecyan\url\lib\URL->host]                     |
-| [port]                    | [esperecyan\url\lib\URL->port]                     |
-| [path]                    | [esperecyan\url\lib\URL->path]                     |
-| [query]                   | [esperecyan\url\lib\URL->query]                    |
-| [fragment]                | [esperecyan\url\lib\URL->fragment]                 |
-| [non relative flag]       | [esperecyan\url\lib\URL->nonRelativeFlag]          |
-| [object]                  | [esperecyan\url\lib\URL->object]                   |
-| [special scheme]          | [esperecyan\url\lib\URL::$specialSchemes]          |
-| [is special]              | [esperecyan\url\lib\URL->isSpecial()]              |
-| [local scheme]            | [esperecyan\url\lib\URL::$localSchemes]            |
-| [is local]                | [esperecyan\url\lib\URL->isLocal()]                |
-| [includes credentials]    | [esperecyan\url\lib\URL->isIncludingCredentials()] |
-| [pop a path]              | [esperecyan\url\lib\URL->popPath()]                |
-| [single-dot path segment] | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
-| [double-dot path segment] | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
-| [URL code points]         | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
-| [URL parser]              | [esperecyan\url\lib\URL::parseURL()]               |
-| [basic URL parser]        | [esperecyan\url\lib\URL::parseBasicURL()]          |
-| [set the username]        | [esperecyan\url\lib\URL->setUsername()]            |
-| [set the password]        | [esperecyan\url\lib\URL->setPassword()]            |
-| [URL serializer]          | [esperecyan\url\lib\URL->serializeURL()]           |
-| [origin]                  | [esperecyan\url\lib\URL->getOrigin()]              |
+| [4. URLs]                   |                                                    |
+|-----------------------------|----------------------------------------------------|
+| [URL]                       | An instance of [esperecyan\url\lib\URL class]      |
+| [scheme]                    | [esperecyan\url\lib\URL->scheme]                   |
+| [username]                  | [esperecyan\url\lib\URL->username]                 |
+| [password]                  | [esperecyan\url\lib\URL->password]                 |
+| [host]                      | [esperecyan\url\lib\URL->host]                     |
+| [port]                      | [esperecyan\url\lib\URL->port]                     |
+| [path]                      | [esperecyan\url\lib\URL->path]                     |
+| [query]                     | [esperecyan\url\lib\URL->query]                    |
+| [fragment]                  | [esperecyan\url\lib\URL->fragment]                 |
+| [cannot-be-a-base-URL flag] | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]     |
+| [object]                    | [esperecyan\url\lib\URL->object]                   |
+| [special scheme]            | [esperecyan\url\lib\URL::$specialSchemes]          |
+| [is special]                | [esperecyan\url\lib\URL->isSpecial()]              |
+| [local scheme]              | [esperecyan\url\lib\URL::$localSchemes]            |
+| [is local]                  | [esperecyan\url\lib\URL->isLocal()]                |
+| [includes credentials]      | [esperecyan\url\lib\URL->isIncludingCredentials()] |
+| [pop a path]                | [esperecyan\url\lib\URL->popPath()]                |
+| [single-dot path segment]   | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
+| [double-dot path segment]   | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
+| [URL code points]           | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
+| [URL parser]                | [esperecyan\url\lib\URL::parseURL()]               |
+| [basic URL parser]          | [esperecyan\url\lib\URL::parseBasicURL()]          |
+| [set the username]          | [esperecyan\url\lib\URL->setUsername()]            |
+| [set the password]          | [esperecyan\url\lib\URL->setPassword()]            |
+| [URL serializer]            | [esperecyan\url\lib\URL->serializeURL()]           |
+| [origin]                    | [esperecyan\url\lib\URL->getOrigin()]              |
 
 | [5. application/x-www-form-urlencoded]              |                                                            |
 |-----------------------------------------------------|------------------------------------------------------------|
@@ -202,7 +202,7 @@ The correspondence table of the algorithms
 [path]: https://url.spec.whatwg.org/#concept-url-path
 [query]: https://url.spec.whatwg.org/#concept-url-query
 [fragment]: https://url.spec.whatwg.org/#concept-url-fragment
-[non relative flag]: https://url.spec.whatwg.org/#non_relative-flag
+[cannot-be-a-base-URL flag]: https://url.spec.whatwg.org/#url-cannot-be-a-base-url-flag
 [object]: https://url.spec.whatwg.org/#concept-url-object
 [special scheme]: https://url.spec.whatwg.org/#special-scheme
 [is special]: https://url.spec.whatwg.org/#is-special
@@ -255,7 +255,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL->path]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$path
 [esperecyan\url\lib\URL->query]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$query
 [esperecyan\url\lib\URL->fragment]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$fragment
-[esperecyan\url\lib\URL->nonRelativeFlag]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$nonRelativeFlag
+[esperecyan\url\lib\URL->cannotBeABaseURLFlag]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$cannotBeABaseURLFlag
 [esperecyan\url\lib\URL->object]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$object
 [esperecyan\url\lib\URL::$specialSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$specialSchemes
 [esperecyan\url\lib\URL->isSpecial()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isSpecial

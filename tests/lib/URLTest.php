@@ -173,7 +173,8 @@ class URLTest extends \PHPUnit_Framework_TestCase
         return [
             ["\t\n\f\r http://url.test:80/\t\n\f\r ", null, null, null, null, [
                 'scheme' => 'http',
-                'nonRelativeFlag' => false,
+                'nonRelativeFlag' => false, // Deprecated
+                'cannotBeABaseURLFlag' => false,
                 'host' => 'url.test',
                 'port' => null,
                 'path' => [''],
@@ -226,14 +227,16 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ], 'The test is fault because the method depends mbstring or iconv module and it doesn\'t support "HTML" error mode.'],
             ['file:///directory/file', null, null, null, null, [
                 'scheme' => 'file',
-                'nonRelativeFlag' => false,
+                'nonRelativeFlag' => false, // Deprecated
+                'cannotBeABaseURLFlag' => false,
                 'host' => null,
                 'port' => null,
                 'path' => ['directory', 'file'],
             ]],
             ['file://LOCALHOST/directory/file', null, null, null, null, [
                 'scheme' => 'file',
-                'nonRelativeFlag' => false,
+                'nonRelativeFlag' => false, // Deprecated
+                'cannotBeABaseURLFlag' => false,
                 'host' => null,
                 'port' => null,
                 'path' => ['directory', 'file'],
