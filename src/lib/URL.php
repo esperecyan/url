@@ -728,9 +728,8 @@ class URL
     /**
      * A URL’s origin is the origin, switching on URL’s scheme.
      * @link https://url.spec.whatwg.org/#origin URL Standard
-     * @return (string|integer)[]|string
-     *      An array with the first element the scheme, the second element the host and the third element the port.
-     *      Or an unique string of 23 characters.
+     * @return (string|integer|null)[]|string An array with the first element the scheme, the second element the host,
+     *      the third element the port, and the four element the domain. Or an unique string of 23 characters.
      */
     public function getOrigin()
     {
@@ -750,6 +749,7 @@ class URL
                     $this->scheme,
                     $this->host,
                     is_null($this->port) ? self::$specialSchemes[$this->scheme] : $this->port,
+                    null,
                 ];
                 break;
             
