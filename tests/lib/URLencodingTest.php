@@ -7,97 +7,91 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
      * @param string $input
      * @param string|null $encodingOverride
      * @param boolean $useCharsetFlag
-     * @param boolean $isindexFlag
      * @param string[][]|false $output
      * @dataProvider byteSequenceProvider
      */
-    public function testParseURLencoded($input, $encodingOverride, $useCharsetFlag, $isindexFlag, $output)
+    public function testParseURLencoded($input, $encodingOverride, $useCharsetFlag, $output)
     {
         $this->assertEquals(
             $output,
-            URLencoding::parseURLencoded($input, $encodingOverride, $useCharsetFlag, $isindexFlag)
+            URLencoding::parseURLencoded($input, $encodingOverride, $useCharsetFlag)
         );
     }
     
     public function byteSequenceProvider()
     {
         return [
-            ['name=value1&name=value2', null, false, false, [
+            ['name=value1&name=value2', null, false, [
                 ['name', 'value1'],
                 ['name', 'value2'],
             ]],
-            ['value1&&=&value2', null, false, false, [
+            ['value1&&=&value2', null, false, [
                 ['value1', ''],
                 ['', ''],
                 ['value2', ''],
             ]],
-            ['value1&&=&value2', null, false, true, [
-                ['', 'value1'],
-                ['', ''],
-                ['value2', ''],
-            ]],
-            ['値', null, false, false, [
+            ['値', null, false, [
                 ['値', ''],
             ]],
-            ['値', 'UTF-8', false, false, [
+            ['値', 'UTF-8', false, [
                 ['値', ''],
             ]],
-            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), null, false, false, [
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), null, false, [
                 ['�l', ''],
             ]],
-            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'Shift_JIS', false, false, false],
-            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'UTF-8', false, false, [
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'Shift_JIS', false, false],
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'UTF-8', false, [
                 ['�l', ''],
             ]],
-            ['%92l', null, false, false, [
+            ['%92l', null, false, [
                 ['�l', ''],
             ]],
-            ['%92l&_charset_=shift_jis', null, false, false, [
+            ['%92l&_charset_=shift_jis', null, false, [
                 ['�l', ''],
                 ['_charset_', 'shift_jis'],
             ]],
-            ['%92l&_charset_=shift_jis', null, true, false, [
+            ['%92l&_charset_=shift_jis', null, true, [
                 ['値', ''],
                 ['_charset_', 'shift_jis'],
             ]],
-            ['%92l&_charset_=ms_kanji', null, true, false, [
+            ['%92l&_charset_=ms_kanji', null, true, [
                 ['値', ''],
                 ['_charset_', 'ms_kanji'],
             ]],
-            ['%92l&_charset_=utf-8&_charset_=ms_kanji', null, true, false, [
+            ['%92l&_charset_=utf-8&_charset_=ms_kanji', null, true, [
                 ['�l', ''],
                 ['_charset_', 'utf-8'],
                 ['_charset_', 'ms_kanji'],
             ]],
-            ['%92l&_charset_=invalid&_charset_=ms_kanji', null, true, false, [
+            ['%92l&_charset_=invalid&_charset_=ms_kanji', null, true, [
                 ['値', ''],
                 ['_charset_', 'invalid'],
                 ['_charset_', 'ms_kanji'],
             ]],
-            ['%92l&_charset_=ms_kanji&_charset_=utf-8', null, true, false, [
+            ['%92l&_charset_=ms_kanji&_charset_=utf-8', null, true, [
                 ['値', ''],
                 ['_charset_', 'ms_kanji'],
                 ['_charset_', 'utf-8'],
             ]],
-            ['%E5%90%8D%E5%89%8D=%E5%80%A41&%E5%90%8D%E5%89%8D=%E5%80%A42', null, false, false, [
+            ['%E5%90%8D%E5%89%8D=%E5%80%A41&%E5%90%8D%E5%89%8D=%E5%80%A42', null, false, [
                 ['名前', '値1'],
                 ['名前', '値2'],
             ]],
-            ['名前=値1&名前=値2', null, false, false, [
+            ['名前=値1&名前=値2', null, false, [
                 ['名前', '値1'],
                 ['名前', '値2'],
             ]],
-            ['space=+%20%2B', null, false, false, [
+            ['space=+%20%2B', null, false, [
                 ['space', '  +'],
             ]],
-            ['%26%2320516%3B&_charset_=HTML-ENTITIES', null, true, false, [
+            ['%26%2320516%3B&_charset_=HTML-ENTITIES', null, true, [
                 ['&#20516;', ''],
                 ['_charset_', 'HTML-ENTITIES'],
             ]],
-            ['=', 'replacement', false, false, [
+            ['=', 'replacement', false, [
                 ['', ''],
             ]],
-            ['name=value', 'replacement', false, false, [
+            ['name=value', 'replacement', false, [
                 ['�', '�'],
             ]],
         ];
@@ -184,14 +178,14 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
             ], null, 'input=file+name'],
             [[
                 ['isindex', 'keyword', 'text'],
-            ], null, 'keyword'],
+            ], null, 'isindex=keyword'],
             [[
                 ['isindex', 'keyword'],
             ], null, 'isindex=keyword'],
             [[
                 ['isindex', 'keyword', 'text'],
                 ['token', '123', 'hidden'],
-            ], null, 'keyword&token=123'],
+            ], null, 'isindex=keyword&token=123'],
             [[
                 ['token', '123', 'hidden'],
                 ['isindex', 'keyword', 'text'],

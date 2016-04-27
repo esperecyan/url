@@ -16,24 +16,18 @@ class URLencoding
      * @param string $input A byte sequence.
      * @param string|null $encodingOverride A valid name of an encoding.
      * @param boolean $useCharsetFlag A use _charset_ flag.
-     * @param boolean $isindexFlag An isindex flag.
      * @return string[][]|false A list of name-value tuples.
      *      Return false if $encodingOverride is not UTF-8 and $input contains bytes whose value is greater than 0x7F.
      */
-    public static function parseURLencoded($input, $encodingOverride = 'UTF-8', $useCharsetFlag = false, $isindexFlag = false)
+    public static function parseURLencoded($input, $encodingOverride = 'UTF-8', $useCharsetFlag = false)
     {
         $encoding = (string)$encodingOverride ?: 'UTF-8';
         $useCharset = (boolean)$useCharsetFlag;
         if ($encoding !== 'UTF-8' && preg_match('/[\\x7F-\xFF]/', $input) !== 0) {
             $output = false;
         } else {
-            $sequences = explode('&', $input);
-            if ($isindexFlag && strpos($sequences[0], '=') === false) {
-                $sequences[0] = '=' . $sequences[0];
-            }
-            
             $tuples = [];
-            foreach ($sequences as $bytes) {
+            foreach (explode('&', $input) as $bytes) {
                 if ($bytes === '') {
                     continue;
                 }
@@ -94,9 +88,6 @@ class URLencoding
                 $outputPair[1] = $tuple[1];
             }
             $outputPair[1] = self::serializeURLencodedByte(self::encode($outputPair[1], $encoding));
-            if (isset($tuple[2]) && $tuple[2] === 'text' && $outputPair[0] === 'isindex' && $i === 0) {
-                array_shift($outputPair);
-            }
             $tuple = implode('=', $outputPair);
         }
         
