@@ -4,7 +4,7 @@ URL Standard
 ============
 [URL Standard]で定義されているアルゴリズム、および API を PHP から利用できるようにします。
 
-[URL Standard]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html "URL 標準は、 URL, ドメイン, IP アドレス, application/x-www-form-urlencoded 形式, および それらの API を定義する。"
+[URL Standard]: https://triple-underscore.github.io/URL-ja.html "URL 標準は、 URL, ドメイン, IP アドレス, application/x-www-form-urlencoded 形式, および それらの API を定義する。"
 
 概要
 ----
@@ -18,9 +18,9 @@ URL Standard は、従来の標準である [RFC 3986]、[RFC 3987] を置き換
 
 [RFC 3986]: http://www.eonet.ne.jp/~h-hash/rfc_ja/rfc3986.ja.html "Uniform Resource Identifier (URI) は、抽象的あるいは物理的なリソースを識別するための簡潔な文字列である。この仕様書は、一般的な URI の構文と相対的形式である URI 参照を解決するための手順を定義し、更にインターネット上での URI の使用のついての指針やセキュリティについての考察を示す。"
 [RFC 3987]: https://tools.ietf.org/html/rfc3987 "This document defines a new protocol element, the Internationalized Resource Identifier (IRI), as a complement to the Uniform Resource Identifier (URI)."
-[API]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#api "URL 標準は、URL の既存の JavaScript API における全部的な詳細を定義し、より扱い易いものになる様に機能を強化する。"
-[URLインターフェース]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#URL "URL 標準は、HTML 要素を通さずに URL を操作できるようにする（ JavaScript worker 環境でも使えるようにする）ため， URL オブジェクトを新たに追加する。"
-[URLSearchPramsインターフェース]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#interface-urlsearchparams
+[API]: https://triple-underscore.github.io/URL-ja.html#api "URL 標準は、URL の既存の JavaScript API における全部的な詳細を定義し、より扱い易いものになる様に機能を強化する。"
+[URLインターフェース]: https://triple-underscore.github.io/URL-ja.html#URL "URL 標準は、HTML 要素を通さずに URL を操作できるようにする（ JavaScript worker 環境でも使えるようにする）ため， URL オブジェクトを新たに追加する。"
+[URLSearchPramsインターフェース]: https://triple-underscore.github.io/URL-ja.html#interface-urlsearchparams
 [esperecyan\url\URLクラス]: https://esperecyan.github.io/url/class-esperecyan.url.URL
 [esperecyan\url\URLSearchParamsクラス]: https://esperecyan.github.io/url/class-esperecyan.url.URLSearchParams
 [アルゴリズムなどの対応表]: #アルゴリズムなどの対応表
@@ -93,7 +93,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [URLencodingクラス]: src/lib/URLencoding.php
 [コードポイントから UTF-8 の文字を生成する - Qiita]: http://qiita.com/masakielastic/items/68f81e1b7d153ee5cc81 "バリデーションの際に想定外の文字が通っていないか調べるには Unicode で定義されるすべての文字を試すことが必要です。UTF-8 の場合、コードポイントの範囲は U+0000 から U+7FFF、U+E000 から U+10FFFF までです。"
 [UTF-8 の文字からコードポイントを求める - Qiita]: http://qiita.com/masakielastic/items/5696cf90738c1438f10d "文字の Unicode プロパティやエンコーディングに関する情報を検索で調べる際にコードポイントが必要になることがあります。PHP 5.5 で intl 拡張モジュールに IntlCodePointBreakIterator が追加され、コードポイントを求めやすくなりました。"
-[URL Standard （日本語訳）]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html "このページ は、 WHATWG による，副題の日付 時点の URL Standard を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
+[URL Standard （日本語訳）]: https://triple-underscore.github.io/URL-ja.html "このページ は、 WHATWG による，副題の日付 時点の URL Standard を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
 
 ライセンス
 ---------
@@ -167,65 +167,65 @@ READMEの英訳をハダーさんに協力していただきました。
 | [application/x-www-form-urlencoded 文字列構文解析器] | [esperecyan\url\lib\URLencoding::parseURLencodedString()]   |
 | ( 名, 値 ) の組, または [( 名, 値, 型 ) の組]        | 1つ目の要素に名、2つ目の要素に値、任意で3つ目の要素に型を持つ配列。値は文字列、または `name` キーからファイル名を取得できる配列 |
 
-[1. 基盤]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#terminology
-[Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#windows-drive-letter
-[正規化済み Windows ドライブレター]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#normalized-windows-drive-letter
-[パーセント符号化]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-encode
-[パーセント復号]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#percent-decode
-[単純 符号化集合]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#simple-encode-set
-[既定 符号化集合]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#default-encode-set
-[userinfo 符号化集合]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#userinfo-encode-set
-[utf-8 パーセント符号化]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#utf_8-percent-encode
+[1. 基盤]: https://triple-underscore.github.io/URL-ja.html#terminology
+[Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#windows-drive-letter
+[正規化済み Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#normalized-windows-drive-letter
+[パーセント符号化]: https://triple-underscore.github.io/URL-ja.html#percent-encode
+[パーセント復号]: https://triple-underscore.github.io/URL-ja.html#percent-decode
+[単純 符号化集合]: https://triple-underscore.github.io/URL-ja.html#simple-encode-set
+[既定 符号化集合]: https://triple-underscore.github.io/URL-ja.html#default-encode-set
+[userinfo 符号化集合]: https://triple-underscore.github.io/URL-ja.html#userinfo-encode-set
+[utf-8 パーセント符号化]: https://triple-underscore.github.io/URL-ja.html#utf_8-percent-encode
 
-[3. ホスト（ドメインと IP アドレス）]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#hosts-(domains-and-ip-addresses)
-[ドメイン]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain
-[IPv4 アドレス]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv4
-[IPv6 アドレス]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6
-[ドメインから ASCII へ変換]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain-to-ascii
-[ドメインから Unicode へ変換]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-domain-to-unicode
-[妥当なドメイン]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#valid-domain
-[ホスト構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-host-parser
-[IPv4 番号構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#ipv4-number-parser
-[IPv4 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv4-parser
-[IPv6 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6-parser
-[ホスト直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-host-serializer
-[IPv4 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv4-serializer
-[IPv6 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-ipv6-serializer
+[3. ホスト（ドメインと IP アドレス）]: https://triple-underscore.github.io/URL-ja.html#hosts-(domains-and-ip-addresses)
+[ドメイン]: https://triple-underscore.github.io/URL-ja.html#concept-domain
+[IPv4 アドレス]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4
+[IPv6 アドレス]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6
+[ドメインから ASCII へ変換]: https://triple-underscore.github.io/URL-ja.html#concept-domain-to-ascii
+[ドメインから Unicode へ変換]: https://triple-underscore.github.io/URL-ja.html#concept-domain-to-unicode
+[妥当なドメイン]: https://triple-underscore.github.io/URL-ja.html#valid-domain
+[ホスト構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-host-parser
+[IPv4 番号構文解析器]: https://triple-underscore.github.io/URL-ja.html#ipv4-number-parser
+[IPv4 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4-parser
+[IPv6 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6-parser
+[ホスト直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-host-serializer
+[IPv4 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4-serializer
+[IPv6 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6-serializer
 
-[4. URL]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#urls
-[URL]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url
-[スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-scheme
-[ユーザ名]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-username
-[パスワード]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-password
-[ホスト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-host
-[ポート]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-port
-[パス]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-path
-[クエリ]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-query
-[素片]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-fragment
-[基底 URL 不可用 flag]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#url-cannot-be-a-base-url-flag
-[オブジェクト]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-object
-[特別スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#special-scheme
-[特別]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-special
-[局所的スキーム]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#local-scheme
-[局所的]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#is-local
-[資格証明情報を含む]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#include-credentials
-[パスを pop する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#pop-a-urls-path
-[単ドットパス区分]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#syntax-url-path-segment-dot
-[二重ドットパス区分]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#syntax-url-path-segment-dotdot
-[URL 符号位置]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#url-code-points
-[URL 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-parser
-[基本 URL 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-basic-url-parser
-[ユーザ名を設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#set-the-username
-[パスワードを設定する]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#set-the-password
-[URL 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-serializer
-[生成元]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-url-origin
+[4. URL]: https://triple-underscore.github.io/URL-ja.html#urls
+[URL]: https://triple-underscore.github.io/URL-ja.html#concept-url
+[スキーム]: https://triple-underscore.github.io/URL-ja.html#concept-url-scheme
+[ユーザ名]: https://triple-underscore.github.io/URL-ja.html#concept-url-username
+[パスワード]: https://triple-underscore.github.io/URL-ja.html#concept-url-password
+[ホスト]: https://triple-underscore.github.io/URL-ja.html#concept-url-host
+[ポート]: https://triple-underscore.github.io/URL-ja.html#concept-url-port
+[パス]: https://triple-underscore.github.io/URL-ja.html#concept-url-path
+[クエリ]: https://triple-underscore.github.io/URL-ja.html#concept-url-query
+[素片]: https://triple-underscore.github.io/URL-ja.html#concept-url-fragment
+[基底 URL 不可用 flag]: https://triple-underscore.github.io/URL-ja.html#url-cannot-be-a-base-url-flag
+[オブジェクト]: https://triple-underscore.github.io/URL-ja.html#concept-url-object
+[特別スキーム]: https://triple-underscore.github.io/URL-ja.html#special-scheme
+[特別]: https://triple-underscore.github.io/URL-ja.html#is-special
+[局所的スキーム]: https://triple-underscore.github.io/URL-ja.html#local-scheme
+[局所的]: https://triple-underscore.github.io/URL-ja.html#is-local
+[資格証明情報を含む]: https://triple-underscore.github.io/URL-ja.html#include-credentials
+[パスを pop する]: https://triple-underscore.github.io/URL-ja.html#pop-a-urls-path
+[単ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dot
+[二重ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dotdot
+[URL 符号位置]: https://triple-underscore.github.io/URL-ja.html#url-code-points
+[URL 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-url-parser
+[基本 URL 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-basic-url-parser
+[ユーザ名を設定する]: https://triple-underscore.github.io/URL-ja.html#set-the-username
+[パスワードを設定する]: https://triple-underscore.github.io/URL-ja.html#set-the-password
+[URL 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-url-serializer
+[生成元]: https://triple-underscore.github.io/URL-ja.html#concept-url-origin
 
-[5. application/x-www-form-urlencoded]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#application/x-www-form-urlencoded
-[application/x-www-form-urlencoded 構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-parser
-[application/x-www-form-urlencoded バイト直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-byte-serializer
-[application/x-www-form-urlencoded 直列化器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-serializer
-[application/x-www-form-urlencoded 文字列構文解析器]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html#concept-urlencoded-string-parser
-[( 名, 値, 型 ) の組]: http://momdo.github.io/html51/forms.html#concept-input-type-file-selected
+[5. application/x-www-form-urlencoded]: https://triple-underscore.github.io/URL-ja.html#application/x-www-form-urlencoded
+[application/x-www-form-urlencoded 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-parser
+[application/x-www-form-urlencoded バイト直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-byte-serializer
+[application/x-www-form-urlencoded 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-serializer
+[application/x-www-form-urlencoded 文字列構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-string-parser
+[( 名, 値, 型 ) の組]: https://momdo.github.io/html/forms.html#concept-input-type-file-selected
 
 [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
