@@ -93,6 +93,14 @@ HADAA helped me translate README to English.
 [UTF-8 の文字からコードポイントを求める - Qiita]: http://qiita.com/masakielastic/items/5696cf90738c1438f10d "文字の Unicode プロパティやエンコーディングに関する情報を検索で調べる際にコードポイントが必要になることがあります。PHP 5.5 で intl 拡張モジュールに IntlCodePointBreakIterator が追加され、コードポイントを求めやすくなりました。"
 [URL Standard (Japanese translation)]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html "このページ は、 WHATWG による，副題の日付 時点の URL Standard を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
 
+Semantic Versioning
+-------------------
+This library uses [Semantic Versioning].
+The classes, methods, constants, and properties in [the documentation of the library] are the public API. 
+
+[Semantic Versioning]: http://semver.org/
+[the documentation of the library]: https://esperecyan.github.io/webidl/
+
 Licence
 -------
 This library is licensed under the [Mozilla Public License Version 2.0] \(MPL-2.0).
