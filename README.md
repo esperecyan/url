@@ -47,7 +47,8 @@ string(5) "value"
 
 Requirement
 -----------
-* PHP 5.5 or later
+* PHP 5.4 or later **(PHP 5.4 and 5.5 are deprecated)**
+	+ SPL Types PECL library is not supported
 * [mbstring extension module]
 * [Intl extension module]
 

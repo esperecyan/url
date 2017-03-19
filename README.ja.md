@@ -47,7 +47,8 @@ string(5) "value"
 
 要件
 ----
-* PHP 5.5 以上
+* PHP 5.4 以上 **(PHP 5.4、および 5.5 は非推奨)**
+	+ SPL Types PECL ライブラリには非対応
 * [mbstring拡張モジュール]
 * [Intl拡張モジュール]
 
