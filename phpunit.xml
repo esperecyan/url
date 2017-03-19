@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.6/phpunit.xsd"
+	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/4.7/phpunit.xsd"
 	bootstrap="./vendor/autoload.php"
-	strict="true" verbose="true">
+	beStrictAboutTestsThatDoNotTestAnything="true" beStrictAboutCoversAnnotation="true"
+ 	beStrictAboutOutputDuringTests="true" beStrictAboutChangesToGlobalState="true"
+	verbose="true">
 	<testsuites>
 		<testsuite name="url">
 			<directory>tests</directory>

@@ -101,12 +101,18 @@ class URLTest extends \PHPUnit_Framework_TestCase
         ];
     }
     
-    /**
-     * @expectedException \PHPUnit_Framework_Error_Warning
-     * @expectedExceptionMessage Missing argument 1 for esperecyan\url\URL::__construct()
-     */
     public function testMissingArgument()
     {
+        if (class_exists('ArgumentCountError')) {
+            // PHP 7.1 or later
+            $this->expectException('ArgumentCountError');
+            $this->expectExceptionMessage('Too few arguments to function esperecyan\url\URL::__construct(), 0 passed');
+        } else {
+            // PHP 7.0 or earlier
+            $this->expectException('PHPUnit_Framework_Error_Warning');
+            $this->expectExceptionMessage('Missing argument 1 for esperecyan\url\URL::__construct()');
+        }
+        
         new URL();
     }
     

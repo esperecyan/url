@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": ">=5.4.7",
-		"esperecyan/webidl": "^1",
+		"esperecyan/webidl": "^2.0.0",
 		"ext-mbstring": "*",
 		"ext-iconv": "*",
 		"ext-intl": "*",
@@ -22,8 +22,8 @@
 		"ext-ctype": "*"
 	},
 	"require-dev": {
-		"phpunit/phpunit": ">=4.6",
-		"apigen/apigen": "*",
+		"phpunit/phpunit": "^5.7.17",
+		"apigen/apigen": "4.2.0-RC1 || ^4.2.0",
 		"ext-spl": "*",
 		"ext-dom": "*"
 	},

@@ -50,12 +50,9 @@ string(5) "value"
 * PHP 5.5 以上
 * [mbstring拡張モジュール]
 * [Intl拡張モジュール]
-* 依存ライブラリ (Composer を利用している場合は自動的に解決されます)
-	* [esperecyan/webidl]
 
 [mbstring拡張モジュール]: http://jp2.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"
 [Intl拡張モジュール]: http://jp2.php.net/manual/book.intl.php "国際化用拡張モジュール (Intl と略します) は ICU ライブラリのラッパーです。 PHP プログラマが、UCA 準拠の照合順序 (collation) や日付/時刻/数値/通貨のフォーマットを扱えるようにします。"
-[esperecyan/webidl]: https://github.com/esperecyan/webidl
 
 インストール
 -----------
