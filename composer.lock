@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "959890b1a2d7923bcbc65ad019139395",
+    "content-hash": "b3a9718e29a0e520cb8c51ba8982606d",
     "packages": [
         {
             "name": "esperecyan/webidl",
@@ -3013,7 +3013,6 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.7",
-        "ext-mbstring": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-pcre": "*",

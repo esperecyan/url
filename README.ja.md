@@ -49,10 +49,8 @@ string(5) "value"
 ----
 * PHP 5.4 以上 **(PHP 5.4、および 5.5 は非推奨)**
 	+ SPL Types PECL ライブラリには非対応
-* [mbstring拡張モジュール]
 * [Intl拡張モジュール]
 
-[mbstring拡張モジュール]: http://jp2.php.net/manual/book.mbstring.php "mbstring はマルチバイト対応の文字列関数を提供し、 PHP でマルチバイトエンコーディングを処理することを容易にします。"
 [Intl拡張モジュール]: http://jp2.php.net/manual/book.intl.php "国際化用拡張モジュール (Intl と略します) は ICU ライブラリのラッパーです。 PHP プログラマが、UCA 準拠の照合順序 (collation) や日付/時刻/数値/通貨のフォーマットを扱えるようにします。"
 
 インストール

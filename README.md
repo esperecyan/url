@@ -49,10 +49,8 @@ Requirement
 -----------
 * PHP 5.4 or later **(PHP 5.4 and 5.5 are deprecated)**
 	+ SPL Types PECL library is not supported
-* [mbstring extension module]
 * [Intl extension module]
 
-[mbstring extension module]: http://uk3.php.net/manual/book.mbstring.php "mbstring provides multibyte specific string functions that help you deal with multibyte encodings in PHP."
 [Intl extension module]: http://uk3.php.net/manual/book.intl.php "Internationalization extension (is referred as Intl) is a wrapper for ICU library, enabling PHP programmers to perform UCA-conformant collation and date/time/number/currency formatting in their scripts. "
 
 Install
