@@ -497,6 +497,31 @@ class URLTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @param string $urlString USVString
+     * @param string|null $propertyName
+     * @param string|null $value USVString
+     * @param string[] $pairs USVString
+     * @dataProvider searchParamsProvider
+     */
+    public function testSearchParams($urlString, $propertyName, $value, $pairs)
+    {
+        $url = new URL($urlString);
+        if ($propertyName) {
+            $url->{$propertyName} = $value;
+        }
+        $this->assertEquals($pairs, iterator_to_array($url->searchParams));
+    }
+    
+    public function searchParamsProvider()
+    {
+        return [
+            ['https://url.test/?name=value', null    , null                          , ['name' => 'value']],
+            ['https://url.test/'           , 'search',                  '?name=value', ['name' => 'value']],
+            ['https://url.test/'           , 'href'  , 'https://url.test/?name=value', ['name' => 'value']],
+        ];
+    }
+    
+    /**
      * @param string $propertyName
      * @expectedException \LogicException
      * @expectedExceptionMessage Cannot write to readonly public property esperecyan\url\URL::

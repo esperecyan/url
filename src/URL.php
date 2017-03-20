@@ -120,6 +120,10 @@ class URL
                     throw new TypeError(sprintf('<%s> is not a valid URL', $input));
                 }
                 $this->url = $parsedURL;
+                \Closure::bind(function ($list, $queryObject) {
+                    array_splice($queryObject->list, 0, count($queryObject->list), $list);
+                }, null, $this->queryObject)
+                    ->__invoke(lib\URLencoding::parseURLencodedString($this->url->query), $this->queryObject);
                 break;
             
             case 'protocol':
