@@ -152,7 +152,7 @@ READMEの英訳をハダーさんに協力していただきました。
 | [局所的スキーム]       | [esperecyan\url\lib\URL::$localSchemes]            |
 | [局所的]               | [esperecyan\url\lib\URL->isLocal()]                |
 | [資格証明情報を含む]   | [esperecyan\url\lib\URL->isIncludingCredentials()] |
-| [パスを pop する]      | [esperecyan\url\lib\URL->popPath()]                |
+| [パスを短縮する]       | [esperecyan\url\lib\URL->shortenPath()]            |
 | [単ドットパス区分]     | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
 | [二重ドットパス区分]   | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
 | [URL 符号位置]         | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
@@ -213,7 +213,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [局所的スキーム]: https://triple-underscore.github.io/URL-ja.html#local-scheme
 [局所的]: https://triple-underscore.github.io/URL-ja.html#is-local
 [資格証明情報を含む]: https://triple-underscore.github.io/URL-ja.html#include-credentials
-[パスを pop する]: https://triple-underscore.github.io/URL-ja.html#pop-a-urls-path
+[パスを短縮する]: https://triple-underscore.github.io/URL-ja.html#shorten-a-urls-path
 [単ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dot
 [二重ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dotdot
 [URL 符号位置]: https://triple-underscore.github.io/URL-ja.html#url-code-points
@@ -266,7 +266,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
-[esperecyan\url\lib\URL->popPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_popPath
+[esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::URL_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#URL_CODE_POINTS

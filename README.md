@@ -152,7 +152,7 @@ The correspondence table of the algorithms
 | [local scheme]              | [esperecyan\url\lib\URL::$localSchemes]            |
 | [is local]                  | [esperecyan\url\lib\URL->isLocal()]                |
 | [includes credentials]      | [esperecyan\url\lib\URL->isIncludingCredentials()] |
-| [pop a path]                | [esperecyan\url\lib\URL->popPath()]                |
+| [shorten a path]            | [esperecyan\url\lib\URL->shortenPath()]            |
 | [single-dot path segment]   | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
 | [double-dot path segment]   | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
 | [URL code points]           | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
@@ -213,7 +213,7 @@ The correspondence table of the algorithms
 [local scheme]: https://url.spec.whatwg.org/#local-scheme
 [is local]: https://url.spec.whatwg.org/#is-local
 [includes credentials]: https://url.spec.whatwg.org/#include-credentials
-[pop a path]: https://url.spec.whatwg.org/#pop-a-urls-path
+[shorten a path]: https://url.spec.whatwg.org/#shorten-a-urls-path
 [single-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dot
 [double-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot
 [URL code points]: https://url.spec.whatwg.org/#url-code-points
@@ -266,7 +266,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
-[esperecyan\url\lib\URL->popPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_popPath
+[esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::URL_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#URL_CODE_POINTS

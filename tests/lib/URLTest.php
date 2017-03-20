@@ -73,6 +73,18 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param string[] $path
      * @dataProvider pathProvider
      */
+    public function testShortenPath($url, $path)
+    {
+        $parsedURL = URL::parseURL($url);
+        $parsedURL->shortenPath();
+        $this->assertSame($path, $parsedURL->path);
+    }
+
+    /**
+     * @param string $url
+     * @param string[] $path
+     * @dataProvider pathProvider
+     */
     public function testPopPath($url, $path)
     {
         $parsedURL = URL::parseURL($url);

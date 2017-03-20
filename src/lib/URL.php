@@ -132,17 +132,27 @@ class URL
     }
     
     /**
-     * If url’s scheme is not "file"
-     * or url’s path does not contain a single string that is a normalized Windows drive letter,
-     * remove url’s path’s last string, if any.
-     * @link https://url.spec.whatwg.org/#pop-a-urls-path URL Standard
+     * Shortens a path.
+     * @link https://url.spec.whatwg.org/#shorten-a-urls-path URL Standard
      */
-    public function popPath()
+    public function shortenPath()
     {
         if ($this->scheme !== 'file'
             || !(count($this->path) === 1 && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
             array_pop($this->path);
         }
+    }
+    
+    /**
+     * Alias of shortenPath().
+     * @deprecated 5.0.0 The method has been renamed to shortenPath.
+     * @see \esperecyan\url\lib\URL::shortenPath()
+     * @link https://github.com/whatwg/url/commit/c94f6f2220e9b988f079d1bf903417c1f7695d89
+     *      Editorial: pop → shorten · whatwg/url@c94f6f2
+     */
+    public function popPath()
+    {
+        $this->shortenPath();
     }
     
     /**
