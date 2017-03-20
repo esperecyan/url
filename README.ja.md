@@ -113,9 +113,9 @@ READMEの英訳をハダーさんに協力していただきました。
 | [正規化済み Windows ドライブレター] | [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER] |
 | [パーセント符号化]                  | [esperecyan\url\lib\Infrastructure::percentEncode()]                 |
 | [パーセント復号]                    | [esperecyan\url\lib\Infrastructure::percentDecode()]                 |
-| [単純 符号化集合]                   | [esperecyan\url\lib\Infrastructure::SIMPLE_ENCODE_SET]               |
-| [既定 符号化集合]                   | [esperecyan\url\lib\Infrastructure::DEFAULT_ENCODE_SET]              |
-| [userinfo 符号化集合]               | [esperecyan\url\lib\Infrastructure::USERINFO_ENCODE_SET]             |
+| [C0 制御文字 %‐符号化集合]         | [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]   |
+| [パス %‐符号化集合]                | [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]         |
+| [ユーザ情報 %‐符号化集合]          | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
 | [utf-8 パーセント符号化]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
 
 | [3. ホスト（ドメインと IP アドレス）] |                                                        |
@@ -176,9 +176,9 @@ READMEの英訳をハダーさんに協力していただきました。
 [正規化済み Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#normalized-windows-drive-letter
 [パーセント符号化]: https://triple-underscore.github.io/URL-ja.html#percent-encode
 [パーセント復号]: https://triple-underscore.github.io/URL-ja.html#percent-decode
-[単純 符号化集合]: https://triple-underscore.github.io/URL-ja.html#simple-encode-set
-[既定 符号化集合]: https://triple-underscore.github.io/URL-ja.html#default-encode-set
-[userinfo 符号化集合]: https://triple-underscore.github.io/URL-ja.html#userinfo-encode-set
+[C0 制御文字 %‐符号化集合]: https://triple-underscore.github.io/URL-ja.html#c0-control-percent-encode-set
+[パス %‐符号化集合]: https://triple-underscore.github.io/URL-ja.html#path-percent-encode-set
+[ユーザ情報 %‐符号化集合]: https://triple-underscore.github.io/URL-ja.html#userinfo-percent-encode-set
 [utf-8 パーセント符号化]: https://triple-underscore.github.io/URL-ja.html#utf_8-percent-encode
 
 [3. ホスト（ドメインと IP アドレス）]: https://triple-underscore.github.io/URL-ja.html#hosts-(domains-and-ip-addresses)
@@ -229,15 +229,14 @@ READMEの英訳をハダーさんに協力していただきました。
 [application/x-www-form-urlencoded バイト直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-byte-serializer
 [application/x-www-form-urlencoded 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-serializer
 [application/x-www-form-urlencoded 文字列構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-string-parser
-[( 名, 値, 型 ) の組]: https://momdo.github.io/html/forms.html#concept-input-type-file-selected
 
 [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentEncode
 [esperecyan\url\lib\Infrastructure::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentDecode
-[esperecyan\url\lib\Infrastructure::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#SIMPLE_ENCODE_SET
-[esperecyan\url\lib\Infrastructure::DEFAULT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#DEFAULT_ENCODE_SET
-[esperecyan\url\lib\Infrastructure::USERINFO_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#C0_CONTROL_PERCENT_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#PATH_PERCENT_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_PERCENT_ENCODE_SET
 [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_utf8PercentEncode
 [esperecyan\url\lib\HostProcessing::domainToASCII()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToASCII
 [esperecyan\url\lib\HostProcessing::domainToUnicode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToUnicode

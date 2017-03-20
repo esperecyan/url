@@ -403,12 +403,12 @@ class URL
                         $atFlag = true;
                         $usernameAndPassword = explode(':', $buffer, 2);
                         $url->username .= self::percentEncodeCodePoints(
-                            Infrastructure::USERINFO_ENCODE_SET,
+                            Infrastructure::USERINFO_PERCENT_ENCODE_SET,
                             $usernameAndPassword[0]
                         );
                         if (isset($usernameAndPassword[1])) {
                             $url->password .= self::percentEncodeCodePoints(
-                                Infrastructure::USERINFO_ENCODE_SET,
+                                Infrastructure::USERINFO_PERCENT_ENCODE_SET,
                                 $usernameAndPassword[1]
                             );
                         }
@@ -608,7 +608,7 @@ class URL
                             $buffer .= '.';
                             $pointer += 2;
                         } else {
-                            $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::DEFAULT_ENCODE_SET, $c);
+                            $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::PATH_PERCENT_ENCODE_SET, $c);
                         }
                     }
                     break;
@@ -622,7 +622,8 @@ class URL
                         $state = 'fragment state';
                     } else {
                         if ($c !== '') {
-                            $url->path[0] .= Infrastructure::utf8PercentEncode(Infrastructure::SIMPLE_ENCODE_SET, $c);
+                            $url->path[0]
+                                .= Infrastructure::utf8PercentEncode(Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET, $c);
                         }
                     }
                     break;
@@ -669,7 +670,7 @@ class URL
      */
     public function setUsername($username)
     {
-        $this->username = self::percentEncodeCodePoints(Infrastructure::USERINFO_ENCODE_SET, $username);
+        $this->username = self::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $username);
     }
     
     /**
@@ -681,7 +682,7 @@ class URL
     {
         $this->password = $password === ''
             ? null
-            : self::percentEncodeCodePoints(Infrastructure::USERINFO_ENCODE_SET, $password);
+            : self::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $password);
     }
     
     /**

@@ -45,45 +45,79 @@ class Infrastructure
     }
     
     /**
-     * The regular expression (PCRE) pattern matching a character in the simple encode set.
+     * Alias of C0_CONTROL_PERCENT_ENCODE_SET.
+     * @deprecated 5.0.0 The constant has been renamed to C0_CONTROL_PERCENT_ENCODE_SET.
+     * @see \esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET
      * @var string
-     * @link https://url.spec.whatwg.org/#simple-encode-set URL Standard
+     * @link https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59
+     *      Editorial: use specific names for encode sets · whatwg/url@1d69a77
      */
     const SIMPLE_ENCODE_SET = '/[^ -~]/u';
     
     /**
-     * The regular expression (PCRE) pattern matching a character in the default encode set.
+     * The regular expression (PCRE) pattern matching a character in the simple encode set.
      * @var string
-     * @link https://url.spec.whatwg.org/#default-encode-set URL Standard
+     * @link https://url.spec.whatwg.org/#c0-control-percent-encode-set URL Standard
+     */
+    const C0_CONTROL_PERCENT_ENCODE_SET = '/[^ -~]/u';
+    
+    /**
+     * Alias of PATH_PERCENT_ENCODE_SET.
+     * @deprecated 5.0.0 The constant has been renamed to PATH_PERCENT_ENCODE_SET.
+     * @see \esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET
+     * @var string
+     * @link https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59
+     *      Editorial: use specific names for encode sets · whatwg/url@1d69a77
      */
     const DEFAULT_ENCODE_SET = '/[^!$-;=@-_a-z|~]/u';
     
     /**
-     * Alias of USERINFO_ENCODE_SET.
+     * The regular expression (PCRE) pattern matching a character in the path percent-encode set.
      * @var string
-     * @deprecated 3.3.0 The password encode set and the username encode set are obsolete,
-     *      then these are replaced by the userinfo encode set.
+     * @link https://url.spec.whatwg.org/#path-percent-encode-set URL Standard
+     */
+    const PATH_PERCENT_ENCODE_SET = '/[^!$-;=@-_a-z|~]/u';
+    
+    /**
+     * Alias of USERINFO_PERCENT_ENCODE_SET.
+     * @deprecated 3.3.0 The constant is renamed to USERINFO_PERCENT_ENCODE_SET.
+     * @see \esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET
+     * @var string
      * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289
      *      Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5
+     * @link https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59
+     *      Editorial: use specific names for encode sets · whatwg/url@1d69a77
      */
     const PASSWORD_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * Alias of USERINFO_ENCODE_SET.
+     * Alias of USERINFO_PERCENT_ENCODE_SET.
+     * @deprecated 3.3.0 The constant is renamed to USERINFO_PERCENT_ENCODE_SET.
+     * @see \esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET
      * @var string
-     * @deprecated 3.3.0 The password encode set and the username encode set are obsolete,
-     *      then these are replaced by the userinfo encode set.
      * @link https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289
      *      Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5
+     * @link https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59
+     *      Editorial: use specific names for encode sets · whatwg/url@1d69a77
      */
     const USERNAME_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * The regular expression (PCRE) pattern matching a character in the userinfo encode set.
+     * Alias of USERINFO_PERCENT_ENCODE_SET.
+     * @deprecated 5.0.0 The constant has been renamed to USERINFO_PERCENT_ENCODE_SET.
+     * @see \esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET
      * @var string
-     * @link https://url.spec.whatwg.org/#userinfo-encode-set URL Standard
+     * @link https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59
+     *      Editorial: use specific names for encode sets · whatwg/url@1d69a77
      */
     const USERINFO_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
+    
+    /**
+     * The regular expression (PCRE) pattern matching a character in the userinfo percent-encode set.
+     * @var string
+     * @link https://url.spec.whatwg.org/#userinfo-percent-encode-set URL Standard
+     */
+    const USERINFO_PERCENT_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
      * UTF-8 percent encode a code point, using an encode set.

@@ -113,9 +113,9 @@ The correspondence table of the algorithms
 | [normalized Windows drive letter] | [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER] |
 | [percent encode]                  | [esperecyan\url\lib\Infrastructure::percentEncode()]                 |
 | [percent decode]                  | [esperecyan\url\lib\Infrastructure::percentDecode()]                 |
-| [simple encode set]               | [esperecyan\url\lib\Infrastructure::SIMPLE_ENCODE_SET]               |
-| [default encode set]              | [esperecyan\url\lib\Infrastructure::DEFAULT_ENCODE_SET]              |
-| [userinfo encode set]             | [esperecyan\url\lib\Infrastructure::USERINFO_ENCODE_SET]             |
+| [C0 control percent-encode set]   | [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]   |
+| [path percent-encode set]         | [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]         |
+| [userinfo percent-encode set]     | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
 | [utf-8 percent encode]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
 
 | [3. Hosts (domains and IP addresses)] |                                                                 |
@@ -176,9 +176,9 @@ The correspondence table of the algorithms
 [normalized Windows drive letter]: https://url.spec.whatwg.org/#normalized-windows-drive-letter
 [percent encode]: https://url.spec.whatwg.org/#percent-encode
 [percent decode]: https://url.spec.whatwg.org/#percent-decode
-[simple encode set]: https://url.spec.whatwg.org/#simple-encode-set
-[default encode set]: https://url.spec.whatwg.org/#default-encode-set
-[userinfo encode set]: https://url.spec.whatwg.org/#userinfo-encode-set
+[C0 control percent-encode set]: https://url.spec.whatwg.org/#c0-control-percent-encode-set
+[path percent-encode set]: https://url.spec.whatwg.org/#path-percent-encode-set
+[userinfo percent-encode set]: https://url.spec.whatwg.org/#userinfo-percent-encode-set
 [utf-8 percent encode]: https://url.spec.whatwg.org/#utf_8-percent-encode
 
 [3. Hosts (domains and IP addresses)]: https://url.spec.whatwg.org/hosts-(domains-and-ip-addresses)
@@ -235,9 +235,9 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentEncode
 [esperecyan\url\lib\Infrastructure::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentDecode
-[esperecyan\url\lib\Infrastructure::SIMPLE_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#SIMPLE_ENCODE_SET
-[esperecyan\url\lib\Infrastructure::DEFAULT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#DEFAULT_ENCODE_SET
-[esperecyan\url\lib\Infrastructure::USERINFO_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#C0_CONTROL_PERCENT_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#PATH_PERCENT_ENCODE_SET
+[esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_PERCENT_ENCODE_SET
 [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_utf8PercentEncode
 [esperecyan\url\lib\HostProcessing::domainToASCII()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToASCII
 [esperecyan\url\lib\HostProcessing::domainToUnicode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToUnicode
