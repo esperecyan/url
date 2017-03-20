@@ -71,7 +71,10 @@ class URL
     
     /**
      * Convert domain name to IDNA ASCII form.
-     * @link https://url.spec.whatwg.org/#dom-URL-domainToASCII URL Standard
+     * @deprecated 5.0.0 URL::domainToASCII() has been removed from the URL Standard specification.
+     * @see \esperecyan\url\lib\HostProcessing::domainToASCII()
+     * @link https://github.com/whatwg/url/commit/2bd0f59b98024921ab90e628b7a526cca5abcb5f
+     *      Remove URL.domainToASCII and domainToUnicode · whatwg/url@2bd0f59y
      * @param string $domain
      * @return string Returns an empty string if $domain is an IPv6 address or an invalid domain.
      */
@@ -83,14 +86,17 @@ class URL
     
     /**
      * Convert domain name from IDNA ASCII to Unicode.
-     * @link https://url.spec.whatwg.org/#dom-URL-domainToASCII URL Standard
+     * @deprecated 5.0.0 URL::domainToUnicode() has been removed from the URL Standard specification.
+     * @see \esperecyan\url\lib\HostProcessing::domainToUnicode()
+     * @link https://github.com/whatwg/url/commit/2bd0f59b98024921ab90e628b7a526cca5abcb5f
+     *      Remove URL.domainToASCII and domainToUnicode · whatwg/url@2bd0f59y
      * @param string $domain
      * @return string Returns an empty string if $domain is an IPv6 address or an invalid domain.
      */
     public static function domainToUnicode($domain)
     {
-        $unicodeDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain), true);
-        return is_string($unicodeDomain) ? $unicodeDomain : '';
+        $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain));
+        return is_string($asciiDomain) ? lib\HostProcessing::domainToUnicode($asciiDomain) : '';
     }
     
     /**

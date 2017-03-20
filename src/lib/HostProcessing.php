@@ -92,14 +92,14 @@ class HostProcessing
     
     /**
      * The host parser.
+     * @see \esperecyan\url\lib\HostProcessing::domainToUnicode()
      * @link https://url.spec.whatwg.org/#concept-host-parser URL Standard
      * @param string $input A UTF-8 string.
-     * @param boolean $unicodeFlag If true, can return a domain containing non-ASCII characters.
      * @return string|integer|float|integer[]
      *      If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).
      *      If host is IPv6 address, returns an array of a 16-bit unsigned integer.
      */
-    public static function parseHost($input, $unicodeFlag = false)
+    public static function parseHost($input)
     {
         $inputString = (string)$input;
         if ($inputString === '') {
@@ -109,14 +109,9 @@ class HostProcessing
         } else {
             $domain = Infrastructure::percentDecode($input);
             $asciiDomain = self::domainToASCII($domain);
-            if ($asciiDomain === false || strpbrk($asciiDomain, "\x00\t\n\r #%/:?@[\\]") !== false) {
-                $result = false;
-            } else {
-                $ipv4Host = self::parseIPv4($asciiDomain);
-                $result = is_string($ipv4Host)
-                    ? ($unicodeFlag ? self::domainToUnicode($ipv4Host) : $ipv4Host)
-                    : $ipv4Host;
-            }
+            $result = $asciiDomain === false || strpbrk($asciiDomain, "\x00\t\n\r #%/:?@[\\]") !== false
+                ? false
+                : self::parseIPv4($asciiDomain);
         }
         return $result;
     }
