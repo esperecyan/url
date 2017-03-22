@@ -23,7 +23,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     public function asciiProvider()
     {
         return [
-            ['Bloß.de'       , 'bloss.de'         ],
+            ['Bloß.de'       , 'xn--blo-7ka.de'   ],
             ['xn--blo-7ka.de', 'xn--blo-7ka.de'   ],
             ['ü.com'        , 'xn--tda.com'      ], // u + COMBINING DIAERESIS (U+0308) + .com
             ['xn--tda.com'   , 'xn--tda.com'      ],
@@ -154,7 +154,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     public function hostProvider()
     {
         return [
-            ['Bloß.de'                           , 'bloss.de'                                                   ],
+            ['Bloß.de'                           , 'xn--blo-7ka.de'                                             ],
             ['xn--blo-7ka.de'                    , 'xn--blo-7ka.de'                                             ],
             ['ü.com'                            , 'xn--tda.com'                                                ],
             ['xn--tda.com'                       , 'xn--tda.com'                                                ],

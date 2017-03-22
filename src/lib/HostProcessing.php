@@ -24,7 +24,7 @@ class HostProcessing
     public static function domainToASCII($domain)
     {
         return mb_strlen($domain, 'UTF-8') <= self::PHP_IDN_HANDLEABLE_LENGTH
-            ? idn_to_ascii($domain, 0, INTL_IDNA_VARIANT_UTS46)
+            ? idn_to_ascii($domain, IDNA_NONTRANSITIONAL_TO_ASCII, INTL_IDNA_VARIANT_UTS46)
             : false;
     }
     
