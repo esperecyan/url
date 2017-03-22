@@ -14,42 +14,24 @@ class URLencoding
      * The application/x-www-form-urlencoded parser.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-parser URL Standard
      * @param string $input A byte sequence.
-     * @param string|null $encodingOverride A valid name of an encoding.
-     * @param boolean $useCharsetFlag A use _charset_ flag.
-     * @return string[][]|false A list of name-value tuples.
-     *      Return false if $encodingOverride is not UTF-8 and $input contains bytes whose value is greater than 0x7F.
+     * @return string[][] A list of name-value tuples.
      */
-    public static function parseURLencoded($input, $encodingOverride = 'UTF-8', $useCharsetFlag = false)
+    public static function parseURLencoded($input)
     {
-        $encoding = (string)$encodingOverride ?: 'UTF-8';
-        $useCharset = (boolean)$useCharsetFlag;
-        if ($encoding !== 'UTF-8' && preg_match('/[\\x7F-\xFF]/', $input) !== 0) {
-            $output = false;
-        } else {
-            $tuples = [];
-            foreach (explode('&', $input) as $bytes) {
-                if ($bytes === '') {
-                    continue;
-                }
-                $pair = strpos($bytes, '=') !== false ? explode('=', $bytes, 2) : [$bytes, ''];
-                if ($useCharset && $pair[0] === '_charset_') {
-                    $result = self::getEncoding($pair[1]);
-                    if ($result !== false) {
-                        $useCharset = false;
-                        $encoding = $result;
-                    }
-                }
+        $tuples = [];
+        foreach (explode('&', $input) as $bytes) {
+            if ($bytes === '') {
+                continue;
+            }
+            $tuples[] = strpos($bytes, '=') !== false ? explode('=', $bytes, 2) : [$bytes, ''];
+        }
 
-                $tuples[] = $pair;
+        $output = [];
+        foreach ($tuples as $tuple) {
+            foreach ($tuple as &$nameOrValue) {
+                $nameOrValue = self::utf8DecodeWithoutBOM(urldecode($nameOrValue));
             }
-            
-            $output = [];
-            foreach ($tuples as $tuple) {
-                foreach ($tuple as &$nameOrValue) {
-                    $nameOrValue = self::runEncoding(urldecode($nameOrValue), $encoding);
-                }
-                $output[] = $tuple;
-            }
+            $output[] = $tuple;
         }
         
         return $output;
@@ -114,232 +96,15 @@ class URLencoding
     const ASCII_WHITESPACE = "\t\n\f\r ";
     
     /**
-     * Get an encoding from a string.
-     * @link https://encoding.spec.whatwg.org/#concept-encoding-get Encoding Standard
-     * @param string $label A UTF-8 string.
-     * @return string|false
-     */
-    private static function getEncoding($label)
-    {
-        switch (strtolower(trim($label, self::ASCII_WHITESPACE))) {
-            case 'unicode-1-1-utf-8':
-            case 'utf-8':
-            case 'utf8':
-                $encoding = 'UTF-8';
-                break;
-            case 'iso-8859-14':
-            case 'iso8859-14':
-            case 'iso885914':
-                $encoding = 'ISO-8859-14';
-                break;
-            case 'csisolatin9':
-            case 'iso-8859-15':
-            case 'iso8859-15':
-            case 'iso885915':
-            case 'iso_8859-15':
-            case 'l9':
-                $encoding = 'ISO-8859-15';
-                break;
-            case 'iso-8859-16':
-                $encoding = 'ISO-8859-16';
-                break;
-            case 'cskoi8r':
-            case 'koi':
-            case 'koi8':
-            case 'koi8-r':
-            case 'koi8_r':
-                $encoding = 'KOI8-R';
-                break;
-            case 'koi8-u':
-                $encoding = 'KOI8-U';
-                break;
-            case 'csmacintosh':
-            case 'mac':
-            case 'macintosh':
-            case 'x-mac-roman':
-                $encoding = 'macintosh';
-                break;
-            case 'dos-874':
-            case 'iso-8859-11':
-            case 'iso8859-11':
-            case 'iso885911':
-            case 'tis-620':
-            case 'windows-874':
-                $encoding = 'windows-874';
-                break;
-            case 'cp1250':
-            case 'windows-1250':
-            case 'x-cp1250':
-                $encoding = 'windows-1250';
-                break;
-            case 'cp1251':
-            case 'windows-1251':
-            case 'x-cp1251':
-                $encoding = 'windows-1251';
-                break;
-            case 'ansi_x3.4-1968':
-            case 'ascii':
-            case 'cp1252':
-            case 'cp819':
-            case 'csisolatin1':
-            case 'ibm819':
-            case 'iso-8859-1':
-            case 'iso-ir-100':
-            case 'iso8859-1':
-            case 'iso88591':
-            case 'iso_8859-1':
-            case 'iso_8859-1:1987':
-            case 'l1':
-            case 'latin1':
-            case 'us-ascii':
-            case 'windows-1252':
-            case 'x-cp1252':
-                $encoding = 'windows-1252';
-                break;
-            case 'cp1253':
-            case 'windows-1253':
-            case 'x-cp1253':
-                $encoding = 'windows-1253';
-                break;
-            case 'cp1254':
-            case 'csisolatin5':
-            case 'iso-8859-9':
-            case 'iso-ir-148':
-            case 'iso8859-9':
-            case 'iso88599':
-            case 'iso_8859-9':
-            case 'iso_8859-9:1989':
-            case 'l5':
-            case 'latin5':
-            case 'windows-1254':
-            case 'x-cp1254':
-                $encoding = 'windows-1254';
-                break;
-            case 'cp1255':
-            case 'windows-1255':
-            case 'x-cp1255':
-                $encoding = 'windows-1255';
-                break;
-            case 'cp1256':
-            case 'windows-1256':
-            case 'x-cp1256':
-                $encoding = 'windows-1256';
-                break;
-            case 'cp1257':
-            case 'windows-1257':
-            case 'x-cp1257':
-                $encoding = 'windows-1257';
-                break;
-            case 'cp1258':
-            case 'windows-1258':
-            case 'x-cp1258':
-                $encoding = 'windows-1258';
-                break;
-            case 'x-mac-cyrillic':
-            case 'x-mac-ukrainian':
-                $encoding = 'x-mac-cyrillic';
-                break;
-            case 'chinese':
-            case 'csgb2312':
-            case 'csiso58gb231280':
-            case 'gb2312':
-            case 'gb_2312':
-            case 'gb_2312-80':
-            case 'gbk':
-            case 'iso-ir-58':
-            case 'x-gbk':
-                $encoding = 'GBK';
-                break;
-            case 'gb18030':
-                $encoding = 'gb18030';
-                break;
-            case 'big5':
-            case 'big5-hkscs':
-            case 'cn-big5':
-            case 'csbig5':
-            case 'x-x-big5':
-                $encoding = 'Big5';
-                break;
-            case 'cseucpkdfmtjapanese':
-            case 'euc-jp':
-            case 'x-euc-jp':
-                $encoding = 'EUC-JP';
-                break;
-            case 'csiso2022jp':
-            case 'iso-2022-jp':
-                $encoding = 'ISO-2022-JP';
-                break;
-            case 'csshiftjis':
-            case 'ms_kanji':
-            case 'shift-jis':
-            case 'shift_jis':
-            case 'sjis':
-            case 'windows-31j':
-            case 'x-sjis':
-                $encoding = 'Shift_JIS';
-                break;
-            case 'cseuckr':
-            case 'csksc56011987':
-            case 'euc-kr':
-            case 'iso-ir-149':
-            case 'korean':
-            case 'ks_c_5601-1987':
-            case 'ks_c_5601-1989':
-            case 'ksc5601':
-            case 'ksc_5601':
-            case 'windows-949':
-                $encoding = 'EUC-KR';
-                break;
-            case 'csiso2022kr':
-            case 'hz-gb-2312':
-            case 'iso-2022-cn':
-            case 'iso-2022-cn-ext':
-            case 'iso-2022-kr':
-                $encoding = 'replacement';
-                break;
-            case 'utf-16be':
-                $encoding = 'UTF-16BE';
-                break;
-            case 'utf-16':
-            case 'utf-16le':
-                $encoding = 'UTF-16LE';
-                break;
-            case 'x-user-defined':
-                $encoding = 'x-user-defined';
-                break;
-            default:
-                $encoding = false;
-        }
-        return $encoding;
-    }
-    
-    /**
-     * Convert the encoding of $input to UTF-8 from $encoding.
+     * UTF-8 decode without BOM a byte stream $stream.
      * @internal
-     * @link https://encoding.spec.whatwg.org/#concept-encoding-run Encoding Standard
-     * @param string $input A string encoded by $encoding.
-     * @param string $encoding A valid name of an encoding.
-     * @throws \DomainException If $encoding is invalid.
+     * @link https://encoding.spec.whatwg.org/#utf-8-decode-without-bom Encoding Standard
+     * @param string $stream A string encoded by UTF-8.
      * @return string A UTF-8 string.
      */
-    public static function runEncoding($input, $encoding)
+    public static function utf8DecodeWithoutBOM($stream)
     {
-        switch ($encoding) {
-            case 'replacement':
-                $output = $input === '' ? '' : '�'; // REPLACEMENT CHARACTER (U+FFFD)
-                break;
-                
-            case 'x-user-defined':
-                $output = preg_replace_callback('/[^\\x00-\\x7F]/', function ($matches) {
-                    return self::getUTF8Character(0xF780 + \ord($matches[0]) - 0x80);
-                }, $input);
-                break;
-            
-            default:
-                $output = self::convertEncoding($input, $encoding, true);
-        }
-        
-        return $output;
+        return self::convertEncoding($stream, 'UTF-8', true);
     }
     
     /**

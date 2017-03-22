@@ -5,94 +5,52 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @param string $input
-     * @param string|null $encodingOverride
-     * @param boolean $useCharsetFlag
-     * @param string[][]|false $output
+     * @param string[][] $output
      * @dataProvider byteSequenceProvider
      */
-    public function testParseURLencoded($input, $encodingOverride, $useCharsetFlag, $output)
+    public function testParseURLencoded($input, $output)
     {
-        $this->assertEquals(
-            $output,
-            URLencoding::parseURLencoded($input, $encodingOverride, $useCharsetFlag)
-        );
+        $this->assertEquals($output, URLencoding::parseURLencoded($input));
     }
     
     public function byteSequenceProvider()
     {
         return [
-            ['name=value1&name=value2', null, false, [
+            ['name=value1&name=value2', [
                 ['name', 'value1'],
                 ['name', 'value2'],
             ]],
-            ['value1&&=&value2', null, false, [
+            ['value1&&=&value2', [
                 ['value1', ''],
                 ['', ''],
                 ['value2', ''],
             ]],
-            ['値', null, false, [
+            ['値', [
                 ['値', ''],
             ]],
-            ['値', 'UTF-8', false, [
+            ['値', [
                 ['値', ''],
             ]],
-            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), null, false, [
+            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), [
                 ['�l', ''],
             ]],
-            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'Shift_JIS', false, false],
-            [mb_convert_encoding('値', 'Shift_JIS', 'UTF-8'), 'UTF-8', false, [
+            ['%92l', [
                 ['�l', ''],
             ]],
-            ['%92l', null, false, [
-                ['�l', ''],
-            ]],
-            ['%92l&_charset_=shift_jis', null, false, [
+            ['%92l&_charset_=shift_jis', [
                 ['�l', ''],
                 ['_charset_', 'shift_jis'],
             ]],
-            ['%92l&_charset_=shift_jis', null, true, [
-                ['値', ''],
-                ['_charset_', 'shift_jis'],
-            ]],
-            ['%92l&_charset_=ms_kanji', null, true, [
-                ['値', ''],
-                ['_charset_', 'ms_kanji'],
-            ]],
-            ['%92l&_charset_=utf-8&_charset_=ms_kanji', null, true, [
-                ['�l', ''],
-                ['_charset_', 'utf-8'],
-                ['_charset_', 'ms_kanji'],
-            ]],
-            ['%92l&_charset_=invalid&_charset_=ms_kanji', null, true, [
-                ['値', ''],
-                ['_charset_', 'invalid'],
-                ['_charset_', 'ms_kanji'],
-            ]],
-            ['%92l&_charset_=ms_kanji&_charset_=utf-8', null, true, [
-                ['値', ''],
-                ['_charset_', 'ms_kanji'],
-                ['_charset_', 'utf-8'],
-            ]],
-            ['%E5%90%8D%E5%89%8D=%E5%80%A41&%E5%90%8D%E5%89%8D=%E5%80%A42', null, false, [
+            ['%E5%90%8D%E5%89%8D=%E5%80%A41&%E5%90%8D%E5%89%8D=%E5%80%A42', [
                 ['名前', '値1'],
                 ['名前', '値2'],
             ]],
-            ['名前=値1&名前=値2', null, false, [
+            ['名前=値1&名前=値2', [
                 ['名前', '値1'],
                 ['名前', '値2'],
             ]],
-            ['space=+%20%2B', null, false, [
+            ['space=+%20%2B', [
                 ['space', '  +'],
-            ]],
-            ['%26%2320516%3B&_charset_=HTML-ENTITIES', null, true, [
-                ['&#20516;', ''],
-                ['_charset_', 'HTML-ENTITIES'],
-            ]],
-            ['=', 'replacement', false, [
-                ['', ''],
-            ]],
-            ['name=value', 'replacement', false, [
-                ['�', '�'],
             ]],
         ];
     }
