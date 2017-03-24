@@ -165,10 +165,14 @@ class URL
             
             case 'port':
                 if (!is_null($this->url->host) && !$this->url->nonRelativeFlag && $this->url->scheme !== 'file') {
-                    lib\URL::parseBasicURL($input, null, null, [
-                        'url' => $this->url,
-                        'state override' => 'port state'
-                    ]);
+                    if ($input === '') {
+                        $this->url->port = null;
+                    } else {
+                        lib\URL::parseBasicURL($input, null, null, [
+                            'url' => $this->url,
+                            'state override' => 'port state'
+                        ]);
+                    }
                 }
                 break;
             

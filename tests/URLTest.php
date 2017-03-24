@@ -385,7 +385,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['http://url.test/'            , '8080'         , '8080', 'http://url.test:8080/'       ],
-            ['http://url.test:8080/'       , ''             , '8080', 'http://url.test:8080/'       ],
+            ['http://url.test:8080/'       , ''             , ''    , 'http://url.test/'            ],
             ['http://url.test:8080/'       , '80'           , ''    , 'http://url.test/'            ],
             ['http://url.test/'            , '008080'       , '8080', 'http://url.test:8080/'       ],
             ['http://url.test/'            , '8080/pathname', '8080', 'http://url.test:8080/'       ],
