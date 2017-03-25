@@ -205,17 +205,15 @@ class URL
                 break;
             
             case 'hash':
-                if ($this->url->scheme !== 'javascript') {
-                    if ($input === '') {
-                        $this->url->fragment = null;
-                    } else {
-                        $fragment = $input[0] === '#' ? substr($input, 1) : $input;
-                        $this->url->fragment = '';
-                        lib\URL::parseBasicURL($fragment, null, null, [
-                            'url' => $this->url,
-                            'state override' => 'fragment state'
-                        ]);
-                    }
+                if ($input === '') {
+                    $this->url->fragment = null;
+                } else {
+                    $fragment = $input[0] === '#' ? substr($input, 1) : $input;
+                    $this->url->fragment = '';
+                    lib\URL::parseBasicURL($fragment, null, null, [
+                        'url' => $this->url,
+                        'state override' => 'fragment state'
+                    ]);
                 }
                 break;
             

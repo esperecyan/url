@@ -492,7 +492,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['tftp://url.test/'         , '#hash'  , '#hash' , 'tftp://url.test/#hash'         ],
             ['file://directory/filename', '#hash'  , '#hash' , 'file://directory/filename#hash'],
             ['tftp://url.test/'         , '#hash'  , '#hash' , 'tftp://url.test/#hash'         ],
-            ['javascript:console.log(\'test\');#hash', '#fragment', '#hash', 'javascript:console.log(\'test\');#hash'],
+            ['javascript:console.log(\'test\');#hash', '#fragment', '#fragment', 'javascript:console.log(\'test\');#fragment'],
         ];
     }
     
