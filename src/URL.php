@@ -80,7 +80,7 @@ class URL
      */
     public static function domainToASCII($domain)
     {
-        $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain));
+        $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain), true);
         return is_string($asciiDomain) ? $asciiDomain : '';
     }
     
@@ -95,7 +95,7 @@ class URL
      */
     public static function domainToUnicode($domain)
     {
-        $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain));
+        $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain), true);
         return is_string($asciiDomain) ? lib\HostProcessing::domainToUnicode($asciiDomain) : '';
     }
     

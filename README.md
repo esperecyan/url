@@ -120,9 +120,10 @@ The correspondence table of the algorithms
 
 | [3. Hosts (domains and IP addresses)] |                                                                 |
 |---------------------------------------|-----------------------------------------------------------------|
-| [domain]                              | A valid utf-8 string                                            |
+| [domain]<br>[opaque host]             | A valid utf-8 string                                            |
 | [IPv4 address]                        | An integer or float in the range 0 to 0xFFFFFFFF                |
 | [IPv6 address]                        | An array with 8 elements of an integer in the range 0 to 0xFFFF |
+| [forbidden host code point]           | [esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS] |
 | [domain to ASCII]                     | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
 | [domain to Unicode]                   | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
 | [valid domain]                        | [esperecyan\url\lib\HostProcessing::isValidDomain()]            |
@@ -130,6 +131,7 @@ The correspondence table of the algorithms
 | [IPv4 number parser]                  | [esperecyan\url\lib\HostProcessing::parseIPv4Number()]          |
 | [IPv4 parser]                         | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
 | [IPv6 parser]                         | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
+| [opaque-host parser]                  | [esperecyan\url\lib\HostProcessing::parseOpaqueHost()]          |
 | [host serializer]                     | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
 | [IPv4 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
 | [IPv6 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
@@ -183,8 +185,10 @@ The correspondence table of the algorithms
 
 [3. Hosts (domains and IP addresses)]: https://url.spec.whatwg.org/hosts-(domains-and-ip-addresses)
 [domain]: https://url.spec.whatwg.org/#concept-domain
+[opaque host]: https://url.spec.whatwg.org/#opaque-host
 [IPv4 address]: https://url.spec.whatwg.org/#concept-ipv4
 [IPv6 address]: https://url.spec.whatwg.org/#concept-ipv6
+[forbidden host code point]: https://url.spec.whatwg.org/#forbidden-host-code-point
 [domain to ASCII]: https://url.spec.whatwg.org/#concept-domain-to-ascii
 [domain to Unicode]: https://url.spec.whatwg.org/#concept-domain-to-unicode
 [valid domain]: https://url.spec.whatwg.org/#valid-domain
@@ -192,6 +196,7 @@ The correspondence table of the algorithms
 [IPv4 number parser]: https://url.spec.whatwg.org/#ipv4-number-parser
 [IPv4 parser]: https://url.spec.whatwg.org/#concept-ipv4-parser
 [IPv6 parser]: https://url.spec.whatwg.org/#concept-ipv6-parser
+[opaque-host parser]: https://url.spec.whatwg.org/#concept-opaque-host-parser
 [host serializer]: https://url.spec.whatwg.org/#concept-host-serializer
 [IPv4 serializer]: https://url.spec.whatwg.org/#concept-ipv4-serializer
 [IPv6 serializer]: https://url.spec.whatwg.org/#concept-ipv6-serializer
@@ -239,6 +244,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#PATH_PERCENT_ENCODE_SET
 [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_PERCENT_ENCODE_SET
 [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_utf8PercentEncode
+[esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#FORBIDDEN_HOST_CODE_POINTS
 [esperecyan\url\lib\HostProcessing::domainToASCII()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToASCII
 [esperecyan\url\lib\HostProcessing::domainToUnicode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToUnicode
 [esperecyan\url\lib\HostProcessing::isValidDomain()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_isValidDomain
@@ -246,6 +252,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\HostProcessing::parseIPv4Number()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4Number
 [esperecyan\url\lib\HostProcessing::parseIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4
 [esperecyan\url\lib\HostProcessing::parseIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv6
+[esperecyan\url\lib\HostProcessing::parseOpaqueHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseOpaqueHost
 [esperecyan\url\lib\HostProcessing::serializeHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeHost
 [esperecyan\url\lib\HostProcessing::serializeIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv4
 [esperecyan\url\lib\HostProcessing::serializeIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv6

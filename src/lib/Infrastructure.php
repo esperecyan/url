@@ -138,4 +138,21 @@ class Infrastructure
         }
         return $result;
     }
+    
+    /**
+     * Percent encode UTF-8 string, using an encode set.
+     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
+     * @param string $codePoints A UTF-8 string.
+     * @return string
+     */
+    public static function percentEncodeCodePoints($encodeSet, $codePoints)
+    {
+        return preg_replace_callback($encodeSet, function ($matches) {
+            $result = rawurlencode($matches[0]);
+            if ($result[0] !== '%') {
+                $result = Infrastructure::percentEncode($matches[0]);
+            }
+            return $result;
+        }, $codePoints);
+    }
 }

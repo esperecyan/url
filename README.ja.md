@@ -118,21 +118,23 @@ READMEの英訳をハダーさんに協力していただきました。
 | [ユーザ情報 %‐符号化集合]          | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
 | [utf-8 パーセント符号化]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
 
-| [3. ホスト（ドメインと IP アドレス）] |                                                        |
-|---------------------------------------|--------------------------------------------------------|
-| [ドメイン]                            | 妥当な utf-8 の文字列                                  |
-| [IPv4 アドレス]                       | 0〜0xFFFFFFFFの整数、または浮動小数点数                |
-| [IPv6 アドレス]                       | 0〜0xFFFFの整数を要素に持つ長さが8の配列               |
-| [ドメインから ASCII へ変換]           | [esperecyan\url\lib\HostProcessing::domainToASCII()]   |
-| [ドメインから Unicode へ変換]         | [esperecyan\url\lib\HostProcessing::domainToUnicode()] |
-| [妥当なドメイン]                      | [esperecyan\url\lib\HostProcessing::isValidDomain()]   |
-| [ホスト構文解析器]                    | [esperecyan\url\lib\HostProcessing::parseHost()]       |
-| [IPv4 番号構文解析器]                 | [esperecyan\url\lib\HostProcessing::parseIPv4Number()] |
-| [IPv4 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv4()]       |
-| [IPv6 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv6()]       |
-| [ホスト直列化器]                      | [esperecyan\url\lib\HostProcessing::serializeHost()]   |
-| [IPv4 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv4()]   |
-| [IPv6 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv6()]   |
+| [3. ホスト（ドメインと IP アドレス）] |                                                                 |
+|---------------------------------------|-----------------------------------------------------------------|
+| [ドメイン]<br>[不透明なホスト]        | 妥当な utf-8 の文字列                                           |
+| [IPv4 アドレス]                       | 0〜0xFFFFFFFFの整数、または浮動小数点数                         |
+| [IPv6 アドレス]                       | 0〜0xFFFFの整数を要素に持つ長さが8の配列                        |
+| [禁止ホスト符号位置]                  | [esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS] |
+| [ドメインから ASCII へ変換]           | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
+| [ドメインから Unicode へ変換]         | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
+| [妥当なドメイン]                      | [esperecyan\url\lib\HostProcessing::isValidDomain()]            |
+| [ホスト構文解析器]                    | [esperecyan\url\lib\HostProcessing::parseHost()]                |
+| [IPv4 番号構文解析器]                 | [esperecyan\url\lib\HostProcessing::parseIPv4Number()]          |
+| [IPv4 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
+| [IPv6 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
+| [不透明なホスト構文解析器]            | [esperecyan\url\lib\HostProcessing::parseOpaqueHost()]          |
+| [ホスト直列化器]                      | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
+| [IPv4 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
+| [IPv6 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
 | [4. URL]               |                                                    |
 |------------------------|----------------------------------------------------|
@@ -183,8 +185,10 @@ READMEの英訳をハダーさんに協力していただきました。
 
 [3. ホスト（ドメインと IP アドレス）]: https://triple-underscore.github.io/URL-ja.html#hosts-(domains-and-ip-addresses)
 [ドメイン]: https://triple-underscore.github.io/URL-ja.html#concept-domain
+[不透明なホスト]: https://triple-underscore.github.io/URL-ja.html#opaque-host
 [IPv4 アドレス]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4
 [IPv6 アドレス]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6
+[禁止ホスト符号位置]: https://triple-underscore.github.io/URL-ja.html#forbidden-host-code-point
 [ドメインから ASCII へ変換]: https://triple-underscore.github.io/URL-ja.html#concept-domain-to-ascii
 [ドメインから Unicode へ変換]: https://triple-underscore.github.io/URL-ja.html#concept-domain-to-unicode
 [妥当なドメイン]: https://triple-underscore.github.io/URL-ja.html#valid-domain
@@ -192,6 +196,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [IPv4 番号構文解析器]: https://triple-underscore.github.io/URL-ja.html#ipv4-number-parser
 [IPv4 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4-parser
 [IPv6 構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6-parser
+[不透明なホスト構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-opaque-host-parser
 [ホスト直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-host-serializer
 [IPv4 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4-serializer
 [IPv6 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6-serializer
@@ -239,12 +244,14 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#USERINFO_PERCENT_ENCODE_SET
 [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_utf8PercentEncode
 [esperecyan\url\lib\HostProcessing::domainToASCII()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToASCII
+[esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#FORBIDDEN_HOST_CODE_POINTS
 [esperecyan\url\lib\HostProcessing::domainToUnicode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_domainToUnicode
 [esperecyan\url\lib\HostProcessing::isValidDomain()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_isValidDomain
 [esperecyan\url\lib\HostProcessing::parseHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseHost
 [esperecyan\url\lib\HostProcessing::parseIPv4Number()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4Number
 [esperecyan\url\lib\HostProcessing::parseIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv4
 [esperecyan\url\lib\HostProcessing::parseIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseIPv6
+[esperecyan\url\lib\HostProcessing::parseOpaqueHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_parseOpaqueHost
 [esperecyan\url\lib\HostProcessing::serializeHost()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeHost
 [esperecyan\url\lib\HostProcessing::serializeIPv4()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv4
 [esperecyan\url\lib\HostProcessing::serializeIPv6()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.HostProcessing#_serializeIPv6

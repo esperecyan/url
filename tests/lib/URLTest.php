@@ -261,6 +261,12 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['http://url.test/?query', null, 'utf-16be', null, null, [
                 'query' => 'query',
             ]],
+            ['https://url.テスト/', null, null, null, null, [
+                'host' => 'url.xn--zckzah',
+            ]],
+            ['example://url.テスト/', null, null, null, null, [
+                'host' => 'url.%E3%83%86%E3%82%B9%E3%83%88',
+            ]],
         ];
     }
     

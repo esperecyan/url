@@ -9,6 +9,13 @@ class HostProcessing
     use Utility;
     
     /**
+     * The regular expression (PCRE) pattern matching a forbidden host code point.
+     * @var string
+     * @link https://url.spec.whatwg.org/#forbidden-host-code-point URL Standard
+     */
+    const FORBIDDEN_HOST_CODE_POINTS = '~[\\x00\\t\\n\\r #%/:?@[-\\]]~u';
+    
+    /**
      * Maximum UTF-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8().
      * @internal
      * @var integer
@@ -93,23 +100,25 @@ class HostProcessing
     /**
      * The host parser.
      * @see \esperecyan\url\lib\HostProcessing::domainToUnicode()
+     * @see \esperecyan\url\lib\URL::isSpecial()
      * @link https://url.spec.whatwg.org/#concept-host-parser URL Standard
      * @param string $input A UTF-8 string.
+     * @param boolean $isSpecial
      * @return string|integer|float|integer[]
      *      If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).
      *      If host is IPv6 address, returns an array of a 16-bit unsigned integer.
      */
-    public static function parseHost($input)
+    public static function parseHost($input, $isSpecial)
     {
         $inputString = (string)$input;
-        if ($inputString === '') {
-            $result = false;
-        } elseif ($inputString[0] === '[') {
+        if ($inputString !== '' && $inputString[0] === '[') {
             $result = substr($inputString, -1) !== ']' ? false : self::parseIPv6(substr($inputString, 1, -1));
+        } elseif (!$isSpecial) {
+            $result = static::parseOpaqueHost($input);
         } else {
             $domain = Infrastructure::percentDecode($input);
             $asciiDomain = self::domainToASCII($domain);
-            $result = $asciiDomain === false || strpbrk($asciiDomain, "\x00\t\n\r #%/:?@[\\]") !== false
+            $result = $asciiDomain === false || preg_match(static::FORBIDDEN_HOST_CODE_POINTS, $asciiDomain) !== 0
                 ? false
                 : self::parseIPv4($asciiDomain);
         }
@@ -200,6 +209,19 @@ class HostProcessing
     {
         return filter_var($input, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)
             ? array_values(unpack('n*', inet_pton($input)))
+            : false;
+    }
+    
+    /**
+     * The opaque-host parser.
+     * @link https://url.spec.whatwg.org/#concept-opaque-host-parser URL Standard
+     * @param string $input A UTF-8 string.
+     * @return string|false
+     */
+    public static function parseOpaqueHost($input)
+    {
+        return preg_match(str_replace('%', '', static::FORBIDDEN_HOST_CODE_POINTS), $input) === 0
+            ? Infrastructure::percentEncodeCodePoints(Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET, $input)
             : false;
     }
     

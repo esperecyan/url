@@ -402,12 +402,12 @@ class URL
                         }
                         $atFlag = true;
                         $usernameAndPassword = explode(':', $buffer, 2);
-                        $url->username .= self::percentEncodeCodePoints(
+                        $url->username .= Infrastructure::percentEncodeCodePoints(
                             Infrastructure::USERINFO_PERCENT_ENCODE_SET,
                             $usernameAndPassword[0]
                         );
                         if (isset($usernameAndPassword[1])) {
-                            $url->password .= self::percentEncodeCodePoints(
+                            $url->password .= Infrastructure::percentEncodeCodePoints(
                                 Infrastructure::USERINFO_PERCENT_ENCODE_SET,
                                 $usernameAndPassword[1]
                             );
@@ -428,7 +428,7 @@ class URL
                         if ($buffer === '' && $url->isSpecial()) {
                             return false;
                         }
-                        $host = HostProcessing::parseHost($buffer);
+                        $host = HostProcessing::parseHost($buffer, $url->isSpecial());
                         if ($host === false) {
                             return false;
                         }
@@ -443,7 +443,7 @@ class URL
                         if ($buffer === '' && $url->isSpecial()) {
                             return false;
                         }
-                        $host = HostProcessing::parseHost($buffer);
+                        $host = HostProcessing::parseHost($buffer, $url->isSpecial());
                         if ($host === false) {
                             return false;
                         }
@@ -553,7 +553,7 @@ class URL
                         } elseif ($buffer === '') {
                             $state = 'path start state';
                         } else {
-                            $host = HostProcessing::parseHost($buffer);
+                            $host = HostProcessing::parseHost($buffer, $url->isSpecial());
                             if ($host === false) {
                                 return false;
                             }
@@ -634,7 +634,7 @@ class URL
                             $encoding = 'UTF-8';
                         }
                         $buffer = URLencoding::encode($buffer, $encoding);
-                        $url->query = self::percentEncodeCodePoints('/[^!$-;=?-~]/', $buffer);
+                        $url->query = Infrastructure::percentEncodeCodePoints('/[^!$-;=?-~]/', $buffer);
                         $buffer = '';
                         if ($c === '#') {
                             $url->fragment = '';
@@ -670,7 +670,8 @@ class URL
      */
     public function setUsername($username)
     {
-        $this->username = self::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $username);
+        $this->username
+            = Infrastructure::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $username);
     }
     
     /**
@@ -682,24 +683,7 @@ class URL
     {
         $this->password = $password === ''
             ? null
-            : self::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $password);
-    }
-    
-    /**
-     * Percent encode UTF-8 string, using an encode set.
-     * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
-     * @param string $codePoints A UTF-8 string.
-     * @return string
-     */
-    private static function percentEncodeCodePoints($encodeSet, $codePoints)
-    {
-        return preg_replace_callback($encodeSet, function ($matches) {
-            $result = rawurlencode($matches[0]);
-            if ($result[0] !== '%') {
-                $result = Infrastructure::percentEncode($matches[0]);
-            }
-            return $result;
-        }, $codePoints);
+            : Infrastructure::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $password);
     }
     
     /**

@@ -97,7 +97,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsValidDomain($domain, $returnValue)
     {
-        $this->assertSame($returnValue, HostProcessing::isValidDomain($domain));
+        $this->assertSame($returnValue, HostProcessing::isValidDomain($domain), $domain);
     }
     
     /**
@@ -133,6 +133,8 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
             ['url..test'                          , false],
             ['url.test.'                          , false],
             ['test'                               , true ],
+            ['xn--zckzah'                         , true ],
+            ['%E3%83%86%E3%82%B9%E3%83%88'        , false],
             ['.'                                  , false],
             ['.test'                              , false],
         ];
@@ -140,12 +142,13 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
+     * @param boolean $isSpecial
      * @param string|integer[]|false $domain
      * @dataProvider hostProvider
      */
-    public function testParseHost($input, $domain)
+    public function testParseHost($input, $isSpecial, $domain)
     {
-        $this->assertSame($domain, HostProcessing::parseHost($input));
+        $this->assertSame($domain, HostProcessing::parseHost($input, $isSpecial));
     }
     
     /**
@@ -154,56 +157,70 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     public function hostProvider()
     {
         return [
-            ['Bloß.de'                           , 'xn--blo-7ka.de'                                             ],
-            ['xn--blo-7ka.de'                    , 'xn--blo-7ka.de'                                             ],
-            ['ü.com'                            , 'xn--tda.com'                                                ],
-            ['xn--tda.com'                       , 'xn--tda.com'                                                ],
-            ['xn--u-ccb.com'                     , false                                                        ],
-            ['a⒈com'                            , false                                                        ],
-            ['xn--a-ecp.ru'                      , false                                                        ],
-            ['xn--0.pt'                          , false                                                        ],
-            ['日本語。ＪＰ'                      , 'xn--wgv71a119e.jp'                                          ],
-            ['☕.us'                             , 'xn--53h.us'                                                 ],
-            ['[2001:db8::1]'                     , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
-            ['[2001:db8::1'                      , false                                                        ],
-            ['[2001:db8::]'                      , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0]                            ],
-            ['[2001:DB8::1]'                     , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
-            ['[2001:dB8::1]'                     , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
-            ['[2001:0db8::1]'                    , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
-            ['[2001:00db8::]'                    , false                                                        ],
-            ['[2001:db8:::1]'                    , false                                                        ],
-            ['[:2001:db8::1]'                    , false                                                        ],
-            ['[2001:db8::1::1]'                  , false                                                        ],
-            ['203.0.113.1'                       , 203 * 0x1000000 + 0 * 0x10000 + 113 * 0x100 + 1              ],
-            ['203.000.113.01'                    , 203 * 0x1000000 + 0 * 0x10000 + 113 * 0x100 + 1              ],
-            ['203%2E0%2E113%2E1'                 , 203 * 0x1000000 + 0 * 0x10000 + 113 * 0x100 + 1              ],
-            ['203.0.113.256'                     , false                                                        ],
-            ['0xCB007101'                        , 0xCB007101                                                   ],
-            ['[::ffff:203.0.113.1]'              , [0, 0, 0, 0, 0, 0xFFFF, 203 * 0x100 + 0, 113 * 0x100 + 1]    ],
-            ['[::203.0.113.1]'                   , [0, 0, 0, 0, 0, 0, 203 * 0x100 + 0, 113 * 0x100 + 1]         ],
-            ['[0:0:0:0:0:ffff:203.0.113.1]'      , [0, 0, 0, 0, 0, 0xFFFF, 203 * 0x100 + 0, 113 * 0x100 + 1]    ],
-            ['[2001:db8::203.0.113.1]'           , [0x2001, 0xDB8, 0, 0, 0, 0, 203 * 0x100 + 0, 113 * 0x100 + 1]],
-            ['[2001:db8:203.0.113.1::]'          , false                                                        ],
-            ['[2001:db8::203.0.113.1.0]'         , false                                                        ],
-            ['[0:0:0:0:0:0:ffff:cb00:7101]'      , false                                                        ],
-            ['[0:0:0:0:0:0:ffff:203.0.113.1]'    , false                                                        ],
-            ['[::ffff:203.0.113.01]'             , false                                                        ],
-            ['[::ffff:203.0.113.256]'            , false                                                        ],
-            ["null \x00character.test"           , false                                                        ],
-            ["character\ttabulation.test"        , false                                                        ],
-            ["line\nfeed.test"                   , false                                                        ],
-            ["carriage\rreturn.test"             , false                                                        ],
-            ['space character.test'              , false                                                        ],
-            ['number#sign.test'                  , false                                                        ],
-            ['percent%sign.test'                 , false                                                        ],
-            ['solidu/s.test'                     , false                                                        ],
-            ['colo:n.test'                       , false                                                        ],
-            ['question?mark.test'                , false                                                        ],
-            ['commercial@at.test'                , false                                                        ],
-            ['square[bracket.test'               , false                                                        ],
-            ['reverse\\solidus.test'             , false                                                        ],
-            ['square]bracket.test'               , false                                                        ],
-            ["\v\f\e!\"\$&'()*+,;<=>^_`{|}~.test", "\v\f\e!\"\$&'()*+,;<=>^_`{|}~.test"                         ],
+            ['special-url.test'                 , true , 'special-url.test'                                           ],
+            ['non-special-url.test'             , false, 'non-special-url.test'                                       ],
+            ['test'                             , true , 'test'                                                       ],
+            ['test'                             , false, 'test'                                                       ],
+            ['テスト'                           , true , 'xn--zckzah'                                                 ],
+            ['テスト'                           , false, '%E3%83%86%E3%82%B9%E3%83%88'                                ],
+            ['xn--zckzah'                       , true , 'xn--zckzah'                                                 ],
+            ['xn--zckzah'                       , false, 'xn--zckzah'                                                 ],
+            ['%E3%83%86%E3%82%B9%E3%83%88'      , true , 'xn--zckzah'                                                 ],
+            ['%E3%83%86%E3%82%B9%E3%83%88'      , false, '%E3%83%86%E3%82%B9%E3%83%88'                                ],
+            ['Bloß.de'                          , true , 'xn--blo-7ka.de'                                             ],
+            ['xn--blo-7ka.de'                   , true , 'xn--blo-7ka.de'                                             ],
+            ['ü.com'                           , true , 'xn--tda.com'                                                ],
+            ['xn--tda.com'                      , true , 'xn--tda.com'                                                ],
+            ['xn--u-ccb.com'                    , true , false                                                        ],
+            ['a⒈com'                           , true , false                                                        ],
+            ['xn--a-ecp.ru'                     , true , false                                                        ],
+            ['xn--0.pt'                         , true , false                                                        ],
+            ['日本語。ＪＰ'                     , true , 'xn--wgv71a119e.jp'                                          ],
+            ['☕.us'                            , true , 'xn--53h.us'                                                 ],
+            ['[2001:db8::1]'                    , true , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
+            ['[2001:db8::1]'                    , false, [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
+            ['[2001:db8::1'                     , true , false                                                        ],
+            ['[2001:db8::1'                     , false, false                                                        ],
+            ['[2001:db8::]'                     , true , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0]                            ],
+            ['[2001:DB8::1]'                    , true , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
+            ['[2001:dB8::1]'                    , true , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
+            ['[2001:0db8::1]'                   , true , [0x2001, 0xDB8, 0, 0, 0, 0, 0, 0x1]                          ],
+            ['[2001:00db8::]'                   , true , false                                                        ],
+            ['[2001:db8:::1]'                   , true , false                                                        ],
+            ['[:2001:db8::1]'                   , true , false                                                        ],
+            ['[2001:db8::1::1]'                 , true , false                                                        ],
+            ['203.0.113.1'                      , true , 203 * 0x1000000 + 0 * 0x10000 + 113 * 0x100 + 1              ],
+            ['203.0.113.1'                      , false, '203.0.113.1'                                                ],
+            ['203.000.113.01'                   , true , 203 * 0x1000000 + 0 * 0x10000 + 113 * 0x100 + 1              ],
+            ['203%2E0%2E113%2E1'                , true , 203 * 0x1000000 + 0 * 0x10000 + 113 * 0x100 + 1              ],
+            ['203.0.113.256'                    , true , false                                                        ],
+            ['0xCB007101'                       , true , 0xCB007101                                                   ],
+            ['[::ffff:203.0.113.1]'             , true , [0, 0, 0, 0, 0, 0xFFFF, 203 * 0x100 + 0, 113 * 0x100 + 1]    ],
+            ['[::203.0.113.1]'                  , true , [0, 0, 0, 0, 0, 0, 203 * 0x100 + 0, 113 * 0x100 + 1]         ],
+            ['[0:0:0:0:0:ffff:203.0.113.1]'     , true , [0, 0, 0, 0, 0, 0xFFFF, 203 * 0x100 + 0, 113 * 0x100 + 1]    ],
+            ['[2001:db8::203.0.113.1]'          , true , [0x2001, 0xDB8, 0, 0, 0, 0, 203 * 0x100 + 0, 113 * 0x100 + 1]],
+            ['[2001:db8:203.0.113.1::]'         , true , false                                                        ],
+            ['[2001:db8::203.0.113.1.0]'        , true , false                                                        ],
+            ['[0:0:0:0:0:0:ffff:cb00:7101]'     , true , false                                                        ],
+            ['[0:0:0:0:0:0:ffff:203.0.113.1]'   , true , false                                                        ],
+            ['[::ffff:203.0.113.01]'            , true , false                                                        ],
+            ['[::ffff:203.0.113.256]'           , true , false                                                        ],
+            ["null \x00character.test"          , true , false                                                        ],
+            ["null \x00character.test"          , false, false                                                        ],
+            ["character\ttabulation.test"       , true , false                                                        ],
+            ["line\nfeed.test"                  , true , false                                                        ],
+            ["carriage\rreturn.test"            , true , false                                                        ],
+            ['space character.test'             , true , false                                                        ],
+            ['number#sign.test'                 , true , false                                                        ],
+            ['percent%sign.test'                , true , false                                                        ],
+            ['solidu/s.test'                    , true , false                                                        ],
+            ['colo:n.test'                      , true , false                                                        ],
+            ['question?mark.test'               , true , false                                                        ],
+            ['commercial@at.test'               , true , false                                                        ],
+            ['square[bracket.test'              , true , false                                                        ],
+            ['reverse\\solidus.test'            , true , false                                                        ],
+            ['square]bracket.test'              , true , false                                                        ],
+            ["\v\f\e!\"\$&'()*+,;<=>^_`{|}~.test",true , "\v\f\e!\"\$&'()*+,;<=>^_`{|}~.test"                         ],
         ];
     }
     
@@ -320,6 +337,41 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @param string $input
+     * @param string|false $opaqueHost
+     * @dataProvider opaqueHostProvider
+     */
+    public function testParseOpaqueHost($input, $opaqueHost)
+    {
+        $this->assertSame($opaqueHost, HostProcessing::parseOpaqueHost($input));
+    }
+    
+    public function opaqueHostProvider()
+    {
+        return [
+            ['opaque-host.test'                         , 'opaque-host.test'                        ],
+            ['test'                                     , 'test'                                    ],
+            ['𩸽'                                       , '%F0%A9%B8%BD'                            ],
+            ['%F0%A9%B8%BD'                             , '%F0%A9%B8%BD'                            ],
+            ['%'                                        , '%'                                       ],
+            ["\x00"                                     , false                                     ],
+            ["\t"                                       , false                                     ],
+            ["\n"                                       , false                                     ],
+            ["\r"                                       , false                                     ],
+            [' '                                        , false                                     ],
+            ['#'                                        , false                                     ],
+            ['/'                                        , false                                     ],
+            [':'                                        , false                                     ],
+            ['?'                                        , false                                     ],
+            ['@'                                        , false                                     ],
+            ['['                                        , false                                     ],
+            ['\\'                                       , false                                     ],
+            [']'                                        , false                                     ],
+            ["\x01\v\f\e\x1F!\"\$&'()*+,;<=>^_`{|}~\x7F", '%01%0B%0C%1B%1F!"$&\'()*+,;<=>^_`{|}~%7F'],
+        ];
+    }
+    
+    /**
      * @param string|integer[]|null $host
      * @param string $returnValue
      * @dataProvider hostProvider2
@@ -335,16 +387,18 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     public function hostProvider2()
     {
         return [
-            [null, ''],
-            ['url.test', 'url.test'],
-            ['url.テスト', 'url.テスト'],
-            [[0x2001, 0x0DB8, 0, 0, 0, 0, 0, 0x1]                     , '[2001:db8::1]'         ],
+            [null                                              , ''                               ],
+            ['url.test'                                        , 'url.test'                       ],
+            ['url.テスト'                                      , 'url.テスト'                     ],
+            ['url.xn--zckzah'                                  , 'url.xn--zckzah'                 ],
+            ['url.%E3%83%86%E3%82%B9%E3%83%88'                 , 'url.%E3%83%86%E3%82%B9%E3%83%88'], // opaque host
+            [[0x2001, 0x0DB8, 0, 0, 0, 0, 0, 0x1]              , '[2001:db8::1]'                  ],
             [[0, 0, 0, 0, 0, 0xFFFF, 203 * 0x100 + 0, 113 * 0x100 + 1], '[::ffff:cb00:7101]'    ], //IPv4-mapped address
-            [[0x2001, 0x0DB8, 0, 0, 0x1, 0, 0, 0x1]                   , '[2001:db8::1:0:0:1]'   ],
-            [[0x2001, 0x0DB8, 0, 0x1, 0x1, 0x1, 0x1, 0x1]             , '[2001:db8:0:1:1:1:1:1]'],
-            [192 * 0x1000000 +  0 * 0x10000 +   2 * 0x100 +   0       , '192.0.2.0'             ],
-            [198 * 0x1000000 + 51 * 0x10000 + 100 * 0x100 +   1       , '198.51.100.1'          ],
-            [203 * 0x1000000 +  0 * 0x10000 + 113 * 0x100 + 255       , '203.0.113.255'         ],
+            [[0x2001, 0x0DB8, 0, 0, 0x1, 0, 0, 0x1]            , '[2001:db8::1:0:0:1]'            ],
+            [[0x2001, 0x0DB8, 0, 0x1, 0x1, 0x1, 0x1, 0x1]      , '[2001:db8:0:1:1:1:1:1]'         ],
+            [192 * 0x1000000 +  0 * 0x10000 +   2 * 0x100 +   0, '192.0.2.0'                      ],
+            [198 * 0x1000000 + 51 * 0x10000 + 100 * 0x100 +   1, '198.51.100.1'                   ],
+            [203 * 0x1000000 +  0 * 0x10000 + 113 * 0x100 + 255, '203.0.113.255'                  ],
             
             // invalid arguments
             ['xn--u-ccb.com'                                          , 'xn--u-ccb.com'         ],
