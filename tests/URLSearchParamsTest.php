@@ -101,6 +101,28 @@ class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
         ], iterator_to_array($params));
     }
     
+    public function testSort()
+    {
+        $params = new URLSearchParams([
+            'a'  => 'U+0061',
+            'α' => 'U+03B1',
+            '〜' => 'U+301C',
+            '！' => 'U+FF01',
+            '𩸽' => 'U+29E3D',
+        ]);
+        
+        $params->sort();
+        
+        // assertEquals does not check key order
+        $this->assertSame([
+            'a'  => 'U+0061',
+            'α' => 'U+03B1',
+            '〜' => 'U+301C',
+            '𩸽' => 'U+29E3D',
+            '！' => 'U+FF01',
+        ], iterator_to_array($params));
+    }
+    
     public function testUpdateSteps()
     {
         $url = new URL('http://anchor.test/?name=value');

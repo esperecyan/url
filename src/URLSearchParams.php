@@ -200,6 +200,19 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
+     * Sort all name-value pair by their names and comparing JavaScript strings (UTF-16).
+     * @link https://url.spec.whatwg.org/#dom-urlsearchparams-sort URL Standard
+     * @param string $name A USVString.
+     * @param string $value A USVString.
+     */
+    public function sort()
+    {
+        array_multisort(array_map(function ($pair) {
+            return mb_convert_encoding($pair[0], 'UTF-16BE', 'UTF-8');
+        }, $this->list), SORT_STRING, range(1, count($this->list)), $this->list);
+    }
+    
+    /**
      * @uses lib\URLSearchParamsIterator
      */
     public function getIterator()
