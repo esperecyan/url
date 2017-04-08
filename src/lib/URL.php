@@ -2,10 +2,11 @@
 namespace esperecyan\url\lib;
 
 /**
- * A universal identifier.
+ * A universal identifier (a URL record).
  * A URL consists of components,
  * namely a scheme, scheme data, username, password, host, port, path, query, and fragment.
  * @link https://url.spec.whatwg.org/#urls URL Standard
+ * @property boolean $nonRelativeFlag [Deprecated] Alias of $cannotBeABaseURLFlag.
  */
 class URL
 {
@@ -23,10 +24,10 @@ class URL
     public $username = '';
     
     /**
-     * @var string|null A URL’s password is either null or a string identifying a user’s credentials.
+     * @var string A URL’s password is either null or a string identifying a user’s credentials.
      * @link https://url.spec.whatwg.org/#concept-url-password URL Standard
      */
-    public $password = null;
+    public $password = '';
     
     /**
      * @var string|integer|float|integer[]|null A URL’s host is either null or a host.
@@ -67,12 +68,28 @@ class URL
     public $cannotBeABaseURLFlag = false;
     
     /**
-     * @var Alias of $cannotBeABaseURLFlag.
-     * @deprecated 4.5.0 The variable is renamed to $cannotBeABaseURLFlag.
-     * @link https://github.com/whatwg/url/commit/0755b4855187c94e1dfca900ba5122fa02a359ec
-     *      Rename non-relative to cannot-be-a-base-URL · whatwg/url@2f4161d
+     * @param string $name
+     * @return string
      */
-    public $nonRelativeFlag = false;
+    public function __get($name)
+    {
+        if ($name === 'nonRelativeFlag') {
+            return $this->cannotBeABaseURLFlag;
+        }
+        TypeHinter::triggerVisibilityErrorOrUndefinedNotice();
+    }
+    
+    /**
+     * @param string $name
+     * @param boolean $value
+     */
+    public function __set($name, $value)
+    {
+        if ($name === 'nonRelativeFlag') {
+            $this->cannotBeABaseURLFlag = $value;
+        }
+        TypeHinter::triggerVisibilityErrorOrDefineProperty();
+    }
     
     /**
      * @var object|null A URL also has an associated object that is either null or a Blob object.
@@ -128,7 +145,18 @@ class URL
      */
     public function isIncludingCredentials()
     {
-        return $this->username !== '' || !is_null($this->password);
+        return $this->username !== '' || $this->password !== '';
+    }
+    
+    /**
+     * A URL cannot have a username/password/port
+     *      if its host is null or the empty string, its cannot-be-a-base-URL flag is set, or its scheme is “file”.
+     * @link https://url.spec.whatwg.org/#cannot-have-a-username-password-port URL Standard
+     * @return boolean Return true if a URL cannot have a username/password/port.
+     */
+    public function cannotHaveUsernamePasswordPort()
+    {
+        return in_array($this->host, [null, ''], true) || $this->cannotBeABaseURLFlag || $this->scheme === 'file';
     }
     
     /**
@@ -239,7 +267,7 @@ class URL
                         $state = 'no scheme state';
                         $pointer--;
                     } else {
-                        return;
+                        return false;
                     }
                     break;
 
@@ -247,7 +275,11 @@ class URL
                     if (stripos('0123456789abcdefghijklmnopqrstuvwxyz+-.', $c) !== false) {
                         $buffer .= strtolower($c);
                     } elseif ($c === ':') {
-                        if ($stateOverride && array_key_exists($url->scheme, self::$specialSchemes) !== array_key_exists($buffer, self::$specialSchemes)) {
+                        if ($stateOverride && (
+                            array_key_exists($url->scheme, self::$specialSchemes) !== array_key_exists($buffer, self::$specialSchemes)
+                            || ($url->isIncludingCredentials() || !is_null($url->port)) && $buffer === 'file'
+                            || $url->scheme === 'file' && in_array($url->host, ['', null], true)
+                        )) {
                             return;
                         }
                         $url->scheme = $buffer;
@@ -265,7 +297,7 @@ class URL
                             $state = 'path or authority state';
                             $pointer++;
                         } else {
-                            $url->nonRelativeFlag = $url->cannotBeABaseURLFlag = true;
+                            $url->cannotBeABaseURLFlag = true;
                             $url->path[] = '';
                             $state = 'non-relative path state';
                         }
@@ -274,7 +306,7 @@ class URL
                         $state = 'no scheme state';
                         $pointer = -1;
                     } else {
-                        return;
+                        return false;
                     }
                     break;
 
@@ -286,7 +318,7 @@ class URL
                         $url->path = $base->path;
                         $url->query = $base->query;
                         $url->fragment = '';
-                        $url->nonRelativeFlag = $url->cannotBeABaseURLFlag = true;
+                        $url->cannotBeABaseURLFlag = true;
                         $state = 'fragment state';
                     } elseif ($base->scheme !== 'file') {
                         $state = 'relative state';
@@ -366,8 +398,10 @@ class URL
                     break;
 
                 case 'relative slash state':
-                    if ($c === '/' || $c === '\\' && $url->isSpecial()) {
+                    if ($url->isSpecial() && in_array($c, ['/', '\\'])) {
                         $state = 'special authority ignore slashes state';
+                    } elseif ($c === '/') {
+                        $state = 'authority state';
                     } else {
                         $url->username = $base->username;
                         $url->password = $base->password;
@@ -424,7 +458,10 @@ class URL
 
                 case 'host state':
                 case 'hostname state':
-                    if ($c === ':' && !$bracketFlag) {
+                    if ($stateOverride && $url->scheme === 'file') {
+                        $pointer--;
+                        $state = 'file host state';
+                    } elseif ($c === ':' && !$bracketFlag) {
                         if ($buffer === '' && $url->isSpecial()) {
                             return false;
                         }
@@ -441,6 +478,9 @@ class URL
                     } elseif (in_array($c, ['', '/', '?', '#']) || $c === '\\' && $url->isSpecial()) {
                         $pointer--;
                         if ($buffer === '' && $url->isSpecial()) {
+                            return false;
+                        } elseif ($stateOverride && $buffer === ''
+                            && ($url->isIncludingCredentials() || !is_null($url->port))) {
                             return false;
                         }
                         $host = HostProcessing::parseHost($buffer, $url->isSpecial());
@@ -490,46 +530,47 @@ class URL
 
                 case 'file state':
                     $url->scheme = 'file';
-                    switch ($c) {
-                        case '':
-                            if ($base && $base->scheme === 'file') {
+                    if (in_array($c, ['/', '\\'])) {
+                        $state = 'file slash state';
+                    } elseif ($base && $base->scheme === 'file') {
+                        switch ($c) {
+                            case '':
                                 $url->host = $base->host;
                                 $url->path = $base->path;
                                 $url->query = $base->query;
-                            }
-                            break;
-                        case '\\':
-                        case '/':
-                            $state = 'file slash state';
-                            break;
-                        case '?':
-                            if ($base && $base->scheme === 'file') {
-                                $url->host = $base->host;
-                                $url->path = $base->path;
-                                $url->query = '';
-                                $state = 'query state';
-                            }
-                            break;
-                        case '#':
-                            if ($base && $base->scheme === 'file') {
-                                $url->host = $base->host;
-                                $url->path = $base->path;
-                                $url->query = $base->query;
-                                $url->fragment = '';
-                                $state = 'fragment state';
-                            }
-                            break;
-                        default:
-                            $remaining = array_slice($codePoints, $pointer + 1);
-                            if ($base && $base->scheme === 'file'
-                                && isset($remaining[0]) && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
-                                && (count($remaining) === 1 || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false)) {
-                                $url->host = $base->host;
-                                $url->path = $base->path;
-                                $url->popPath();
-                            }
-                            $state = 'path state';
-                            $pointer--;
+                                break;
+                            case '?':
+                                if ($base && $base->scheme === 'file') {
+                                    $url->host = $base->host;
+                                    $url->path = $base->path;
+                                    $url->query = '';
+                                    $state = 'query state';
+                                }
+                                break;
+                            case '#':
+                                if ($base && $base->scheme === 'file') {
+                                    $url->host = $base->host;
+                                    $url->path = $base->path;
+                                    $url->query = $base->query;
+                                    $url->fragment = '';
+                                    $state = 'fragment state';
+                                }
+                                break;
+                            default:
+                                $remaining = array_slice($codePoints, $pointer + 1);
+                                if (isset($remaining[0]) && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
+                                    || count($remaining) === 1
+                                    || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false) {
+                                    $url->host = $base->host;
+                                    $url->path = $base->path;
+                                    $url->shortenPath();
+                                }
+                                $state = 'path state';
+                                $pointer--;
+                        }
+                    } else {
+                        $state = 'path state';
+                        $pointer--;
                     }
                     break;
 
@@ -537,8 +578,13 @@ class URL
                     if ($c === '/' || $c === '\\') {
                         $state = 'file host state';
                     } else {
-                        if ($base && $base->scheme === 'file' && isset($base->path[0]) && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
-                            $url->path[] = $base->path[0];
+                        if ($base && $base->scheme === 'file') {
+                            if (isset($base->path[0])
+                                && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
+                                $url->path[] = $base->path[0];
+                            } else {
+                                $url->host = $base->host;
+                            }
                         }
                         $state = 'path state';
                         $pointer--;
@@ -548,17 +594,22 @@ class URL
                 case 'file host state':
                     if (in_array($c, ['', '/', '\\', '?', '#'])) {
                         $pointer--;
-                        if (preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                        if (!$stateOverride && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
                             $state = 'path state';
                         } elseif ($buffer === '') {
+                            $url->host = '';
+                            if ($stateOverride) {
+                                return;
+                            }
                             $state = 'path start state';
                         } else {
                             $host = HostProcessing::parseHost($buffer, $url->isSpecial());
                             if ($host === false) {
                                 return false;
                             }
-                            if ($host !== 'localhost') {
-                                $url->host = $host;
+                            $url->host = $host === 'localhost' ? '' : $host;
+                            if ($stateOverride) {
+                                return;
                             }
                             $buffer = '';
                             $state = 'path start state';
@@ -569,9 +620,22 @@ class URL
                     break;
 
                 case 'path start state':
-                    $state = 'path state';
-                    if (!($c === '/' || $c === '\\' && $url->isSpecial())) {
-                        $pointer--;
+                    if ($url->isSpecial()) {
+                        $state = 'path state';
+                        if (!in_array($c, ['/', '\\'])) {
+                            $pointer--;
+                        }
+                    } elseif (!$stateOverride && $c === '?') {
+                        $url->query = '';
+                        $state = 'query state';
+                    } elseif (!$stateOverride && $c === '#') {
+                        $url->fragment = '';
+                        $state = 'fragment state';
+                    } elseif ($c !== '') {
+                        if ($c !== '/') {
+                            $pointer--;
+                        }
+                        $state = 'path state';
                     }
                     break;
 
@@ -579,7 +643,7 @@ class URL
                     if (in_array($c, ['', '/']) || $c === '\\' && $url->isSpecial()
                         || !$stateOverride && in_array($c, ['?', '#'])) {
                         if (preg_match(self::DOUBLE_DOT_PATH_SEGMENT, $buffer) === 1) {
-                            $url->popPath();
+                            $url->shortenPath();
                             if (!($c === '/' || $c === '\\' && $url->isSpecial())) {
                                 $url->path[] = '';
                             }
@@ -590,12 +654,19 @@ class URL
                             if ($url->scheme === 'file'
                                 && !$url->path
                                 && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
-                                $url->host = null;
+                                if (!in_array($url->host, ['', null], true)) {
+                                    $url->host = '';
+                                }
                                 $buffer[1] = ':';
                             }
                             $url->path[] = $buffer;
                         }
                         $buffer = '';
+                        if ($url->scheme === 'file' && in_array($c, ['', '?', '#'], true)) {
+                            while (isset($url->path[0]) && $url->path[0] === '') {
+                                array_shift($url->path);
+                            }
+                        }
                         if ($c === '?') {
                             $url->query = '';
                             $state = 'query state';
@@ -604,12 +675,7 @@ class URL
                             $state = 'fragment state';
                         }
                     } else {
-                        if (stripos(implode('', array_slice($codePoints, $pointer)), '%2e') === 0) {
-                            $buffer .= '.';
-                            $pointer += 2;
-                        } else {
-                            $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::PATH_PERCENT_ENCODE_SET, $c);
-                        }
+                        $buffer .= Infrastructure::utf8PercentEncode(Infrastructure::PATH_PERCENT_ENCODE_SET, $c);
                     }
                     break;
 
@@ -647,7 +713,10 @@ class URL
 
                 case 'fragment state':
                     if ($c !== '') {
-                        $url->fragment .= str_replace("\x00", '', implode('', array_slice($codePoints, $pointer)));
+                        $url->fragment .= Infrastructure::utf8PercentEncode(
+                            Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET,
+                            str_replace("\x00", '', implode('', array_slice($codePoints, $pointer)))
+                        );
                     }
                     break 2;
 
@@ -681,9 +750,8 @@ class URL
      */
     public function setPassword($password)
     {
-        $this->password = $password === ''
-            ? null
-            : Infrastructure::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $password);
+        $this->password
+            = Infrastructure::percentEncodeCodePoints(Infrastructure::USERINFO_PERCENT_ENCODE_SET, $password);
     }
     
     /**
@@ -696,9 +764,9 @@ class URL
         $output = $this->scheme . ':';
         if (!is_null($this->host)) {
             $output .= '//';
-            if ($this->username !== '' || !is_null($this->password)) {
+            if ($this->isIncludingCredentials()) {
                 $output .= $this->username;
-                if (!is_null($this->password)) {
+                if ($this->password !== '') {
                     $output .= ':' . $this->password;
                 }
                 $output .= '@';

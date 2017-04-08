@@ -189,8 +189,11 @@ class URLTest extends \PHPUnit_Framework_TestCase
     {
         return [
             ['http://username:password@url.test:8080/pathname?foobar#hash', 'http://username:password@url.test:8080/pathname?foobar#hash'],
-            ['http://URL.テスト/'    , 'http://url.xn--zckzah/'],
-            ['http://url.test:80/'   , 'http://url.test/'  ],
+            ['http://URL.テスト/'         , 'http://url.xn--zckzah/'     ],
+            ['http://url.test:80/'        , 'http://url.test/'           ],
+            ['https://username:@url.test/', 'https://username@url.test/' ],
+            ['https://:password@url.test/', 'https://:password@url.test/'],
+            ['https://:@url.test/'        , 'https://url.test/'          ],
         ];
     }
     
@@ -362,7 +365,8 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['http://url.test/'            , 'url.%e3%83%86%E3%82%B9ト', 'url.xn--zckzah', 'http://url.xn--zckzah/'   ],
             ['http://url.test/'            , '%83e%83X%83g.invalid' , 'url.test'      , 'http://url.test/'            ],
             ['tftp://url.test/'            , 'standard.test'        , 'standard.test' , 'tftp://standard.test/'       ],
-            ['file://directory/filename' , 'URL.XN--ZCKZAH:008080', 'url.xn--zckzah', 'file://url.xn--zckzah/filename'],
+            ['file://directory/filename'   , 'url.test:8080'        , 'directory'     , 'file://directory/filename'   ],
+            ['file://directory/filename'   , 'url.test'             , 'url.test'      , 'file://url.test/filename'    ],
         ];
     }
     
@@ -486,7 +490,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['http://url.test/'         , '##hash' , '##hash', 'http://url.test/##hash'        ],
             ['http://url.test/#hash'    , ''       , ''      , 'http://url.test/'              ],
             ['http://url.test/'         , '#'      , ''      , 'http://url.test/#'             ],
-            ['http://url.test/'         , '#テスト', '#テスト', 'http://url.test/#テスト'       ],
+            ['http://url.test/'         , '#テスト', '#%E3%83%86%E3%82%B9%E3%83%88', 'http://url.test/#%E3%83%86%E3%82%B9%E3%83%88'],
             ['http://url.test/', '#%E3%83%86%E3%82%B9%E3%83%88', '#%E3%83%86%E3%82%B9%E3%83%88', 'http://url.test/#%E3%83%86%E3%82%B9%E3%83%88'],
             ['http://url.test/', '# !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~', '# !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~', 'http://url.test/# !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'],
             ['tftp://url.test/'         , '#hash'  , '#hash' , 'tftp://url.test/#hash'         ],

@@ -118,52 +118,53 @@ READMEの英訳をハダーさんに協力していただきました。
 | [ユーザ情報 %‐符号化集合]          | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
 | [utf-8 パーセント符号化]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
 
-| [3. ホスト（ドメインと IP アドレス）] |                                                                 |
-|---------------------------------------|-----------------------------------------------------------------|
-| [ドメイン]<br>[不透明なホスト]        | 妥当な utf-8 の文字列                                           |
-| [IPv4 アドレス]                       | 0〜0xFFFFFFFFの整数、または浮動小数点数                         |
-| [IPv6 アドレス]                       | 0〜0xFFFFの整数を要素に持つ長さが8の配列                        |
-| [禁止ホスト符号位置]                  | [esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS] |
-| [ドメインから ASCII へ変換]           | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
-| [ドメインから Unicode へ変換]         | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
-| [妥当なドメイン]                      | [esperecyan\url\lib\HostProcessing::isValidDomain()]            |
-| [ホスト構文解析器]                    | [esperecyan\url\lib\HostProcessing::parseHost()]                |
-| [IPv4 番号構文解析器]                 | [esperecyan\url\lib\HostProcessing::parseIPv4Number()]          |
-| [IPv4 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
-| [IPv6 構文解析器]                     | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
-| [不透明なホスト構文解析器]            | [esperecyan\url\lib\HostProcessing::parseOpaqueHost()]          |
-| [ホスト直列化器]                      | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
-| [IPv4 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
-| [IPv6 直列化器]                       | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
+| [3. ホスト（ドメインと IP アドレス）]        |                                                                 |
+|----------------------------------------------|-----------------------------------------------------------------|
+| [ドメイン]<br>[不透明なホスト]<br>[空ホスト] | 妥当な utf-8 の文字列                                           |
+| [IPv4 アドレス]                              | 0〜0xFFFFFFFFの整数、または浮動小数点数                         |
+| [IPv6 アドレス]                              | 0〜0xFFFFの整数を要素に持つ長さが8の配列                        |
+| [禁止ホスト符号位置]                         | [esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS] |
+| [ドメインから ASCII へ変換]                  | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
+| [ドメインから Unicode へ変換]                | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
+| [妥当なドメイン]                             | [esperecyan\url\lib\HostProcessing::isValidDomain()]            |
+| [ホスト構文解析器]                           | [esperecyan\url\lib\HostProcessing::parseHost()]                |
+| [IPv4 番号構文解析器]                        | [esperecyan\url\lib\HostProcessing::parseIPv4Number()]          |
+| [IPv4 構文解析器]                            | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
+| [IPv6 構文解析器]                            | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
+| [不透明なホスト構文解析器]                   | [esperecyan\url\lib\HostProcessing::parseOpaqueHost()]          |
+| [ホスト直列化器]                             | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
+| [IPv4 直列化器]                              | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
+| [IPv6 直列化器]                              | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
-| [4. URL]               |                                                    |
-|------------------------|----------------------------------------------------|
-| [URL]                  | [esperecyan\url\lib\URLクラス]のインスタンス       |
-| [スキーム]             | [esperecyan\url\lib\URL->scheme]                   |
-| [ユーザ名]             | [esperecyan\url\lib\URL->username]                 |
-| [パスワード]           | [esperecyan\url\lib\URL->password]                 |
-| [ホスト]               | [esperecyan\url\lib\URL->host]                     |
-| [ポート]               | [esperecyan\url\lib\URL->port]                     |
-| [パス]                 | [esperecyan\url\lib\URL->path]                     |
-| [クエリ]               | [esperecyan\url\lib\URL->query]                    |
-| [素片]                 | [esperecyan\url\lib\URL->fragment]                 |
-| [基底 URL 不可用 flag] | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]     |
-| [オブジェクト]         | [esperecyan\url\lib\URL->object]                   |
-| [特別スキーム]         | [esperecyan\url\lib\URL::$specialSchemes]          |
-| [特別]                 | [esperecyan\url\lib\URL->isSpecial()]              |
-| [局所的スキーム]       | [esperecyan\url\lib\URL::$localSchemes]            |
-| [局所的]               | [esperecyan\url\lib\URL->isLocal()]                |
-| [資格証明情報を含む]   | [esperecyan\url\lib\URL->isIncludingCredentials()] |
-| [パスを短縮する]       | [esperecyan\url\lib\URL->shortenPath()]            |
-| [単ドットパス区分]     | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
-| [二重ドットパス区分]   | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
-| [URL 符号位置]         | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
-| [URL 構文解析器]       | [esperecyan\url\lib\URL::parseURL()]               |
-| [基本 URL 構文解析器]  | [esperecyan\url\lib\URL::parseBasicURL()]          |
-| [ユーザ名を設定する]   | [esperecyan\url\lib\URL->setUsername()]            |
-| [パスワードを設定する] | [esperecyan\url\lib\URL->setPassword()]            |
-| [URL 直列化器]         | [esperecyan\url\lib\URL->serializeURL()]           |
-| [生成元]               | [esperecyan\url\lib\URL->getOrigin()]              |
+| [4. URL]                                   |                                                            |
+|--------------------------------------------|------------------------------------------------------------|
+| [URL]                                      | [esperecyan\url\lib\URLクラス]のインスタンス               |
+| [スキーム]                                 | [esperecyan\url\lib\URL->scheme]                           |
+| [ユーザ名]                                 | [esperecyan\url\lib\URL->username]                         |
+| [パスワード]                               | [esperecyan\url\lib\URL->password]                         |
+| [ホスト]                                   | [esperecyan\url\lib\URL->host]                             |
+| [ポート]                                   | [esperecyan\url\lib\URL->port]                             |
+| [パス]                                     | [esperecyan\url\lib\URL->path]                             |
+| [クエリ]                                   | [esperecyan\url\lib\URL->query]                            |
+| [素片]                                     | [esperecyan\url\lib\URL->fragment]                         |
+| [基底 URL 不可用 flag]                     | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]             |
+| [オブジェクト]                             | [esperecyan\url\lib\URL->object]                           |
+| [特別スキーム]                             | [esperecyan\url\lib\URL::$specialSchemes]                  |
+| [特別]                                     | [esperecyan\url\lib\URL->isSpecial()]                      |
+| [局所的スキーム]                           | [esperecyan\url\lib\URL::$localSchemes]                    |
+| [局所的]                                   | [esperecyan\url\lib\URL->isLocal()]                        |
+| [資格証明情報を含む]                       | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
+| [ユーザ名 / パスワード / ポートを持てない] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
+| [パスを短縮する]                           | [esperecyan\url\lib\URL->shortenPath()]                    |
+| [単ドットパス区分]                         | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]          |
+| [二重ドットパス区分]                       | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]          |
+| [URL 符号位置]                             | [esperecyan\url\lib\URL::URL_CODE_POINTS]                  |
+| [URL 構文解析器]                           | [esperecyan\url\lib\URL::parseURL()]                       |
+| [基本 URL 構文解析器]                      | [esperecyan\url\lib\URL::parseBasicURL()]                  |
+| [ユーザ名を設定する]                       | [esperecyan\url\lib\URL->setUsername()]                    |
+| [パスワードを設定する]                     | [esperecyan\url\lib\URL->setPassword()]                    |
+| [URL 直列化器]                             | [esperecyan\url\lib\URL->serializeURL()]                   |
+| [生成元]                                   | [esperecyan\url\lib\URL->getOrigin()]                      |
 
 | [5. application/x-www-form-urlencoded]               |                                                             |
 |------------------------------------------------------|-------------------------------------------------------------|
@@ -186,6 +187,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [3. ホスト（ドメインと IP アドレス）]: https://triple-underscore.github.io/URL-ja.html#hosts-(domains-and-ip-addresses)
 [ドメイン]: https://triple-underscore.github.io/URL-ja.html#concept-domain
 [不透明なホスト]: https://triple-underscore.github.io/URL-ja.html#opaque-host
+[空ホスト]: https://triple-underscore.github.io/URL-ja.html#empty-host
 [IPv4 アドレス]: https://triple-underscore.github.io/URL-ja.html#concept-ipv4
 [IPv6 アドレス]: https://triple-underscore.github.io/URL-ja.html#concept-ipv6
 [禁止ホスト符号位置]: https://triple-underscore.github.io/URL-ja.html#forbidden-host-code-point
@@ -218,6 +220,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [局所的スキーム]: https://triple-underscore.github.io/URL-ja.html#local-scheme
 [局所的]: https://triple-underscore.github.io/URL-ja.html#is-local
 [資格証明情報を含む]: https://triple-underscore.github.io/URL-ja.html#include-credentials
+[ユーザ名 / パスワード / ポートを持てない]: https://triple-underscore.github.io/URL-ja.html#cannot-have-a-username-password-port
 [パスを短縮する]: https://triple-underscore.github.io/URL-ja.html#shorten-a-urls-path
 [単ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dot
 [二重ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dotdot
@@ -272,6 +275,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
+[esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
 [esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT

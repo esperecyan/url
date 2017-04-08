@@ -28,7 +28,7 @@ use esperecyan\webidl\TypeError;
 class URL
 {
     /**
-     * @var URL An associated URL.
+     * @var lib\URL An associated URL.
      * @link https://url.spec.whatwg.org/#concept-url-url URL Standard
      */
     private $url;
@@ -134,19 +134,19 @@ class URL
                 break;
             
             case 'username':
-                if (!is_null($this->url->host) && !$this->url->nonRelativeFlag) {
+                if (!$this->url->cannotHaveUsernamePasswordPort()) {
                     $this->url->setUsername($input);
                 }
                 break;
             
             case 'password':
-                if (!is_null($this->url->host) && !$this->url->nonRelativeFlag) {
+                if (!$this->url->cannotHaveUsernamePasswordPort()) {
                     $this->url->setPassword($input);
                 }
                 break;
             
             case 'host':
-                if (!$this->url->nonRelativeFlag) {
+                if (!$this->url->cannotBeABaseURLFlag) {
                     lib\URL::parseBasicURL($input, null, null, [
                         'url' => $this->url,
                         'state override' => 'host state'
@@ -155,7 +155,7 @@ class URL
                 break;
             
             case 'hostname':
-                if ($this->url && !$this->url->nonRelativeFlag) {
+                if (!$this->url->cannotBeABaseURLFlag) {
                     lib\URL::parseBasicURL($input, null, null, [
                         'url' => $this->url,
                         'state override' => 'hostname state'
@@ -164,7 +164,7 @@ class URL
                 break;
             
             case 'port':
-                if (!is_null($this->url->host) && !$this->url->nonRelativeFlag && $this->url->scheme !== 'file') {
+                if (!$this->url->cannotHaveUsernamePasswordPort()) {
                     if ($input === '') {
                         $this->url->port = null;
                     } else {
@@ -177,7 +177,7 @@ class URL
                 break;
             
             case 'pathname':
-                if (!$this->url->nonRelativeFlag) {
+                if (!$this->url->cannotBeABaseURLFlag) {
                     $this->url->path = [];
                     lib\URL::parseBasicURL($input, null, null, [
                         'url' => $this->url,
@@ -251,7 +251,7 @@ class URL
                 break;
             
             case 'password':
-                $value = is_null($this->url->password) ? '' : $this->url->password;
+                $value = $this->url->password;
                 break;
             
             case 'host':
@@ -270,7 +270,13 @@ class URL
                 break;
             
             case 'pathname':
-                $value = $this->url->nonRelativeFlag ? $this->url->path[0] : '/' . implode('/', $this->url->path);
+                if ($this->url->cannotBeABaseURLFlag) {
+                    $value = $this->url->path[0];
+                } elseif (!$this->url->path) {
+                    $value = '';
+                } else {
+                    $value = '/' . implode('/', $this->url->path);
+                }
                 break;
             
             case 'search':

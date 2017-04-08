@@ -118,52 +118,53 @@ The correspondence table of the algorithms
 | [userinfo percent-encode set]     | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
 | [utf-8 percent encode]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
 
-| [3. Hosts (domains and IP addresses)] |                                                                 |
-|---------------------------------------|-----------------------------------------------------------------|
-| [domain]<br>[opaque host]             | A valid utf-8 string                                            |
-| [IPv4 address]                        | An integer or float in the range 0 to 0xFFFFFFFF                |
-| [IPv6 address]                        | An array with 8 elements of an integer in the range 0 to 0xFFFF |
-| [forbidden host code point]           | [esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS] |
-| [domain to ASCII]                     | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
-| [domain to Unicode]                   | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
-| [valid domain]                        | [esperecyan\url\lib\HostProcessing::isValidDomain()]            |
-| [host parser]                         | [esperecyan\url\lib\HostProcessing::parseHost()]                |
-| [IPv4 number parser]                  | [esperecyan\url\lib\HostProcessing::parseIPv4Number()]          |
-| [IPv4 parser]                         | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
-| [IPv6 parser]                         | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
-| [opaque-host parser]                  | [esperecyan\url\lib\HostProcessing::parseOpaqueHost()]          |
-| [host serializer]                     | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
-| [IPv4 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
-| [IPv6 serializer]                     | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
+| [3. Hosts (domains and IP addresses)]     |                                                                 |
+|-------------------------------------------|-----------------------------------------------------------------|
+| [domain]<br>[opaque host]<br>[empty host] | A valid utf-8 string                                            |
+| [IPv4 address]                            | An integer or float in the range 0 to 0xFFFFFFFF                |
+| [IPv6 address]                            | An array with 8 elements of an integer in the range 0 to 0xFFFF |
+| [forbidden host code point]               | [esperecyan\url\lib\HostProcessing::FORBIDDEN_HOST_CODE_POINTS] |
+| [domain to ASCII]                         | [esperecyan\url\lib\HostProcessing::domainToASCII()]            |
+| [domain to Unicode]                       | [esperecyan\url\lib\HostProcessing::domainToUnicode()]          |
+| [valid domain]                            | [esperecyan\url\lib\HostProcessing::isValidDomain()]            |
+| [host parser]                             | [esperecyan\url\lib\HostProcessing::parseHost()]                |
+| [IPv4 number parser]                      | [esperecyan\url\lib\HostProcessing::parseIPv4Number()]          |
+| [IPv4 parser]                             | [esperecyan\url\lib\HostProcessing::parseIPv4()]                |
+| [IPv6 parser]                             | [esperecyan\url\lib\HostProcessing::parseIPv6()]                |
+| [opaque-host parser]                      | [esperecyan\url\lib\HostProcessing::parseOpaqueHost()]          |
+| [host serializer]                         | [esperecyan\url\lib\HostProcessing::serializeHost()]            |
+| [IPv4 serializer]                         | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
+| [IPv6 serializer]                         | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
-| [4. URLs]                   |                                                    |
-|-----------------------------|----------------------------------------------------|
-| [URL]                       | An instance of [esperecyan\url\lib\URL class]      |
-| [scheme]                    | [esperecyan\url\lib\URL->scheme]                   |
-| [username]                  | [esperecyan\url\lib\URL->username]                 |
-| [password]                  | [esperecyan\url\lib\URL->password]                 |
-| [host]                      | [esperecyan\url\lib\URL->host]                     |
-| [port]                      | [esperecyan\url\lib\URL->port]                     |
-| [path]                      | [esperecyan\url\lib\URL->path]                     |
-| [query]                     | [esperecyan\url\lib\URL->query]                    |
-| [fragment]                  | [esperecyan\url\lib\URL->fragment]                 |
-| [cannot-be-a-base-URL flag] | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]     |
-| [object]                    | [esperecyan\url\lib\URL->object]                   |
-| [special scheme]            | [esperecyan\url\lib\URL::$specialSchemes]          |
-| [is special]                | [esperecyan\url\lib\URL->isSpecial()]              |
-| [local scheme]              | [esperecyan\url\lib\URL::$localSchemes]            |
-| [is local]                  | [esperecyan\url\lib\URL->isLocal()]                |
-| [includes credentials]      | [esperecyan\url\lib\URL->isIncludingCredentials()] |
-| [shorten a path]            | [esperecyan\url\lib\URL->shortenPath()]            |
-| [single-dot path segment]   | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]  |
-| [double-dot path segment]   | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]  |
-| [URL code points]           | [esperecyan\url\lib\URL::URL_CODE_POINTS]          |
-| [URL parser]                | [esperecyan\url\lib\URL::parseURL()]               |
-| [basic URL parser]          | [esperecyan\url\lib\URL::parseBasicURL()]          |
-| [set the username]          | [esperecyan\url\lib\URL->setUsername()]            |
-| [set the password]          | [esperecyan\url\lib\URL->setPassword()]            |
-| [URL serializer]            | [esperecyan\url\lib\URL->serializeURL()]           |
-| [origin]                    | [esperecyan\url\lib\URL->getOrigin()]              |
+| [4. URLs]                              |                                                            |
+|----------------------------------------|------------------------------------------------------------|
+| [URL]                                  | An instance of [esperecyan\url\lib\URL class]              |
+| [scheme]                               | [esperecyan\url\lib\URL->scheme]                           |
+| [username]                             | [esperecyan\url\lib\URL->username]                         |
+| [password]                             | [esperecyan\url\lib\URL->password]                         |
+| [host]                                 | [esperecyan\url\lib\URL->host]                             |
+| [port]                                 | [esperecyan\url\lib\URL->port]                             |
+| [path]                                 | [esperecyan\url\lib\URL->path]                             |
+| [query]                                | [esperecyan\url\lib\URL->query]                            |
+| [fragment]                             | [esperecyan\url\lib\URL->fragment]                         |
+| [cannot-be-a-base-URL flag]            | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]             |
+| [object]                               | [esperecyan\url\lib\URL->object]                           |
+| [special scheme]                       | [esperecyan\url\lib\URL::$specialSchemes]                  |
+| [is special]                           | [esperecyan\url\lib\URL->isSpecial()]                      |
+| [local scheme]                         | [esperecyan\url\lib\URL::$localSchemes]                    |
+| [is local]                             | [esperecyan\url\lib\URL->isLocal()]                        |
+| [includes credentials]                 | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
+| [cannot have a username/password/port] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
+| [shorten a path]                       | [esperecyan\url\lib\URL->shortenPath()]                    |
+| [single-dot path segment]              | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]          |
+| [double-dot path segment]              | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]          |
+| [URL code points]                      | [esperecyan\url\lib\URL::URL_CODE_POINTS]                  |
+| [URL parser]                           | [esperecyan\url\lib\URL::parseURL()]                       |
+| [basic URL parser]                     | [esperecyan\url\lib\URL::parseBasicURL()]                  |
+| [set the username]                     | [esperecyan\url\lib\URL->setUsername()]                    |
+| [set the password]                     | [esperecyan\url\lib\URL->setPassword()]                    |
+| [URL serializer]                       | [esperecyan\url\lib\URL->serializeURL()]                   |
+| [origin]                               | [esperecyan\url\lib\URL->getOrigin()]                      |
 
 | [5. application/x-www-form-urlencoded]              |                                                            |
 |-----------------------------------------------------|------------------------------------------------------------|
@@ -186,6 +187,7 @@ The correspondence table of the algorithms
 [3. Hosts (domains and IP addresses)]: https://url.spec.whatwg.org/hosts-(domains-and-ip-addresses)
 [domain]: https://url.spec.whatwg.org/#concept-domain
 [opaque host]: https://url.spec.whatwg.org/#opaque-host
+[empty host]: https://url.spec.whatwg.org/#empty-host
 [IPv4 address]: https://url.spec.whatwg.org/#concept-ipv4
 [IPv6 address]: https://url.spec.whatwg.org/#concept-ipv6
 [forbidden host code point]: https://url.spec.whatwg.org/#forbidden-host-code-point
@@ -218,6 +220,7 @@ The correspondence table of the algorithms
 [local scheme]: https://url.spec.whatwg.org/#local-scheme
 [is local]: https://url.spec.whatwg.org/#is-local
 [includes credentials]: https://url.spec.whatwg.org/#include-credentials
+[cannot have a username/password/port]: https://url.spec.whatwg.org/#cannot-have-a-username-password-port
 [shorten a path]: https://url.spec.whatwg.org/#shorten-a-urls-path
 [single-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dot
 [double-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot
@@ -273,6 +276,7 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
+[esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
 [esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT

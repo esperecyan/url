@@ -62,9 +62,30 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['http://username@url.test/'         , true ],
             ['http://:password@url.test/'        , true ],
             ['http://username:@url.test/'        , true ],
-            ['http://:@url.test/'                , true ],
+            ['http://:@url.test/'                , false],
             ['http://0@url.test/'                , true ],
             ['http://:0@url.test/'               , true ],
+        ];
+    }
+
+    /**
+     * @param string $url
+     * @param boolean $cannotHavingUsernamePasswordPort
+     * @dataProvider cannotHavingUsernamePasswordPortProvider
+     */
+    public function testCannotHaveUsernamePasswordPort($url, $cannotHavingUsernamePasswordPort)
+    {
+        $this->assertSame($cannotHavingUsernamePasswordPort, URL::parseURL($url)->cannotHaveUsernamePasswordPort());
+    }
+    
+    public function cannotHavingUsernamePasswordPortProvider()
+    {
+        return [
+            ['https://url.test/path'  , false],
+            ['file://url.test/path'   , true ],
+            ['example://url.test/path', false],
+            ['example:///path'        , true ],
+            ['example:url.test/path'  , true ],
         ];
     }
 
@@ -112,10 +133,10 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param URL|null $base
      * @param string $encodingOverride
      * @param URL|null $url
-     * @param string $stateOverride
+     * @param null $stateOverride
      * @param array|false $expectedComponents
      * @param string|null $message
-     * @dataProvider basicUrlProvider
+     * @dataProvider urlProvider
      */
     public function testParseURL($input, $base, $encodingOverride, $url, $stateOverride, $expectedComponents, $message = null)
     {
@@ -132,7 +153,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
                 $this->assertInstanceOf(__NAMESPACE__ . '\\URL', $returnValue);
                 $url = $returnValue;
             } else {
-                $this->assertNull($returnValue, $message);
+                $this->assertFalse($returnValue, $message);
             }
             
             foreach ($expectedComponents as $name => $value) {
@@ -142,6 +163,13 @@ class URLTest extends \PHPUnit_Framework_TestCase
         }
     }
     
+    public function urlProvider()
+    {
+        return array_filter($this->basicUrlProvider(), function ($basicURL) {
+            return !$basicURL[4];
+        });
+    }
+
     /**
      * @param string $input
      * @param URL|null $base
@@ -159,7 +187,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
         }
         
         $returnValue = URL::parseBasicURL($input, $base, $encodingOverride, !is_null($url) ? [
-            'url' => URL::parseURL($url),
+            'url' => $url,
             'state override' => $stateOverride,
         ] : null);
         
@@ -255,7 +283,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ]],
             ['https://url%2Etest/path%2Eexte%6Esion#%2E.', null, null, null, null, [
                 'host' => 'url.test',
-                'path' => ['path.exte%6Esion'],
+                'path' => ['path%2Eexte%6Esion'],
                 'fragment' => '%2E.',
             ]],
             ['http://url.test/?query', null, 'utf-16be', null, null, [
@@ -267,6 +295,17 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['example://url.テスト/', null, null, null, null, [
                 'host' => 'url.%E3%83%86%E3%82%B9%E3%83%88',
             ]],
+            ['https:', null, null, URL::parseURL('http://url.test/'), 'scheme start state', [
+                'scheme' => 'https',
+            ]],
+            ['https:::', null, null, URL::parseURL('http://url.test/'), 'scheme start state', [
+                'scheme' => 'https',
+            ]],
+            ['example+:', null, null, URL::parseURL('http://url.test/'), 'scheme start state', [
+                'scheme' => 'http',
+            ]],
+            ['+example:', null, null, URL::parseURL('http://url.test/'), 'scheme start state', false],
+            ['example_:', null, null, URL::parseURL('http://url.test/'), 'scheme start state', false],
         ];
     }
     
@@ -372,7 +411,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
         return [
             ['password', 'password'],
             ['パスワード', '%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89'],
-            ['', null],
+            ['', ''],
             [' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~', '%20!%22%23$%&\'()*+,-.%2F%3A%3B%3C%3D%3E%3F%40%5B%5C%5D%5E_%60%7B%7C%7D~'],
         ];
     }
