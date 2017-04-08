@@ -9,16 +9,22 @@ class Infrastructure
     use Utility;
     
     /**
-     * The regular expression (PCRE) pattern matching a Windows drive letter.
+     * Alias of {@link URL}::WINDOWS_DRIVE_LETTER.
+     * @deprecated 5.0.0 The constant has been moved to {@link URL}.
+     * @see \esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER
+     * @link https://github.com/whatwg/url/commit/ac6489f9b0cf55b27fd1401ab77bc452c97d1457
+     *      Editorial: move Windows drive letter to a more logical location · whatwg/url@ac6489f
      * @var string
-     * @link https://url.spec.whatwg.org/#windows-drive-letter URL Standard
      */
     const WINDOWS_DRIVE_LETTER = '/^[a-z][:|]$/ui';
     
     /**
-     * The regular expression (PCRE) pattern matching a normalized Windows drive letter.
+     * Alias of {@link URL}::NORMALIZED_WINDOWS_DRIVE_LETTER.
+     * @deprecated 5.0.0 The constant has been moved to {@link URL}.
+     * @see \esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER
+     * @link https://github.com/whatwg/url/commit/ac6489f9b0cf55b27fd1401ab77bc452c97d1457
+     *      Editorial: move Windows drive letter to a more logical location · whatwg/url@ac6489f
      * @var string
-     * @link https://url.spec.whatwg.org/#normalized-windows-drive-letter URL Standard
      */
     const NORMALIZED_WINDOWS_DRIVE_LETTER = '/^[a-z]:$/ui';
     

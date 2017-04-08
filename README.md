@@ -107,16 +107,14 @@ This library is licensed under the [Mozilla Public License Version 2.0] \(MPL-2.
 
 The correspondence table of the algorithms
 ------------------------------------------
-| [1. Infrastructure]               |                                                                      |
-|-----------------------------------|----------------------------------------------------------------------|
-| [Windows drive letter]            | [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]            |
-| [normalized Windows drive letter] | [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER] |
-| [percent encode]                  | [esperecyan\url\lib\Infrastructure::percentEncode()]                 |
-| [percent decode]                  | [esperecyan\url\lib\Infrastructure::percentDecode()]                 |
-| [C0 control percent-encode set]   | [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]   |
-| [path percent-encode set]         | [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]         |
-| [userinfo percent-encode set]     | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
-| [utf-8 percent encode]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
+| [1. Infrastructure]             |                                                                    |
+|---------------------------------|--------------------------------------------------------------------|
+| [percent encode]                | [esperecyan\url\lib\Infrastructure::percentEncode()]               |
+| [percent decode]                | [esperecyan\url\lib\Infrastructure::percentDecode()]               |
+| [C0 control percent-encode set] | [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET] |
+| [path percent-encode set]       | [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]       |
+| [userinfo percent-encode set]   | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]   |
+| [utf-8 percent encode]          | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]           |
 
 | [3. Hosts (domains and IP addresses)]     |                                                                 |
 |-------------------------------------------|-----------------------------------------------------------------|
@@ -155,6 +153,8 @@ The correspondence table of the algorithms
 | [is local]                             | [esperecyan\url\lib\URL->isLocal()]                        |
 | [includes credentials]                 | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
 | [cannot have a username/password/port] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
+| [Windows drive letter]                 | [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]             |
+| [normalized Windows drive letter]      | [esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]  |
 | [shorten a path]                       | [esperecyan\url\lib\URL->shortenPath()]                    |
 | [single-dot path segment]              | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]          |
 | [double-dot path segment]              | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]          |
@@ -175,8 +175,6 @@ The correspondence table of the algorithms
 | name-value or [name-value-type tuples]              | An array of two-element or three-element arrays with the first element the name, the second the value, and the third the type. The value is an array with the value for `name` key as the name |
 
 [1. Infrastructure]: https://url.spec.whatwg.org/#infrastructure
-[Windows drive letter]: https://url.spec.whatwg.org/#windows-drive-letter
-[normalized Windows drive letter]: https://url.spec.whatwg.org/#normalized-windows-drive-letter
 [percent encode]: https://url.spec.whatwg.org/#percent-encode
 [percent decode]: https://url.spec.whatwg.org/#percent-decode
 [C0 control percent-encode set]: https://url.spec.whatwg.org/#c0-control-percent-encode-set
@@ -221,6 +219,8 @@ The correspondence table of the algorithms
 [is local]: https://url.spec.whatwg.org/#is-local
 [includes credentials]: https://url.spec.whatwg.org/#include-credentials
 [cannot have a username/password/port]: https://url.spec.whatwg.org/#cannot-have-a-username-password-port
+[Windows drive letter]: https://url.spec.whatwg.org/#windows-drive-letter
+[normalized Windows drive letter]: https://url.spec.whatwg.org/#normalized-windows-drive-letter
 [shorten a path]: https://url.spec.whatwg.org/#shorten-a-urls-path
 [single-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dot
 [double-dot path segment]: https://url.spec.whatwg.org/#syntax-url-path-segment-dotdot
@@ -239,8 +239,6 @@ The correspondence table of the algorithms
 [application/x-www-form-urlencoded string parser]: https://url.spec.whatwg.org/#concept-urlencoded-string-parser
 [name-value-type tuples]: https://html.spec.whatwg.org/multipage/forms.html#concept-input-type-file-selected
 
-[esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
-[esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentEncode
 [esperecyan\url\lib\Infrastructure::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentDecode
 [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#C0_CONTROL_PERCENT_ENCODE_SET
@@ -277,6 +275,8 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
 [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
+[esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT

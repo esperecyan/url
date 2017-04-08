@@ -107,16 +107,14 @@ READMEの英訳をハダーさんに協力していただきました。
 
 アルゴリズムなどの対応表
 ---------------------
-| [1. 基盤]                           |                                                                      |
-|-------------------------------------|----------------------------------------------------------------------|
-| [Windows ドライブレター]            | [esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]            |
-| [正規化済み Windows ドライブレター] | [esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER] |
-| [パーセント符号化]                  | [esperecyan\url\lib\Infrastructure::percentEncode()]                 |
-| [パーセント復号]                    | [esperecyan\url\lib\Infrastructure::percentDecode()]                 |
-| [C0 制御文字 %‐符号化集合]         | [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]   |
-| [パス %‐符号化集合]                | [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]         |
-| [ユーザ情報 %‐符号化集合]          | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]     |
-| [utf-8 パーセント符号化]            | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]             |
+| [1. 基盤]                   |                                                                    |
+|-----------------------------|--------------------------------------------------------------------|
+| [パーセント符号化]          | [esperecyan\url\lib\Infrastructure::percentEncode()]               |
+| [パーセント復号]            | [esperecyan\url\lib\Infrastructure::percentDecode()]               |
+| [C0 制御文字 %‐符号化集合] | [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET] |
+| [パス %‐符号化集合]        | [esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET]       |
+| [ユーザ情報 %‐符号化集合]  | [esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET]   |
+| [utf-8 パーセント符号化]    | [esperecyan\url\lib\Infrastructure::utf8PercentEncode()]           |
 
 | [3. ホスト（ドメインと IP アドレス）]        |                                                                 |
 |----------------------------------------------|-----------------------------------------------------------------|
@@ -155,6 +153,8 @@ READMEの英訳をハダーさんに協力していただきました。
 | [局所的]                                   | [esperecyan\url\lib\URL->isLocal()]                        |
 | [資格証明情報を含む]                       | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
 | [ユーザ名 / パスワード / ポートを持てない] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
+| [Windows ドライブレター]                   | [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]             |
+| [正規化済み Windows ドライブレター]        | [esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]  |
 | [パスを短縮する]                           | [esperecyan\url\lib\URL->shortenPath()]                    |
 | [単ドットパス区分]                         | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]          |
 | [二重ドットパス区分]                       | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]          |
@@ -175,8 +175,6 @@ READMEの英訳をハダーさんに協力していただきました。
 | ( 名, 値 ) の組, または [( 名, 値, 型 ) の組]        | 1つ目の要素に名、2つ目の要素に値、任意で3つ目の要素に型を持つ配列。値は文字列、または `name` キーからファイル名を取得できる配列 |
 
 [1. 基盤]: https://triple-underscore.github.io/URL-ja.html#terminology
-[Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#windows-drive-letter
-[正規化済み Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#normalized-windows-drive-letter
 [パーセント符号化]: https://triple-underscore.github.io/URL-ja.html#percent-encode
 [パーセント復号]: https://triple-underscore.github.io/URL-ja.html#percent-decode
 [C0 制御文字 %‐符号化集合]: https://triple-underscore.github.io/URL-ja.html#c0-control-percent-encode-set
@@ -221,6 +219,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [局所的]: https://triple-underscore.github.io/URL-ja.html#is-local
 [資格証明情報を含む]: https://triple-underscore.github.io/URL-ja.html#include-credentials
 [ユーザ名 / パスワード / ポートを持てない]: https://triple-underscore.github.io/URL-ja.html#cannot-have-a-username-password-port
+[Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#windows-drive-letter
+[正規化済み Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#normalized-windows-drive-letter
 [パスを短縮する]: https://triple-underscore.github.io/URL-ja.html#shorten-a-urls-path
 [単ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dot
 [二重ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dotdot
@@ -238,8 +238,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [application/x-www-form-urlencoded 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-serializer
 [application/x-www-form-urlencoded 文字列構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-string-parser
 
-[esperecyan\url\lib\Infrastructure::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#WINDOWS_DRIVE_LETTER
-[esperecyan\url\lib\Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\Infrastructure::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentEncode
 [esperecyan\url\lib\Infrastructure::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentDecode
 [esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#C0_CONTROL_PERCENT_ENCODE_SET
@@ -276,6 +274,8 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
 [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
+[esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#NORMALIZED_WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT

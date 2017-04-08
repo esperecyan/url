@@ -160,13 +160,27 @@ class URL
     }
     
     /**
+     * The regular expression (PCRE) pattern matching a Windows drive letter.
+     * @var string
+     * @link https://url.spec.whatwg.org/#windows-drive-letter URL Standard
+     */
+    const WINDOWS_DRIVE_LETTER = '/^[a-z][:|]$/ui';
+    
+    /**
+     * The regular expression (PCRE) pattern matching a normalized Windows drive letter.
+     * @var string
+     * @link https://url.spec.whatwg.org/#normalized-windows-drive-letter URL Standard
+     */
+    const NORMALIZED_WINDOWS_DRIVE_LETTER = '/^[a-z]:$/ui';
+    
+    /**
      * Shortens a path.
      * @link https://url.spec.whatwg.org/#shorten-a-urls-path URL Standard
      */
     public function shortenPath()
     {
         if ($this->scheme !== 'file'
-            || !(count($this->path) === 1 && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
+            || !(count($this->path) === 1 && preg_match(static::NORMALIZED_WINDOWS_DRIVE_LETTER, $this->path[0]) === 1)) {
             array_pop($this->path);
         }
     }
@@ -558,7 +572,7 @@ class URL
                                 break;
                             default:
                                 $remaining = array_slice($codePoints, $pointer + 1);
-                                if (isset($remaining[0]) && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
+                                if (isset($remaining[0]) && preg_match(static::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
                                     || count($remaining) === 1
                                     || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false) {
                                     $url->host = $base->host;
@@ -580,7 +594,7 @@ class URL
                     } else {
                         if ($base && $base->scheme === 'file') {
                             if (isset($base->path[0])
-                                && preg_match(Infrastructure::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
+                                && preg_match(static::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
                                 $url->path[] = $base->path[0];
                             } else {
                                 $url->host = $base->host;
@@ -594,7 +608,7 @@ class URL
                 case 'file host state':
                     if (in_array($c, ['', '/', '\\', '?', '#'])) {
                         $pointer--;
-                        if (!$stateOverride && preg_match(Infrastructure::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
+                        if (!$stateOverride && preg_match(static::WINDOWS_DRIVE_LETTER, $buffer) === 1) {
                             $state = 'path state';
                         } elseif ($buffer === '') {
                             $url->host = '';
