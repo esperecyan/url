@@ -149,8 +149,6 @@ READMEの英訳をハダーさんに協力していただきました。
 | [オブジェクト]                             | [esperecyan\url\lib\URL->object]                           |
 | [特別スキーム]                             | [esperecyan\url\lib\URL::$specialSchemes]                  |
 | [特別]                                     | [esperecyan\url\lib\URL->isSpecial()]                      |
-| [局所的スキーム]                           | [esperecyan\url\lib\URL::$localSchemes]                    |
-| [局所的]                                   | [esperecyan\url\lib\URL->isLocal()]                        |
 | [資格証明情報を含む]                       | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
 | [ユーザ名 / パスワード / ポートを持てない] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
 | [Windows ドライブレター]                   | [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]             |
@@ -215,8 +213,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [オブジェクト]: https://triple-underscore.github.io/URL-ja.html#concept-url-object
 [特別スキーム]: https://triple-underscore.github.io/URL-ja.html#special-scheme
 [特別]: https://triple-underscore.github.io/URL-ja.html#is-special
-[局所的スキーム]: https://triple-underscore.github.io/URL-ja.html#local-scheme
-[局所的]: https://triple-underscore.github.io/URL-ja.html#is-local
 [資格証明情報を含む]: https://triple-underscore.github.io/URL-ja.html#include-credentials
 [ユーザ名 / パスワード / ポートを持てない]: https://triple-underscore.github.io/URL-ja.html#cannot-have-a-username-password-port
 [Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#windows-drive-letter
@@ -270,8 +266,6 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL->object]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$object
 [esperecyan\url\lib\URL::$specialSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$specialSchemes
 [esperecyan\url\lib\URL->isSpecial()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isSpecial
-[esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
-[esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
 [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
 [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#WINDOWS_DRIVE_LETTER

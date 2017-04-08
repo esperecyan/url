@@ -124,13 +124,21 @@ class URL
     
     /**
      * @var string[] A local scheme is a scheme that is one of "about", "blob", "data", and "filesystem".
-     * @link https://url.spec.whatwg.org/#local-scheme URL Standard
+     * @deprecated 5.0.0 The term “local scheme” has been moved
+     *      from the URL Standard specification to the Fetch Standard specification.
+     * @link https://github.com/whatwg/url/commit/8fb8684a19b449db4c8920aee6cd3efb41bcdcfd
+     *      Editorial: move some terminology to the Fetch Standard · whatwg/url@8fb8684
+     * @link https://fetch.spec.whatwg.org/#local-scheme URL Standard
      */
     public static $localSchemes = ['about', 'blob', 'data', 'filesystem'];
     
     /**
      * A URL is local if its scheme is a local scheme.
-     * @link https://url.spec.whatwg.org/#is-local URL Standard
+     * @deprecated 5.0.0 The term “URL is local” has been moved
+     *      from the URL Standard specification to the Fetch Standard specification.
+     * @link https://github.com/whatwg/url/commit/8fb8684a19b449db4c8920aee6cd3efb41bcdcfd
+     *      Editorial: move some terminology to the Fetch Standard · whatwg/url@8fb8684
+     * @link https://fetch.spec.whatwg.org/#is-local URL Standard
      * @return boolean Return true if a URL is local.
      */
     public function isLocal()

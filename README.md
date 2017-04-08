@@ -149,8 +149,6 @@ The correspondence table of the algorithms
 | [object]                               | [esperecyan\url\lib\URL->object]                           |
 | [special scheme]                       | [esperecyan\url\lib\URL::$specialSchemes]                  |
 | [is special]                           | [esperecyan\url\lib\URL->isSpecial()]                      |
-| [local scheme]                         | [esperecyan\url\lib\URL::$localSchemes]                    |
-| [is local]                             | [esperecyan\url\lib\URL->isLocal()]                        |
 | [includes credentials]                 | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
 | [cannot have a username/password/port] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
 | [Windows drive letter]                 | [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]             |
@@ -215,8 +213,6 @@ The correspondence table of the algorithms
 [object]: https://url.spec.whatwg.org/#concept-url-object
 [special scheme]: https://url.spec.whatwg.org/#special-scheme
 [is special]: https://url.spec.whatwg.org/#is-special
-[local scheme]: https://url.spec.whatwg.org/#local-scheme
-[is local]: https://url.spec.whatwg.org/#is-local
 [includes credentials]: https://url.spec.whatwg.org/#include-credentials
 [cannot have a username/password/port]: https://url.spec.whatwg.org/#cannot-have-a-username-password-port
 [Windows drive letter]: https://url.spec.whatwg.org/#windows-drive-letter
@@ -271,8 +267,6 @@ The correspondence table of the algorithms
 [esperecyan\url\lib\URL->object]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$object
 [esperecyan\url\lib\URL::$specialSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$specialSchemes
 [esperecyan\url\lib\URL->isSpecial()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isSpecial
-[esperecyan\url\lib\URL::$localSchemes]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#$localSchemes
-[esperecyan\url\lib\URL->isLocal()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isLocal
 [esperecyan\url\lib\URL->isIncludingCredentials()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_isIncludingCredentials
 [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
 [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#WINDOWS_DRIVE_LETTER
