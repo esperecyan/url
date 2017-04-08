@@ -2,6 +2,7 @@
 namespace esperecyan\url;
 
 use esperecyan\webidl\TypeHinter;
+use esperecyan\webidl\TypeError;
 
 /**
  * The URLSearchParams class defines utility methods to work with the query string of a URL.
@@ -14,7 +15,7 @@ class URLSearchParams implements \IteratorAggregate
      * @var string[][] List of name-value pairs.
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-list URL Standard
      */
-    private $list;
+    private $list = [];
     
     /**
      * @var URL|null
@@ -24,14 +25,59 @@ class URLSearchParams implements \IteratorAggregate
     
     /**
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-new URL Standard
-     * @param string|URLSearchParams $init A USVString or URLSearchParams.
+     * @param string[][]|string[]|string|URLSearchParams $init
+     *      An array of two-element arrays with the first element the name and the second the value,
+     *      associative array, USVString, or URLSearchParams.
      */
     public function __construct($init = '')
     {
-        $initValue = TypeHinter::to('(USVString or esperecyan\\url\\URLSearchParams)', $init);
-        $this->list = is_string($initValue)
-            ? lib\URLencoding::parseURLencodedString(preg_replace('/^\\?/u', '', $initValue))
-            : $initValue->list;
+        $initValue = TypeHinter::to(
+            // The URL Standard expects an interface having a pair iterator to match “sequence<sequence<V>>”,
+            // but it matches “record<V, V>” on the API of esperecyan/webidl.
+            // So “ or esperecyan\url\URLSearchParams”is appended here.
+            '(sequence<sequence<USVString>> or record<USVString, USVString> or USVString'
+                . ' or esperecyan\url\URLSearchParams)',
+            $init
+        );
+        
+        static::createNewURLSearchParamsObject(
+            $this,
+            is_string($initValue) ? preg_replace('/^\\?/u', '', $initValue) : $initValue
+        );
+    }
+    
+    /**
+     * Create a new URLSearchParams object.
+     * @link https://url.spec.whatwg.org/#concept-urlsearchparams-new URL Standard
+     * @param $query self|null
+     * @param $init string[][]|string[]|string|URLSearchParams|null
+     * @throws TypeError
+     * @return self
+     */
+    private static function createNewURLSearchParamsObject($query, $init)
+    {
+        if (!$query) {
+            $query = new static();
+        }
+        if ($init instanceof URLSearchParams) {
+            $query->list = $init->list;
+        } elseif (is_array($init)) {
+            foreach ($init as $pair) {
+                if (count($pair) !== 2) {
+                    throw new TypeError(
+                        'URLSearchParams require name/value tuples when being initialized by a sequence.'
+                    );
+                }
+            }
+            $query->list = $init;
+        } elseif ($init instanceof \esperecyan\webidl\Record) {
+            foreach ($init as $name => $value) {
+                $query->list[] = [$name, $value];
+            }
+        } else {
+            $query->list = lib\URLencoding::parseURLencodedString($init);
+        }
+        return $query;
     }
     
     /**

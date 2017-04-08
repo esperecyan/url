@@ -63,7 +63,9 @@ class URL
         if ($this->url === false) {
             throw new TypeError(sprintf('<%s> is not a valid URL', $url));
         }
-        $this->queryObject = new URLSearchParams(is_null($this->url->query) ? '' : $this->url->query);
+        $this->queryObject = \Closure::bind(function ($query) {
+            return URLSearchParams::createNewURLSearchParamsObject(null, $query);
+        }, $this, 'esperecyan\url\URLSearchParams')->__invoke($this->url->query);
         \Closure::bind(function ($queryObject) {
             $queryObject->urlObject = $this;
         }, $this, $this->queryObject)->__invoke($this->queryObject);

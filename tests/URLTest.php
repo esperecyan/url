@@ -519,9 +519,10 @@ class URLTest extends \PHPUnit_Framework_TestCase
     public function searchParamsProvider()
     {
         return [
-            ['https://url.test/?name=value', null    , null                          , ['name' => 'value']],
-            ['https://url.test/'           , 'search',                  '?name=value', ['name' => 'value']],
-            ['https://url.test/'           , 'href'  , 'https://url.test/?name=value', ['name' => 'value']],
+            ['https://url.test/?name=value' , null    , null                          , ['name' => 'value'] ],
+            ['https://url.test/??name=value', null    , null                          , ['?name' => 'value']],
+            ['https://url.test/'            , 'search',                  '?name=value', ['name' => 'value'] ],
+            ['https://url.test/'            , 'href'  , 'https://url.test/?name=value', ['name' => 'value'] ],
         ];
     }
     

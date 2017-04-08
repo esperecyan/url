@@ -3,6 +3,36 @@ namespace esperecyan\url;
 
 class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @param string[][]|string[]|string $init
+     * @param string|false $serialized
+     * @dataProvider urlProvider
+     */
+    public function testConstruct($init, $serialized)
+    {
+        if ($serialized === false) {
+            $this->expectException('esperecyan\webidl\TypeError');
+        }
+        $this->assertSame($serialized, (string)new URLSearchParams($init));
+    }
+    
+    public function urlProvider()
+    {
+        return [
+            [[['name', 'value1'], ['name', 'value2']]                      , 'name=value1&name=value2'  ],
+            [[['name', 'value']]                                           , 'name=value'               ],
+            [[['name', 'value', 'value']]                                  , false                      ],
+            [[['name']]                                                    , false                      ],
+            [['name']                                                      , false                      ],
+            [['name1' => 'value1', 'name2' => 'value2']                    , 'name1=value1&name2=value2'],
+            [['value', 2 => 'value']                                       , '0=value&2=value'          ],
+            ['name=value&name=値'                                          , 'name=value&name=%E5%80%A4'],
+            [new URLSearchParams('name=value1&name=value2')                , 'name=value1&name=value2'  ],
+            [(object)['name1' => 'value1', 'name2' => 'value2']            , 'name1=value1&name2=value2'],
+            [new \ArrayIterator(['name1' => 'value1', 'name2' => 'value2']), 'name1=value1&name2=value2'],
+        ];
+    }
+    
     public function testAppend()
     {
         $params = new URLSearchParams();
