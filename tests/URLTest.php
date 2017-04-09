@@ -526,6 +526,11 @@ class URLTest extends \PHPUnit_Framework_TestCase
         ];
     }
     
+    public function testJsonSerialize()
+    {
+        $this->assertSame('"https://url.test/"', json_encode(new URL('https://url.test/'), JSON_UNESCAPED_SLASHES));
+    }
+    
     /**
      * @param string $propertyName
      * @expectedException \LogicException

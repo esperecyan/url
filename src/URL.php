@@ -25,7 +25,7 @@ use esperecyan\webidl\TypeError;
  *      Returns a URLSearchParams object allowing to access the GET query arguments contained in the URL.
  * @property string $hash Is a USVString containing a '#' followed by the fragment identifier of the URL.
  */
-class URL
+class URL implements \JsonSerializable
 {
     /**
      * @var lib\URL An associated URL.
@@ -329,6 +329,22 @@ class URL
      * @return string USVString.
      */
     public function __toString()
+    {
+        return $this->__get('href');
+    }
+    
+    
+    /**
+     * Returns the href property value.
+     *
+     * The URL Standard defines the URL::toJSON() method as to return data which should be serialized to JSON
+     * for the JSON::stringify() method on ECMAScript.
+     * However, in PHP, a toJSON() method is often defined as to return JSON string,
+     * for example the Zend\Json\Json::encode() and the lluminate\Contracts\Support\Jsonable::toJson() method.
+     * @link https://url.spec.whatwg.org/#dom-url-tojson URL Standard
+     * @return string USVString.
+     */
+    public function jsonSerialize()
     {
         return $this->__get('href');
     }
