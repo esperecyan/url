@@ -122,7 +122,7 @@
 				<a href="https://url.spec.whatwg.org/#interface-urlsearchparams">URL Standard</a><br>
 				<b>Link:</b>
 				<a href="https://developer.mozilla.org/docs/Web/API/URLSearchParams">URLSearchParams - Web API Interfaces | MDN</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.URLSearchParams.html#6-173" title="Go to source code">URLSearchParams.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.URLSearchParams.html#7-232" title="Go to source code">URLSearchParams.php</a>
 		<br>
 	</div>
 
@@ -142,7 +142,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#25-35" title="Go to source code">__construct</a>( <span>string|<code><a href="class-esperecyan.url.URLSearchParams.html">esperecyan\url\URLSearchParams</a></code> <var>$init</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#26-47" title="Go to source code">__construct</a>( <span>string[][]|string[]|string|<code><a href="class-esperecyan.url.URLSearchParams.html">esperecyan\url\URLSearchParams</a></code> <var>$init</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
@@ -155,7 +155,8 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$init</var></dt>
-					<dd>A USVString or URLSearchParams.</dd>
+					<dd><p>An array of two-element arrays with the first element the name and the second the value,
+     associative array, USVString, or URLSearchParams.</p></dd>
 				</dl></div>
 
 
@@ -181,14 +182,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_append">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#50-60" title="Go to source code">append</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#96-106" title="Go to source code">append</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
-			<p>Append a new name-value pair whose name is name and value is value, to the list of name-value pairs.</p>
+			<p>Appends a new name-value pair whose name is name and value is value, to the list of name-value pairs.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Append a new name-value pair whose name is name and value is value, to the list of name-value pairs.</p>
+			<p>Appends a new name-value pair whose name is name and value is value, to the list of name-value pairs.</p>
 
 
 				<h4>Parameters</h4>
@@ -222,14 +223,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#62-74" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#108-120" title="Go to source code">delete</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			<p>Remove all name-value pairs whose name is name.</p>
+			<p>Removes all name-value pairs whose name is name.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Remove all name-value pairs whose name is name.</p>
+			<p>Removes all name-value pairs whose name is name.</p>
 
 
 				<h4>Parameters</h4>
@@ -261,14 +262,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#76-93" title="Go to source code">get</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#122-139" title="Go to source code">get</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			<p>Return the value of the first name-value pair whose name is name, and null if there is no such pair.</p>
+			<p>Returns the value of the first name-value pair whose name is name, and null if there is no such pair.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Return the value of the first name-value pair whose name is name, and null if there is no such pair.</p>
+			<p>Returns the value of the first name-value pair whose name is name, and null if there is no such pair.</p>
 
 
 				<h4>Parameters</h4>
@@ -304,14 +305,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAll">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#95-111" title="Go to source code">getAll</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#141-157" title="Go to source code">getAll</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			<p>Return the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.</p>
+			<p>Returns the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Return the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.</p>
+			<p>Returns the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.</p>
 
 
 				<h4>Parameters</h4>
@@ -347,14 +348,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_has">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#113-122" title="Go to source code">has</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#159-168" title="Go to source code">has</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			<p>Return true if there is a name-value pair whose name is name, and false otherwise.</p>
+			<p>Returns true if there is a name-value pair whose name is name, and false otherwise.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Return true if there is a name-value pair whose name is name, and false otherwise.</p>
+			<p>Returns true if there is a name-value pair whose name is name, and false otherwise.</p>
 
 
 				<h4>Parameters</h4>
@@ -390,7 +391,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_set">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#124-154" title="Go to source code">set</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#170-200" title="Go to source code">set</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>If there are any name-value pairs whose name is name, set the value of the first such name-value pair to value and remove the others.
@@ -421,6 +422,47 @@ Otherwise, append a new name-value pair whose name is name and value is value, t
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="sort" id="_sort">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sort">#</a>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#202-213" title="Go to source code">sort</a>( <span>string <var>$name</var>,…</span>, <span>string <var>$value</var>,…</span> )</code>
+
+		<div class="description short">
+			<p>Sorts all name-value pair by their names and comparing JavaScript strings (UTF-16).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sorts all name-value pair by their names and comparing JavaScript strings (UTF-16).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var>,…</dt>
+					<dd>A USVString.</dd>
+					<dt><var>$value</var>,…</dt>
+					<dd>A USVString.</dd>
+				</dl></div>
+
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#dom-urlsearchparams-sort">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="getIterator" id="_getIterator">
 
 		<td class="attributes"><code>
@@ -433,7 +475,7 @@ Otherwise, append a new name-value pair whose name is name and value is value, t
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getIterator">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#156-162" title="Go to source code">getIterator</a>( )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#215-221" title="Go to source code">getIterator</a>( )</code>
 
 		<div class="description short">
 			
@@ -469,14 +511,14 @@ Otherwise, append a new name-value pair whose name is name and value is value, t
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-esperecyan.url.URLSearchParams.html#164-172" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-esperecyan.url.URLSearchParams.html#223-231" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
-			<p>Return the serialization of the URLSearchParams object's associated list of name-value pairs.</p>
+			<p>Returns the serialization of the URLSearchParams object's associated list of name-value pairs.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Return the serialization of the URLSearchParams object's associated list of name-value pairs.</p>
+			<p>Returns the serialization of the URLSearchParams object's associated list of name-value pairs.</p>
 
 
 
@@ -521,7 +563,7 @@ Otherwise, append a new name-value pair whose name is name and value is value, t
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?f90811850c9ec752cb28d5823ec9bb7338214286"></script>
-<script src="elementlist.js?2af80f35e78c81c3ec2f75ec351545692d343bf9"></script>
+<script src="resources/combined.js?60421dbf828456e14238cc94e745ccdd6906b19e"></script>
+<script src="elementlist.js?58fa20fcdb9bb4088a825a4538999227131feb70"></script>
 </body>
 </html>

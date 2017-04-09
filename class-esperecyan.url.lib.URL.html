@@ -96,7 +96,7 @@
 
 
 	<div class="description">
-	<p>A universal identifier.
+	<p>A universal identifier (a URL record).
 A URL consists of components,
 namely a scheme, scheme data, username, password, host, port, path, query, and fragment.</p>
 	</div>
@@ -117,7 +117,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#urls">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-761" title="Go to source code">lib/URL.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-846" title="Go to source code">lib/URL.php</a>
 		<br>
 	</div>
 
@@ -125,6 +125,82 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
+	<tr data-order="__get" id="___get">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___get">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#70-80" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__set" id="___set">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___set">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#82-92" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>boolean <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="isSpecial" id="_isSpecial">
 
 		<td class="attributes"><code>
@@ -137,7 +213,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isSpecial">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#98-106" title="Go to source code">isSpecial</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#115-123" title="Go to source code">isSpecial</a>( )</code>
 
 		<div class="description short">
 			<p>A URL is special if its scheme is a special scheme.</p>
@@ -163,7 +239,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isLocal" id="_isLocal">
+	<tr data-order="isLocal" id="_isLocal" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
@@ -175,7 +251,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isLocal">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#114-122" title="Go to source code">isLocal</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#135-147" title="Go to source code">isLocal</a>( )</code>
 
 		<div class="description short">
 			<p>A URL is local if its scheme is a local scheme.</p>
@@ -184,6 +260,11 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		<div class="description detailed hidden">
 			<p>A URL is local if its scheme is a local scheme.</p>
 
+				<h4>Deprecated</h4>
+				<div class="list">
+						<p>5.0.0 The term “URL is local” has been moved
+     from the URL Standard specification to the Fetch Standard specification.</p><br>
+				</div>
 
 
 				<h4>Returns</h4>
@@ -194,7 +275,8 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://url.spec.whatwg.org/#is-local">URL Standard</a><br>
+						<a href="https://github.com/whatwg/url/commit/8fb8684a19b449db4c8920aee6cd3efb41bcdcfd">Editorial: move some terminology to the Fetch Standard · whatwg/url@8fb8684</a><br>
+						<a href="https://fetch.spec.whatwg.org/#is-local">URL Standard</a><br>
 				</div>
 
 
@@ -213,7 +295,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isIncludingCredentials">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#124-132" title="Go to source code">isIncludingCredentials</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#149-157" title="Go to source code">isIncludingCredentials</a>( )</code>
 
 		<div class="description short">
 			<p>A URL includes credentials if either its username is not the empty string or its password is non-null.</p>
@@ -239,7 +321,81 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="popPath" id="_popPath">
+	<tr data-order="cannotHaveUsernamePasswordPort" id="_cannotHaveUsernamePasswordPort">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cannotHaveUsernamePasswordPort">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#159-168" title="Go to source code">cannotHaveUsernamePasswordPort</a>( )</code>
+
+		<div class="description short">
+			<p>A URL cannot have a username/password/port
+     if its host is null or the empty string, its cannot-be-a-base-URL flag is set, or its scheme is “file”.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>A URL cannot have a username/password/port
+     if its host is null or the empty string, its cannot-be-a-base-URL flag is set, or its scheme is “file”.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Return true if a URL cannot have a username/password/port.
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#cannot-have-a-username-password-port">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="shortenPath" id="_shortenPath">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_shortenPath">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#184-194" title="Go to source code">shortenPath</a>( )</code>
+
+		<div class="description short">
+			<p>Shortens a path.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Shortens a path.</p>
+
+
+
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#shorten-a-urls-path">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="popPath" id="_popPath" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
@@ -251,26 +407,30 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_popPath">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#134-146" title="Go to source code">popPath</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#196-206" title="Go to source code">popPath</a>( )</code>
 
 		<div class="description short">
-			<p>If url’s scheme is not "file"
-or url’s path does not contain a single string that is a normalized Windows drive letter,
-remove url’s path’s last string, if any.</p>
+			<p>Alias of shortenPath().</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>If url’s scheme is not "file"
-or url’s path does not contain a single string that is a normalized Windows drive letter,
-remove url’s path’s last string, if any.</p>
+			<p>Alias of shortenPath().</p>
+
+				<h4>Deprecated</h4>
+				<div class="list">
+						5.0.0 The method has been renamed to shortenPath.<br>
+				</div>
 
 
 
 
-
+				<h4>See</h4>
+				<div class="list">
+						\esperecyan\url\lib\URL::shortenPath()<br>
+				</div>
 				<h4>Link</h4>
 				<div class="list">
-						<a href="https://url.spec.whatwg.org/#pop-a-urls-path">URL Standard</a><br>
+						<a href="https://github.com/whatwg/url/commit/c94f6f2220e9b988f079d1bf903417c1f7695d89">Editorial: pop → shorten · whatwg/url@c94f6f2</a><br>
 				</div>
 
 
@@ -289,7 +449,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#173-184" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#233-244" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL parser.</p>
@@ -329,14 +489,14 @@ remove url’s path’s last string, if any.</p>
 		<td class="attributes"><code>
 			 public static
 
-			<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false|null
+			<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false|
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseBasicURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#186-653" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#246-755" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			<p>The basic URL parser.</p>
@@ -355,12 +515,12 @@ remove url’s path’s last string, if any.</p>
 					<dt><var>$encodingOverride</var></dt>
 					<dd>A valid name of an encoding.</dd>
 					<dt><var>$urlAndStateOverride</var></dt>
-					<dd>An URL ("url" key) and a state override ("state override" key).</dd>
+					<dd>An URL (“url” key) and a state override (“state override” key).</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false|null
+					<code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>|false|
 				</div>
 
 				<h4>Throws</h4>
@@ -389,14 +549,14 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUsername">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#655-663" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#757-766" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
-			<p>Set the username of the URL given $username.</p>
+			<p>Sets the username of the URL given $username.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Set the username of the URL given $username.</p>
+			<p>Sets the username of the URL given $username.</p>
 
 
 				<h4>Parameters</h4>
@@ -428,14 +588,14 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#665-675" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#768-777" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
-			<p>Set the password of the URL given $password.</p>
+			<p>Sets the password of the URL given $password.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Set the password of the URL given $password.</p>
+			<p>Sets the password of the URL given $password.</p>
 
 
 				<h4>Parameters</h4>
@@ -467,7 +627,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#694-726" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#779-811" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL serializer.</p>
@@ -506,7 +666,7 @@ remove url’s path’s last string, if any.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrigin">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#728-760" title="Go to source code">getOrigin</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#813-845" title="Go to source code">getOrigin</a>( )</code>
 
 		<div class="description short">
 			<p>A URL’s origin is the origin, switching on URL’s scheme.</p>
@@ -544,12 +704,68 @@ remove url’s path’s last string, if any.</p>
 
 	<table class="summary constants" id="constants">
 	<caption>Constants summary</caption>
+	<tr data-order="WINDOWS_DRIVE_LETTER" id="WINDOWS_DRIVE_LETTER">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-constant-WINDOWS_DRIVE_LETTER.html#170-175" title="Go to source code"><b>WINDOWS_DRIVE_LETTER</b></a>
+			</code>
+
+			<div class="description short">
+				<p>The regular expression (PCRE) pattern matching a Windows drive letter.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The regular expression (PCRE) pattern matching a Windows drive letter.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#windows-drive-letter">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#WINDOWS_DRIVE_LETTER" class="anchor">#</a>
+				<code><span class="php-quote">'/^[a-z][:|]$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="NORMALIZED_WINDOWS_DRIVE_LETTER" id="NORMALIZED_WINDOWS_DRIVE_LETTER">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-constant-NORMALIZED_WINDOWS_DRIVE_LETTER.html#177-182" title="Go to source code"><b>NORMALIZED_WINDOWS_DRIVE_LETTER</b></a>
+			</code>
+
+			<div class="description short">
+				<p>The regular expression (PCRE) pattern matching a normalized Windows drive letter.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The regular expression (PCRE) pattern matching a normalized Windows drive letter.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#normalized-windows-drive-letter">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#NORMALIZED_WINDOWS_DRIVE_LETTER" class="anchor">#</a>
+				<code><span class="php-quote">'/^[a-z]:$/ui'</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="SINGLE_DOT_PATH_SEGMENT" id="SINGLE_DOT_PATH_SEGMENT">
 
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#148-153" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
+				<a href="source-constant-SINGLE_DOT_PATH_SEGMENT.html#208-213" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
 			</code>
 
 			<div class="description short">
@@ -577,7 +793,7 @@ remove url’s path’s last string, if any.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#155-160" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
+				<a href="source-constant-DOUBLE_DOT_PATH_SEGMENT.html#215-220" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
 			</code>
 
 			<div class="description short">
@@ -605,7 +821,7 @@ remove url’s path’s last string, if any.</p>
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.URL.html#162-167" title="Go to source code"><b>URL_CODE_POINTS</b></a>
+				<a href="source-constant-URL_CODE_POINTS.html#222-227" title="Go to source code"><b>URL_CODE_POINTS</b></a>
 			</code>
 
 			<div class="description short">
@@ -642,7 +858,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#12-17" title="Go to source code"><var>$scheme</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#13-18" title="Go to source code"><var>$scheme</var></a>
 
 			<div class="description short">
 				<p>A URL’s scheme is a string that identifies the type of URL
@@ -650,7 +866,8 @@ remove url’s path’s last string, if any.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>A URL’s scheme is a string that identifies the type of URL and can be used to dispatch a URL for further processing after parsing.</p>
+				<p>A URL’s scheme is a string that identifies the type of URL
+     and can be used to dispatch a URL for further processing after parsing.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -672,7 +889,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#19-23" title="Go to source code"><var>$username</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#20-24" title="Go to source code"><var>$username</var></a>
 
 			<div class="description short">
 				<p>A URL’s username is a string identifying a user.</p>
@@ -697,11 +914,11 @@ remove url’s path’s last string, if any.</p>
 	<tr data-order="password" id="$password">
 		<td class="attributes"><code>
 			public  
-			string|null
+			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#25-29" title="Go to source code"><var>$password</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#26-30" title="Go to source code"><var>$password</var></a>
 
 			<div class="description short">
 				<p>A URL’s password is either null or a string identifying a user’s credentials.</p>
@@ -719,7 +936,7 @@ remove url’s path’s last string, if any.</p>
 		<td class="value">
 			<div>
 				<a href="#$password" class="anchor">#</a>
-				<code><span class="php-keyword1">null</span></code>
+				<code><span class="php-quote">''</span></code>
 			</div>
 		</td>
 	</tr>
@@ -730,7 +947,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#31-35" title="Go to source code"><var>$host</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#32-36" title="Go to source code"><var>$host</var></a>
 
 			<div class="description short">
 				<p>A URL’s host is either null or a host.</p>
@@ -759,7 +976,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#37-41" title="Go to source code"><var>$port</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#38-42" title="Go to source code"><var>$port</var></a>
 
 			<div class="description short">
 				<p>A URL’s port is either null or a 16-bit integer that identifies a networking port.</p>
@@ -788,7 +1005,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#43-48" title="Go to source code"><var>$path</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#44-49" title="Go to source code"><var>$path</var></a>
 
 			<div class="description short">
 				<p>A URL’s path is a list of zero or more strings holding data,
@@ -796,7 +1013,8 @@ remove url’s path’s last string, if any.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>A URL’s path is a list of zero or more strings holding data, usually identifying a location in hierarchical form.</p>
+				<p>A URL’s path is a list of zero or more strings holding data,
+     usually identifying a location in hierarchical form.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -818,7 +1036,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#50-54" title="Go to source code"><var>$query</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#51-55" title="Go to source code"><var>$query</var></a>
 
 			<div class="description short">
 				<p>A URL’s query is either null or a string holding data.</p>
@@ -847,7 +1065,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#56-61" title="Go to source code"><var>$fragment</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#57-62" title="Go to source code"><var>$fragment</var></a>
 
 			<div class="description short">
 				<p>A URL’s fragment is either null or a string holding data
@@ -855,7 +1073,8 @@ remove url’s path’s last string, if any.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>A URL’s fragment is either null or a string holding data that can be used for further processing on the resource the URL’s other components identify.</p>
+				<p>A URL’s fragment is either null or a string holding data
+     that can be used for further processing on the resource the URL’s other components identify.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -877,7 +1096,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#63-67" title="Go to source code"><var>$cannotBeABaseURLFlag</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#64-68" title="Go to source code"><var>$cannotBeABaseURLFlag</var></a>
 
 			<div class="description short">
 				<p>URL also has an associated cannot-be-a-base-URL flag.</p>
@@ -899,39 +1118,6 @@ remove url’s path’s last string, if any.</p>
 			</div>
 		</td>
 	</tr>
-	<tr data-order="nonRelativeFlag" id="$nonRelativeFlag">
-		<td class="attributes"><code>
-			public  
-			Alias
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#69-75" title="Go to source code"><var>$nonRelativeFlag</var></a>
-
-			<div class="description short">
-				<p>of $cannotBeABaseURLFlag.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>of $cannotBeABaseURLFlag.</p>
-
-					<h4>Deprecated</h4>
-					<div class="list">
-							4.5.0 The variable is renamed to $cannotBeABaseURLFlag.<br>
-					</div>
-					<h4>Link</h4>
-					<div class="list">
-							<a href="https://github.com/whatwg/url/commit/0755b4855187c94e1dfca900ba5122fa02a359ec">Rename non-relative to cannot-be-a-base-URL · whatwg/url@2f4161d</a><br>
-					</div>
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$nonRelativeFlag" class="anchor">#</a>
-				<code><span class="php-keyword1">false</span></code>
-			</div>
-		</td>
-	</tr>
 	<tr data-order="object" id="$object">
 		<td class="attributes"><code>
 			public  
@@ -939,7 +1125,7 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#77-81" title="Go to source code"><var>$object</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#94-98" title="Go to source code"><var>$object</var></a>
 
 			<div class="description short">
 				<p>A URL also has an associated object that is either null or a Blob object.</p>
@@ -964,11 +1150,11 @@ remove url’s path’s last string, if any.</p>
 	<tr data-order="specialSchemes" id="$specialSchemes">
 		<td class="attributes"><code>
 			public static 
-			(integer|null)[]
+			(int|null)[]
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#83-96" title="Go to source code"><var>$specialSchemes</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#100-113" title="Go to source code"><var>$specialSchemes</var></a>
 
 			<div class="description short">
 				<p>A special scheme is a scheme in the key of this array.
@@ -976,7 +1162,8 @@ remove url’s path’s last string, if any.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>A special scheme is a scheme in the key of this array. A default port is a special scheme’s optional corresponding port and is in the value on the key.</p>
+				<p>A special scheme is a scheme in the key of this array.
+     A default port is a special scheme’s optional corresponding port and is in the value on the key.</p>
 
 					<h4>Link</h4>
 					<div class="list">
@@ -1006,18 +1193,24 @@ remove url’s path’s last string, if any.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-esperecyan.url.lib.URL.html#108-112" title="Go to source code"><var>$localSchemes</var></a>
+				<a href="source-class-esperecyan.url.lib.URL.html#125-133" title="Go to source code"><var>$localSchemes</var></a>
 
 			<div class="description short">
-				<p>A local scheme is a scheme that is one of "about", "blob", "data", and "filesystem".</p>
+				<p>A local scheme is a scheme that is one of “about”, “blob”, “data”, and “filesystem”.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>A local scheme is a scheme that is one of "about", "blob", "data", and "filesystem".</p>
+				<p>A local scheme is a scheme that is one of “about”, “blob”, “data”, and “filesystem”.</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							<p>5.0.0 The term “local scheme” has been moved
+     from the URL Standard specification to the Fetch Standard specification.</p><br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#local-scheme">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/8fb8684a19b449db4c8920aee6cd3efb41bcdcfd">Editorial: move some terminology to the Fetch Standard · whatwg/url@8fb8684</a><br>
+							<a href="https://fetch.spec.whatwg.org/#local-scheme">URL Standard</a><br>
 					</div>
 			</div>
 		</td>
@@ -1032,6 +1225,28 @@ remove url’s path’s last string, if any.</p>
 
 
 
+	<table class="summary properties" id="magicProperties">
+	<caption>Magic properties summary</caption>
+	<tr data-order="nonRelativeFlag" id="m$nonRelativeFlag">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-esperecyan.url.lib.URL.html#9" title="Go to source code"><var>$nonRelativeFlag</var></a>
+
+			<div class="description short">
+				<p>[Deprecated] Alias of $cannotBeABaseURLFlag.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
@@ -1042,7 +1257,7 @@ remove url’s path’s last string, if any.</p>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?f90811850c9ec752cb28d5823ec9bb7338214286"></script>
-<script src="elementlist.js?2af80f35e78c81c3ec2f75ec351545692d343bf9"></script>
+<script src="resources/combined.js?60421dbf828456e14238cc94e745ccdd6906b19e"></script>
+<script src="elementlist.js?58fa20fcdb9bb4088a825a4538999227131feb70"></script>
 </body>
 </html>

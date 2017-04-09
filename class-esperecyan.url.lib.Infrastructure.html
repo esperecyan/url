@@ -121,7 +121,7 @@
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#infrastructure">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.Infrastructure.html#4-107" title="Go to source code">lib/Infrastructure.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.Infrastructure.html#4-164" title="Go to source code">lib/Infrastructure.php</a>
 		<br>
 	</div>
 
@@ -141,14 +141,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_percentEncode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#25-34" title="Go to source code">percentEncode</a>( <span>string <var>$byte</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#31-40" title="Go to source code">percentEncode</a>( <span>string <var>$byte</var></span> )</code>
 
 		<div class="description short">
-			<p>Percent encode a byte into a percent-encoded byte.</p>
+			<p>Percent encodes a byte into a percent-encoded byte.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Percent encode a byte into a percent-encoded byte.</p>
+			<p>Percent encodes a byte into a percent-encoded byte.</p>
 
 
 				<h4>Parameters</h4>
@@ -159,7 +159,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					string<br>"%", followed by two ASCII hex digits.
+					string<br>“%”, followed by two ASCII hex digits.
 				</div>
 
 
@@ -184,14 +184,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_percentDecode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#36-45" title="Go to source code">percentDecode</a>( <span>string <var>$input</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#42-51" title="Go to source code">percentDecode</a>( <span>string <var>$input</var></span> )</code>
 
 		<div class="description short">
-			<p>Percent decode a byte sequence $input.</p>
+			<p>Percent decodes a byte sequence $input.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Percent decode a byte sequence $input.</p>
+			<p>Percent decodes a byte sequence $input.</p>
 
 
 				<h4>Parameters</h4>
@@ -227,14 +227,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_utf8PercentEncode">#</a>
-		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#88-106" title="Go to source code">utf8PercentEncode</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoint</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#128-146" title="Go to source code">utf8PercentEncode</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoint</var></span> )</code>
 
 		<div class="description short">
-			<p>UTF-8 percent encode a code point, using an encode set.</p>
+			<p>UTF-8 percent encodes a code point, using an encode set.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>UTF-8 percent encode a code point, using an encode set.</p>
+			<p>UTF-8 percent encodes a code point, using an encode set.</p>
 
 
 				<h4>Parameters</h4>
@@ -260,6 +260,47 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="percentEncodeCodePoints" id="_percentEncodeCodePoints">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_percentEncodeCodePoints">#</a>
+		<code><a href="source-class-esperecyan.url.lib.Infrastructure.html#148-163" title="Go to source code">percentEncodeCodePoints</a>( <span>string <var>$encodeSet</var></span>, <span>string <var>$codePoints</var></span> )</code>
+
+		<div class="description short">
+			<p>Percent encodes UTF-8 string, using an encode set.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Percent encodes UTF-8 string, using an encode set.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$encodeSet</var></dt>
+					<dd>Regular expression (PCRE) pattern matching exactly one UTF-8 character.</dd>
+					<dt><var>$codePoints</var></dt>
+					<dd>A UTF-8 string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	</table>
 
 
@@ -276,19 +317,27 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#11-16" title="Go to source code"><b>WINDOWS_DRIVE_LETTER</b></a>
+				<a href="source-constant-WINDOWS_DRIVE_LETTER.html#11-19" title="Go to source code"><b>WINDOWS_DRIVE_LETTER</b></a>
 			</code>
 
 			<div class="description short">
-				<p>The regular expression (PCRE) pattern matching a Windows drive letter.</p>
+				<p>Alias of <code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>::WINDOWS_DRIVE_LETTER.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>The regular expression (PCRE) pattern matching a Windows drive letter.</p>
+				<p>Alias of <code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>::WINDOWS_DRIVE_LETTER.</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							5.0.0 The constant has been moved to <code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER<br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#windows-drive-letter">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/ac6489f9b0cf55b27fd1401ab77bc452c97d1457">Editorial: move Windows drive letter to a more logical location · whatwg/url@ac6489f</a><br>
 					</div>
 			</div>
 		</td>
@@ -304,19 +353,27 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#18-23" title="Go to source code"><b>NORMALIZED_WINDOWS_DRIVE_LETTER</b></a>
+				<a href="source-constant-NORMALIZED_WINDOWS_DRIVE_LETTER.html#21-29" title="Go to source code"><b>NORMALIZED_WINDOWS_DRIVE_LETTER</b></a>
 			</code>
 
 			<div class="description short">
-				<p>The regular expression (PCRE) pattern matching a normalized Windows drive letter.</p>
+				<p>Alias of <code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>::NORMALIZED_WINDOWS_DRIVE_LETTER.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>The regular expression (PCRE) pattern matching a normalized Windows drive letter.</p>
+				<p>Alias of <code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>::NORMALIZED_WINDOWS_DRIVE_LETTER.</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							5.0.0 The constant has been moved to <code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code>.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER<br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#normalized-windows-drive-letter">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/ac6489f9b0cf55b27fd1401ab77bc452c97d1457">Editorial: move Windows drive letter to a more logical location · whatwg/url@ac6489f</a><br>
 					</div>
 			</div>
 		</td>
@@ -332,19 +389,27 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#47-52" title="Go to source code"><b>SIMPLE_ENCODE_SET</b></a>
+				<a href="source-constant-SIMPLE_ENCODE_SET.html#53-61" title="Go to source code"><b>SIMPLE_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>The regular expression (PCRE) pattern matching a character in the simple encode set.</p>
+				<p>Alias of C0_CONTROL_PERCENT_ENCODE_SET.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>The regular expression (PCRE) pattern matching a character in the simple encode set.</p>
+				<p>Alias of C0_CONTROL_PERCENT_ENCODE_SET.</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							5.0.0 The constant has been renamed to C0_CONTROL_PERCENT_ENCODE_SET.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\Infrastructure::C0_CONTROL_PERCENT_ENCODE_SET<br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#simple-encode-set">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59">Editorial: use specific names for encode sets · whatwg/url@1d69a77</a><br>
 					</div>
 			</div>
 		</td>
@@ -355,24 +420,60 @@
 			</div>
 		</td>
 	</tr>
+	<tr data-order="C0_CONTROL_PERCENT_ENCODE_SET" id="C0_CONTROL_PERCENT_ENCODE_SET">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-constant-C0_CONTROL_PERCENT_ENCODE_SET.html#63-68" title="Go to source code"><b>C0_CONTROL_PERCENT_ENCODE_SET</b></a>
+			</code>
+
+			<div class="description short">
+				<p>The regular expression (PCRE) pattern matching a character in the simple encode set.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The regular expression (PCRE) pattern matching a character in the simple encode set.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#c0-control-percent-encode-set">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#C0_CONTROL_PERCENT_ENCODE_SET" class="anchor">#</a>
+				<code><span class="php-quote">'/[^ -~]/u'</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="DEFAULT_ENCODE_SET" id="DEFAULT_ENCODE_SET">
 
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#54-59" title="Go to source code"><b>DEFAULT_ENCODE_SET</b></a>
+				<a href="source-constant-DEFAULT_ENCODE_SET.html#70-78" title="Go to source code"><b>DEFAULT_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>The regular expression (PCRE) pattern matching a character in the default encode set.</p>
+				<p>Alias of PATH_PERCENT_ENCODE_SET.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>The regular expression (PCRE) pattern matching a character in the default encode set.</p>
+				<p>Alias of PATH_PERCENT_ENCODE_SET.</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							5.0.0 The constant has been renamed to PATH_PERCENT_ENCODE_SET.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\Infrastructure::PATH_PERCENT_ENCODE_SET<br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#default-encode-set">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59">Editorial: use specific names for encode sets · whatwg/url@1d69a77</a><br>
 					</div>
 			</div>
 		</td>
@@ -383,29 +484,61 @@
 			</div>
 		</td>
 	</tr>
+	<tr data-order="PATH_PERCENT_ENCODE_SET" id="PATH_PERCENT_ENCODE_SET">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-constant-PATH_PERCENT_ENCODE_SET.html#80-85" title="Go to source code"><b>PATH_PERCENT_ENCODE_SET</b></a>
+			</code>
+
+			<div class="description short">
+				<p>The regular expression (PCRE) pattern matching a character in the path percent-encode set.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The regular expression (PCRE) pattern matching a character in the path percent-encode set.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#path-percent-encode-set">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#PATH_PERCENT_ENCODE_SET" class="anchor">#</a>
+				<code><span class="php-quote">'/[^!$-;=@-_a-z|~]/u'</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="PASSWORD_ENCODE_SET" id="PASSWORD_ENCODE_SET">
 
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#61-69" title="Go to source code"><b>PASSWORD_ENCODE_SET</b></a>
+				<a href="source-constant-PASSWORD_ENCODE_SET.html#87-97" title="Go to source code"><b>PASSWORD_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of USERINFO_ENCODE_SET.</p>
+				<p>Alias of USERINFO_PERCENT_ENCODE_SET.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of USERINFO_ENCODE_SET.</p>
+				<p>Alias of USERINFO_PERCENT_ENCODE_SET.</p>
 
 					<h4>Deprecated</h4>
 					<div class="list">
-							<p>3.3.0 The password encode set and the username encode set are obsolete,
-     then these are replaced by the userinfo encode set.</p><br>
+							3.3.0 The constant is renamed to USERINFO_PERCENT_ENCODE_SET.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET<br>
 					</div>
 					<h4>Link</h4>
 					<div class="list">
 							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5</a><br>
+							<a href="https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59">Editorial: use specific names for encode sets · whatwg/url@1d69a77</a><br>
 					</div>
 			</div>
 		</td>
@@ -421,24 +554,28 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#71-79" title="Go to source code"><b>USERNAME_ENCODE_SET</b></a>
+				<a href="source-constant-USERNAME_ENCODE_SET.html#99-109" title="Go to source code"><b>USERNAME_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>Alias of USERINFO_ENCODE_SET.</p>
+				<p>Alias of USERINFO_PERCENT_ENCODE_SET.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Alias of USERINFO_ENCODE_SET.</p>
+				<p>Alias of USERINFO_PERCENT_ENCODE_SET.</p>
 
 					<h4>Deprecated</h4>
 					<div class="list">
-							<p>3.3.0 The password encode set and the username encode set are obsolete,
-     then these are replaced by the userinfo encode set.</p><br>
+							3.3.0 The constant is renamed to USERINFO_PERCENT_ENCODE_SET.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET<br>
 					</div>
 					<h4>Link</h4>
 					<div class="list">
 							<a href="https://github.com/whatwg/url/commit/9ca26e5b0edc131f9cca81d0fef4ab92815bc289">Encode more code points for usernames and passwords. Fixes #30. Â· whatwg/url@9ca26e5</a><br>
+							<a href="https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59">Editorial: use specific names for encode sets · whatwg/url@1d69a77</a><br>
 					</div>
 			</div>
 		</td>
@@ -454,25 +591,61 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-esperecyan.url.lib.Infrastructure.html#81-86" title="Go to source code"><b>USERINFO_ENCODE_SET</b></a>
+				<a href="source-constant-USERINFO_ENCODE_SET.html#111-119" title="Go to source code"><b>USERINFO_ENCODE_SET</b></a>
 			</code>
 
 			<div class="description short">
-				<p>The regular expression (PCRE) pattern matching a character in the userinfo encode set.</p>
+				<p>Alias of USERINFO_PERCENT_ENCODE_SET.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>The regular expression (PCRE) pattern matching a character in the userinfo encode set.</p>
+				<p>Alias of USERINFO_PERCENT_ENCODE_SET.</p>
 
+					<h4>Deprecated</h4>
+					<div class="list">
+							5.0.0 The constant has been renamed to USERINFO_PERCENT_ENCODE_SET.<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							\esperecyan\url\lib\Infrastructure::USERINFO_PERCENT_ENCODE_SET<br>
+					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="https://url.spec.whatwg.org/#userinfo-encode-set">URL Standard</a><br>
+							<a href="https://github.com/whatwg/url/commit/1d69a774bab856651e0d792e825a976056aeaf59">Editorial: use specific names for encode sets · whatwg/url@1d69a77</a><br>
 					</div>
 			</div>
 		</td>
 		<td class="value">
 			<div>
 				<a href="#USERINFO_ENCODE_SET" class="anchor">#</a>
+				<code><span class="php-quote">'/[^!$-.0-9A-Z_a-z~]/u'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="USERINFO_PERCENT_ENCODE_SET" id="USERINFO_PERCENT_ENCODE_SET">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-constant-USERINFO_PERCENT_ENCODE_SET.html#121-126" title="Go to source code"><b>USERINFO_PERCENT_ENCODE_SET</b></a>
+			</code>
+
+			<div class="description short">
+				<p>The regular expression (PCRE) pattern matching a character in the userinfo percent-encode set.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The regular expression (PCRE) pattern matching a character in the userinfo percent-encode set.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://url.spec.whatwg.org/#userinfo-percent-encode-set">URL Standard</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#USERINFO_PERCENT_ENCODE_SET" class="anchor">#</a>
 				<code><span class="php-quote">'/[^!$-.0-9A-Z_a-z~]/u'</span></code>
 			</div>
 		</td>
@@ -495,7 +668,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?f90811850c9ec752cb28d5823ec9bb7338214286"></script>
-<script src="elementlist.js?2af80f35e78c81c3ec2f75ec351545692d343bf9"></script>
+<script src="resources/combined.js?60421dbf828456e14238cc94e745ccdd6906b19e"></script>
+<script src="elementlist.js?58fa20fcdb9bb4088a825a4538999227131feb70"></script>
 </body>
 </html>
