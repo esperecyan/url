@@ -11,7 +11,7 @@ Description
 URL Standard is the Web standard specification that replaces the previous standards [RFC 3986] and [RFC 3987].
 
 The specification defines [URL interface] and [URLSearchPrams interface] as [API].
-This library allows you to use [esperecyan\url\URL class] as [URL interface] and [esperecyan\url\URLSearchParams] class as [URLSearchPrams interface].
+This library allows you to use [esperecyan\url\URL class] as [URL interface] and [esperecyan\url\URLSearchParams class] as [URLSearchPrams interface].
 The documents on MDN may be easy to understand by way of explanation of the interfaces https://developer.mozilla.org/docs/Web/API/URL https://developer.mozilla.org/docs/Web/API/URLSearchParams .
 
 This library allows you to use the algorithms defined by URL Standard. For details, see [The correspondence table of the algorithms].
@@ -51,7 +51,7 @@ Requirement
 	+ SPL Types PECL library is not supported
 * [Intl extension module]
 
-[Intl extension module]: http://uk3.php.net/manual/book.intl.php "Internationalization extension (is referred as Intl) is a wrapper for ICU library, enabling PHP programmers to perform UCA-conformant collation and date/time/number/currency formatting in their scripts. "
+[Intl extension module]: https://secure.php.net/intl "Internationalization extension (is referred as Intl) is a wrapper for ICU library, enabling PHP programmers to perform UCA-conformant collation and date/time/number/currency formatting in their scripts. "
 
 Install
 -------
@@ -89,7 +89,7 @@ HADAA helped me translate README to English.
 [URLencoding class]: src/lib/URLencoding.php
 [コードポイントから UTF-8 の文字を生成する - Qiita]: http://qiita.com/masakielastic/items/68f81e1b7d153ee5cc81 "バリデーションの際に想定外の文字が通っていないか調べるには Unicode で定義されるすべての文字を試すことが必要です。UTF-8 の場合、コードポイントの範囲は U+0000 から U+7FFF、U+E000 から U+10FFFF までです。"
 [UTF-8 の文字からコードポイントを求める - Qiita]: http://qiita.com/masakielastic/items/5696cf90738c1438f10d "文字の Unicode プロパティやエンコーディングに関する情報を検索で調べる際にコードポイントが必要になることがあります。PHP 5.5 で intl 拡張モジュールに IntlCodePointBreakIterator が追加され、コードポイントを求めやすくなりました。"
-[URL Standard (Japanese translation)]: http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html "このページ は、 WHATWG による，副題の日付 時点の URL Standard を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
+[URL Standard (Japanese translation)]: https://triple-underscore.github.io/URL-ja.html "このページ は、 WHATWG による，副題の日付 時点の URL Standard を日本語に翻訳したものです。 この翻訳の正確性は保証されません。 この仕様の公式な文書は英語版であり、この日本語訳は公式のものではありません。"
 
 Semantic Versioning
 -------------------

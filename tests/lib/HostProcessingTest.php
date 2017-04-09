@@ -92,7 +92,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param string $domain
-     * @param boolean $returnValue
+     * @param bool $returnValue
      * @dataProvider domainProvider
      */
     public function testIsValidDomain($domain, $returnValue)
@@ -142,8 +142,8 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
-     * @param boolean $isSpecial
-     * @param string|integer[]|false $domain
+     * @param bool $isSpecial
+     * @param string|int[]|false $domain
      * @dataProvider hostProvider
      */
     public function testParseHost($input, $isSpecial, $domain)
@@ -226,7 +226,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
-     * @param integer|float|false $number
+     * @param int|float|false $number
      * @param string|null $message
      * @dataProvider ipv4NumberProvider
      */
@@ -265,7 +265,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
-     * @param integer|float|string|false $address
+     * @param int|float|string|false $address
      * @dataProvider ipv4Provider
      */
     public function testParseIPv4($input, $address)
@@ -299,7 +299,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $input
-     * @param integer[]|false $address
+     * @param int[]|false $address
      * @dataProvider ipv6Provider
      */
     public function testParseIPv6($input, $address)
@@ -372,7 +372,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param string|integer[]|null $host
+     * @param string|int[]|null $host
      * @param string $returnValue
      * @dataProvider hostProvider2
      */
@@ -413,7 +413,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer|float $address
+     * @param int|float $address
      * @param string $output
      * @dataProvider ipv4Provider2
      */
@@ -431,7 +431,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @param integer[] $address
+     * @param int[] $address
      * @param string $output
      * @dataProvider ipv6Provider2
      */

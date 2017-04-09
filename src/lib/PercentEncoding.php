@@ -3,6 +3,7 @@ namespace esperecyan\url\lib;
 
 /**
  * @deprecated 3.2.0 The methods and constants are moved to {@link Infrastructure}.
+ * @see \esperecyan\url\lib\Infrastructure
  * @link https://github.com/whatwg/url/commit/e5b57a0dfe77464282f3b70c1e605ae40bec278d?w=
  *      Rename Terminology to Infrastructure · whatwg/url@e5b57a0
  */
@@ -13,7 +14,7 @@ class PercentEncoding
     /**
      * Alias of {@link Infrastructure}::percentEncode().
      * @param string $byte Exactly one byte.
-     * @return string "%", followed by two ASCII hex digits.
+     * @return string “%”, followed by two ASCII hex digits.
      */
     public static function percentEncode($byte)
     {

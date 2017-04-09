@@ -3,6 +3,8 @@ namespace esperecyan\url\lib;
 
 /**
  * @deprecated 3.2.0 The constants are moved to {@link Infrastructure} or {@link URL}.
+ * @see \esperecyan\url\lib\Infrastructure
+ * @see \esperecyan\url\lib\URL
  * @link https://github.com/whatwg/url/commit/e5b57a0dfe77464282f3b70c1e605ae40bec278d?w=
  *      Rename Terminology to Infrastructure · whatwg/url@e5b57a0
  */

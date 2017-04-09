@@ -51,7 +51,7 @@ string(5) "value"
 	+ SPL Types PECL ライブラリには非対応
 * [Intl拡張モジュール]
 
-[Intl拡張モジュール]: http://jp2.php.net/manual/book.intl.php "国際化用拡張モジュール (Intl と略します) は ICU ライブラリのラッパーです。 PHP プログラマが、UCA 準拠の照合順序 (collation) や日付/時刻/数値/通貨のフォーマットを扱えるようにします。"
+[Intl拡張モジュール]: https://secure.php.net/intl "国際化用拡張モジュール (Intl と略します) は ICU ライブラリのラッパーです。 PHP プログラマが、UCA 準拠の照合順序 (collation) や日付/時刻/数値/通貨のフォーマットを扱えるようにします。"
 
 インストール
 -----------
@@ -233,6 +233,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [application/x-www-form-urlencoded バイト直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-byte-serializer
 [application/x-www-form-urlencoded 直列化器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-serializer
 [application/x-www-form-urlencoded 文字列構文解析器]: https://triple-underscore.github.io/URL-ja.html#concept-urlencoded-string-parser
+[( 名, 値, 型 ) の組]: https://triple-underscore.github.io/HTML-input-ja.html#concept-input-type-file-selected
 
 [esperecyan\url\lib\Infrastructure::percentEncode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentEncode
 [esperecyan\url\lib\Infrastructure::percentDecode()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.Infrastructure#_percentDecode

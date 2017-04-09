@@ -11,19 +11,19 @@ use esperecyan\webidl\TypeError;
  * @property string $href Is a USVString containing the whole URL.
  * @property-read string $origin
  *      Returns a USVString containing the canonical form of the origin of the specific location.
- * @property string $protocol Is a USVString containing the protocol scheme of the URL, including the final ':'.
+ * @property string $protocol Is a USVString containing the protocol scheme of the URL, including the final ‘:’.
  * @property string $username Is a USVString containing the username specified before the domain name.
  * @property string $password Is a USVString containing the password specified before the domain name.
  * @property string $host Is a USVString containing the host, that is the hostname,
  *      and then, if the port of the URL is not empty (which can happen because it was not specified
- *          or because it was specified to be the default port of the URL's scheme), a ':', and the port of the URL.
+ *          or because it was specified to be the default port of the URL’s scheme), a ‘:’, and the port of the URL.
  * @property string $hostname Is a USVString containing the domain of the URL.
  * @property string $port Is a USVString containing the port number of the URL.
- * @property string $pathname Is a USVString containing an initial '/' followed by the path of the URL.
- * @property string $search Is a USVString containing a '?' followed by the parameters of the URL.
+ * @property string $pathname Is a USVString containing an initial ‘/’ followed by the path of the URL.
+ * @property string $search Is a USVString containing a ‘?’ followed by the parameters of the URL.
  * @property-read URLSearchParams $searchParams
  *      Returns a URLSearchParams object allowing to access the GET query arguments contained in the URL.
- * @property string $hash Is a USVString containing a '#' followed by the fragment identifier of the URL.
+ * @property string $hash Is a USVString containing a ‘#’ followed by the fragment identifier of the URL.
  */
 class URL implements \JsonSerializable
 {
@@ -72,7 +72,7 @@ class URL implements \JsonSerializable
     }
     
     /**
-     * Convert domain name to IDNA ASCII form.
+     * Converts domain name to IDNA ASCII form.
      * @deprecated 5.0.0 URL::domainToASCII() has been removed from the URL Standard specification.
      * @see \esperecyan\url\lib\HostProcessing::domainToASCII()
      * @link https://github.com/whatwg/url/commit/2bd0f59b98024921ab90e628b7a526cca5abcb5f
@@ -87,7 +87,7 @@ class URL implements \JsonSerializable
     }
     
     /**
-     * Convert domain name from IDNA ASCII to Unicode.
+     * Converts domain name from IDNA ASCII to Unicode.
      * @deprecated 5.0.0 URL::domainToUnicode() has been removed from the URL Standard specification.
      * @see \esperecyan\url\lib\HostProcessing::domainToUnicode()
      * @link https://github.com/whatwg/url/commit/2bd0f59b98024921ab90e628b7a526cca5abcb5f
@@ -321,11 +321,8 @@ class URL implements \JsonSerializable
     }
     
     /**
-     * The URLUtils::__toString() stringifier method returns a USVString containing the whole URL.
-     * It is a read-only version of URLUtils::href.
-     * @link https://url.spec.whatwg.org/#URLUtils-stringification-behavior URL Standard
-     * @link https://developer.mozilla.org/docs/Web/API/URLUtils/toString
-     *      URLUtils.toString() - Web API Interfaces | MDN
+     * Returns a USVString containing the whole URL. It is a synonym for URL::$href.
+     * @link https://url.spec.whatwg.org/#URL-stringification-behavior URL Standard
      * @return string USVString.
      */
     public function __toString()
@@ -351,7 +348,7 @@ class URL implements \JsonSerializable
     
     /**
      * @param string $name
-     * @return boolean
+     * @return bool
      */
     public function __isset($name)
     {

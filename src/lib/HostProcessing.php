@@ -18,7 +18,7 @@ class HostProcessing
     /**
      * Maximum UTF-8 length of a fatal error does not occur by idn_to_ascii() or idn_to_utf8().
      * @internal
-     * @var integer
+     * @var int
      */
     const PHP_IDN_HANDLEABLE_LENGTH = 254;
     
@@ -49,10 +49,10 @@ class HostProcessing
     }
 
     /**
-     * Return true if a domain is a valid domain.
+     * Returns true if a domain is a valid domain.
      * @link https://url.spec.whatwg.org/#valid-domain URL Standard
      * @param string $domain A UTF-8 string.
-     * @return boolean
+     * @return bool
      */
     public static function isValidDomain($domain)
     {
@@ -103,8 +103,8 @@ class HostProcessing
      * @see \esperecyan\url\lib\URL::isSpecial()
      * @link https://url.spec.whatwg.org/#concept-host-parser URL Standard
      * @param string $input A UTF-8 string.
-     * @param boolean $isSpecial
-     * @return string|integer|float|integer[]
+     * @param bool $isSpecial
+     * @return string|int|float|int[]
      *      If host is IPv4 address, returns a 32-bit unsigned integer (an integer or float).
      *      If host is IPv6 address, returns an array of a 16-bit unsigned integer.
      */
@@ -129,7 +129,7 @@ class HostProcessing
      * The IPv4 number parser.
      * @link https://url.spec.whatwg.org/#ipv4-number-parser URL Standard
      * @param string $input A UTF-8 string.
-     * @return integer|float|false
+     * @return int|float|false
      */
     public static function parseIPv4Number($input)
     {
@@ -153,7 +153,7 @@ class HostProcessing
      * The IPv4 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv4-parser URL Standard
      * @param string $input A UTF-8 string.
-     * @return integer|float|string|false
+     * @return int|float|string|false
      */
     public static function parseIPv4($input)
     {
@@ -203,7 +203,7 @@ class HostProcessing
      * The IPv6 parser.
      * @link https://url.spec.whatwg.org/#concept-ipv6-parser URL Standard
      * @param string $input A UTF-8 string.
-     * @return integer[] An array of a 16-bit unsigned integer.
+     * @return int[] An array of a 16-bit unsigned integer.
      */
     public static function parseIPv6($input)
     {
@@ -228,7 +228,7 @@ class HostProcessing
     /**
      * The host serializer.
      * @link https://url.spec.whatwg.org/#concept-host-serializer URL Standard
-     * @param string|integer|float|integer[] $host
+     * @param string|int|float|int[] $host
      *      A domain, IPv4 address (an integer or float) or IPv6 address (an array of a 16-bit unsigned integer).
      * @return string
      */
@@ -247,7 +247,7 @@ class HostProcessing
     /**
      * The IPv4 serializer.
      * @link https://url.spec.whatwg.org/#concept-ipv4-serializer URL Standard
-     * @param integer|float $address An integer or float in the range 0 to 0xFFFFFFFF.
+     * @param int|float $address An integer or float in the range 0 to 0xFFFFFFFF.
      * @return string
      */
     public static function serializeIPv4($address)
@@ -258,7 +258,7 @@ class HostProcessing
     /**
      * The IPv6 serializer.
      * @link https://url.spec.whatwg.org/#concept-ipv6-serializer URL Standard
-     * @param integer[] $address An array of a 16-bit unsigned integer.
+     * @param int[] $address An array of a 16-bit unsigned integer.
      * @return string
      */
     public static function serializeIPv6($address)

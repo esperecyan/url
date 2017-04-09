@@ -29,10 +29,10 @@ class Infrastructure
     const NORMALIZED_WINDOWS_DRIVE_LETTER = '/^[a-z]:$/ui';
     
     /**
-     * Percent encode a byte into a percent-encoded byte.
+     * Percent encodes a byte into a percent-encoded byte.
      * @link https://url.spec.whatwg.org/#percent-encode URL Standard
      * @param string $byte Exactly one byte.
-     * @return string "%", followed by two ASCII hex digits.
+     * @return string “%”, followed by two ASCII hex digits.
      */
     public static function percentEncode($byte)
     {
@@ -40,7 +40,7 @@ class Infrastructure
     }
     
     /**
-     * Percent decode a byte sequence $input.
+     * Percent decodes a byte sequence $input.
      * @link https://url.spec.whatwg.org/#percent-decode URL Standard
      * @param string $input
      * @return string A UTF-8 string if the $input contains only bytes in the range 0x00 to 0x7F.
@@ -126,7 +126,7 @@ class Infrastructure
     const USERINFO_PERCENT_ENCODE_SET = '/[^!$-.0-9A-Z_a-z~]/u';
     
     /**
-     * UTF-8 percent encode a code point, using an encode set.
+     * UTF-8 percent encodes a code point, using an encode set.
      * @link https://url.spec.whatwg.org/#utf_8-percent-encode URL Standard
      * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
      * @param string $codePoint Exactly one UTF-8 character.
@@ -146,7 +146,7 @@ class Infrastructure
     }
     
     /**
-     * Percent encode UTF-8 string, using an encode set.
+     * Percent encodes UTF-8 string, using an encode set.
      * @param string $encodeSet Regular expression (PCRE) pattern matching exactly one UTF-8 character.
      * @param string $codePoints A UTF-8 string.
      * @return string

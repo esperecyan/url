@@ -47,7 +47,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Create a new URLSearchParams object.
+     * Creates a new URLSearchParams object.
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-new URL Standard
      * @param $query self|null
      * @param $init string[][]|string[]|string|URLSearchParams|null
@@ -94,7 +94,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Append a new name-value pair whose name is name and value is value, to the list of name-value pairs.
+     * Appends a new name-value pair whose name is name and value is value, to the list of name-value pairs.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-appendname-value URL Standard
      * @param string $name A USVString.
      * @param string $value A USVString.
@@ -106,7 +106,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Remove all name-value pairs whose name is name.
+     * Removes all name-value pairs whose name is name.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-deletename URL Standard
      * @param string $name A USVString.
      */
@@ -120,7 +120,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Return the value of the first name-value pair whose name is name, and null if there is no such pair.
+     * Returns the value of the first name-value pair whose name is name, and null if there is no such pair.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-getname URL Standard
      * @param string $name
      * @return string|null A USVString or null.
@@ -139,7 +139,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Return the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.
+     * Returns the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-getallname URL Standard
      * @param string $name A USVString.
      * @return string[] An array of a USVString.
@@ -157,10 +157,10 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Return true if there is a name-value pair whose name is name, and false otherwise.
+     * Returns true if there is a name-value pair whose name is name, and false otherwise.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-hasname URL Standard
      * @param string $name A USVString.
-     * @return boolean
+     * @return bool
      */
     public function has($name)
     {
@@ -200,7 +200,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Sort all name-value pair by their names and comparing JavaScript strings (UTF-16).
+     * Sorts all name-value pair by their names and comparing JavaScript strings (UTF-16).
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-sort URL Standard
      * @param string $name A USVString.
      * @param string $value A USVString.
@@ -221,7 +221,7 @@ class URLSearchParams implements \IteratorAggregate
     }
     
     /**
-     * Return the serialization of the URLSearchParams object's associated list of name-value pairs.
+     * Returns the serialization of the URLSearchParams object's associated list of name-value pairs.
      * @link https://url.spec.whatwg.org/#stringification-behavior URL Standard
      * @return string A USVString.
      */

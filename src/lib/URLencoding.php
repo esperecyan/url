@@ -96,7 +96,7 @@ class URLencoding
     const ASCII_WHITESPACE = "\t\n\f\r ";
     
     /**
-     * UTF-8 decode without BOM a byte stream $stream.
+     * UTF-8 decodes without BOM a byte stream $stream.
      * @internal
      * @link https://encoding.spec.whatwg.org/#utf-8-decode-without-bom Encoding Standard
      * @param string $stream A string encoded by UTF-8.
@@ -108,9 +108,9 @@ class URLencoding
     }
     
     /**
-     * Convert the encoding of $input to $encoding from UTF-8.
+     * Converts the encoding of $input to $encoding from UTF-8.
      * @internal
-     * @link https://encoding.spec.whatwg.org/#decode Encoding Standard
+     * @link https://encoding.spec.whatwg.org/#encode Encoding Standard
      * @param string $input A UTF-8 string.
      * @param string $encoding A valid name of an encoding.
      * @return string
@@ -119,7 +119,6 @@ class URLencoding
     {
         switch (strtolower($encoding)) {
             case 'utf-8':
-            case 'replacement':
                 $output = $input;
                 break;
             
@@ -138,7 +137,7 @@ class URLencoding
     }
     
     /**
-     * Get an output encoding from an encoding.
+     * Gets an output encoding from an encoding.
      * @internal
      * @link https://encoding.spec.whatwg.org/#get-an-output-encoding Encoding Standard
      * @param string $encoding A valid name of an encoding.
@@ -150,10 +149,10 @@ class URLencoding
     }
     
     /**
-     * Invoke mb_convert_encoding() or iconv().
+     * Invokes mb_convert_encoding() or iconv().
      * @param string $input A string encoded by $encoding if $decoding is true, a UTF-8 string otherwise.
      * @param string $encoding A valid name of an encoding.
-     * @param boolean $decoding Convert the encoding to UTF-8 from $encoding if true, to $encoding from UTF-8 otherwise.
+     * @param bool $decoding Convert the encoding to UTF-8 from $encoding if true, to $encoding from UTF-8 otherwise.
      * @throws \DomainException If $encoding is invalid.
      * @return string A UTF-8 string if $decoding is true, a string encoded by $encoding otherwise.
      */
@@ -191,7 +190,7 @@ class URLencoding
             case 'utf-16le':
                 $characterEncoding = strtoupper($encoding) == 'ISO-8859-8-I' ? 'ISO-8859-8' : $encoding;
                 if ($decoding) {
-                    $peviousSubstituteCharacter = mb_substitute_character();
+                    $previousSubstituteCharacter = mb_substitute_character();
                     mb_substitute_character($decoding ? 0xFFFD : 'entity');
                 }
                 $output = mb_convert_encoding(
@@ -200,7 +199,7 @@ class URLencoding
                     $decoding ? $encoding : 'UTF-8'
                 );
                 if ($decoding) {
-                    mb_substitute_character($peviousSubstituteCharacter);
+                    mb_substitute_character($previousSubstituteCharacter);
                 }
                 break;
             
@@ -231,10 +230,10 @@ class URLencoding
     }
     
     /**
-     * Get the code point of $char.
+     * Gets the code point of $char.
      * @link http://qiita.com/masakielastic/items/5696cf90738c1438f10d PHP - UTF-8 の文字からコードポイントを求める - Qiita
      * @param string $char Exactly one UTF-8 character.
-     * @return integer
+     * @return int
      */
     private static function getCodePoint($char)
     {
@@ -265,9 +264,9 @@ class URLencoding
     }
     
     /**
-     * Get the UTF-8 character from a code point $cp.
+     * Gets the UTF-8 character from a code point $cp.
      * @link http://qiita.com/masakielastic/items/68f81e1b7d153ee5cc81 PHP - コードポイントから UTF-8 の文字を生成する - Qiita
-     * @param integer $cp A valid code point.
+     * @param int $cp A valid code point.
      * @return string
      */
     private static function getUTF8Character($cp)

@@ -10,7 +10,7 @@ class URLSearchParamsIterator implements \Iterator
     /** @var \esperecyan\url\URLSearchParams */
     private $searchParams;
     
-    /** @var integer */
+    /** @var int */
     private $position = 0;
     
     /**
@@ -50,7 +50,7 @@ class URLSearchParamsIterator implements \Iterator
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function valid()
     {

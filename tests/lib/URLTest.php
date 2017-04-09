@@ -5,8 +5,8 @@ class URLTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @param string $url
-     * @param boolean $special
-     * @param boolean $local
+     * @param bool $special
+     * @param bool $local
      * @dataProvider schemeProvider
      */
     public function testIsSpecial($url, $special, $local)
@@ -15,8 +15,8 @@ class URLTest extends \PHPUnit_Framework_TestCase
     }
     /**
      * @param string $url
-     * @param boolean $special
-     * @param boolean $local
+     * @param bool $special
+     * @param bool $local
      * @dataProvider schemeProvider
      */
     public function testIsLocal($url, $special, $local)
@@ -46,7 +46,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param string $url
-     * @param boolean $includingCredentials
+     * @param bool $includingCredentials
      * @dataProvider credentialsProvider
      */
     public function testIsIncludingCredentials($url, $includingCredentials)
@@ -70,7 +70,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param string $url
-     * @param boolean $cannotHavingUsernamePasswordPort
+     * @param bool $cannotHavingUsernamePasswordPort
      * @dataProvider cannotHavingUsernamePasswordPortProvider
      */
     public function testCannotHaveUsernamePasswordPort($url, $cannotHavingUsernamePasswordPort)
@@ -311,7 +311,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @param string $url
-     * @param boolean $excludeFragmentFlag
+     * @param bool $excludeFragmentFlag
      * @param string $output
      * @dataProvider urlAndExcludeFragmentFlagProvider
      */

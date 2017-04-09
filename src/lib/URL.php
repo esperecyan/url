@@ -6,7 +6,7 @@ namespace esperecyan\url\lib;
  * A URL consists of components,
  * namely a scheme, scheme data, username, password, host, port, path, query, and fragment.
  * @link https://url.spec.whatwg.org/#urls URL Standard
- * @property boolean $nonRelativeFlag [Deprecated] Alias of $cannotBeABaseURLFlag.
+ * @property bool $nonRelativeFlag [Deprecated] Alias of $cannotBeABaseURLFlag.
  */
 class URL
 {
@@ -30,13 +30,13 @@ class URL
     public $password = '';
     
     /**
-     * @var string|integer|float|integer[]|null A URL’s host is either null or a host.
+     * @var string|int|float|int[]|null A URL’s host is either null or a host.
      * @link https://url.spec.whatwg.org/#concept-url-host URL Standard
      */
     public $host = null;
     
     /**
-     * @var integer|null A URL’s port is either null or a 16-bit integer that identifies a networking port.
+     * @var int|null A URL’s port is either null or a 16-bit integer that identifies a networking port.
      * @link https://url.spec.whatwg.org/#concept-url-port URL Standard
      */
     public $port = null;
@@ -81,7 +81,7 @@ class URL
     
     /**
      * @param string $name
-     * @param boolean $value
+     * @param bool $value
      */
     public function __set($name, $value)
     {
@@ -98,7 +98,7 @@ class URL
     public $object = null;
     
     /**
-     * @var (integer|null)[] A special scheme is a scheme in the key of this array.
+     * @var (int|null)[] A special scheme is a scheme in the key of this array.
      *      A default port is a special scheme’s optional corresponding port and is in the value on the key.
      * @link https://url.spec.whatwg.org/#special-scheme URL Standard
      */
@@ -115,7 +115,7 @@ class URL
     /**
      * A URL is special if its scheme is a special scheme.
      * @link https://url.spec.whatwg.org/#is-special URL Standard
-     * @return boolean Return true if a URL is special.
+     * @return bool Return true if a URL is special.
      */
     public function isSpecial()
     {
@@ -123,7 +123,7 @@ class URL
     }
     
     /**
-     * @var string[] A local scheme is a scheme that is one of "about", "blob", "data", and "filesystem".
+     * @var string[] A local scheme is a scheme that is one of “about”, “blob”, “data”, and “filesystem”.
      * @deprecated 5.0.0 The term “local scheme” has been moved
      *      from the URL Standard specification to the Fetch Standard specification.
      * @link https://github.com/whatwg/url/commit/8fb8684a19b449db4c8920aee6cd3efb41bcdcfd
@@ -139,7 +139,7 @@ class URL
      * @link https://github.com/whatwg/url/commit/8fb8684a19b449db4c8920aee6cd3efb41bcdcfd
      *      Editorial: move some terminology to the Fetch Standard · whatwg/url@8fb8684
      * @link https://fetch.spec.whatwg.org/#is-local URL Standard
-     * @return boolean Return true if a URL is local.
+     * @return bool Return true if a URL is local.
      */
     public function isLocal()
     {
@@ -149,7 +149,7 @@ class URL
     /**
      * A URL includes credentials if either its username is not the empty string or its password is non-null.
      * @link https://url.spec.whatwg.org/#include-credentials URL Standard
-     * @return boolean Return true if a URL includes credentials.
+     * @return bool Return true if a URL includes credentials.
      */
     public function isIncludingCredentials()
     {
@@ -160,7 +160,7 @@ class URL
      * A URL cannot have a username/password/port
      *      if its host is null or the empty string, its cannot-be-a-base-URL flag is set, or its scheme is “file”.
      * @link https://url.spec.whatwg.org/#cannot-have-a-username-password-port URL Standard
-     * @return boolean Return true if a URL cannot have a username/password/port.
+     * @return bool Return true if a URL cannot have a username/password/port.
      */
     public function cannotHaveUsernamePasswordPort()
     {
@@ -249,9 +249,9 @@ class URL
      * @param string $input A UTF-8 string.
      * @param URL|null $base A base URL.
      * @param string|null $encodingOverride A valid name of an encoding.
-     * @param (URL|string)[]|null $urlAndStateOverride An URL ("url" key) and a state override ("state override" key).
+     * @param (URL|string)[]|null $urlAndStateOverride An URL (“url” key) and a state override (“state override” key).
      * @throws \DomainException If $urlAndStateOverride['state override'] is invalid.
-     * @return URL|false|null
+     * @return URL|false|void
      */
     public static function parseBasicURL(
         $input,
@@ -755,7 +755,7 @@ class URL
     }
     
     /**
-     * Set the username of the URL given $username.
+     * Sets the username of the URL given $username.
      * @link https://url.spec.whatwg.org/#set-the-username URL Standard
      * @param string $username A UTF-8 string.
      */
@@ -766,7 +766,7 @@ class URL
     }
     
     /**
-     * Set the password of the URL given $password.
+     * Sets the password of the URL given $password.
      * @link https://url.spec.whatwg.org/#set-the-password URL Standard
      * @param string $password A UTF-8 string.
      */
@@ -779,7 +779,7 @@ class URL
     /**
      * The URL serializer.
      * @link https://url.spec.whatwg.org/#concept-url-serializer URL Standard
-     * @param boolean $excludeFragmentFlag An exclude fragment flag.
+     * @param bool $excludeFragmentFlag An exclude fragment flag.
      */
     public function serializeURL($excludeFragmentFlag = false)
     {
@@ -813,7 +813,7 @@ class URL
     /**
      * A URL’s origin is the origin, switching on URL’s scheme.
      * @link https://url.spec.whatwg.org/#origin URL Standard
-     * @return (string|integer|null)[]|string An array with the first element the scheme, the second element the host,
+     * @return (string|int|null)[]|string An array with the first element the scheme, the second element the host,
      *      the third element the port, and the four element the domain. Or an unique string of 23 characters.
      */
     public function getOrigin()
