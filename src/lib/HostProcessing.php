@@ -234,7 +234,7 @@ class HostProcessing
      */
     public static function serializeHost($host)
     {
-        if (is_int($host) || is_float($host) || $host instanceof \SplInt || $host instanceof \SplFloat) {
+        if (is_int($host) || is_float($host)) {
             $string = self::serializeIPv4($host);
         } elseif (is_array($host)) {
             $string = '[' . self::serializeIPv6($host) . ']';
