@@ -91,13 +91,27 @@ class URLTest extends \PHPUnit_Framework_TestCase
     public function urlProvider()
     {
         return [
-            ['http://url.test/', null                       , 'http://url.test/'                 ],
-            ['//url.test/'     , 'http://base.test/'        , 'http://url.test/'                 ],
-            ['/path'           , 'http://base.test/foo/bar' , 'http://base.test/path'            ],
-            ['filename'        , 'http://base.test/foo/bar' , 'http://base.test/foo/filename'    ],
-            ['filename'        , 'http://base.test/foo/bar/', 'http://base.test/foo/bar/filename'],
-            [''                , 'http://base.test/foo/bar' , 'http://base.test/foo/bar'         ],
-            ['.'               , 'http://base.test/foo/bar' , 'http://base.test/foo/'            ],
+            ['http://url.test/'                  , null                       , 'http://url.test/'                  ],
+            ['//url.test/'                       , 'http://base.test/'        , 'http://url.test/'                  ],
+            ['/path'                             , 'http://base.test/foo/bar' , 'http://base.test/path'             ],
+            ['filename'                          , 'http://base.test/foo/bar' , 'http://base.test/foo/filename'     ],
+            ['filename'                          , 'http://base.test/foo/bar/', 'http://base.test/foo/bar/filename' ],
+            [''                                  , 'http://base.test/foo/bar' , 'http://base.test/foo/bar'          ],
+            ['.'                                 , 'http://base.test/foo/bar' , 'http://base.test/foo/'             ],
+            // https://url.spec.whatwg.org/#example-url-parsing
+            ['https:example.org'                 , null                       , 'https://example.org/'              ],
+            ['https://////example.com///'        , null                       , 'https://example.com///'            ],
+            ['https://example.com/././foo'       , null                       , 'https://example.com/foo'           ],
+            ['hello:world'                       , 'https://example.com/'     , 'hello:world'                       ],
+            ['https:example.org'                 , 'https://example.com/'     , 'https://example.com/example.org'   ],
+            ['\\example\\..\\demo/.\\'           , 'https://example.com/'     , 'https://example.com/demo/'         ],
+            ['example'                           , 'https://example.com/demo' , 'https://example.com/example'       ],
+            ['file:///C|/demo'                   , null                       , 'file:///C:/demo'                   ],
+            ['..'                                , 'file:///C:/demo'          , 'file:///C:/'                       ],
+            ['file://loc%61lhost/'               , null                       , 'file:///'                          ],
+            ['https://user:password@example.org/', null                       , 'https://user:password@example.org/'],
+            ['https://example.org/foo bar'       , null                       , 'https://example.org/foo%20bar'     ],
+            ['https://EXAMPLE.com/../x'          , null                       , 'https://example.com/x'             ],
         ];
     }
     
@@ -151,6 +165,11 @@ class URLTest extends \PHPUnit_Framework_TestCase
             [''                            ],
             ['.'                           ],
             ['file://invalid:8080/filename'],
+            // https://url.spec.whatwg.org/#example-url-parsing
+            ['https://ex ample.org/'       ],
+            ['example'                     ],
+            ['https://example.com:demo'    ],
+            ['http://[www.example.com]/ '  ],
         ];
     }
     
