@@ -580,9 +580,9 @@ class URL
                                 break;
                             default:
                                 $remaining = array_slice($codePoints, $pointer + 1);
-                                if (isset($remaining[0]) && preg_match(static::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
-                                    || count($remaining) === 1
-                                    || isset($remaining[1]) && strpos('/\\?#', $remaining[1]) === false) {
+                                if (count($remaining) === 0
+                                    || preg_match(static::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
+                                    || count($remaining) === 2 && strpos('/\\?#', $remaining[1]) === false) {
                                     $url->host = $base->host;
                                     $url->path = $base->path;
                                     $url->shortenPath();
