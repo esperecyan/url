@@ -241,7 +241,7 @@ class URL implements \JsonSerializable
                 break;
             
             case 'origin':
-                $value = self::unicodeSerialiseOrigin($this->url->getOrigin());
+                $value = self::serialiseOrigin($this->url->getOrigin());
                 break;
             
             case 'protocol':
@@ -302,17 +302,17 @@ class URL implements \JsonSerializable
     }
     
     /**
-     * The Unicode serialisation of an origin.
-     * @link https://html.spec.whatwg.org/multipage/browsers.html#unicode-serialisation-of-an-origin HTML Standard
+     * The serialization of an origin.
+     * @link https://html.spec.whatwg.org/multipage/browsers.html#ascii-serialisation-of-an-origin HTML Standard
      * @param string[]|string $origin
      * @return string
      */
-    private static function unicodeSerialiseOrigin($origin)
+    private static function serialiseOrigin($origin)
     {
         if (!is_array($origin)) {
             $result = 'null';
         } else {
-            $result = $origin[0] . '://' . lib\HostProcessing::domainToUnicode($origin[1]);
+            $result = $origin[0] . '://' . lib\HostProcessing::serializeHost($origin[1]);
             if (isset(lib\URL::$specialSchemes[$origin[0]]) && $origin[2] !== lib\URL::$specialSchemes[$origin[0]]) {
                 $result .= ':' . $origin[2];
             }
