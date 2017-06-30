@@ -332,7 +332,7 @@
 </span><span id="241" class="l">                <span class="php-keyword1">break</span>;
 </span><span id="242" class="l">            
 </span><span id="243" class="l">            <span class="php-keyword1">case</span> <span class="php-quote">'origin'</span>:
-</span><span id="244" class="l">                <span class="php-var">$value</span> = self::unicodeSerialiseOrigin(<span class="php-var">$this</span>-&gt;url-&gt;getOrigin());
+</span><span id="244" class="l">                <span class="php-var">$value</span> = self::serialiseOrigin(<span class="php-var">$this</span>-&gt;url-&gt;getOrigin());
 </span><span id="245" class="l">                <span class="php-keyword1">break</span>;
 </span><span id="246" class="l">            
 </span><span id="247" class="l">            <span class="php-keyword1">case</span> <span class="php-quote">'protocol'</span>:
@@ -393,17 +393,17 @@
 </span><span id="302" class="l">    }
 </span><span id="303" class="l">    
 </span><span id="304" class="l">    <span class="php-comment">/**
-</span></span><span id="305" class="l"><span class="php-comment">     * The Unicode serialisation of an origin.
-</span></span><span id="306" class="l"><span class="php-comment">     * @link https://html.spec.whatwg.org/multipage/browsers.html#unicode-serialisation-of-an-origin HTML Standard
+</span></span><span id="305" class="l"><span class="php-comment">     * The serialization of an origin.
+</span></span><span id="306" class="l"><span class="php-comment">     * @link https://html.spec.whatwg.org/multipage/browsers.html#ascii-serialisation-of-an-origin HTML Standard
 </span></span><span id="307" class="l"><span class="php-comment">     * @param string[]|string $origin
 </span></span><span id="308" class="l"><span class="php-comment">     * @return string
 </span></span><span id="309" class="l"><span class="php-comment">     */</span>
-</span><span id="310" class="l">    <span class="php-keyword1">private</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> unicodeSerialiseOrigin(<span class="php-var">$origin</span>)
+</span><span id="310" class="l">    <span class="php-keyword1">private</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> serialiseOrigin(<span class="php-var">$origin</span>)
 </span><span id="311" class="l">    {
 </span><span id="312" class="l">        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$origin</span>)) {
 </span><span id="313" class="l">            <span class="php-var">$result</span> = <span class="php-quote">'null'</span>;
 </span><span id="314" class="l">        } <span class="php-keyword1">else</span> {
-</span><span id="315" class="l">            <span class="php-var">$result</span> = <span class="php-var">$origin</span>[<span class="php-num">0</span>] . <span class="php-quote">'://'</span> . lib\HostProcessing::domainToUnicode(<span class="php-var">$origin</span>[<span class="php-num">1</span>]);
+</span><span id="315" class="l">            <span class="php-var">$result</span> = <span class="php-var">$origin</span>[<span class="php-num">0</span>] . <span class="php-quote">'://'</span> . lib\HostProcessing::serializeHost(<span class="php-var">$origin</span>[<span class="php-num">1</span>]);
 </span><span id="316" class="l">            <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(lib\URL::<span class="php-var">$specialSchemes</span>[<span class="php-var">$origin</span>[<span class="php-num">0</span>]]) &amp;&amp; <span class="php-var">$origin</span>[<span class="php-num">2</span>] !== lib\URL::<span class="php-var">$specialSchemes</span>[<span class="php-var">$origin</span>[<span class="php-num">0</span>]]) {
 </span><span id="317" class="l">                <span class="php-var">$result</span> .= <span class="php-quote">':'</span> . <span class="php-var">$origin</span>[<span class="php-num">2</span>];
 </span><span id="318" class="l">            }
@@ -453,7 +453,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?60421dbf828456e14238cc94e745ccdd6906b19e"></script>
+<script src="resources/combined.js?ff4ce7afed0aa1e2f8651bb68aefacfff3ed9695"></script>
 <script src="elementlist.js?58fa20fcdb9bb4088a825a4538999227131feb70"></script>
 </body>
 </html>
