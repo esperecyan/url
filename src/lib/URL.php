@@ -305,10 +305,14 @@ class URL
                             return;
                         }
                         $url->scheme = $buffer;
-                        $buffer = '';
                         if ($stateOverride) {
+                            if (isset(self::$specialSchemes[$url->scheme])
+                                && self::$specialSchemes[$url->scheme] === $url->port) {
+                                $url->port = null;
+                            }
                             return;
                         }
+                        $buffer = '';
                         if ($url->scheme === 'file') {
                             $state = 'file state';
                         } elseif ($url->isSpecial() && $base && $base->scheme === $url->scheme) {

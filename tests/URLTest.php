@@ -255,25 +255,30 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param string $urlString USVString
      * @param string $protocol USVString
      * @param string $returnValue USVString
+     * @param string|null $returnPortValue USVString
      * @dataProvider protocolProvider
      */
-    public function testProtocol($urlString, $protocol, $returnValue)
+    public function testProtocol($urlString, $protocol, $returnValue, $returnPortValue = null)
     {
         $url = new URL($urlString);
         $url->protocol = $protocol;
         $this->assertSame($returnValue, $url->protocol);
+        if (isset($returnPortValue)) {
+            $this->assertSame($returnPortValue, $url->port);
+        }
     }
     
     public function protocolProvider()
     {
         return [
-            ['http://url.test/', 'https'                , 'https:' ],
-            ['http://url.test/', 'wss:'                 , 'wss:'   ],
-            ['http://url.test/', 'WS'                   , 'ws:'    ],
-            ['http://url.test/', ' ftp'                 , 'http:'  ],
-            ['http://url.test/', 'gopher'               , 'gopher:'],
-            ['http://url.test/', 'wss://foobar.example/', 'wss:'   ],
-            ['http://url.test/', 'invalid scheme'       , 'http:'  ],
+            ['http://url.test/'    , 'https'                , 'https:'     ],
+            ['https://url.test:80/', 'http:'                , 'http:'  , ''],
+            ['http://url.test/'    , 'wss:'                 , 'wss:'       ],
+            ['http://url.test/'    , 'WS'                   , 'ws:'        ],
+            ['http://url.test/'    , ' ftp'                 , 'http:'      ],
+            ['http://url.test/'    , 'gopher'               , 'gopher:'    ],
+            ['http://url.test/'    , 'wss://foobar.example/', 'wss:'       ],
+            ['http://url.test/'    , 'invalid scheme'       , 'http:'      ],
         ];
     }
     
