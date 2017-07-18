@@ -147,6 +147,10 @@ class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
             '%20' => ' ',
             '' => '',
         ], iterator_to_array($url->searchParams));
+        
+        $queryTestURL = new URL('https://query.test/?name=value');
+        $queryTestURL->searchParams->delete('name');
+        $this->assertSame('https://query.test/', $queryTestURL->href);
     }
     
     public function testIterable()

@@ -88,7 +88,7 @@ class URLSearchParams implements \IteratorAggregate
     {
         if ($this->urlObject) {
             \Closure::bind(function ($urlObject, $query) {
-                $urlObject->url->query = $query;
+                $urlObject->url->query = $query === '' ? null : $query;
             }, null, $this->urlObject)->__invoke($this->urlObject, lib\URLencoding::serializeURLencoded($this->list));
         }
     }
