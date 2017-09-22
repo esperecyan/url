@@ -179,7 +179,7 @@
 </span><span id="88" class="l">    {
 </span><span id="89" class="l">        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;urlObject) {
 </span><span id="90" class="l">            \Closure::bind(<span class="php-keyword1">function</span> (<span class="php-var">$urlObject</span>, <span class="php-var">$query</span>) {
-</span><span id="91" class="l">                <span class="php-var">$urlObject</span>-&gt;url-&gt;query = <span class="php-var">$query</span>;
+</span><span id="91" class="l">                <span class="php-var">$urlObject</span>-&gt;url-&gt;query = <span class="php-var">$query</span> === <span class="php-quote">''</span> ? <span class="php-keyword1">null</span> : <span class="php-var">$query</span>;
 </span><span id="92" class="l">            }, <span class="php-keyword1">null</span>, <span class="php-var">$this</span>-&gt;urlObject)-&gt;__invoke(<span class="php-var">$this</span>-&gt;urlObject, lib\URLencoding::serializeURLencoded(<span class="php-var">$this</span>-&gt;<span class="php-keyword1">list</span>));
 </span><span id="93" class="l">        }
 </span><span id="94" class="l">    }
@@ -329,6 +329,6 @@
 </div>
 </div>
 <script src="resources/combined.js?ff4ce7afed0aa1e2f8651bb68aefacfff3ed9695"></script>
-<script src="elementlist.js?58fa20fcdb9bb4088a825a4538999227131feb70"></script>
+<script src="elementlist.js?d90ef26ac09f6ff056409789dc87217667e27b32"></script>
 </body>
 </html>

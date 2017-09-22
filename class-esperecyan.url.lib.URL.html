@@ -117,7 +117,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 				<b>Link:</b>
 				<a href="https://url.spec.whatwg.org/#urls">URL Standard</a><br>
-			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-850" title="Go to source code">lib\URL.php</a>
+			<b>Located at</b> <a href="source-class-esperecyan.url.lib.URL.html#4-862" title="Go to source code">lib\URL.php</a>
 		<br>
 	</div>
 
@@ -361,6 +361,49 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="stringStartsWithWindowsDriveLetter" id="_stringStartsWithWindowsDriveLetter">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_stringStartsWithWindowsDriveLetter">#</a>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#184-193" title="Go to source code">stringStartsWithWindowsDriveLetter</a>( <span>string <var>$str</var></span> )</code>
+
+		<div class="description short">
+			<p>Returns <code>true</code> if the specified string “starts with a Windows drive letter”.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns <code>true</code> if the specified string “starts with a Windows drive letter”.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$str</var></dt>
+					<dd>A UTF-8 string.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Link</h4>
+				<div class="list">
+						<a href="https://url.spec.whatwg.org/#start-with-a-windows-drive-letter">URL Standard</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="shortenPath" id="_shortenPath">
 
 		<td class="attributes"><code>
@@ -373,7 +416,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_shortenPath">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#184-194" title="Go to source code">shortenPath</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#195-205" title="Go to source code">shortenPath</a>( )</code>
 
 		<div class="description short">
 			<p>Shortens a path.</p>
@@ -407,7 +450,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_popPath">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#196-206" title="Go to source code">popPath</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#207-217" title="Go to source code">popPath</a>( )</code>
 
 		<div class="description short">
 			<p>Alias of shortenPath().</p>
@@ -449,7 +492,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#233-244" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#244-255" title="Go to source code">parseURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL parser.</p>
@@ -496,7 +539,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseBasicURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#246-759" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#257-771" title="Go to source code">parseBasicURL</a>( <span>string <var>$input</var></span>, <span><code><a href="class-esperecyan.url.lib.URL.html">esperecyan\url\lib\URL</a></code> <var>$base</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$encodingOverride</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$urlAndStateOverride</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			<p>The basic URL parser.</p>
@@ -549,7 +592,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUsername">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#761-770" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#773-782" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the username of the URL given $username.</p>
@@ -588,7 +631,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#772-781" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#784-793" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the password of the URL given $password.</p>
@@ -627,7 +670,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serializeURL">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#783-815" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#795-827" title="Go to source code">serializeURL</a>( <span>boolean <var>$excludeFragmentFlag</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>The URL serializer.</p>
@@ -666,7 +709,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrigin">#</a>
-		<code><a href="source-class-esperecyan.url.lib.URL.html#817-849" title="Go to source code">getOrigin</a>( )</code>
+		<code><a href="source-class-esperecyan.url.lib.URL.html#829-861" title="Go to source code">getOrigin</a>( )</code>
 
 		<div class="description short">
 			<p>A URL’s origin is the origin, switching on URL’s scheme.</p>
@@ -765,7 +808,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-constant-SINGLE_DOT_PATH_SEGMENT.html#208-213" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
+				<a href="source-constant-SINGLE_DOT_PATH_SEGMENT.html#219-224" title="Go to source code"><b>SINGLE_DOT_PATH_SEGMENT</b></a>
 			</code>
 
 			<div class="description short">
@@ -793,7 +836,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-constant-DOUBLE_DOT_PATH_SEGMENT.html#215-220" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
+				<a href="source-constant-DOUBLE_DOT_PATH_SEGMENT.html#226-231" title="Go to source code"><b>DOUBLE_DOT_PATH_SEGMENT</b></a>
 			</code>
 
 			<div class="description short">
@@ -821,7 +864,7 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-constant-URL_CODE_POINTS.html#222-227" title="Go to source code"><b>URL_CODE_POINTS</b></a>
+				<a href="source-constant-URL_CODE_POINTS.html#233-238" title="Go to source code"><b>URL_CODE_POINTS</b></a>
 			</code>
 
 			<div class="description short">
@@ -1258,6 +1301,6 @@ namely a scheme, scheme data, username, password, host, port, path, query, and f
 </div>
 </div>
 <script src="resources/combined.js?ff4ce7afed0aa1e2f8651bb68aefacfff3ed9695"></script>
-<script src="elementlist.js?58fa20fcdb9bb4088a825a4538999227131feb70"></script>
+<script src="elementlist.js?d90ef26ac09f6ff056409789dc87217667e27b32"></script>
 </body>
 </html>
