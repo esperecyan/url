@@ -114,6 +114,8 @@ class URLTest extends \PHPUnit_Framework_TestCase
             ['https://EXAMPLE.com/../x'          , null                       , 'https://example.com/x'             ],
             // https://github.com/whatwg/url/commit/fe6b251739e225555f04319f19c70c031a5d99eb
             ['C|'                                , 'file://host/dir/file'     , 'file:///C:'                        ],
+            // https://github.com/whatwg/url/commit/2eef975e989cb5ae2d62467394778fd6778ddec9
+            ['/c:/foo/bar'                       , 'file:///c:/baz/qux'       , 'file:///c:/foo/bar'                ],
         ];
     }
     

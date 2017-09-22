@@ -134,35 +134,36 @@ READMEの英訳をハダーさんに協力していただきました。
 | [IPv4 直列化器]                              | [esperecyan\url\lib\HostProcessing::serializeIPv4()]            |
 | [IPv6 直列化器]                              | [esperecyan\url\lib\HostProcessing::serializeIPv6()]            |
 
-| [4. URL]                                   |                                                            |
-|--------------------------------------------|------------------------------------------------------------|
-| [URL]                                      | [esperecyan\url\lib\URLクラス]のインスタンス               |
-| [スキーム]                                 | [esperecyan\url\lib\URL->scheme]                           |
-| [ユーザ名]                                 | [esperecyan\url\lib\URL->username]                         |
-| [パスワード]                               | [esperecyan\url\lib\URL->password]                         |
-| [ホスト]                                   | [esperecyan\url\lib\URL->host]                             |
-| [ポート]                                   | [esperecyan\url\lib\URL->port]                             |
-| [パス]                                     | [esperecyan\url\lib\URL->path]                             |
-| [クエリ]                                   | [esperecyan\url\lib\URL->query]                            |
-| [素片]                                     | [esperecyan\url\lib\URL->fragment]                         |
-| [基底 URL 不可用 flag]                     | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]             |
-| [オブジェクト]                             | [esperecyan\url\lib\URL->object]                           |
-| [特別スキーム]                             | [esperecyan\url\lib\URL::$specialSchemes]                  |
-| [特別]                                     | [esperecyan\url\lib\URL->isSpecial()]                      |
-| [資格証明情報を含む]                       | [esperecyan\url\lib\URL->isIncludingCredentials()]         |
-| [ユーザ名 / パスワード / ポートを持てない] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()] |
-| [Windows ドライブレター]                   | [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]             |
-| [正規化済み Windows ドライブレター]        | [esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]  |
-| [パスを短縮する]                           | [esperecyan\url\lib\URL->shortenPath()]                    |
-| [単ドットパス区分]                         | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]          |
-| [二重ドットパス区分]                       | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]          |
-| [URL 符号位置]                             | [esperecyan\url\lib\URL::URL_CODE_POINTS]                  |
-| [URL 構文解析器]                           | [esperecyan\url\lib\URL::parseURL()]                       |
-| [基本 URL 構文解析器]                      | [esperecyan\url\lib\URL::parseBasicURL()]                  |
-| [ユーザ名を設定する]                       | [esperecyan\url\lib\URL->setUsername()]                    |
-| [パスワードを設定する]                     | [esperecyan\url\lib\URL->setPassword()]                    |
-| [URL 直列化器]                             | [esperecyan\url\lib\URL->serializeURL()]                   |
-| [生成元]                                   | [esperecyan\url\lib\URL->getOrigin()]                      |
+| [4. URL]                                   |                                                                |
+|--------------------------------------------|----------------------------------------------------------------|
+| [URL]                                      | [esperecyan\url\lib\URLクラス]のインスタンス                   |
+| [スキーム]                                 | [esperecyan\url\lib\URL->scheme]                               |
+| [ユーザ名]                                 | [esperecyan\url\lib\URL->username]                             |
+| [パスワード]                               | [esperecyan\url\lib\URL->password]                             |
+| [ホスト]                                   | [esperecyan\url\lib\URL->host]                                 |
+| [ポート]                                   | [esperecyan\url\lib\URL->port]                                 |
+| [パス]                                     | [esperecyan\url\lib\URL->path]                                 |
+| [クエリ]                                   | [esperecyan\url\lib\URL->query]                                |
+| [素片]                                     | [esperecyan\url\lib\URL->fragment]                             |
+| [基底 URL 不可用 flag]                     | [esperecyan\url\lib\URL->cannotBeABaseURLFlag]                 |
+| [オブジェクト]                             | [esperecyan\url\lib\URL->object]                               |
+| [特別スキーム]                             | [esperecyan\url\lib\URL::$specialSchemes]                      |
+| [特別]                                     | [esperecyan\url\lib\URL->isSpecial()]                          |
+| [資格証明情報を含む]                       | [esperecyan\url\lib\URL->isIncludingCredentials()]             |
+| [ユーザ名 / パスワード / ポートを持てない] | [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]     |
+| [Windows ドライブレター]                   | [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]                 |
+| [正規化済み Windows ドライブレター]        | [esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]      |
+| [Windows ドライブレターから開始されている] | [esperecyan\url\lib\URL::stringStartsWithWindowsDriveLetter()] |
+| [パスを短縮する]                           | [esperecyan\url\lib\URL->shortenPath()]                        |
+| [単ドットパス区分]                         | [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]              |
+| [二重ドットパス区分]                       | [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]              |
+| [URL 符号位置]                             | [esperecyan\url\lib\URL::URL_CODE_POINTS]                      |
+| [URL 構文解析器]                           | [esperecyan\url\lib\URL::parseURL()]                           |
+| [基本 URL 構文解析器]                      | [esperecyan\url\lib\URL::parseBasicURL()]                      |
+| [ユーザ名を設定する]                       | [esperecyan\url\lib\URL->setUsername()]                        |
+| [パスワードを設定する]                     | [esperecyan\url\lib\URL->setPassword()]                        |
+| [URL 直列化器]                             | [esperecyan\url\lib\URL->serializeURL()]                       |
+| [生成元]                                   | [esperecyan\url\lib\URL->getOrigin()]                          |
 
 | [5. application/x-www-form-urlencoded]               |                                                             |
 |------------------------------------------------------|-------------------------------------------------------------|
@@ -217,6 +218,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [ユーザ名 / パスワード / ポートを持てない]: https://triple-underscore.github.io/URL-ja.html#cannot-have-a-username-password-port
 [Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#windows-drive-letter
 [正規化済み Windows ドライブレター]: https://triple-underscore.github.io/URL-ja.html#normalized-windows-drive-letter
+[Windows ドライブレターから開始されている]: https://triple-underscore.github.io/URL-ja.html#start-with-a-windows-drive-letter
 [パスを短縮する]: https://triple-underscore.github.io/URL-ja.html#shorten-a-urls-path
 [単ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dot
 [二重ドットパス区分]: https://triple-underscore.github.io/URL-ja.html#syntax-url-path-segment-dotdot
@@ -271,6 +273,7 @@ READMEの英訳をハダーさんに協力していただきました。
 [esperecyan\url\lib\URL->cannotHaveUsernamePasswordPort()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_cannotHaveUsernamePasswordPort
 [esperecyan\url\lib\URL::WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#WINDOWS_DRIVE_LETTER
 [esperecyan\url\lib\URL::NORMALIZED_WINDOWS_DRIVE_LETTER]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#NORMALIZED_WINDOWS_DRIVE_LETTER
+[esperecyan\url\lib\URL::stringStartsWithWindowsDriveLetter()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_stringStartsWithWindowsDriveLetter
 [esperecyan\url\lib\URL->shortenPath()]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#_shortenPath
 [esperecyan\url\lib\URL::SINGLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#SINGLE_DOT_PATH_SEGMENT
 [esperecyan\url\lib\URL::DOUBLE_DOT_PATH_SEGMENT]: https://esperecyan.github.io/url/class-esperecyan.url.lib.URL#DOUBLE_DOT_PATH_SEGMENT

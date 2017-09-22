@@ -182,6 +182,17 @@ class URL
     const NORMALIZED_WINDOWS_DRIVE_LETTER = '/^[a-z]:$/ui';
     
     /**
+     * Returns `true` if the specified string “starts with a Windows drive letter”.
+     * @link https://url.spec.whatwg.org/#start-with-a-windows-drive-letter URL Standard
+     * @param string $str A UTF-8 string.
+     * @return bool
+     */
+    public static function stringStartsWithWindowsDriveLetter($str)
+    {
+        return preg_match('{^[a-z][:|](?:$|[/\\\\?#])}ui', $str) === 1;
+    }
+    
+    /**
      * Shortens a path.
      * @link https://url.spec.whatwg.org/#shorten-a-urls-path URL Standard
      */
@@ -583,10 +594,9 @@ class URL
                                 }
                                 break;
                             default:
-                                $remaining = array_slice($codePoints, $pointer + 1);
-                                if (count($remaining) === 0
-                                    || preg_match(static::WINDOWS_DRIVE_LETTER, $c . $remaining[0]) === 0
-                                    || count($remaining) === 2 && strpos('/\\?#', $remaining[1]) === false) {
+                                if (!static::stringStartsWithWindowsDriveLetter(
+                                    implode('', array_slice($codePoints, $pointer))
+                                )) {
                                     $url->host = $base->host;
                                     $url->path = $base->path;
                                     $url->shortenPath();
@@ -604,7 +614,9 @@ class URL
                     if ($c === '/' || $c === '\\') {
                         $state = 'file host state';
                     } else {
-                        if ($base && $base->scheme === 'file') {
+                        if ($base && $base->scheme === 'file' && !static::stringStartsWithWindowsDriveLetter(
+                            implode('', array_slice($codePoints, $pointer))
+                        )) {
                             if (isset($base->path[0])
                                 && preg_match(static::NORMALIZED_WINDOWS_DRIVE_LETTER, $base->path[0]) === 1) {
                                 $url->path[] = $base->path[0];

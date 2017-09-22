@@ -90,6 +90,33 @@ class URLTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $str
+     * @param bool $startsWithWindowsDriveLetter
+     * @dataProvider windowsDriveLetterProvider
+     */
+    public function testStringStartsWithWindowsDriveLetter($str, $startsWithWindowsDriveLetter)
+    {
+        $this->assertSame($startsWithWindowsDriveLetter, URL::stringStartsWithWindowsDriveLetter($str));
+    }
+    
+    public function windowsDriveLetterProvider()
+    {
+        return [
+            ['c:'      , true ],
+            ['c:/'     , true ],
+            ['c:a'     , false],
+            ['D'       , false],
+            ['E:/path' , true ],
+            ['F:\\path', true ],
+            ['G:?path' , true ],
+            ['H:#path' , true ],
+            ['I:>path' , false],
+            ['z:/path' , true ],
+            [''        , false],
+        ];
+    }
+
+    /**
      * @param string $url
      * @param string[] $path
      * @dataProvider pathProvider
