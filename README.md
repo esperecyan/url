@@ -49,9 +49,6 @@ Requirement
 -----------
 * PHP 5.4 or later **(PHP 5.4 and 5.5 are deprecated)**
 	+ SPL Types PECL library is not supported
-* [Intl extension module]
-
-[Intl extension module]: https://secure.php.net/intl "Internationalization extension (is referred as Intl) is a wrapper for ICU library, enabling PHP programmers to perform UCA-conformant collation and date/time/number/currency formatting in their scripts. "
 
 Install
 -------
