@@ -293,7 +293,7 @@ class URL
             
             switch ($state) {
                 case 'scheme start state':
-                    if (stripos('abcdefghijklmnopqrstuvwxyz', $c) !== false) {
+                    if ($c !== '' && stripos('abcdefghijklmnopqrstuvwxyz', $c) !== false) {
                         $buffer .= strtolower($c);
                         $state = 'scheme state';
                     } elseif (!$stateOverride) {
@@ -305,7 +305,7 @@ class URL
                     break;
 
                 case 'scheme state':
-                    if (stripos('0123456789abcdefghijklmnopqrstuvwxyz+-.', $c) !== false) {
+                    if ($c !== '' && stripos('0123456789abcdefghijklmnopqrstuvwxyz+-.', $c) !== false) {
                         $buffer .= strtolower($c);
                     } elseif ($c === ':') {
                         if ($stateOverride && (

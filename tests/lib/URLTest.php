@@ -271,6 +271,11 @@ class URLTest extends \PHPUnit\Framework\TestCase
                 'scheme' => 'tftp',
                 'host' => 'url.test',
             ]],
+            ['filename', URL::parseURL('http://base.test/foo/bar'), null, null, null, [
+                'scheme' => 'http',
+                'host' => 'base.test',
+                'path' => ['foo', 'filename'],
+            ]],
             ['http://url.test/?テスト', null, null, null, null, [
                 'query' => '%E3%83%86%E3%82%B9%E3%83%88',
             ]],
