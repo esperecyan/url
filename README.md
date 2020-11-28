@@ -47,7 +47,7 @@ string(5) "value"
 
 Requirement
 -----------
-* PHP 5.4 or later **(PHP 5.4 – 7.1 are deprecated)**
+* PHP 5.4, or 7.2 or later **(PHP 5.4 are deprecated)**
 	+ SPL Types PECL library is not supported
 
 Install
