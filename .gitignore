@@ -1,3 +1,7 @@
+### PHPUnit ###
+/.phpunit.result.cache
+
+
 # Created by https://www.gitignore.io
 
 ### NetBeans ###
