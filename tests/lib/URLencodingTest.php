@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url\lib;
 
-class URLencodingTest extends \PHPUnit_Framework_TestCase
+class URLencodingTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string $input
@@ -83,7 +83,7 @@ class URLencodingTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider urlencodedProvider
      */
-    public function testSerializeURLencoded($pairs, $encodingOverride, $output, $message = null)
+    public function testSerializeURLencoded($pairs, $encodingOverride, $output, $message = '')
     {
         if ($message) {
             $this->markTestSkipped($message);

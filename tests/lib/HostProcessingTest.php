@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url\lib;
 
-class HostProcessingTest extends \PHPUnit_Framework_TestCase
+class HostProcessingTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string $domain
@@ -9,7 +9,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider asciiProvider
      */
-    public function testDomainToASCII($domain, $ascii, $message = null)
+    public function testDomainToASCII($domain, $ascii, $message = '')
     {
         if ($message) {
             $this->markTestSkipped($message);
@@ -54,7 +54,7 @@ class HostProcessingTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider unicodeProvider
      */
-    public function testDomainToUnicode($domain, $unicode, $message = null)
+    public function testDomainToUnicode($domain, $unicode, $message = '')
     {
         if ($message) {
             $this->markTestSkipped($message);

@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url;
 
-class URLTest extends \PHPUnit_Framework_TestCase
+class URLTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string $domain USVString
@@ -9,7 +9,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider asciiProvider
      */
-    public function testDomainToASCII($domain, $ascii, $message = null)
+    public function testDomainToASCII($domain, $ascii, $message = '')
     {
         $this->assertSame($ascii, URL::domainToASCII($domain), $message);
     }
@@ -46,7 +46,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider unicodeProvider
      */
-    public function testDomainToUnicode($domain, $unicode, $message = null)
+    public function testDomainToUnicode($domain, $unicode, $message = '')
     {
         $this->assertSame($unicode, URL::domainToUnicode($domain), $message);
     }

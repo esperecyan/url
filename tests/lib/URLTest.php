@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url\lib;
 
-class URLTest extends \PHPUnit_Framework_TestCase
+class URLTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string $url
@@ -165,7 +165,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider urlProvider
      */
-    public function testParseURL($input, $base, $encodingOverride, $url, $stateOverride, $expectedComponents, $message = null)
+    public function testParseURL($input, $base, $encodingOverride, $url, $stateOverride, $expectedComponents, $message = '')
     {
         if ($message) {
             $this->markTestSkipped($message);
@@ -207,7 +207,7 @@ class URLTest extends \PHPUnit_Framework_TestCase
      * @param string|null $message
      * @dataProvider basicUrlProvider
      */
-    public function testParseBasicURL($input, $base, $encodingOverride, $url, $stateOverride, $expectedComponents, $message = null)
+    public function testParseBasicURL($input, $base, $encodingOverride, $url, $stateOverride, $expectedComponents, $message = '')
     {
         if ($message) {
             $this->markTestSkipped($message);

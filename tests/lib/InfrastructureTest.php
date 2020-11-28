@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url\lib;
 
-class InfrastructureTest extends \PHPUnit_Framework_TestCase
+class InfrastructureTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string $byte Exactly one byte.

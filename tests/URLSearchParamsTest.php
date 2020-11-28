@@ -1,7 +1,7 @@
 <?php
 namespace esperecyan\url;
 
-class URLSearchParamsTest extends \PHPUnit_Framework_TestCase
+class URLSearchParamsTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @param string[][]|string[]|string $init
