@@ -32,13 +32,13 @@ class URL implements \JsonSerializable
      * @link https://url.spec.whatwg.org/#concept-url-url URL Standard
      */
     private $url;
-    
+
     /**
      * @var URLSearchParams An associated query object.
      * @link https://url.spec.whatwg.org/#concept-url-query-object URL Standard
      */
     private $queryObject;
-    
+
     /**
      * The constructor returns a newly created URL object representing the URL defined by the parameters.
      * @link https://url.spec.whatwg.org/#dom-URL-URL URL Standard
@@ -70,7 +70,7 @@ class URL implements \JsonSerializable
             $queryObject->urlObject = $this;
         }, $this, $this->queryObject)->__invoke($this->queryObject);
     }
-    
+
     /**
      * Converts domain name to IDNA ASCII form.
      * @deprecated 5.0.0 URL::domainToASCII() has been removed from the URL Standard specification.
@@ -85,7 +85,7 @@ class URL implements \JsonSerializable
         $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain), true);
         return is_string($asciiDomain) ? $asciiDomain : '';
     }
-    
+
     /**
      * Converts domain name from IDNA ASCII to Unicode.
      * @deprecated 5.0.0 URL::domainToUnicode() has been removed from the URL Standard specification.
@@ -100,7 +100,7 @@ class URL implements \JsonSerializable
         $asciiDomain = lib\HostProcessing::parseHost(TypeHinter::to('USVString', $domain), true);
         return is_string($asciiDomain) ? lib\HostProcessing::domainToUnicode($asciiDomain) : '';
     }
-    
+
     /**
      * @param string $name
      * @param string $value
@@ -114,7 +114,7 @@ class URL implements \JsonSerializable
         )) {
             $input = TypeHinter::to('USVString', $value);
         }
-        
+
         switch ($name) {
             case 'href':
                 $parsedURL = lib\URL::parseBasicURL($input);
@@ -127,26 +127,26 @@ class URL implements \JsonSerializable
                 }, null, $this->queryObject)
                     ->__invoke(lib\URLencoding::parseURLencodedString($this->url->query), $this->queryObject);
                 break;
-            
+
             case 'protocol':
                 lib\URL::parseBasicURL($input . ':', null, null, [
                     'url' => $this->url,
                     'state override' => 'scheme start state'
                 ]);
                 break;
-            
+
             case 'username':
                 if (!$this->url->cannotHaveUsernamePasswordPort()) {
                     $this->url->setUsername($input);
                 }
                 break;
-            
+
             case 'password':
                 if (!$this->url->cannotHaveUsernamePasswordPort()) {
                     $this->url->setPassword($input);
                 }
                 break;
-            
+
             case 'host':
                 if (!$this->url->cannotBeABaseURLFlag) {
                     lib\URL::parseBasicURL($input, null, null, [
@@ -155,7 +155,7 @@ class URL implements \JsonSerializable
                     ]);
                 }
                 break;
-            
+
             case 'hostname':
                 if (!$this->url->cannotBeABaseURLFlag) {
                     lib\URL::parseBasicURL($input, null, null, [
@@ -164,7 +164,7 @@ class URL implements \JsonSerializable
                     ]);
                 }
                 break;
-            
+
             case 'port':
                 if (!$this->url->cannotHaveUsernamePasswordPort()) {
                     if ($input === '') {
@@ -177,7 +177,7 @@ class URL implements \JsonSerializable
                     }
                 }
                 break;
-            
+
             case 'pathname':
                 if (!$this->url->cannotBeABaseURLFlag) {
                     $this->url->path = [];
@@ -187,7 +187,7 @@ class URL implements \JsonSerializable
                     ]);
                 }
                 break;
-            
+
             case 'search':
                 if ($input === '') {
                     $this->url->query = null;
@@ -205,7 +205,7 @@ class URL implements \JsonSerializable
                     array_splice($queryObject->list, 0, count($queryObject->list), $list);
                 }, null, $this->queryObject)->__invoke($list, $this->queryObject);
                 break;
-            
+
             case 'hash':
                 if ($input === '') {
                     $this->url->fragment = null;
@@ -218,17 +218,17 @@ class URL implements \JsonSerializable
                     ]);
                 }
                 break;
-            
+
             case 'origin':
             case 'searchParams':
                 TypeHinter::throwReadonlyException();
                 break;
-            
+
             default:
                 TypeHinter::triggerVisibilityErrorOrDefineProperty();
         }
     }
-    
+
     /**
      * @param string $name
      * @return string|URLSearchParams
@@ -239,38 +239,38 @@ class URL implements \JsonSerializable
             case 'href':
                 $value = $this->url->serializeURL();
                 break;
-            
+
             case 'origin':
                 $value = self::serialiseOrigin($this->url->getOrigin());
                 break;
-            
+
             case 'protocol':
                 $value = $this->url->scheme . ':';
                 break;
-            
+
             case 'username':
                 $value = $this->url->username;
                 break;
-            
+
             case 'password':
                 $value = $this->url->password;
                 break;
-            
+
             case 'host':
                 $value = is_null($this->url->host)
                     ? ''
                     : lib\HostProcessing::serializeHost($this->url->host)
                         . (is_null($this->url->port) ? '' : ':' . $this->url->port);
                 break;
-            
+
             case 'hostname':
                 $value = is_null($this->url->host) ? '' : lib\HostProcessing::serializeHost($this->url->host);
                 break;
-            
+
             case 'port':
                 $value = is_null($this->url->port) ? '' : (string)$this->url->port;
                 break;
-            
+
             case 'pathname':
                 if ($this->url->cannotBeABaseURLFlag) {
                     $value = $this->url->path[0];
@@ -280,27 +280,27 @@ class URL implements \JsonSerializable
                     $value = '/' . implode('/', $this->url->path);
                 }
                 break;
-            
+
             case 'search':
                 $value = is_null($this->url->query) || $this->url->query === '' ? '' : '?' . $this->url->query;
                 break;
-            
+
             case 'searchParams':
                 $value = $this->queryObject;
                 break;
-            
+
             case 'hash':
                 $value = is_null($this->url->fragment) || $this->url->fragment === '' ? '' : '#' . $this->url->fragment;
                 break;
-            
+
             default:
                 TypeHinter::triggerVisibilityErrorOrUndefinedNotice();
                 $value = null;
         }
-        
+
         return $value;
     }
-    
+
     /**
      * The serialization of an origin.
      * @link https://html.spec.whatwg.org/multipage/browsers.html#ascii-serialisation-of-an-origin HTML Standard
@@ -319,7 +319,7 @@ class URL implements \JsonSerializable
         }
         return $result;
     }
-    
+
     /**
      * Returns a USVString containing the whole URL. It is a synonym for URL::$href.
      * @link https://url.spec.whatwg.org/#URL-stringification-behavior URL Standard
@@ -329,8 +329,8 @@ class URL implements \JsonSerializable
     {
         return $this->__get('href');
     }
-    
-    
+
+
     /**
      * Returns the href property value.
      *
@@ -341,11 +341,12 @@ class URL implements \JsonSerializable
      * @link https://url.spec.whatwg.org/#dom-url-tojson URL Standard
      * @return string USVString.
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->__get('href');
     }
-    
+
     /**
      * @param string $name
      * @return bool

@@ -9,7 +9,7 @@ namespace esperecyan\url\lib;
 class URLencoding
 {
     use Utility;
-    
+
     /**
      * The application/x-www-form-urlencoded parser.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-parser URL Standard
@@ -19,7 +19,7 @@ class URLencoding
     public static function parseURLencoded($input)
     {
         $tuples = [];
-        foreach (explode('&', $input) as $bytes) {
+        foreach (explode('&', $input ?? '') as $bytes) {
             if ($bytes === '') {
                 continue;
             }
@@ -33,10 +33,10 @@ class URLencoding
             }
             $output[] = $tuple;
         }
-        
+
         return $output;
     }
-    
+
     /**
      * The application/x-www-form-urlencoded byte serializer.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-byte-serializer URL Standard
@@ -47,7 +47,7 @@ class URLencoding
     {
         return str_replace('%2A', '*', urlencode($input));
     }
-    
+
     /**
      * The application/x-www-form-urlencoded serializer.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-serializer URL Standard
@@ -72,10 +72,10 @@ class URLencoding
             $outputPair[1] = self::serializeURLencodedByte(self::encode($outputPair[1], $encoding));
             $tuple = implode('=', $outputPair);
         }
-        
+
         return implode('&', $tuples);
     }
-    
+
     /**
      * The application/x-www-form-urlencoded string parser.
      * @link https://url.spec.whatwg.org/#concept-urlencoded-string-parser URL Standard
@@ -86,7 +86,7 @@ class URLencoding
     {
         return self::parseURLencoded($input);
     }
-    
+
     /**
      * The ASCII whitespace.
      * @internal
@@ -94,7 +94,7 @@ class URLencoding
      * @link https://encoding.spec.whatwg.org/#ascii-whitespace Encoding Standard
      */
     const ASCII_WHITESPACE = "\t\n\f\r ";
-    
+
     /**
      * UTF-8 decodes without BOM a byte stream $stream.
      * @internal
@@ -106,7 +106,7 @@ class URLencoding
     {
         return self::convertEncoding($stream, 'UTF-8', true);
     }
-    
+
     /**
      * Converts the encoding of $input to $encoding from UTF-8.
      * @internal
@@ -121,21 +121,21 @@ class URLencoding
             case 'utf-8':
                 $output = $input;
                 break;
-            
+
             case 'x-user-defined':
                 $output = preg_replace_callback('/[^\\x00-\\x7F]/u', function ($matches) {
                     $codePoint = self::getCodePoint($matches[0]);
                     return $codePoint <= 0xF7FF ? chr($codePoint - 0xF780 + 0x80) : '&#' . $codePoint . ';';
                 }, $input);
                 break;
-            
+
             default:
                 $output = self::convertEncoding($input, $encoding);
         }
-        
+
         return $output;
     }
-    
+
     /**
      * Gets an output encoding from an encoding.
      * @internal
@@ -147,7 +147,7 @@ class URLencoding
     {
         return in_array(strtolower($encoding), ['replacement', 'utf-16be', 'utf-16le']) ? 'UTF-8' : $encoding;
     }
-    
+
     /**
      * Invokes mb_convert_encoding() or iconv().
      * @param string $input A string encoded by $encoding if $decoding is true, a UTF-8 string otherwise.
@@ -202,7 +202,7 @@ class URLencoding
                     mb_substitute_character($previousSubstituteCharacter);
                 }
                 break;
-            
+
             case 'macintosh':
             case 'windows-874':
             case 'windows-1250':
@@ -219,16 +219,16 @@ class URLencoding
                     $input
                 );
                 break;
-            
+
             default:
                 throw new \DomainException(
                     sprintf('"%s" is a name of encoding which is not defined by Eoncding Standard', $encoding)
                 );
         }
-        
+
         return $output;
     }
-    
+
     /**
      * Gets the code point of $char.
      * @link http://qiita.com/masakielastic/items/5696cf90738c1438f10d PHP - UTF-8 の文字からコードポイントを求める - Qiita
@@ -262,7 +262,7 @@ class URLencoding
 
         return (($x & 0x7) << 18) | (($y & 0x3F) << 12) | (($z & 0x3F) << 6) | ($w & 0x3F);
     }
-    
+
     /**
      * Gets the UTF-8 character from a code point $cp.
      * @link http://qiita.com/masakielastic/items/68f81e1b7d153ee5cc81 PHP - コードポイントから UTF-8 の文字を生成する - Qiita
