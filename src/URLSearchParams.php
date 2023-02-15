@@ -16,13 +16,13 @@ class URLSearchParams implements \IteratorAggregate
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-list URL Standard
      */
     private $list = [];
-    
+
     /**
      * @var URL|null
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-url-object URL Standard
      */
     private $urlObject = null;
-    
+
     /**
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-new URL Standard
      * @param string[][]|string[]|string|URLSearchParams $init
@@ -39,13 +39,13 @@ class URLSearchParams implements \IteratorAggregate
                 . ' or esperecyan\url\URLSearchParams)',
             $init
         );
-        
+
         static::createNewURLSearchParamsObject(
             $this,
             is_string($initValue) ? preg_replace('/^\\?/u', '', $initValue) : $initValue
         );
     }
-    
+
     /**
      * Creates a new URLSearchParams object.
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-new URL Standard
@@ -79,7 +79,7 @@ class URLSearchParams implements \IteratorAggregate
         }
         return $query;
     }
-    
+
     /**
      * A URLSearchParams object’s update steps.
      * @link https://url.spec.whatwg.org/#concept-urlsearchparams-update URL Standard
@@ -92,7 +92,7 @@ class URLSearchParams implements \IteratorAggregate
             }, null, $this->urlObject)->__invoke($this->urlObject, lib\URLencoding::serializeURLencoded($this->list));
         }
     }
-    
+
     /**
      * Appends a new name-value pair whose name is name and value is value, to the list of name-value pairs.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-appendname-value URL Standard
@@ -104,7 +104,7 @@ class URLSearchParams implements \IteratorAggregate
         $this->list[] = [TypeHinter::to('USVString', $name, 0), TypeHinter::to('USVString', $value, 1)];
         $this->update();
     }
-    
+
     /**
      * Removes all name-value pairs whose name is name.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-deletename URL Standard
@@ -118,7 +118,7 @@ class URLSearchParams implements \IteratorAggregate
         }));
         $this->update();
     }
-    
+
     /**
      * Returns the value of the first name-value pair whose name is name, and null if there is no such pair.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-getname URL Standard
@@ -137,7 +137,7 @@ class URLSearchParams implements \IteratorAggregate
         }
         return $value;
     }
-    
+
     /**
      * Returns the values of all name-value pairs whose name is name, in list order, and the empty sequence otherwise.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-getallname URL Standard
@@ -155,7 +155,7 @@ class URLSearchParams implements \IteratorAggregate
         }
         return $values;
     }
-    
+
     /**
      * Returns true if there is a name-value pair whose name is name, and false otherwise.
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-hasname URL Standard
@@ -166,7 +166,7 @@ class URLSearchParams implements \IteratorAggregate
     {
         return !is_null($this->get(TypeHinter::to('USVString', $name)));
     }
-    
+
     /**
      * If there are any name-value pairs whose name is name, set the value of the first such name-value pair to value and remove the others.
      * Otherwise, append a new name-value pair whose name is name and value is value, to the list of name-value pairs.
@@ -198,7 +198,7 @@ class URLSearchParams implements \IteratorAggregate
         }
         $this->update();
     }
-    
+
     /**
      * Sorts all name-value pair by their names and comparing JavaScript strings (UTF-16).
      * @link https://url.spec.whatwg.org/#dom-urlsearchparams-sort URL Standard
@@ -211,15 +211,16 @@ class URLSearchParams implements \IteratorAggregate
             return mb_convert_encoding($pair[0], 'UTF-16BE', 'UTF-8');
         }, $this->list), SORT_STRING, range(1, count($this->list)), $this->list);
     }
-    
+
     /**
      * @uses lib\URLSearchParamsIterator
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new lib\URLSearchParamsIterator($this->list, $this);
     }
-    
+
     /**
      * Returns the serialization of the URLSearchParams object's associated list of name-value pairs.
      * @link https://url.spec.whatwg.org/#stringification-behavior URL Standard
